@@ -53,8 +53,8 @@ window.onload = function () {
                 if (index < originalText.length) {
                     // Substitui a letra por um caractere aleatório
                     let newChar = String.fromCharCode(Math.floor(Math.random() * 255));
+                    // Substitui o texto pelo texto original com a letra substituída
                     option.textContent = originalText.substring(0, index) + newChar + originalText.substring(index + 1);
-                    console.log(option.textContent);
         
                     setTimeout(() => {
                         replaceText(index + 1); // Chama recursivamente para a próxima letra
@@ -74,5 +74,36 @@ window.onload = function () {
         });
     });
 
+    /* Automatizando números no texto inicial */
+    const idade = document.querySelector('#idade');
+    //Se o dia atual for antes de 10 de outubro
+    if (new Date().getMonth() < 9 || (new Date().getMonth() === 9 && new Date().getDate() < 10)) {
+        idade.textContent = new Date().getFullYear() - 2001 - 1;
+    } else{
+        idade.textContent = new Date().getFullYear() - 2001;
+    }
 
+    const periodo = document.querySelector('#periodo');
+    let periodoAtual = (new Date().getFullYear() - 2021) * 2;
+    if(periodoAtual > 8) periodoAtual = 8;
+    periodo.textContent = periodoAtual;
+
+    /* Efeito moeda */
+    document.getElementById("avatar-container").addEventListener("mouseenter", function () {
+        let avatar = document.querySelector("#avatar");
+        avatar.style.transform = "rotateY(180deg)";
+        avatar.style.backgroundColor = "#0d1117";
+        avatar.src = "https://static-00.iconduck.com/assets.00/github-icon-2048x1988-jzvzcf2t.png";
+    });
+    
+    document.getElementById("avatar-container").addEventListener("mouseleave", function () {
+        let avatar = document.querySelector("#avatar");
+        avatar.style.transform = "rotateY(0deg)";
+        avatar.style.backgroundColor = "transparent";
+        avatar.src = "assets/img/profile.png";
+    });
+    
+    document.getElementById("avatar-container").addEventListener("click", function () {
+        window.open("https://github.com/Hugobsan");
+    });
 }
