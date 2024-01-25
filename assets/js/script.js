@@ -45,24 +45,34 @@ window.onload = function () {
         //Armazenando texto originais num dicionário
         const originalText = option.textContent;
 
-        option.addEventListener('mouseover', () => { //Alterar o texto do link
+        option.addEventListener('mouseover', () => { // Alterar o texto do link
             const originalText = option.textContent;
-
-            //Percorre o texto letra a letra
-            for (let i = 0; i < originalText.length; i++) {
-                //Substitui a letra por um caractere aleatorio
-                let newChar = String.fromCharCode(Math.floor(Math.random() * 255)); 
-                option.textContent = option.textContent.substring(0, i) + newChar + option.textContent.substring(i + 1); 
-                console.log(option.textContent);
+        
+            // Função recursiva para substituir letras
+            function replaceText(index) {
+                if (index < originalText.length) {
+                    // Substitui a letra por um caractere aleatório
+                    let newChar = String.fromCharCode(Math.floor(Math.random() * 255));
+                    option.textContent = originalText.substring(0, index) + newChar + originalText.substring(index + 1);
+                    console.log(option.textContent);
+        
+                    setTimeout(() => {
+                        replaceText(index + 1); // Chama recursivamente para a próxima letra
+                    }, 100);
+                } else {
+                    sleep(200).then(() => {
+                        option.textContent = originalText; 
+                    });
+                }
             }
-
-            sleep(1000).then(() => { //Espera 1 segundo
-                option.textContent = originalText;
-            });
+        
+            replaceText(0); // Inicia a recursão a partir do índice 0
         });
 
         option.addEventListener('mouseout', () => { //Retorna o texto original
             option.textContent = originalText;
         });
     });
+
+
 }
