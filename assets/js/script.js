@@ -58,9 +58,9 @@ window.onload = function () {
         
                     setTimeout(() => {
                         replaceText(index + 1); // Chama recursivamente para a próxima letra
-                    }, 100);
+                    }, 100*5/originalText.length); //Tempo de espera proporcional ao tamanho do texto
                 } else {
-                    sleep(200).then(() => {
+                    sleep(100*5/originalText.length).then(() => {
                         option.textContent = originalText; 
                     });
                 }
