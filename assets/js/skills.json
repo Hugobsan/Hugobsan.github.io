@@ -1,0 +1,258 @@
+{
+    "front-end": {
+        "subtitle": "Front-end",
+        "skills": [
+            {
+                "name": "HTML",
+                "percentage": "90%",
+                "icon": "fab fa-html5"
+            },
+            {
+                "name": "CSS",
+                "percentage": "80%",
+                "icon": "fab fa-css3-alt"
+            },
+            {
+                "name": "JavaScript",
+                "percentage": "70%",
+                "icon": "fab fa-js"
+            },
+            {
+                "name": "JQuery",
+                "percentage": "70%",
+                "icon": "fab fa-js"
+            },
+            {
+                "name": "Ajax",
+                "percentage": "70%",
+                "icon": "fab fa-js"
+            },
+            {
+                "name": "Boostrap",
+                "percentage": "70%",
+                "icon": "fab fa-bootstrap"
+            },
+            {
+                "name": "React.JS",
+                "percentage": "60%",
+                "icon": "fab fa-react"
+            },
+            {
+                "name": "JSP",
+                "percentage": "60%",
+                "icon": "fab fa-java"
+            },
+            {
+                "name": "Java Swing",
+                "percentage": "60%",
+                "icon": "fab fa-java"
+            }
+        ]
+    },
+    "back-end": {
+        "subtitle": "Back-end",
+        "skills": [
+            {
+                "name": "PHP",
+                "percentage": "80%",
+                "icon": "fab fa-php"
+            },
+            {
+                "name": "Laravel",
+                "percentage": "70%",
+                "icon": "fab fa-laravel"
+            },
+            {
+                "name": "Node.JS",
+                "percentage": "60%",
+                "icon": "fab fa-node-js"
+            },
+            {
+                "name": "Django",
+                "percentage": "60%",
+                "icon": "fab fa-python"
+            },
+            {
+                "name": "Java",
+                "percentage": "50%",
+                "icon": "fab fa-java"
+            },
+            {
+                "name": "Hybernate",
+                "percentage": "50%",
+                "icon": "fab fa-java"
+            },
+            {
+                "name": "Spring",
+                "percentage": "50%",
+                "icon": "fab fa-java"
+            }
+        ]
+    },
+    "database": {
+        "subtitle": "Bancos de Dados",
+        "skills": [
+            {
+                "name": "MySQL",
+                "percentage": "80%",
+                "icon": "fas fa-database"
+            },
+            {
+                "name": "PostgreSQL",
+                "percentage": "70%",
+                "icon": "fas fa-database"
+            },
+            {
+                "name": "MongoDB",
+                "percentage": "60%",
+                "icon": "fas fa-database"
+            },
+            {
+                "name": "SQL Server",
+                "percentage": "50%",
+                "icon": "fas fa-database"
+            }
+        ]
+    },
+    "mobile": {},
+    "programming": {
+        "subtitle": "Programação",
+        "skills": [
+            {
+                "name": "C",
+                "percentage": "80%",
+                "icon": "fas fa-code"
+            },
+            {
+                "name": "C++",
+                "percentage": "40%",
+                "icon": "fas fa-code"
+            },
+            {
+                "name": "Python",
+                "percentage": "60%",
+                "icon": "fab fa-python"
+            },
+            {
+                "name": "Java",
+                "percentage": "50%",
+                "icon": "fab fa-java"
+            },
+            {
+                "name": "JavaScript",
+                "percentage": "50%",
+                "icon": "fab fa-js"
+            }
+        ]
+    },
+    "artificial-inteligence": {
+        "subtitle": "Inteligência Artificial",
+        "skills": [
+            {
+                "name": "Python",
+                "percentage": "50%",
+                "icon": "fas fa-robot"
+            },
+            {
+                "name": "CNN",
+                "percentage": "50%",
+                "icon": "fas fa-robot"
+            },
+            {
+                "name": "Transformers",
+                "percentage": "50%",
+                "icon": "fas fa-robot"
+            },
+            {
+                "name": "MLP",
+                "percentage": "50%",
+                "icon": "fas fa-robot"
+            }
+        ]
+    },
+    "devops": {
+        "subtitle": "DevOps",
+        "skills": [
+            {
+                "name": "Git",
+                "percentage": "50%",
+                "icon": "fab fa-git-alt"
+            },
+            {
+                "name": "Docker",
+                "percentage": "50%",
+                "icon": "fab fa-docker"
+            }
+        ]
+    },
+    "ux-design": {
+        "subtitle": "UX Design",
+        "skills": [
+            {
+                "name": "Figma",
+                "percentage": "50%",
+                "icon": "fab fa-figma"
+            }
+        ]
+    },
+    "management": {
+        "subtitle": "Gestão",
+        "skills": [
+            {
+                "name": "Trello",
+                "percentage": "50%",
+                "icon": "fas fa-tasks"
+            },
+            {
+                "name": "Todoist",
+                "percentage": "50%",
+                "icon": "fas fa-tasks"
+            },
+            {
+                "name": "Click-up",
+                "percentage": "50%",
+                "icon": "fas fa-tasks"
+            },
+            {
+                "name": "SEO",
+                "percentage": "50%",
+                "icon": "fas fa-search"
+            }
+        ]
+    },
+    "others": {
+        "subtitle": "Outros",
+        "skills": [
+            {
+                "name": "Photoshop",
+                "percentage": "50%",
+                "icon": "fas fa-palette"
+            },
+            {
+                "name": "Excel",
+                "percentage": "50%",
+                "icon": "fas fa-file-excel"
+            },
+            {
+                "name": "Word",
+                "percentage": "50%",
+                "icon": "fas fa-file-word"
+            },
+            {
+                "name": "PowerPoint",
+                "percentage": "50%",
+                "icon": "fas fa-file-powerpoint"
+            },
+            {
+                "name": "Canvas",
+                "percentage": "50%",
+                "icon": "fas fa-palette"
+            },
+            {
+                "name": "Wordpress",
+                "percentage": "50%",
+                "icon": "fab fa-wordpress"
+            },
+        ]
+    }
+}
