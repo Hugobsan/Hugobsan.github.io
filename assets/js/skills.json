@@ -199,7 +199,7 @@
         "skills": [
             {
                 "name": "Figma",
-                "percentage": "50%",
+                "percentage": "65%",
                 "icon": "fab fa-figma"
             }
         ]
@@ -209,22 +209,22 @@
         "skills": [
             {
                 "name": "Trello",
-                "percentage": "50%",
+                "percentage": "90%",
                 "icon": "fas fa-tasks"
             },
             {
                 "name": "Todoist",
-                "percentage": "50%",
+                "percentage": "75%",
                 "icon": "fas fa-tasks"
             },
             {
                 "name": "Click-up",
-                "percentage": "50%",
+                "percentage": "70%",
                 "icon": "fas fa-tasks"
             },
             {
                 "name": "SEO",
-                "percentage": "50%",
+                "percentage": "65%",
                 "icon": "fas fa-search"
             }
         ]
@@ -234,34 +234,34 @@
         "skills": [
             {
                 "name": "Photoshop",
-                "percentage": "50%",
+                "percentage": "65%",
                 "icon": "fas fa-palette"
             },
             {
                 "name": "Excel",
-                "percentage": "50%",
+                "percentage": "70%",
                 "icon": "fas fa-file-excel"
             },
             {
                 "name": "Word",
-                "percentage": "50%",
+                "percentage": "85%",
                 "icon": "fas fa-file-word"
             },
             {
                 "name": "PowerPoint",
-                "percentage": "50%",
+                "percentage": "85%",
                 "icon": "fas fa-file-powerpoint"
             },
             {
                 "name": "Canvas",
-                "percentage": "50%",
+                "percentage": "85%",
                 "icon": "fas fa-palette"
             },
             {
                 "name": "Wordpress",
-                "percentage": "50%",
+                "percentage": "75%",
                 "icon": "fab fa-wordpress"
-            },
+            }
         ]
     }
 }
