@@ -40,7 +40,7 @@ window.onload = function () {
     });
 
     const options = document.querySelectorAll('.options ul li');
-
+.
     options.forEach(option => {
         //Armazenando texto originais num dicionário
         const originalText = option.textContent;

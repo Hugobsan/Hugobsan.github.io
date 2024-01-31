@@ -21,8 +21,6 @@ a:active {
     text-decoration: none;
 }
 
-
-
 body {
     font-family: 'Montserrat', sans-serif;
     background: #fafafa;
@@ -347,6 +345,14 @@ nav a {
     background: #021709;
     border-radius: 10px;
     width: 20%;
+}
+
+.skill p{
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    max-width: fit-content;
+    font-family: 'Exo2', sans-serif;
 }
 
 .progress-bar {
