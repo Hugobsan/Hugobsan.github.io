@@ -177,7 +177,6 @@ window.onload = function () {
             root.appendChild(title);
             //Criando div para cada tipo de stack
             for (let stack in data) {
-                console.log(stack);
                 let div = document.createElement("div");
                 div.id = stack;
                 div.classList.add("stack-group");
@@ -185,9 +184,5 @@ window.onload = function () {
                 createSkills("#" + stack);
             }
         });
-
-
-    // createSkills("#front_end")
-    //Recuperando skills frontend do json
 
 }
