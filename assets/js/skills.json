@@ -1,90 +1,90 @@
 {
-    "front-end": {
+    "front_end": {
         "subtitle": "Front-end",
         "skills": [
             {
                 "name": "HTML",
-                "percentage": "100%",
+                "percentage": "95",
                 "icon": "fab fa-html5"
             },
             {
                 "name": "CSS",
-                "percentage": "90%",
+                "percentage": "90",
                 "icon": "fab fa-css3-alt"
             },
             {
                 "name": "JavaScript",
-                "percentage": "70%",
+                "percentage": "70",
                 "icon": "fab fa-js"
             },
             {
                 "name": "JQuery",
-                "percentage": "70%",
+                "percentage": "70",
                 "icon": "fab fa-js"
             },
             {
                 "name": "Ajax",
-                "percentage": "70%",
+                "percentage": "70",
                 "icon": "fab fa-js"
             },
             {
                 "name": "Boostrap",
-                "percentage": "85%",
+                "percentage": "85",
                 "icon": "fab fa-bootstrap"
             },
             {
                 "name": "React.JS",
-                "percentage": "20%",
+                "percentage": "20",
                 "icon": "fab fa-react"
             },
             {
                 "name": "JSP",
-                "percentage": "20%",
+                "percentage": "20",
                 "icon": "fab fa-java"
             },
             {
                 "name": "Java Swing",
-                "percentage": "20%",
+                "percentage": "20",
                 "icon": "fab fa-java"
             }
         ]
     },
-    "back-end": {
+    "back_end": {
         "subtitle": "Back-end",
         "skills": [
             {
                 "name": "PHP",
-                "percentage": "85%",
+                "percentage": "85",
                 "icon": "fab fa-php"
             },
             {
                 "name": "Laravel",
-                "percentage": "80%",
+                "percentage": "80",
                 "icon": "fab fa-laravel"
             },
             {
                 "name": "Node.JS",
-                "percentage": "25%",
+                "percentage": "25",
                 "icon": "fab fa-node-js"
             },
             {
                 "name": "Django",
-                "percentage": "25%",
+                "percentage": "25",
                 "icon": "fab fa-python"
             },
             {
                 "name": "Java",
-                "percentage": "35%",
+                "percentage": "35",
                 "icon": "fab fa-java"
             },
             {
                 "name": "Hybernate",
-                "percentage": "20%",
+                "percentage": "20",
                 "icon": "fab fa-java"
             },
             {
                 "name": "Spring",
-                "percentage": "25%",
+                "percentage": "25",
                 "icon": "fab fa-java"
             }
         ]
@@ -94,22 +94,22 @@
         "skills": [
             {
                 "name": "MySQL",
-                "percentage": "85%",
+                "percentage": "85",
                 "icon": "fas fa-database"
             },
             {
                 "name": "PostgreSQL",
-                "percentage": "50%",
+                "percentage": "50",
                 "icon": "fas fa-database"
             },
             {
                 "name": "MongoDB",
-                "percentage": "35%",
+                "percentage": "35",
                 "icon": "fas fa-database"
             },
             {
                 "name": "SQL Server",
-                "percentage": "70%",
+                "percentage": "70",
                 "icon": "fas fa-database"
             }
         ]
@@ -119,7 +119,7 @@
         "skills": [
             {
                 "name": "React Native",
-                "percentage": "15%",
+                "percentage": "15",
                 "icon": "fab fa-react"
             }
         ]
@@ -129,52 +129,52 @@
         "skills": [
             {
                 "name": "C",
-                "percentage": "80%",
+                "percentage": "80",
                 "icon": "fas fa-code"
             },
             {
                 "name": "C++",
-                "percentage": "60%",
+                "percentage": "60",
                 "icon": "fas fa-code"
             },
             {
                 "name": "Python",
-                "percentage": "80%",
+                "percentage": "80",
                 "icon": "fab fa-python"
             },
             {
                 "name": "Java",
-                "percentage": "70%",
+                "percentage": "70",
                 "icon": "fab fa-java"
             },
             {
                 "name": "JavaScript",
-                "percentage": "90%",
+                "percentage": "90",
                 "icon": "fab fa-js"
             }
         ]
     },
-    "artificial-inteligence": {
+    "artificial_inteligence": {
         "subtitle": "Inteligência Artificial",
         "skills": [
             {
                 "name": "Python",
-                "percentage": "80%",
+                "percentage": "80",
                 "icon": "fas fa-robot"
             },
             {
                 "name": "CNN",
-                "percentage": "50%",
+                "percentage": "50",
                 "icon": "fas fa-robot"
             },
             {
                 "name": "Transformers",
-                "percentage": "60%",
+                "percentage": "60",
                 "icon": "fas fa-robot"
             },
             {
                 "name": "MLP",
-                "percentage": "55%",
+                "percentage": "55",
                 "icon": "fas fa-robot"
             }
         ]
@@ -184,22 +184,22 @@
         "skills": [
             {
                 "name": "Git",
-                "percentage": "75%",
+                "percentage": "75",
                 "icon": "fab fa-git-alt"
             },
             {
                 "name": "Docker",
-                "percentage": "60%",
+                "percentage": "60",
                 "icon": "fab fa-docker"
             }
         ]
     },
-    "ux-design": {
+    "ux_design": {
         "subtitle": "UX Design",
         "skills": [
             {
                 "name": "Figma",
-                "percentage": "65%",
+                "percentage": "65",
                 "icon": "fab fa-figma"
             }
         ]
@@ -209,22 +209,22 @@
         "skills": [
             {
                 "name": "Trello",
-                "percentage": "90%",
+                "percentage": "90",
                 "icon": "fas fa-tasks"
             },
             {
                 "name": "Todoist",
-                "percentage": "75%",
+                "percentage": "75",
                 "icon": "fas fa-tasks"
             },
             {
                 "name": "Click-up",
-                "percentage": "70%",
+                "percentage": "70",
                 "icon": "fas fa-tasks"
             },
             {
                 "name": "SEO",
-                "percentage": "65%",
+                "percentage": "65",
                 "icon": "fas fa-search"
             }
         ]
@@ -234,32 +234,37 @@
         "skills": [
             {
                 "name": "Photoshop",
-                "percentage": "65%",
+                "percentage": "65",
                 "icon": "fas fa-palette"
             },
             {
                 "name": "Excel",
-                "percentage": "70%",
+                "percentage": "70",
                 "icon": "fas fa-file-excel"
             },
             {
+                "name": "Power BI",
+                "percentage": "20",
+                "icon": "fas fa-chart-bar"
+            },
+            {
                 "name": "Word",
-                "percentage": "85%",
+                "percentage": "85",
                 "icon": "fas fa-file-word"
             },
             {
                 "name": "PowerPoint",
-                "percentage": "85%",
+                "percentage": "85",
                 "icon": "fas fa-file-powerpoint"
             },
             {
                 "name": "Canvas",
-                "percentage": "85%",
+                "percentage": "85",
                 "icon": "fas fa-palette"
             },
             {
                 "name": "Wordpress",
-                "percentage": "75%",
+                "percentage": "75",
                 "icon": "fab fa-wordpress"
             }
         ]
