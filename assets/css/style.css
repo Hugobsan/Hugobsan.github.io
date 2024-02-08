@@ -232,7 +232,7 @@ nav a {
     color: #fafafa;
     height: fit-content;
     position: relative;
-    padding: 0 350px;
+    padding: 0 300px;
     /* Add position: relative to position the pseudo-element */
 }
 
