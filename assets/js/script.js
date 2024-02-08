@@ -94,6 +94,7 @@ window.onload = function () {
         avatar.style.transform = "rotateY(180deg)";
         avatar.style.backgroundColor = "#0d1117";
         avatar.src = "https://static-00.iconduck.com/assets.00/github-icon-2048x1988-jzvzcf2t.png";
+        avatar.style.cursor = "pointer";
     });
 
     document.getElementById("avatar-container").addEventListener("mouseleave", function () {
@@ -108,8 +109,6 @@ window.onload = function () {
     });
 
     /* Automatizando inserção das skills */
-
-    //Front-end
 
     function createSkills(stack) {
         fetch('assets/js/skills.json')
