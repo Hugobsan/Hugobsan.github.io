@@ -232,7 +232,7 @@ nav a {
     color: #fafafa;
     height: fit-content;
     position: relative;
-    padding: 0 50px;
+    padding: 0 350px;
     /* Add position: relative to position the pseudo-element */
 }
 
@@ -340,7 +340,7 @@ nav a {
     background: #14e956;
     border-radius: 10px;
     box-shadow: 0px 0px 10px #ffffff26;
-    width: 90%;
+    width: 70%;
     text-align: center;
 }
 

@@ -39,15 +39,15 @@ window.onload = function () {
         });
     });
 
-    const options = document.querySelectorAll('.options ul li');
+    const options = document.querySelectorAll('.options ul li a');
 
     options.forEach(option => {
         //Armazenando texto originais num dicionário
         const originalText = option.textContent;
 
-        option.addEventListener('mouseover', () => { // Alterar o texto do link
-            const originalText = option.textContent;
+        // const originalLink = option.getElementsByTagName('a')[0].href;
 
+        option.addEventListener('mouseenter', () => { // Alterar o texto do link
             // Função recursiva para substituir letras
             function replaceText(index) {
                 if (index < originalText.length) {
@@ -110,7 +110,7 @@ window.onload = function () {
 
     /* Automatizando inserção das skills */
 
-    function createSkills(stack) {
+    async function createSkills(stack) {
         fetch('assets/js/skills.json')
             .then(response => response.json())
             .then(data => {
