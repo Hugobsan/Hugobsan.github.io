@@ -1,0 +1,35 @@
+#carreer-tree {
+  position: absolute;
+  width: 100%;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.experience {
+  position: absolute;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-left: 1px solid #ccc;
+}
+
+.experience-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.experience-content {
+  padding-left: 40px;
+}
+
+.experience:hover {
+  background-color: #f0f0f0;
+}
+
+.experience:hover .experience-content {
+  text-decoration: underline;
+}

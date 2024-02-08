@@ -1,4 +1,49 @@
-{
+function plotExperiences(experiences) {
+    const carreerLine = document.getElementById('carreer-line');
+    const carreerTree = document.getElementById('carreer-tree');
+    let lastY = 0;
+  
+    Object.values(experiences).forEach((experience, index) => {
+      const experienceDiv = document.createElement('div');
+      experienceDiv.className = 'experience';
+      experienceDiv.style.top = `${(index / Object.keys(experiences).length) * 100}%`;
+  
+      const experienceBar = document.createElement('div');
+      experienceBar.className = 'experience-bar';
+      experienceBar.style.height = `${(1 / Object.keys(experiences).length) * 100}%`;
+      experienceBar.style.backgroundColor = `hsl(${(index / Object.keys(experiences).length) * 360}, 70%, 70%)`;
+  
+      experienceDiv.appendChild(experienceBar);
+  
+      const experienceContent = document.createElement('div');
+      experienceContent.className = 'experience-content';
+      experienceContent.innerHTML = `
+        <div>${experience.company}</div>
+        <div>${experience.position}</div>
+        <div>${experience.entry} - ${experience.exit}</div>
+        <div>${experience.description}</div>
+      `;
+  
+      experienceDiv.appendChild(experienceContent);
+      carreerTree.appendChild(experienceDiv);
+  
+      const experienceHeight = experienceContent.offsetHeight;
+      lastY += experienceHeight;
+  
+      experienceDiv.style.height = `${experienceHeight}px`;
+      carreerLine.style.height = `${lastY}px`;
+  
+      experienceDiv.addEventListener('mouseover', () => {
+        experienceDiv.style.backgroundColor = '#f0f0f0';
+      });
+  
+      experienceDiv.addEventListener('mouseout', () => {
+        experienceDiv.style.backgroundColor = '';
+      });
+    });
+  }
+  
+  const experiences = {
     "7": {
         "company": "Solutions - Soluções em eletricidade",
         "position": "Estagiário",
@@ -48,4 +93,6 @@
         "exit": "Atual",
         "description": "Desenvolvimento do Sistema de Gestão da Extensão (SIGEX) utilizando HTML e CSS com Bootstrap, Ajax, JQuery, Laravel com Bancos de Dados MySQL e SQLServer, versionamento com Bitbucket e controle de tasks via Trello."
     }
-}
+};
+  
+  plotExperiences(experiences);
