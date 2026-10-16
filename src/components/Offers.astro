@@ -1,0 +1,23 @@
+---
+import type { Dict } from '../i18n/en';
+interface Props { t: Dict }
+const { t } = Astro.props;
+---
+<section class="offers wrap" id="offers" aria-labelledby="offers-h">
+  <div class="container">
+    <h2 class="h2" id="offers-h">{t.offers.h}</h2>
+    <div class="accordion">
+      {t.offers.items.map((o, i) => (
+        <article class="slice" tabindex="0" data-open={i === 0 ? '' : undefined}>
+          <h3>{o.t}</h3>
+          <p>{o.d}</p>
+        </article>
+      ))}
+    </div>
+    <ul class="proof">
+      {t.offers.proof.map((p) => (
+        <li><span class="proof__num">{p.n}</span><span class="proof__label">{p.l}</span></li>
+      ))}
+    </ul>
+  </div>
+</section>

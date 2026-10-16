@@ -1,0 +1,70 @@
+---
+import '../styles/global.css';
+// Display face: the Fontsource latin file (opsz+wdth+wght, 132 KB) cut to the axis ranges and glyphs this site
+// renders (78 KB, same outlines), so the LCP stays under budget. Regenerate with fonttools (pip install fonttools brotli):
+//   fonttools varLib.instancer node_modules/@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-standard-normal.woff2 wght=400:650 wdth=75:90 opsz=24:96 -o /tmp/b.ttf
+//   pyftsubset /tmp/b.ttf --unicodes=U+0020-007E,U+00A1,U+00BF,U+00C0-00FF,U+2019 --layout-features=kern,mark,mkmk,ccmp,locl --flavor=woff2 --output-file=src/assets/fonts/bricolage-grotesque-display.woff2
+import display from '../assets/fonts/bricolage-grotesque-display.woff2?url';
+import body from '@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url';
+import mono from '@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2?url';
+import { SITE } from '../facts';
+import { LOCALES, LANGS, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  path: string;
+  /** home pages get canonical + hreflang; anything else (404) is noindex */
+  home?: boolean;
+}
+const { lang, title, description, path, home = false } = Astro.props;
+const loc = LOCALES[lang];
+const url = SITE + path;
+const og = `${SITE}/og/${lang}.png`;
+// latin subsets only; CJK falls through to the system fonts in each stack
+const faces =
+  `@font-face{font-family:"Bricolage Grotesque";font-weight:400 650;font-stretch:75% 90%;font-display:swap;src:url(${display}) format("woff2")}` +
+  `@font-face{font-family:"Geist";font-weight:100 900;font-display:swap;src:url(${body}) format("woff2")}` +
+  `@font-face{font-family:"Geist Mono";font-weight:100 900;font-display:swap;src:url(${mono}) format("woff2")}`;
+---
+<!doctype html>
+<html lang={loc.html}>
+  <head>
+    <meta charset="utf-8" />
+    <slot name="first" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {home ? <link rel="canonical" href={url} /> : <meta name="robots" content="noindex" />}
+    {home && LANGS.map((l) => <link rel="alternate" hreflang={LOCALES[l].html} href={SITE + LOCALES[l].path} />)}
+    {home && <link rel="alternate" hreflang="x-default" href={SITE + '/'} />}
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#0B0E13" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#EEF0F3" media="(prefers-color-scheme: light)" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preload" href={display} as="font" type="font/woff2" crossorigin />
+    <style is:inline set:html={faces}></style>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hugo Barbosa" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:locale" content={loc.og} />
+    {LANGS.filter((l) => l !== lang).map((l) => <meta property="og:locale:alternate" content={LOCALES[l].og} />)}
+    <meta property="og:image" content={og} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={og} />
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

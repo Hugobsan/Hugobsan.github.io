@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import { LOCALES, LANGS } from '../i18n';
+const t = LOCALES.en.dict;
+// GitHub Pages serves one 404 for every path, so it speaks every published language at once
+---
+<Base lang="en" title={`${t.notFound.title} · Hugo Barbosa`} description={t.meta.description} path="/404.html">
+  <main class="lost wrap">
+    <div class="container">
+      <h1>404</h1>
+      <ul>
+        {LANGS.map((l) => (
+          <li lang={LOCALES[l].html}>
+            <strong>{LOCALES[l].dict.notFound.title}</strong>
+            <a class="ext" href={LOCALES[l].path}>{LOCALES[l].dict.notFound.home}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </main>
+</Base>

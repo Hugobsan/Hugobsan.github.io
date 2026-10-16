@@ -1,0 +1,45 @@
+---
+import type { Dict } from '../i18n/en';
+import { CLUB, STACKS } from '../facts';
+interface Props { t: Dict }
+const { t } = Astro.props;
+const { bluee, club, prp } = t.work;
+---
+<section class="work" id="work" aria-labelledby="work-h">
+  <div class="work__head wrap"><div class="container"><h2 class="h2" id="work-h">{t.work.h}</h2></div></div>
+  <div class="stack">
+    <article class="panel wrap" id="bluee" aria-labelledby="bluee-t">
+      <div class="container"><div class="panel__body">
+        <h3 class="panel__title" id="bluee-t">{bluee.name}</h3>
+        <p class="panel__lede">{bluee.lede}</p>
+        <p class="panel__role">{bluee.role}</p>
+        <ul class="bullets">{bluee.bullets.map((b) => <li>{b}</li>)}</ul>
+        <ul class="chips" aria-label={t.work.stack}>{STACKS.bluee.map((s) => <li>{s}</li>)}</ul>
+      </div></div>
+    </article>
+
+    <article class="panel wrap" id="club" aria-labelledby="club-t">
+      <div class="container"><div class="panel__body">
+        <h3 class="panel__title" id="club-t">{club.name}</h3>
+        <div class="panel__meta">
+          <a class="ext" href={CLUB} target="_blank" rel="noopener">greenn.com.br/club<span aria-hidden="true"> ↗</span></a>
+        </div>
+        <p class="panel__lede">{club.lede}</p>
+        <p class="panel__role">{club.role}</p>
+        <ul class="bullets">{club.bullets.map((b) => <li>{b}</li>)}</ul>
+        <ul class="chips" aria-label={t.work.stack}>{STACKS.club.map((s) => <li>{s}</li>)}</ul>
+      </div></div>
+    </article>
+
+    <article class="panel wrap" id="panel-review" aria-labelledby="prp-t">
+      <div class="container"><div class="panel__body">
+        <h3 class="panel__title" id="prp-t">{prp.name}</h3>
+        <div class="panel__meta"><span class="panel__note">{prp.note}</span></div>
+        <p class="panel__lede">{prp.lede}</p>
+        <p class="panel__role">{prp.role}</p>
+        <ul class="bullets">{prp.bullets.map((b) => <li>{b}</li>)}</ul>
+        <ul class="chips" aria-label={t.work.stack}>{STACKS.prp.map((s) => <li>{s}</li>)}</ul>
+      </div></div>
+    </article>
+  </div>
+</section>

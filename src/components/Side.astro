@@ -1,0 +1,34 @@
+---
+import type { Dict } from '../i18n/en';
+import { LINKS } from '../facts';
+interface Props { t: Dict }
+const { t } = Astro.props;
+---
+<section class="side wrap" id="side" aria-labelledby="side-h">
+  <div class="container">
+    <h2 class="h2" id="side-h">{t.side.h}</h2>
+    <div class="bento">
+      {Object.entries(t.side.featured).map(([id, p]) => (
+        <article class={`cell cell--${id}`}>
+          <h3>{p.name}</h3>
+          <p>{p.text}</p>
+          {LINKS[id] && (
+            <div class="cell__links">
+              {LINKS[id].map((l) => <a class="ext" href={l.href} target="_blank" rel="noopener">{l.label}<span aria-hidden="true"> ↗</span></a>)}
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+    <h3 class="label more__h">{t.side.moreH}</h3>
+    <ul class="more">
+      {Object.entries(t.side.more).map(([id, p]) => (
+        <li>
+          <span class="more__name">{p.name}</span>
+          <p>{p.text}</p>
+          {LINKS[id]?.map((l) => <a class="ext" href={l.href} target="_blank" rel="noopener">{l.label}<span aria-hidden="true"> ↗</span></a>)}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

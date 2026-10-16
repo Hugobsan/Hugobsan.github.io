@@ -1,0 +1,17 @@
+---
+import type { Dict } from '../i18n/en';
+interface Props { t: Dict }
+const { t } = Astro.props;
+---
+<section class="hero wrap" id="top" aria-labelledby="hero-h">
+  <div class="container">
+    <div class="hero__copy">
+      <h1 id="hero-h">{t.hero.h1}</h1>
+      <p class="hero__sub">{t.hero.sub}</p>
+      <div class="hero__ctas">
+        <a class="btn btn--primary magnet" href="#contact">{t.hero.primary}</a>
+        <a class="btn btn--ghost magnet" href="#work">{t.hero.secondary}</a>
+      </div>
+    </div>
+  </div>
+</section>

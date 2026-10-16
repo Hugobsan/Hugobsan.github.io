@@ -1,0 +1,173 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Offers from '../components/Offers.astro';
+import Work from '../components/Work.astro';
+import Path from '../components/Path.astro';
+import How from '../components/How.astro';
+import Side from '../components/Side.astro';
+import Education from '../components/Education.astro';
+import Contact from '../components/Contact.astro';
+import { LOCALES, LANGS, type Lang } from '../i18n';
+import pt from '../i18n/pt';
+import { SITE, EMAIL, GREENN, LINKEDIN, GITHUB, KNOWS_ABOUT } from '../facts';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang: lang === 'en' ? undefined : lang }, props: { lang } }));
+}
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const { dict: t, path, html } = LOCALES[lang];
+
+const person = `${SITE}/#person`;
+const ld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': person,
+      name: 'Hugo Barbosa Santos',
+      alternateName: ['Hugobsan', 'Hugo Barbosa'],
+      jobTitle: 'Tech Lead',
+      worksFor: { '@type': 'Organization', name: 'Greenn', url: GREENN },
+      alumniOf: { '@type': 'CollegeOrUniversity', name: 'UNIMONTES', alternateName: 'Universidade Estadual de Montes Claros' },
+      address: { '@type': 'PostalAddress', addressLocality: 'Montes Claros', addressRegion: 'MG', addressCountry: 'BR' },
+      email: `mailto:${EMAIL}`,
+      url: `${SITE}/`,
+      sameAs: [LINKEDIN, GITHUB],
+      knowsAbout: KNOWS_ABOUT,
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE}/#website`,
+      url: `${SITE}/`,
+      name: 'Hugo Barbosa',
+      inLanguage: LANGS.map((l) => LOCALES[l].html),
+      publisher: { '@id': person },
+    },
+    {
+      '@type': 'ProfilePage',
+      '@id': `${SITE}${path}#page`,
+      url: `${SITE}${path}`,
+      name: t.meta.title,
+      description: t.meta.description,
+      inLanguage: html,
+      isPartOf: { '@id': `${SITE}/#website` },
+      mainEntity: { '@id': person },
+    },
+    // papers are written in Portuguese: the original title is the headline everywhere
+    ...pt.edu.pubs.map((p, i) => ({
+      '@type': 'ScholarlyArticle',
+      headline: p.t,
+      ...(lang !== 'pt' && { alternativeHeadline: t.edu.pubs[i]?.t }),
+      inLanguage: 'pt-BR',
+      dateCreated: p.v.match(/\d{4}/)?.[0],
+      author: { '@id': person },
+    })),
+  ],
+};
+
+// root only: send first-time visitors to their browser language; a stored choice wins, bots stay on English
+const others = JSON.stringify(LANGS.filter((l) => l !== 'en'));
+const redirect = `(function(){var s=${others},l;try{l=localStorage.getItem("lang")}catch(e){}if(!l){var n=navigator.languages||[navigator.language];for(var i=0;i<n.length;i++){var c=String(n[i]).slice(0,2).toLowerCase();if(c=="en"||s.indexOf(c)>-1){l=c;break}}}if(s.indexOf(l)>-1)location.replace("/"+l+"/"+location.search+location.hash)})()`;
+---
+<Base lang={lang} title={t.meta.title} description={t.meta.description} path={path} home>
+  {lang === 'en' && <script is:inline slot="first" set:html={redirect} />}
+  <script is:inline type="application/ld+json" slot="head" set:html={JSON.stringify(ld)} />
+
+  <a class="skip" href="#main">{t.skip}</a>
+  <canvas id="signal" aria-hidden="true"></canvas>
+  <div class="backdrop" aria-hidden="true"></div>
+  <Nav lang={lang} />
+  <div class="page">
+    <main id="main" tabindex="-1">
+      <Hero t={t} />
+      <Offers t={t} />
+      <Work t={t} />
+      <Path t={t} />
+      <How t={t} />
+      <Side t={t} />
+      <Education t={t} />
+      <Contact t={t} />
+    </main>
+    <footer class="footer wrap"><div class="container"><p>{t.footer}</p></div></footer>
+  </div>
+</Base>
+
+<script>
+  // a manual language choice beats browser detection on the next visit to /
+  document.querySelectorAll<HTMLAnchorElement>('.lang a').forEach((a) =>
+    a.addEventListener('click', () => {
+      try { localStorage.setItem('lang', a.dataset.lang!); } catch { /* storage blocked: the link still works */ }
+    }),
+  );
+
+  // offers accordion: hover or focus opens a slice; the last one touched stays open
+  const slices = [...document.querySelectorAll<HTMLElement>('.slice')];
+  for (const s of slices) {
+    const open = () => slices.forEach((o) => o.toggleAttribute('data-open', o === s));
+    s.addEventListener('pointerenter', open);
+    s.addEventListener('focusin', open);
+  }
+
+  // copy email: clipboard inside the click, fall back to selecting the text
+  const btn = document.getElementById('copy')!;
+  const email = document.getElementById('email')!;
+  const status = document.getElementById('copy-status')!;
+  const label = btn.textContent!;
+  let timer = 0;
+  const select = () => getSelection()?.selectAllChildren(email);
+  btn.addEventListener('click', () => {
+    const done = () => {
+      btn.textContent = status.textContent = btn.dataset.copied!;
+      btn.dataset.state = 'copied';
+      clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        btn.textContent = label;
+        status.textContent = '';
+        delete btn.dataset.state;
+      }, 2400);
+    };
+    navigator.clipboard ? navigator.clipboard.writeText(email.textContent!.trim()).then(done, select) : select();
+  });
+
+  // motion and the 3D signal load after the page is idle, never on the critical path;
+  // reduced motion keeps the static backdrop, and so does a device without hardware WebGL2
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // WebGL2 renderer name, '' when unavailable. Probed in a worker first because creating a context on a
+    // software rasterizer can block the main thread for a second; self-contained so it can be stringified.
+    const renderer = (g: WebGL2RenderingContext | null) => {
+      if (!g) return '';
+      const info = g.getExtension('WEBGL_debug_renderer_info');
+      return String(g.getParameter(info ? info.UNMASKED_RENDERER_WEBGL : g.RENDERER));
+    };
+    const probe = () => new Promise<string | null>((done) => {
+      try {
+        const src = `try{postMessage((${renderer})(new OffscreenCanvas(1,1).getContext('webgl2',{failIfMajorPerformanceCaveat:true})))}catch(e){postMessage(null)}`;
+        const w = new Worker(URL.createObjectURL(new Blob([src], { type: 'text/javascript' })));
+        w.onmessage = (e) => { w.terminate(); done(e.data); };
+        w.onerror = () => { w.terminate(); done(null); };
+      } catch { done(null); }
+    });
+    // a software rasterizer (blocklisted GPU, headless CI) would push 20k particles through the CPU
+    const hardware = (name: string | null) => !!name && !/swiftshader|llvmpipe|software/i.test(name);
+
+    const start = async () => {
+      import('../scripts/motion').then((m) => m.init());
+      // only a renderer the worker positively saw as software skips the main thread; '' or null
+      // just means the worker can't tell (Safari < 17 has no WebGL in workers)
+      const name = await probe();
+      if (name && !hardware(name)) return document.documentElement.classList.add('no-webgl');
+      const canvas = document.getElementById('signal') as HTMLCanvasElement;
+      const gl = canvas.getContext('webgl2', { alpha: true, antialias: false, powerPreference: 'high-performance', failIfMajorPerformanceCaveat: true });
+      if (gl && hardware(renderer(gl))) import('../scripts/signal').then((s) => s.init(canvas, gl));
+      else document.documentElement.classList.add('no-webgl');
+    };
+    // after load and after a frame has been painted, when the main thread is idle
+    const idle = () => requestAnimationFrame(() => setTimeout(() =>
+      'requestIdleCallback' in window ? requestIdleCallback(start, { timeout: 2500 }) : start()));
+    if (document.readyState === 'complete') idle();
+    else addEventListener('load', idle, { once: true });
+  }
+</script>

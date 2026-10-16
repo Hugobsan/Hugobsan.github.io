@@ -1,0 +1,19 @@
+---
+import type { Dict } from '../i18n/en';
+import { EMAIL, GITHUB, LINKEDIN } from '../facts';
+interface Props { t: Dict }
+const { t } = Astro.props;
+---
+<section class="contact wrap" id="contact" aria-labelledby="contact-h">
+  <div class="container contact__inner">
+    <h2 class="contact__h" id="contact-h">{t.contact.h}</h2>
+    <p class="contact__sub">{t.contact.sub}</p>
+    <p class="contact__email" id="email">{EMAIL}</p>
+    <div class="contact__actions">
+      <button class="btn btn--primary magnet" type="button" id="copy" data-copied={t.contact.copied}>{t.contact.copy}</button>
+      <a class="btn btn--ghost" href={LINKEDIN} target="_blank" rel="noopener">LinkedIn<span aria-hidden="true">↗</span></a>
+      <a class="btn btn--ghost" href={GITHUB} target="_blank" rel="noopener">GitHub<span aria-hidden="true">↗</span></a>
+    </div>
+    <p class="sr-only" id="copy-status" aria-live="polite"></p>
+  </div>
+</section>

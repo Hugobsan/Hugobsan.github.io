@@ -1,0 +1,17 @@
+---
+import type { Dict } from '../i18n/en';
+interface Props { t: Dict }
+const { t } = Astro.props;
+---
+<section class="how wrap" id="how" aria-labelledby="how-h">
+  <div class="container">
+    <h2 class="h2" id="how-h">{t.how.h}</h2>
+    <ol class="principles">
+      {t.how.principles.map((p) => <li class="principle"><strong data-split>{p.t}</strong> <span data-split>{p.d}</span></li>)}
+    </ol>
+    <div class="toolbox">
+      <div><h3 class="label">{t.how.toolH}</h3><p>{t.how.tool}</p></div>
+      <div><h3 class="label">{t.how.learnH}</h3><p>{t.how.learn}</p></div>
+    </div>
+  </div>
+</section>

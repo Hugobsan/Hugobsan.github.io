@@ -1,0 +1,11 @@
+---
+import type { Dict } from '../i18n/en';
+interface Props { t: Dict }
+const { t } = Astro.props;
+---
+<section class="path" id="path" aria-labelledby="path-h">
+  <div class="path__head wrap"><div class="container"><h2 class="h2" id="path-h">{t.path.h}</h2></div></div>
+  <ol class="path__track">
+    {t.path.items.map((m) => <li class="milestone"><span class="milestone__year">{m.year}</span><p>{m.text}</p></li>)}
+  </ol>
+</section>

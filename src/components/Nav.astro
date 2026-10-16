@@ -1,0 +1,22 @@
+---
+import { LOCALES, LANGS, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = LOCALES[lang].dict;
+---
+<header class="nav">
+  <a class="nav__mark" href="#top">Hugo Barbosa</a>
+  <nav class="nav__links" aria-label={t.nav.label}>
+    <a href="#offers">{t.nav.services}</a>
+    <a href="#work">{t.nav.work}</a>
+    <a href="#path">{t.nav.path}</a>
+    <a class="nav__contact" href="#contact">{t.nav.contact}</a>
+  </nav>
+  <div class="lang" role="group" aria-label={t.nav.lang}>
+    {LANGS.map((l) => (
+      <a href={LOCALES[l].path} hreflang={LOCALES[l].html} lang={LOCALES[l].html} data-lang={l} aria-current={l === lang ? 'page' : undefined}>
+        {LOCALES[l].label}
+      </a>
+    ))}
+  </div>
+</header>
