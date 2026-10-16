@@ -11,7 +11,7 @@ Inglês é o idioma mestre; ES e ZH serão traduzidos a partir dele. Regras: nad
 - description: `Tech Lead at Greenn. I build AI products that hold up in production: LLM pipelines, RAG, resilient queues and agentic engineering. Open to remote roles and consulting.`
 
 ### Nav
-Work · Path · Research · Contact · Language
+Services · Work · Path · Contact · Language
 
 ### Hero
 - H1: **I build AI products that hold up in production.**
@@ -66,16 +66,6 @@ Heading: **Selected work**
 - Every design choice is measured. One variant was dropped for costing 132% more.
 - Stack: Next.js, TypeScript, SQLite FTS5, Claude Code, OpenRouter, Graphify, GitHub CLI
 
-**Bug localization research** (UNIMONTES, 2024 to now)
-- Given a bug report, which method in the code is broken? I measure each approach by Mean Reciprocal Rank on ArgoUML 0.22.
-- Chart (to scale):
-  - BERT bi-encoders, best result: 0.0705
-  - Doc2Vec baseline: 0.1975
-  - Proprietary code embeddings (voyage-4-large): 0.2314
-  - LLM agent with search tools: 0.3782
-  - Hybrid, agent plus semantic ranking: **0.4048**
-- Caption: The hybrid approach scores 75% above the best embedding model and doubles the classic baseline.
-
 ### Path
 Heading: **How I got here**
 - **2017** IT technician course at IFNMG.
@@ -124,6 +114,8 @@ More (compact list):
 
 Languages: Portuguese (native), English (professional), Spanish (elementary).
 
+Research: LLM agents for software bug localization (UNIMONTES, 2024 to now). The hybrid approach I built reaches 0.40 MRR, 75% above the best embedding model.
+
 ### Publications (titles translated; papers in Portuguese)
 - Exploratory analysis of BERT-based models for software bug localization. ENMC 2025.
 - Comparative analysis of proprietary embedding models for bug localization. Manuscript, 2025.
@@ -150,7 +142,7 @@ Languages: Portuguese (native), English (professional), Spanish (elementary).
 - description: `Tech Lead na Greenn. Construo produtos de IA que aguentam produção: pipelines de LLM, RAG, filas resilientes e engenharia agêntica. Aberto a vagas remotas e consultoria.`
 
 ### Nav
-Trabalho · Trajetória · Pesquisa · Contato · Idioma
+Serviços · Trabalho · Trajetória · Contato · Idioma
 
 ### Hero
 - H1: **Construo produtos de IA que aguentam produção.**
@@ -202,11 +194,6 @@ Título: **Trabalho selecionado**
 - Guardrails: lista fechada de ferramentas, agentes somente leitura, sem acesso a MCP, git worktrees isolados.
 - Cada escolha de design é medida. Uma variante foi descartada por custar 132% a mais.
 
-**Pesquisa em localização de bugs** (UNIMONTES, 2024 até hoje)
-- Dado um relato de bug, qual método do código está quebrado? Meço cada abordagem pelo Mean Reciprocal Rank no ArgoUML 0.22.
-- Gráfico (em escala): BERT bi-encoders, melhor resultado 0.0705 · Doc2Vec (linha de base) 0.1975 · Embeddings proprietários de código (voyage-4-large) 0.2314 · Agente LLM com ferramentas de busca 0.3782 · Híbrido, agente mais ranking semântico **0.4048**
-- Legenda: A abordagem híbrida fica 75% acima do melhor modelo de embeddings e dobra a linha de base clássica.
-
 ### Trajetória
 Título: **Como cheguei aqui**
 - **2017** Curso técnico em Informática no IFNMG.
@@ -254,6 +241,8 @@ Mais (lista compacta):
 - Técnico em Informática. IFNMG, 2017 a 2019.
 
 Idiomas: português (nativo), inglês (profissional), espanhol (básico).
+
+Pesquisa: agentes LLM para localização de bugs de software (UNIMONTES, 2024 até hoje). A abordagem híbrida que desenvolvi chega a 0,40 de MRR, 75% acima do melhor modelo de embeddings.
 
 ### Publicações (títulos originais)
 - Uma análise exploratória da utilização de modelos baseados em BERT para localização de bugs de software. ENMC 2025.

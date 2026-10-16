@@ -28,7 +28,7 @@ Reviewer changes (second pass, native mainland recruiter/editor):
 - description: `Greenn 技术负责人（Tech Lead），专注 AI 工程。我打造经得起生产环境考验的 AI 产品：LLM 流水线、RAG（检索增强生成）、高可靠队列与智能体工程。欢迎洽谈远程职位与咨询合作。`
 
 ### Nav
-项目 · 历程 · 研究 · 联系 · 语言
+服务 · 项目 · 历程 · 联系 · 语言
 
 ### Hero
 - H1: **我打造的 AI 产品，经得起生产环境考验。**
@@ -83,22 +83,12 @@ Heading: **代表项目**
 - 每个设计决策都经过实测。曾有一个方案因成本高出 132% 而被放弃。
 - Stack: Next.js, TypeScript, SQLite FTS5, Claude Code, OpenRouter, Graphify, GitHub CLI
 
-**缺陷定位研究**（巴西蒙特斯克拉鲁斯州立大学 UNIMONTES，2024 年至今）
-- 拿到一份缺陷报告，代码里究竟是哪个方法出了错？我在 ArgoUML 0.22 上用 Mean Reciprocal Rank（MRR，平均倒数排名）评估每种方案。
-- Chart (to scale):
-  - BERT 双编码器（最佳结果）：0.0705
-  - Doc2Vec 基线：0.1975
-  - 闭源代码嵌入模型（voyage-4-large）：0.2314
-  - 带搜索工具的 LLM 智能体：0.3782
-  - 混合方案（智能体 + 语义排序）：**0.4048**
-- Caption: 混合方案比最佳嵌入模型高出 75%，是经典基线的两倍。
-
 ### Path
 Heading: **一路走来**
 - **2017** 在 IFNMG 就读计算机技术中职课程。
 - **2019** 为一家太阳能公司交付了第一个网站，同时参与光伏安装的现场工作。
 - **2020** 第一个投入生产的系统：为一家肉铺开发的离线收银系统，能读取商用电子秤并打印小票。
-- **2021** 进入 UNIMONTES 攻读信息系统本科，并获得第一份科研奖学金。
+- **2021** 进入巴西蒙特斯克拉鲁斯州立大学（UNIMONTES）攻读信息系统本科，并获得第一份科研奖学金。
 - **2022** 重建了学校的社会服务管理系统。指导一名实习生，并主讲了一期 Laravel 工作坊。
 - **2024** 在 Betabit 任全栈工程师。主导开发了一个 AI 聊天模块，基于 Gemini、RAG 和 WhatsApp 智能体。
 - **2025** 加入 Greenn，在 Bluee 担任后端工程师。
@@ -140,6 +130,8 @@ More (compact list):
 - 计算机技术员（中职学历）。IFNMG，2017 至 2019 年。
 
 语言：葡萄牙语（母语）、英语（工作语言）、西班牙语（初级）。
+
+研究：用 LLM 智能体做软件缺陷定位（UNIMONTES，2024 年至今）。我提出的混合方案 MRR（平均倒数排名）达到 0.40，比最佳嵌入模型高出 75%。
 
 ### Publications (titles translated; papers in Portuguese)
 - 基于 BERT 的模型在软件缺陷定位中的探索性分析（葡萄牙语）。ENMC 2025。

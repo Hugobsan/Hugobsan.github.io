@@ -20,7 +20,7 @@ Glossary (ES, neutral international Spanish, "tú" form):
 - description: `Tech Lead en Greenn e ingeniero de IA. Construyo productos que resisten en producción: pipelines de LLM, RAG, colas resilientes e ingeniería agéntica. Disponible para trabajo remoto y consultoría.`
 
 ### Nav
-Proyectos · Trayectoria · Investigación · Contacto · Idioma
+Servicios · Proyectos · Trayectoria · Contacto · Idioma
 
 ### Hero
 - H1: **Construyo productos de IA que resisten en producción.**
@@ -75,16 +75,6 @@ Heading: **Proyectos destacados**
 - Cada decisión de diseño se mide. Una variante se descartó por costar un 132% más.
 - Stack: Next.js, TypeScript, SQLite FTS5, Claude Code, OpenRouter, Graphify, GitHub CLI
 
-**Investigación en localización de bugs** (UNIMONTES, 2024 hasta hoy)
-- Dado un reporte de bug, ¿qué método del código está fallando? Mido cada enfoque con el Mean Reciprocal Rank en ArgoUML 0.22.
-- Chart (to scale):
-  - Bi-encoders BERT, mejor resultado: 0.0705
-  - Doc2Vec, línea base: 0.1975
-  - Embeddings de código propietarios (voyage-4-large): 0.2314
-  - Agente LLM con herramientas de búsqueda: 0.3782
-  - Híbrido, agente más ranking semántico: **0.4048**
-- Caption: El enfoque híbrido supera en un 75% al mejor modelo de embeddings y duplica la línea base clásica.
-
 ### Path
 Heading: **Cómo llegué hasta aquí**
 - **2017** Curso de técnico en informática en el IFNMG.
@@ -132,6 +122,8 @@ More (compact list):
 - Técnico en Informática. IFNMG, 2017 a 2019.
 
 Idiomas: portugués (nativo), inglés (profesional), español (básico).
+
+Investigación: agentes LLM para la localización de bugs de software (UNIMONTES, 2024 hasta hoy). El enfoque híbrido que desarrollé alcanza un MRR de 0,40, un 75% por encima del mejor modelo de embeddings.
 
 ### Publications (titles translated; papers in Portuguese)
 - Análisis exploratorio de modelos basados en BERT para la localización de bugs de software (en portugués). ENMC 2025.

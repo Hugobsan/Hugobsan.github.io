@@ -22,7 +22,6 @@ Um único sistema de partículas 3D atravessa a página inteira e muda de forma 
 | Bluee | Clusters de embeddings + um ponto de consulta que acende os top-k | RAG, LLMs |
 | Greenn Club | Quatro faixas de jobs convergindo num funil, intercaladas em round-robin | Filas justas, confiabilidade |
 | Painel de review | Grafo de 6 fases com um nó adversário | Engenharia agêntica com guardrails |
-| Pesquisa | Barras 3D **em escala real** do MRR: 0.0705 → 0.1975 → 0.2314 → 0.3782 → 0.4048 | Rigor e medição |
 | Trajetória | Um caminho em fita com marcos de 2017 a 2026 | História |
 | Contato | As partículas montam o avatar em pixel art do Hugo (cores do `profile.png`) | Assinatura pessoal |
 
@@ -109,10 +108,10 @@ Lighthouse CI roda a cada push nas 4 rotas, perfil mobile:
 
 ## 6. Estrutura da página (uma página longa por idioma)
 
-1. **Nav:** "Hugo Barbosa" + Trabalho, Trajetória, Pesquisa, Contato + seletor de idioma.
+1. **Nav:** "Hugo Barbosa" + Serviços, Trabalho, Trajetória, Contato + seletor de idioma.
 2. **Hero:** H1, subtítulo de até 20 palavras, 2 CTAs.
 3. **Como posso ajudar:** 3 ofertas num acordeão horizontal (não 3 cards iguais) + faixa de provas com 4 números reais.
-4. **Trabalho selecionado:** sticky-stack com 4 cases (Bluee, Greenn Club, Painel de review, Pesquisa), cada um com a sua formação 3D.
+4. **Trabalho selecionado:** sticky-stack com 3 cases (Bluee, Greenn Club, Painel de review), cada um com a sua formação 3D. A pesquisa saiu daqui (decisão do Hugo, pela ótica de quem lê): virou uma linha em Formação e continua completa no JSON-LD e no `llms-full.txt`.
 5. **Trajetória:** pan horizontal de 2017 a 2026.
 6. **Como eu trabalho:** 6 princípios com revelação de texto por scrub + leituras e formação contínua.
 7. **Projetos pessoais:** grade assimétrica com os melhores projetos do GitHub.
