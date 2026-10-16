@@ -20,11 +20,11 @@ Glossary (ES, neutral international Spanish, "tú" form):
 - description: `Tech Lead en Greenn e ingeniero de IA. Construyo productos que resisten en producción: pipelines de LLM, RAG, colas resilientes e ingeniería agéntica. Disponible para trabajo remoto y consultoría.`
 
 ### Nav
-Servicios · Proyectos · Trayectoria · Contacto · Idioma
+Servicios · Proyectos · Experiencia · Contacto · Idioma
 
 ### Hero
 - H1: **Construyo productos de IA que resisten en producción.**
-- Sub: Tech Lead en Greenn. Pipelines de LLM, colas resilientes e ingeniería agéntica, desde el primer prompt hasta el worker de GPU.
+- Sub: Tech Lead en Greenn, trabajando en remoto desde Brasil (UTC-3). Pipelines de LLM, colas resilientes e ingeniería agéntica.
 - CTA primary: **Trabaja conmigo** (to contact)
 - CTA secondary: **Ver proyectos** (to work)
 
@@ -35,10 +35,10 @@ Heading: **Tres formas de trabajar juntos**
 3. **Lo construyo por ti.** Software entregado como servicio, desde la definición del alcance hasta producción, con pruebas, documentación y un traspaso limpio.
 
 Proof strip:
-- **6** desarrolladores en los equipos que lidero
-- **Más de R$20 mil** ahorrados al mes en almacenamiento de video
-- **Hasta un 50%** de ahorro en infraestructura identificado en revisiones de costos
-- **Miles** de usuarios en los productos que lidero
+- **Equipos compactos.** Experiencia liderando equipos pequeños, de la arquitectura a la entrega.
+- **IA en producción.** LLMs, RAG y pipelines de voz y video al servicio de usuarios reales.
+- **Costos bajo control.** Revisiones de arquitectura e infraestructura que recortan el gasto recurrente.
+- **Desde 2019.** Llevando software a producción, de sistemas freelance a SaaS.
 
 ### Selected work
 Heading: **Proyectos destacados**
@@ -46,45 +46,63 @@ Heading: **Proyectos destacados**
 **Bluee** (discontinued product, no link)
 - Una plataforma de IA que convertía un tema en un curso en línea completo, con lecciones, narración y un avatar presentador.
 - Rol: Ingeniero back-end, luego Tech Lead. 2025 a 2026.
-- Capa de LLM sobre OpenRouter con streaming, fallbacks y resumen de documentos largos.
-- Chat agéntico con llamadas a herramientas en paralelo y streams reanudables.
+- Highlight: **3 → 8** tareas por pod de GPU en RunPod
+- Capa de LLM sobre OpenRouter con streaming y fallbacks, más un chat agéntico con llamadas a herramientas en paralelo.
 - RAG sobre documentos del usuario: extracción en sandbox, embeddings por lotes, búsqueda con pgvector.
 - Pipeline de video con avatar: lip-sync e imagen a video con ComfyUI, clonación de voz con ElevenLabs, renderizado con Remotion.
 - Jobs en RabbitMQ con reintentos con backoff, verificaciones de idempotencia y colas diferidas.
-- Workers de GPU en RunPod que pasaron de 3 a 8 tareas por pod.
 - Stack: Laravel 12, PHP 8.4, Python, React, RabbitMQ, Redis, PostgreSQL, pgvector, OpenRouter, ComfyUI, ElevenLabs, Remotion, AWS
 
 **Greenn Club** (link: https://greenn.com.br/club/)
 - El área de miembros donde los creadores de cursos alojan e imparten sus cursos a miles de estudiantes.
 - Rol: Tech Lead. 2026.
+- Highlight: **Más de R$20 mil** ahorrados al mes en almacenamiento de video
 - Certificados verificables firmados con ECDSA, un conjunto de claves públicas y validación por QR que cualquiera puede comprobar.
 - Despacho equitativo: planificación por cliente para que un creador grande nunca acapare la cola del resto.
 - Pipeline de subtítulos migrado de polling a webhooks, protegido contra entregas concurrentes.
-- Optimización del almacenamiento de video que ahorra más de R$20 mil al mes.
 - Webhooks heredados llevados a la capa de dominio, protegidos por pruebas de caracterización.
 - Stack: Laravel 11, Vue 3, Redis, RabbitMQ, MySQL, S3, PandaVideo
 
 **Panel de revisión de PR** (internal tool, no public link)
-- Mi propia herramienta para revisar pull requests a fondo: seis fases ejecutadas por agentes de Claude Code, en paralelo, en cada PR. Hecha para una carga de revisión de más de 260 pull requests en 2026.
+- Mi propia herramienta para revisar pull requests a fondo: seis fases ejecutadas por agentes de Claude Code, en paralelo, en cada PR.
 - Rol: Creador. 2026.
-- Calidad, código, acoplamiento, sobreingeniería, pruebas y estándares del equipo; cada fase devuelve hallazgos en un esquema JSON estricto.
-- Un agente adversario intenta refutar cada hallazgo bloqueante antes de que llegue al autor.
-- Triaje con Jev, un modelo de decisión en OpenRouter, calibrado con hallazgos etiquetados.
-- Los agentes navegan el código con un grafo de conocimiento de Graphify antes de recurrir a la búsqueda de texto.
-- Guardrails: listas cerradas de herramientas, agentes de solo lectura, sin acceso a MCP, git worktrees aislados.
+- Highlight: **260+** pull requests que revisé en 2026
+- Seis fases (calidad, código, acoplamiento, sobreingeniería, pruebas y estándares del equipo); cada una devuelve hallazgos en un esquema JSON estricto.
+- Un agente adversario intenta refutar cada hallazgo bloqueante, y Jev, un modelo de decisión en OpenRouter, clasifica el resto.
+- Los agentes navegan el código con un grafo de conocimiento de Graphify, con listas cerradas de herramientas, acceso de solo lectura y git worktrees aislados.
 - Cada decisión de diseño se mide. Una variante se descartó por costar un 132% más.
 - Stack: Next.js, TypeScript, SQLite FTS5, Claude Code, OpenRouter, Graphify, GitHub CLI
 
-### Path
-Heading: **Cómo llegué hasta aquí**
-- **2017** Curso de técnico en informática en el IFNMG.
-- **2019** Primer sitio web publicado, para una empresa de energía solar, además de trabajo de campo en instalaciones fotovoltaicas.
-- **2020** Primer sistema en producción: un punto de venta sin conexión para una carnicería, que lee una báscula comercial e imprime recibos.
-- **2021** Sistemas de Información en la UNIMONTES y mi primera beca de investigación.
-- **2022** Reconstruí el sistema de gestión de extensión universitaria. Fui mentor de un estudiante en prácticas y di un taller de Laravel.
-- **2024** Ingeniero full-stack en Betabit. Lideré un módulo de chat con IA basado en Gemini, RAG y agentes en WhatsApp.
-- **2025** Me uní a Greenn como ingeniero back-end en Bluee.
-- **2026** Tech Lead en Greenn. Especialización de posgrado en Ingeniería de Software en IA Aplicada.
+### Experience
+Heading: **Experiencia**
+
+**2026 a hoy · Tech Lead · Greenn**
+- Equipos de hasta 6 desarrolladores en Bluee y Greenn Club.
+- Defino la arquitectura y los estándares de código; revisé más de 260 pull requests en 2026.
+- Revisiones de costos que recortaron más de R$20 mil al mes en almacenamiento de video e identificaron hasta un 50% de ahorro en infraestructura.
+- Fallas de seguridad detectadas en code review antes de llegar a producción.
+
+**2025 · Desarrollador back-end · Greenn**
+- Construí el núcleo de IA de Bluee: capa de LLM, chat agéntico, RAG y el pipeline de video con avatar.
+- Hice más robustos los jobs de RabbitMQ con reintentos con backoff, idempotencia y colas diferidas.
+
+**2024 a 2025 · Desarrollador full-stack · Betabit**
+- Lideré el módulo de chat con IA de un CRM inmobiliario: Gemini, RAG con PGVector y agentes en WhatsApp, con respuestas en menos de 100 ms para unas 3000 solicitudes al día.
+- Construí un dashboard de marketing en tiempo real con Laravel Reverb y un servicio de ETL en Python.
+- Docker y GitHub Actions redujeron el onboarding de desarrolladores de horas a minutos.
+
+**2022 a 2024 · Desarrollador web · UNIMONTES**
+- Reconstruí el sistema de gestión de extensión de la universidad, que volvieron a adoptar todos los departamentos.
+- Refactoricé las consultas que bloqueaban el sistema en los picos de inscripción y creé el módulo de microcertificación, presentado en el CIEI 2024.
+- Implanté Git Flow y un estándar de PR, fui mentor de un estudiante en prácticas y di un taller de Laravel.
+
+**2021 a 2022 · Becario de investigación · UNIMONTES**
+- Modelé con los programas de posgrado el nuevo sistema de admisiones: requisitos, modelo de datos y arquitectura.
+- Dejé una guía de continuidad que usaron los siguientes becarios y un artículo en el FEPEG 2022.
+
+**2017 a 2021 · Primeros años**
+- Técnico en Informática en el IFNMG, luego desarrollo web freelance y reparación de computadoras como autónomo.
+- Primeros sistemas en producción: el sitio web de una empresa de energía solar y un punto de venta sin conexión para un comercio local.
 
 ### How I work
 Heading: **Cómo trabajo**
@@ -102,19 +120,11 @@ Formación continua: Mentoría TechLead de Impacto con Alexandro Hervis. Especia
 
 ### Side projects
 Heading: **Proyectos personales**
-Featured (bento, 4 cells):
-- **anthrya.** App de salud diseñada desde el inicio para la IA: báscula corporal Bluetooth, dieta, glucosa, entrenamientos y medidas corporales, todo accesible para la IA a través de un servidor MCP. Las lecturas en bruto se guardan separadas de las estimaciones, así el historial se puede recalcular. Más de 100 ADR. Expo, Supabase, Hono. En desarrollo, privado.
-- **Chronicle RPG.** Juego de rol de mesa en solitario con un director de juego de IA y cinco agentes especializados, cada uno en el modelo que se ajusta a su costo. Las fichas de personaje solo cambian mediante herramientas, nunca mediante la narración. Next.js, pgvector, OpenRouter. (https://github.com/Hugobsan/rpg)
-- **KM Topografia.** Gestión de documentos de recursos humanos y de flota para una empresa de topografía, en producción. Alertas de vencimiento por correo y WhatsApp, S3 con caché local, roles auditados. Diseñé la arquitectura y la infraestructura. Laravel 12, PostgreSQL, Docker. Privado.
-- **Timesheet Transcriber AI.** Transcripción de hojas de horas con Gemini, gratuita y de código abierto. Usa tu propia clave, recorta páginas, exporta a CSV o XLSX. Versión abierta de mi antiguo SaaS, Scanlex. (https://timesheet-transcriber-ai.vercel.app, https://github.com/Hugobsan/Timesheet-Transcriber-Ai)
-
-More (compact list):
-- **Sentimiento con BERT.** BERTimbau ajustado con 21 600 reseñas de Play Store de 9 apps de entrega a domicilio. 0.89 de exactitud y de F1 macro. (https://gist.github.com/Hugobsan/b507b76c7b5fc470d77b3a924211430d)
-- **LibroVault.** Búsqueda semántica en tus propios PDF: un pipeline de colas en Laravel más un microservicio de embeddings en Python. (https://github.com/Hugobsan/LibroVault)
+Featured (bento, exactly 4 cells, first one large):
+- **Scanlex y Timesheet Transcriber AI** (2025). Un SaaS que digitalizaba hojas de horas y recibos de sueldo para especialistas en nómina, con suscriptores de pago, y su versión gratuita y de código abierto: usa tu propia clave de Gemini, recorta páginas, exporta a CSV o XLSX. Laravel, Vue, React, Gemini. (https://timesheet-transcriber-ai.vercel.app, https://github.com/Hugobsan/Timesheet-Transcriber-Ai)
+- **KM Topografia.** Gestión de documentos de recursos humanos y de flota para una empresa de topografía, en producción. Alertas de vencimiento por correo y WhatsApp, S3 con caché local, roles auditados. Diseñé la arquitectura y la infraestructura. Laravel 12, PostgreSQL, Docker. Repositorio privado. (https://s.kmtopografia.com.br)
 - **Mia** (2025). Recepcionista en WhatsApp para clínicas de salud: leads, agenda de citas y recordatorios. Estuvo en producción en dos clínicas. N8N, Gemini, Evolution API.
-- **Scanlex** (2025). SaaS que digitalizaba hojas de horas y recibos de sueldo para especialistas en nómina, con suscriptores de pago. Laravel, Vue, Gemini.
-- **MCP Servers Hub** (2025). Índice de servidores MCP para desarrolladores que llevan IA a sistemas heredados. Hice el back-end, las pruebas y el despliegue.
-- **Roadmap full-stack.** Un plan de estudio de 4 meses para desarrolladores junior, con una prueba técnica guiada. (https://hugobsan.com.br/roadmap-full-stack/)
+- **anthrya.** App de salud diseñada desde el inicio para la IA: báscula corporal Bluetooth, dieta, glucosa, entrenamientos y medidas corporales, todo accesible para la IA a través de un servidor MCP. Las lecturas en bruto se guardan separadas de las estimaciones, así el historial se puede recalcular. Más de 100 ADR. Expo, Supabase, Hono. En desarrollo, privado.
 
 ### Education
 - Especialización de posgrado en Ingeniería de Software en IA Aplicada (360 horas). UniPDS, 2026 a 2027.
