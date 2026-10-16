@@ -3,7 +3,7 @@ import '../styles/global.css';
 // Display face: the Fontsource latin file (opsz+wdth+wght, 132 KB) cut to the axis ranges and glyphs this site
 // renders (78 KB, same outlines), so the LCP stays under budget. Regenerate with fonttools (pip install fonttools brotli):
 //   fonttools varLib.instancer node_modules/@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-standard-normal.woff2 wght=400:650 wdth=75:90 opsz=24:96 -o /tmp/b.ttf
-//   pyftsubset /tmp/b.ttf --unicodes=U+0020-007E,U+00A1,U+00BF,U+00C0-00FF,U+2019 --layout-features=kern,mark,mkmk,ccmp,locl --flavor=woff2 --output-file=src/assets/fonts/bricolage-grotesque-display.woff2
+//   pyftsubset /tmp/b.ttf --unicodes=U+0020-007E,U+00A1,U+00B7,U+00BF,U+00C0-00FF,U+2019 --layout-features=kern,mark,mkmk,ccmp,locl --flavor=woff2 --output-file=src/assets/fonts/bricolage-grotesque-display.woff2
 import display from '../assets/fonts/bricolage-grotesque-display.woff2?url';
 import body from '@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url';
 import mono from '@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2?url';
@@ -59,9 +59,6 @@ const faces =
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={title} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={og} />
     <slot name="head" />
   </head>
   <body>

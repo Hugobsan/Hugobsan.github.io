@@ -32,24 +32,12 @@ const ld = {
       jobTitle: 'Tech Lead',
       worksFor: { '@type': 'Organization', name: 'Greenn', url: GREENN },
       alumniOf: { '@type': 'CollegeOrUniversity', name: 'UNIMONTES', alternateName: 'Universidade Estadual de Montes Claros' },
-      address: { '@type': 'PostalAddress', addressLocality: 'Montes Claros', addressRegion: 'MG', addressCountry: 'BR' },
+      address: { '@type': 'PostalAddress', addressCountry: 'BR' },
       email: `mailto:${EMAIL}`,
       url: `${SITE}/`,
       sameAs: [LINKEDIN, GITHUB],
       knowsAbout: KNOWS_ABOUT,
       knowsLanguage: LOCALES.en.dict.contact.langs.map((l, i) => ({ '@type': 'Language', name: l.name, alternateName: LANGUAGES[i] })),
-      // experience as dated roles (schema.org: Role around Occupation); years come from the English periods
-      hasOccupation: t.experience.items.flatMap((j, i) => {
-        const period = LOCALES.en.dict.experience.items[i]!.period;
-        const years = period.match(/\d{4}/g) ?? [];
-        if (!j.org || !years[0]) return [];
-        return [{
-          '@type': 'Role',
-          startDate: years[0],
-          ...(!/now/.test(period) && { endDate: years[1] ?? years[0] }),
-          hasOccupation: { '@type': 'Occupation', name: j.role, description: `${j.org}. ${j.bullets.join(' ')}` },
-        }];
-      }),
     },
     {
       '@type': 'WebSite',
@@ -73,7 +61,8 @@ const ld = {
     ...pt.edu.pubs.map((p, i) => ({
       '@type': 'ScholarlyArticle',
       headline: p.t,
-      ...(lang !== 'pt' && { alternativeHeadline: t.edu.pubs[i]?.t }),
+      // translated title, without the "(in Portuguese)" note some locales add and the closing period
+      ...(lang !== 'pt' && { alternativeHeadline: t.edu.pubs[i]!.t.replace(/(\s*[（(][^()（）]*[)）])?[.。]?$/, '') }),
       inLanguage: 'pt-BR',
       dateCreated: p.v.match(/\d{4}/)?.[0],
       author: { '@id': person },

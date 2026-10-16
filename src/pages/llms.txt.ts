@@ -8,7 +8,7 @@ export function GET() {
 
 > ${en.meta.description}
 
-Hugo Barbosa Santos (Hugobsan), based in Brazil (UTC-3). ${en.hero.sub}
+Hugo Barbosa Santos (Hugobsan). ${en.hero.sub}
 
 ## Profile
 
