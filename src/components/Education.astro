@@ -13,8 +13,17 @@ const rest = t.edu.pubs.slice(3);
         {t.edu.items.map((e) => <li><strong>{e.t}</strong><span>{e.m}</span></li>)}
       </ol>
       <div class="edu__research">
-        <h3 class="label">{t.edu.researchH}</h3>
-        <p>{t.edu.research}</p>
+        <h3 class="label">{t.edu.projectsH}</h3>
+        <ol class="edu__list">
+          {t.edu.projects.map((r) => (
+            <li>
+              <strong>{r.t}</strong>
+              <span class="pub__venue">{r.m}</span>
+              <span>{r.d}</span>
+              {r.paper && <span class="pub__venue">{r.paper}</span>}
+            </li>
+          ))}
+        </ol>
       </div>
     </div>
     <div>

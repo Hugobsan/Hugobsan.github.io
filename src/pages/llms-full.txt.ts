@@ -67,9 +67,9 @@ ${Object.entries(en.side.featured).map(([id, p]) => `### ${p.name}\n\n${p.text}$
 
 ${list(en.edu.items.map((e) => `${e.t} ${e.m}`))}
 
-## ${en.edu.researchH}
+## Research
 
-${en.edu.research}
+### LLM agents for software bug localization (UNIMONTES, 2024 to now)
 
 Given a bug report, which method in the code is broken? Each approach is measured by Mean Reciprocal Rank on ArgoUML 0.22:
 
@@ -78,6 +78,10 @@ Given a bug report, which method in the code is broken? Each approach is measure
 ${MRR.map(([approach, mrr]) => `| ${approach} | ${mrr.toFixed(4)} |`).join('\n')}
 
 The hybrid approach scores 75% above the best embedding model and doubles the classic baseline.
+
+### ${en.edu.projectsH}
+
+${list(en.edu.projects.map((r) => [`**${r.t}**`, r.m, r.d, r.paper].filter(Boolean).join(' ')))}
 
 ## ${en.edu.pubH}
 

@@ -366,9 +366,8 @@ a { color: inherit; }
 .edu__list li, .pubs li { display: grid; gap: 4px; }
 .edu__list strong { font-weight: 600; }
 .edu__list span { color: var(--text-dim); font-size: .9375rem; }
-.edu__research { margin-top: 40px; }
-.edu__research p { margin-top: 6px; color: var(--text-dim); }
-.edu__research p::first-letter { text-transform: uppercase; }
+.edu__research { margin-top: 48px; }
+.edu__research .edu__list { margin-top: 20px; }
 .pub__note { margin-top: 12px; color: var(--text-faint); font-size: .875rem; }
 .pubs { margin-top: 32px; display: grid; gap: 22px; }
 .pubs li > span:first-child { overflow-wrap: anywhere; }
