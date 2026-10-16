@@ -134,7 +134,7 @@ export default {
     toolH: 'Herramientas',
     tool: 'Claude Code, Codex y Cursor a diario, con ingeniería de prompts, harnesses y guardrails. Jev, Graphify y Ponytail para revisión automatizada defensiva.',
     learnH: 'Formación continua',
-    learn: 'Mentoría TechLead de Impacto con Alexandro Hervis. Especialización de posgrado en Ingeniería de Software en IA Aplicada (UniPDS), con profesores como Erick Wendel. Lecturas: Código limpio, The Clean Coder, El programador pragmático, Tidy First?, Software Architecture: The Hard Parts.',
+    learn: 'Mentoría TechLead de Impacto con Alexandro Hervis. Posgrado en Ingeniería de Software en IA Aplicada (UniPDS), con profesores como Erick Wendel. Lecturas: Código limpio, The Clean Coder, El programador pragmático, Tidy First?, Software Architecture: The Hard Parts.',
   },
   side: {
     h: 'Proyectos personales',
@@ -148,15 +148,15 @@ export default {
   edu: {
     h: 'Formación',
     items: [
-      { t: 'Especialización de posgrado en Ingeniería de Software en IA Aplicada (360 horas).', m: 'UniPDS, 2026 a 2027.' },
+      { t: 'Posgrado lato sensu en Ingeniería de Software en IA Aplicada.', m: 'UniPDS, 2026 a 2027.' },
       { t: 'Licenciatura en Sistemas de Información.', m: 'UNIMONTES, 2021 a 2025. Tesis sobre modelos BERT para localización de bugs.' },
       { t: 'Técnico en Informática.', m: 'IFNMG, 2017 a 2019.' },
     ],
     projectsH: 'Proyectos de investigación',
     projects: [
-      { t: 'Proyecto de investigación: mejora de la precisión en la recuperación de trazabilidad entre artefactos de software con inteligencia artificial generativa.', m: 'UNIMONTES, 2024 hasta hoy.', d: 'Los modelos de lenguaje reformulan descripciones de bugs y funcionalidades para que los motores de búsqueda encuentren el código fuente relevante durante el mantenimiento de software.', paper: '' },
-      { t: 'Iniciación científica (PIBIC/FAPEMIG): desarrollo de un sistema para la gestión de procesos de selección en la UNIMONTES.', m: '2021 a 2022.', d: 'Requisitos levantados con los programas de posgrado, modelo de datos y arquitectura del nuevo sistema de admisiones.', paper: 'Artículo en el FEPEG 2022.' },
-      { t: 'Iniciación científica voluntaria (ICV): análisis de instalaciones residenciales con microgeneración solar.', m: '2020 a 2021.', d: 'Monitoreo de la eficiencia fotovoltaica combinando los datos de consumo de un medidor trifásico conectado a un Arduino con la producción del inversor.', paper: 'Artículo en el FEPEG 2020.' },
+      { t: 'Proyecto de investigación: mejora de la precisión en la recuperación de trazabilidad entre artefactos de software con inteligencia artificial generativa.', m: 'UNIMONTES, 2024 a 2026.' },
+      { t: 'Iniciación científica (PIBIC/FAPEMIG): desarrollo de un sistema para la gestión de procesos de selección en la UNIMONTES.', m: '2021 a 2022.' },
+      { t: 'Iniciación científica voluntaria (ICV): análisis de instalaciones residenciales con microgeneración solar.', m: '2020 a 2021.' },
     ],
     pubH: 'Publicaciones',
     pubNote: '',

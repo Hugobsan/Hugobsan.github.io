@@ -146,15 +146,15 @@ const en = {
   edu: {
     h: 'Education',
     items: [
-      { t: 'Postgraduate specialization in Software Engineering for Applied AI (360 hours).', m: 'UniPDS, 2026 to 2027.' },
+      { t: 'Lato sensu postgraduate program in Software Engineering for Applied AI.', m: 'UniPDS, 2026 to 2027.' },
       { t: 'B.Sc. Information Systems.', m: 'UNIMONTES, 2021 to 2025. Thesis on BERT models for bug localization.' },
       { t: 'IT Technician.', m: 'IFNMG, 2017 to 2019.' },
     ],
     projectsH: 'Research projects',
     projects: [
-      { t: 'Research project: improving the accuracy of traceability recovery between software artifacts with generative AI.', m: 'UNIMONTES, 2024 to now.', d: 'Language models rewrite bug and feature descriptions so search engines can find the relevant source code during software maintenance.', paper: '' },
-      { t: 'Undergraduate research (PIBIC/FAPEMIG): a system for managing selection processes at UNIMONTES.', m: '2021 to 2022.', d: 'Requirements gathered with the graduate programs, data model and architecture for the new admissions system.', paper: 'Paper at FEPEG 2022.' },
-      { t: 'Volunteer undergraduate research (ICV): residential installations with solar micro-generation.', m: '2020 to 2021.', d: 'Monitoring photovoltaic efficiency by combining consumption data from an Arduino three-phase meter with the inverter\'s production data.', paper: 'Paper at FEPEG 2020.' },
+      { t: 'Research project: improving the accuracy of traceability recovery between software artifacts with generative AI.', m: 'UNIMONTES, 2024 to 2026.' },
+      { t: 'Undergraduate research (PIBIC/FAPEMIG): a system for managing selection processes at UNIMONTES.', m: '2021 to 2022.' },
+      { t: 'Volunteer undergraduate research (ICV): residential installations with solar micro-generation.', m: '2020 to 2021.' },
     ],
     pubH: 'Publications',
     pubNote: 'Titles translated; papers in Portuguese.',

@@ -147,15 +147,15 @@ export default {
   edu: {
     h: 'Formação',
     items: [
-      { t: 'Especialização em Engenharia de Software em IA Aplicada (360 horas).', m: 'UniPDS, 2026 a 2027.' },
+      { t: 'Pós-graduação Lato Sensu em Engenharia de Software em IA Aplicada.', m: 'UniPDS, 2026 a 2027.' },
       { t: 'Bacharelado em Sistemas de Informação.', m: 'UNIMONTES, 2021 a 2025. TCC sobre modelos BERT para localização de bugs.' },
       { t: 'Técnico em Informática.', m: 'IFNMG, 2017 a 2019.' },
     ],
     projectsH: 'Projetos de pesquisa',
     projects: [
-      { t: 'Projeto de Pesquisa: Melhoria da acurácia do Processo de Recuperação de Rastreabilidade entre Artefatos de Software utilizando Inteligência Artificial Generativa.', m: 'UNIMONTES, 2024 até hoje.', d: 'Modelos de linguagem reformulam descrições de bugs e funcionalidades para que mecanismos de busca localizem o código-fonte relevante na manutenção de software.', paper: '' },
-      { t: 'IC (PIBIC/FAPEMIG): Desenvolvimento de um sistema para gestão de processos seletivos na Unimontes.', m: '2021 a 2022.', d: 'Levantamento de requisitos com os programas de pós-graduação, modelagem de dados e arquitetura do novo sistema.', paper: 'Artigo no FEPEG 2022.' },
-      { t: 'ICV: Análise de Instalações Residenciais com Micro-Geração Solar.', m: '2020 a 2021.', d: 'Monitoramento da eficiência fotovoltaica cruzando os dados de consumo de um medidor trifásico ligado a um Arduino com a produção do inversor.', paper: 'Artigo no FEPEG 2020.' },
+      { t: 'Projeto de Pesquisa: Melhoria da acurácia do Processo de Recuperação de Rastreabilidade entre Artefatos de Software utilizando Inteligência Artificial Generativa.', m: 'UNIMONTES, 2024 a 2026.' },
+      { t: 'IC (PIBIC/FAPEMIG): Desenvolvimento de um sistema para gestão de processos seletivos na Unimontes.', m: '2021 a 2022.' },
+      { t: 'ICV: Análise de Instalações Residenciais com Micro-Geração Solar.', m: '2020 a 2021.' },
     ],
     pubH: 'Publicações',
     pubNote: '',

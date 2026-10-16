@@ -118,14 +118,14 @@ Featured (bento, exactly 4 cells, first one large; products with real users firs
 - **anthrya.** Health app built AI-first: Bluetooth body scale, diet, glucose, workouts and body measurements, all reachable by AI through an MCP server. Raw readings stay separate from estimates, so history can be recalculated. 100+ ADRs. Expo, Supabase, Hono. In development, private.
 
 ### Education
-- Postgraduate specialization in Software Engineering for Applied AI (360 hours). UniPDS, 2026 to 2027.
+- Lato sensu postgraduate program in Software Engineering for Applied AI. UniPDS, 2026 to 2027.
 - B.Sc. Information Systems. UNIMONTES, 2021 to 2025. Thesis on BERT models for bug localization.
 - IT Technician. IFNMG, 2017 to 2019.
 
-Research projects (heading **Research projects**, inside Education; replaces the old one-line research summary):
-- **Research project: improving the accuracy of traceability recovery between software artifacts with generative AI.** UNIMONTES, 2024 to now. Language models rewrite bug and feature descriptions so search engines can find the relevant source code during software maintenance.
-- **Undergraduate research (PIBIC/FAPEMIG): a system for managing selection processes at UNIMONTES.** 2021 to 2022. Requirements gathered with the graduate programs, data model and architecture for the new admissions system. Paper at FEPEG 2022.
-- **Volunteer undergraduate research (ICV): residential installations with solar micro-generation.** 2020 to 2021. Monitoring photovoltaic efficiency by combining consumption data from an Arduino three-phase meter with the inverter's production data. Paper at FEPEG 2020.
+Research projects (heading **Research projects**, inside Education, title and period only):
+- **Research project: improving the accuracy of traceability recovery between software artifacts with generative AI.** UNIMONTES, 2024 to 2026.
+- **Undergraduate research (PIBIC/FAPEMIG): a system for managing selection processes at UNIMONTES.** 2021 to 2022.
+- **Volunteer undergraduate research (ICV): residential installations with solar micro-generation.** 2020 to 2021.
 
 ### Publications (titles translated; papers in Portuguese)
 - Exploratory analysis of BERT-based models for software bug localization. ENMC 2025.
@@ -258,14 +258,14 @@ Destaques (bento, exatamente 4 células, a primeira grande):
 - **anthrya.** App de saúde feito com IA desde o início: balança de bioimpedância via Bluetooth, dieta, glicemia, treinos e medidas corporais, tudo acessível por IA através de um servidor MCP. Leituras brutas ficam separadas das estimativas, então o histórico pode ser recalculado. Mais de 100 ADRs. Expo, Supabase, Hono. Em desenvolvimento, privado.
 
 ### Formação
-- Especialização em Engenharia de Software em IA Aplicada (360 horas). UniPDS, 2026 a 2027.
+- Pós-graduação Lato Sensu em Engenharia de Software em IA Aplicada. UniPDS, 2026 a 2027.
 - Bacharelado em Sistemas de Informação. UNIMONTES, 2021 a 2025. TCC sobre modelos BERT para localização de bugs.
 - Técnico em Informática. IFNMG, 2017 a 2019.
 
 Projetos de pesquisa (título **Projetos de pesquisa**, dentro de Formação):
-- **Projeto de Pesquisa: Melhoria da acurácia do Processo de Recuperação de Rastreabilidade entre Artefatos de Software utilizando Inteligência Artificial Generativa.** UNIMONTES, 2024 até hoje. Modelos de linguagem reformulam descrições de bugs e funcionalidades para que mecanismos de busca localizem o código-fonte relevante na manutenção de software.
-- **IC (PIBIC/FAPEMIG): Desenvolvimento de um sistema para gestão de processos seletivos na Unimontes.** 2021 a 2022. Levantamento de requisitos com os programas de pós-graduação, modelagem de dados e arquitetura do novo sistema. Artigo no FEPEG 2022.
-- **ICV: Análise de Instalações Residenciais com Micro-Geração Solar.** 2020 a 2021. Monitoramento da eficiência fotovoltaica cruzando os dados de consumo de um medidor trifásico ligado a um Arduino com a produção do inversor. Artigo no FEPEG 2020.
+- **Projeto de Pesquisa: Melhoria da acurácia do Processo de Recuperação de Rastreabilidade entre Artefatos de Software utilizando Inteligência Artificial Generativa.** UNIMONTES, 2024 a 2026.
+- **IC (PIBIC/FAPEMIG): Desenvolvimento de um sistema para gestão de processos seletivos na Unimontes.** 2021 a 2022.
+- **ICV: Análise de Instalações Residenciais com Micro-Geração Solar.** 2020 a 2021.
 
 ### Publicações (títulos originais)
 - Uma análise exploratória da utilização de modelos baseados em BERT para localização de bugs de software. ENMC 2025.

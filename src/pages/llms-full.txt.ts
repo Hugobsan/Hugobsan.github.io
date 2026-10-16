@@ -69,7 +69,7 @@ ${list(en.edu.items.map((e) => `${e.t} ${e.m}`))}
 
 ## Research
 
-### LLM agents for software bug localization (UNIMONTES, 2024 to now)
+### LLM agents for software bug localization (UNIMONTES, 2024 to 2026)
 
 Given a bug report, which method in the code is broken? Each approach is measured by Mean Reciprocal Rank on ArgoUML 0.22:
 
@@ -81,7 +81,7 @@ The hybrid approach scores 75% above the best embedding model and doubles the cl
 
 ### ${en.edu.projectsH}
 
-${list(en.edu.projects.map((r) => [`**${r.t}**`, r.m, r.d, r.paper].filter(Boolean).join(' ')))}
+${list(en.edu.projects.map((r) => `**${r.t}** ${r.m}`))}
 
 ## ${en.edu.pubH}
 

@@ -21,7 +21,7 @@ ${LANGS.map((l) => `- [Website (${LOCALES[l].html})](${SITE}${LOCALES[l].path})`
 
 ## Research
 
-- [Research and publications](${SITE}/llms-full.txt): LLM agents for software bug localization (UNIMONTES, 2024 to now), with MRR results, plus research projects and papers
+- [Research and publications](${SITE}/llms-full.txt): LLM agents for software bug localization (UNIMONTES, 2024 to 2026), with MRR results, plus research projects and papers
 
 ## Contact
 

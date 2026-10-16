@@ -7,14 +7,14 @@ Glossary (ZH, zh-Hans, mainland business register, polite 您):
 - Guardrails: 护栏. Closed tool lists: 工具白名单. Findings: 评审意见. Blocking finding: 阻断级意见. Triage: 分级. Over-engineering: 过度设计. Characterization tests: 特征测试. Idempotency: 幂等.
 - Embeddings: 向量化 (batched embeddings 批量向量化, embeddings microservice 向量化微服务); embedding model: 嵌入模型. Proprietary: 闭源. Image-to-video: 图生视频. Avatar presenter: 数字人讲师. GPU worker: GPU 工作节点. Sprint: 迭代.
 - Bug localization: 缺陷定位. University extension: 社会服务. Timesheets: 考勤表. Payslips: 工资单. Game master: 主持人（GM）. Solo tabletop RPG: 单人跑团游戏. AI-first: AI 原生. Bluetooth body scale: 蓝牙体脂秤.
-- Postgraduate (UniPDS, Brazilian lato sensu specialization, non-degree, 360 h): 研究生进修课程（非学位）, modelled on China's 研究生课程进修班. Never 硕士 or 攻读. 360 学时 appears only in Education.
+- Postgraduate (UniPDS, Brazilian lato sensu specialization, non-degree): 研究生进修课程（非学位）, modelled on China's 研究生课程进修班. Never 硕士 or 攻读. Education adds "Lato Sensu"; no hours.
 - B.Sc. Information Systems: 信息系统学士 (Path 2021: 信息系统本科). IT Technician: 计算机技术员（中职学历）, a secondary-level technical diploma (Path 2017: 计算机技术中职课程).
 - Money: R$20k written as R$20,000. Numbers otherwise as in EN.
 - Books: 《代码整洁之道》《代码整洁之道：程序员的职业素养》《程序员修炼之道》 are the published Chinese titles; Tidy First? and Software Architecture: The Hard Parts stay in English.
 - Bold ends before 。 or ： (e.g. **加入您的团队**。) so CommonMark closes the emphasis correctly next to CJK text.
 - Structural labels (title, Heading, Sub, CTA, Proof strip, Chart, Caption, Featured, More, Email, Links, Footer) and notes in parentheses stay in English so each line maps to its EN key. Visible lead-ins (角色, 工具箱, 持续学习, 语言) are translated.
 Reviewer changes (second pass, native mainland recruiter/editor):
-- Ambiguities: postgraduate now 研究生进修课程（非学位） in Path 2026, Learning and Education (Education adds 专业进修 and 360 学时); 攻读 dropped for it. IT technician now 中职. Path 2021 says 信息系统本科. "Every job can run twice" now **任何任务跑两遍也不出错** (idempotency explicit). AI 优先 → AI 原生.
+- Ambiguities: postgraduate now 研究生进修课程（非学位） in Path 2026, Learning and Education (Education adds Lato Sensu); 攻读 dropped for it. IT technician now 中职. Path 2021 says 信息系统本科. "Every job can run twice" now **任何任务跑两遍也不出错** (idempotency explicit). AI 优先 → AI 原生.
 - Accuracy: Bluee intro marked past with 曾. Greenn Club 证书 → 课程证书 so it is not read as TLS certificates. Hero sub reordered to follow EN (areas first, then "from prompt to GPU worker").
 - Terminology: 评审发现 → 评审意见, 阻断级问题 → 阻断级意见, 封闭的工具列表 → 工具白名单, 向量嵌入 → 向量化 (嵌入模型 kept), pull request → PR, 土地测量公司 → 测绘公司, 配送类应用 → 外卖配送应用, 禁止访问 MCP → 禁用 MCP, 潜在客户 → 客户线索, 人事档案 → 人事证件.
 - Naturalness: H1, meta closing line, offers, proof strip (6 developers, users), Bluee chat/avatar/GPU lines, Greenn Club intro, fair dispatch, QR line, PR panel sentences, research question, Path 2019/2020/2022/2024, How I work 1/3/5/6, toolbox, Chronicle, KM, Timesheet, BERT, LibroVault, Mia, Scanlex, contact heading.
@@ -140,14 +140,14 @@ Featured (bento, exactly 4 cells, first one large):
 - **anthrya**：AI 原生的健康应用。蓝牙体脂秤、饮食、血糖、训练和身体围度数据，全部可由 AI 通过 MCP（模型上下文协议）服务器访问。原始读数与估算值分开存储，因此历史数据可以重新计算。超过 100 份 ADR。Expo、Supabase、Hono。开发中，未公开。
 
 ### Education
-- 应用 AI 软件工程研究生进修课程（专业进修，非学位，360 学时）。UniPDS，2026 至 2027 年。
+- 应用 AI 软件工程研究生进修课程（Lato Sensu，非学位）。UniPDS，2026 至 2027 年。
 - 信息系统学士。UNIMONTES，2021 至 2025 年。毕业论文研究 BERT 模型在缺陷定位中的应用。
 - 计算机技术员（中职学历）。IFNMG，2017 至 2019 年。
 
 Research projects (heading **科研项目**):
-- **科研项目：利用生成式 AI 提升软件制品间可追溯性恢复的准确率**。UNIMONTES，2024 年至今。用语言模型改写缺陷和功能描述，帮助搜索引擎在软件维护中定位相关源代码。
-- **本科生科研计划（PIBIC/FAPEMIG）：为 UNIMONTES 开发研究生招生管理系统**。2021 至 2022 年。与各研究生项目共同梳理需求，完成新系统的数据建模与架构设计。论文发表于 FEPEG 2022。
-- **志愿科研计划（ICV）：住宅分布式光伏发电装置分析**。2020 至 2021 年。结合 Arduino 三相电表采集的用电数据与逆变器的发电数据，监测光伏系统效率。论文发表于 FEPEG 2020。
+- **科研项目：利用生成式 AI 提升软件制品间可追溯性恢复的准确率**。UNIMONTES，2024 至 2026 年。
+- **本科生科研计划（PIBIC/FAPEMIG）：为 UNIMONTES 开发研究生招生管理系统**。2021 至 2022 年。
+- **志愿科研计划（ICV）：住宅分布式光伏发电装置分析**。2020 至 2021 年。
 
 ### Publications (titles translated; papers in Portuguese)
 - 基于 BERT 的模型在软件缺陷定位中的探索性分析（葡萄牙语）。ENMC 2025。

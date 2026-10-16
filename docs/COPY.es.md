@@ -116,7 +116,7 @@ Heading: **Cómo trabajo**
 
 Herramientas: Claude Code, Codex y Cursor a diario, con ingeniería de prompts, harnesses y guardrails. Jev, Graphify y Ponytail para revisión automatizada defensiva.
 
-Formación continua: Mentoría TechLead de Impacto con Alexandro Hervis. Especialización de posgrado en Ingeniería de Software en IA Aplicada (UniPDS), con profesores como Erick Wendel. Lecturas: Código limpio, The Clean Coder, El programador pragmático, Tidy First?, Software Architecture: The Hard Parts.
+Formación continua: Mentoría TechLead de Impacto con Alexandro Hervis. Posgrado en Ingeniería de Software en IA Aplicada (UniPDS), con profesores como Erick Wendel. Lecturas: Código limpio, The Clean Coder, El programador pragmático, Tidy First?, Software Architecture: The Hard Parts.
 
 ### Side projects
 Heading: **Proyectos personales**
@@ -127,14 +127,14 @@ Featured (bento, exactly 4 cells, first one large):
 - **anthrya.** App de salud diseñada desde el inicio para la IA: báscula corporal Bluetooth, dieta, glucosa, entrenamientos y medidas corporales, todo accesible para la IA a través de un servidor MCP. Las lecturas en bruto se guardan separadas de las estimaciones, así el historial se puede recalcular. Más de 100 ADR. Expo, Supabase, Hono. En desarrollo, privado.
 
 ### Education
-- Especialización de posgrado en Ingeniería de Software en IA Aplicada (360 horas). UniPDS, 2026 a 2027.
+- Posgrado lato sensu en Ingeniería de Software en IA Aplicada. UniPDS, 2026 a 2027.
 - Licenciatura en Sistemas de Información. UNIMONTES, 2021 a 2025. Tesis sobre modelos BERT para localización de bugs.
 - Técnico en Informática. IFNMG, 2017 a 2019.
 
 Research projects (heading **Proyectos de investigación**):
-- **Proyecto de investigación: mejora de la precisión en la recuperación de trazabilidad entre artefactos de software con inteligencia artificial generativa.** UNIMONTES, 2024 hasta hoy. Los modelos de lenguaje reformulan descripciones de bugs y funcionalidades para que los motores de búsqueda encuentren el código fuente relevante durante el mantenimiento de software.
-- **Iniciación científica (PIBIC/FAPEMIG): desarrollo de un sistema para la gestión de procesos de selección en la UNIMONTES.** 2021 a 2022. Requisitos levantados con los programas de posgrado, modelo de datos y arquitectura del nuevo sistema de admisiones. Artículo en el FEPEG 2022.
-- **Iniciación científica voluntaria (ICV): análisis de instalaciones residenciales con microgeneración solar.** 2020 a 2021. Monitoreo de la eficiencia fotovoltaica combinando los datos de consumo de un medidor trifásico conectado a un Arduino con la producción del inversor. Artículo en el FEPEG 2020.
+- **Proyecto de investigación: mejora de la precisión en la recuperación de trazabilidad entre artefactos de software con inteligencia artificial generativa.** UNIMONTES, 2024 a 2026.
+- **Iniciación científica (PIBIC/FAPEMIG): desarrollo de un sistema para la gestión de procesos de selección en la UNIMONTES.** 2021 a 2022.
+- **Iniciación científica voluntaria (ICV): análisis de instalaciones residenciales con microgeneración solar.** 2020 a 2021.
 
 ### Publications (titles translated; papers in Portuguese)
 - Análisis exploratorio de modelos basados en BERT para la localización de bugs de software (en portugués). ENMC 2025.
