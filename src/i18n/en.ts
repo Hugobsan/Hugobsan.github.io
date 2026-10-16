@@ -150,8 +150,6 @@ const en = {
       { t: 'B.Sc. Information Systems.', m: 'UNIMONTES, 2021 to 2025. Thesis on BERT models for bug localization.' },
       { t: 'IT Technician.', m: 'IFNMG, 2017 to 2019.' },
     ],
-    langH: 'Languages',
-    langs: 'Portuguese (native), English (professional), Spanish (elementary).',
     researchH: 'Research',
     research: 'LLM agents for software bug localization (UNIMONTES, 2024 to now). The hybrid approach I built reaches 0.40 MRR, 75% above the best embedding model.',
     pubH: 'Publications',
@@ -171,6 +169,13 @@ const en = {
   contact: {
     h: 'Have a team to lead or a system to fix?',
     sub: 'Remote roles, consulting and product builds.',
+    langH: 'Languages',
+    langs: [
+      { name: 'Portuguese', level: 'native' },
+      { name: 'English', level: 'intermediate' },
+      { name: 'Spanish', level: 'intermediate' },
+      { name: 'French', level: 'beginner' },
+    ],
     copy: 'Copy email',
     copied: 'Copied',
   },

@@ -8,6 +8,12 @@ const { t } = Astro.props;
   <div class="container contact__inner">
     <h2 class="contact__h" id="contact-h">{t.contact.h}</h2>
     <p class="contact__sub">{t.contact.sub}</p>
+    <div class="contact__langs">
+      <h3 class="label">{t.contact.langH}</h3>
+      <ul>
+        {t.contact.langs.map((l) => <li><span>{l.name}</span> <span class="contact__level">{l.level}</span></li>)}
+      </ul>
+    </div>
     <p class="contact__email" id="email">{EMAIL}</p>
     <div class="contact__actions">
       <button class="btn btn--primary magnet" type="button" id="copy" data-copied={t.contact.copied}>{t.contact.copy}</button>

@@ -367,9 +367,9 @@ a { color: inherit; }
 .edu__list li, .pubs li { display: grid; gap: 4px; }
 .edu__list strong { font-weight: 600; }
 .edu__list span { color: var(--text-dim); font-size: .9375rem; }
-.edu__langs { margin-top: 40px; }
-.edu__langs p { margin-top: 6px; color: var(--text-dim); }
-.edu__langs p + h3 { margin-top: 24px; }
+.edu__research { margin-top: 40px; }
+.edu__research p { margin-top: 6px; color: var(--text-dim); }
+.edu__research p::first-letter { text-transform: uppercase; }
 .pub__note { margin-top: 12px; color: var(--text-faint); font-size: .875rem; }
 .pubs { margin-top: 32px; display: grid; gap: 22px; }
 .pubs li > span:first-child { overflow-wrap: anywhere; }
@@ -396,6 +396,11 @@ a { color: inherit; }
   max-width: 17ch; text-wrap: balance;
 }
 .contact__sub { color: var(--text-dim); font-size: 1.125rem; }
+.contact__langs { margin-top: 8px; display: grid; justify-items: center; gap: 10px; }
+.contact__langs ul { display: grid; grid-template-columns: repeat(4, auto); gap: 8px 32px; }
+.contact__langs li { display: grid; gap: 2px; text-transform: capitalize; }
+.contact__level { font-family: var(--font-mono); font-size: .8125rem; color: var(--text-dim); text-transform: none; }
+@media (max-width: 479px) { .contact__langs ul { grid-template-columns: repeat(2, auto); } }
 .contact__email {
   margin-top: 16px;
   font-family: var(--font-display); font-weight: 500; font-stretch: 85%;

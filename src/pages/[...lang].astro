@@ -11,7 +11,7 @@ import Education from '../components/Education.astro';
 import Contact from '../components/Contact.astro';
 import { LOCALES, LANGS, type Lang } from '../i18n';
 import pt from '../i18n/pt';
-import { SITE, EMAIL, GREENN, LINKEDIN, GITHUB, KNOWS_ABOUT } from '../facts';
+import { SITE, EMAIL, GREENN, LINKEDIN, GITHUB, KNOWS_ABOUT, LANGUAGES } from '../facts';
 
 export function getStaticPaths() {
   return LANGS.map((lang) => ({ params: { lang: lang === 'en' ? undefined : lang }, props: { lang } }));
@@ -37,6 +37,7 @@ const ld = {
       url: `${SITE}/`,
       sameAs: [LINKEDIN, GITHUB],
       knowsAbout: KNOWS_ABOUT,
+      knowsLanguage: LOCALES.en.dict.contact.langs.map((l, i) => ({ '@type': 'Language', name: l.name, alternateName: LANGUAGES[i] })),
       // experience as dated roles (schema.org: Role around Occupation); years come from the English periods
       hasOccupation: t.experience.items.flatMap((j, i) => {
         const period = LOCALES.en.dict.experience.items[i]!.period;

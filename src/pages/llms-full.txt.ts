@@ -18,7 +18,7 @@ export function GET() {
 - LinkedIn: ${LINKEDIN}
 - GitHub: ${GITHUB}
 - Website: ${SITE}/ (also in Portuguese, Spanish and Chinese at /pt/, /es/ and /zh/)
-- Languages: ${en.edu.langs}
+- ${en.contact.langH}: ${en.contact.langs.map((l) => `${l.name} (${l.level})`).join(', ')}
 
 ${en.hero.h1} ${en.hero.sub}
 
@@ -85,8 +85,6 @@ ${Object.entries(en.side.featured).map(([id, p]) => `### ${p.name}\n\n${p.text}$
 ## ${en.edu.h}
 
 ${list(en.edu.items.map((e) => `${e.t} ${e.m}`))}
-
-${en.edu.langH}: ${en.edu.langs}
 
 ## ${en.edu.researchH}
 

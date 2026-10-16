@@ -1,4 +1,4 @@
-// docs/COPY.zh.md (reviewed). Regenerate from the deck rather than editing by hand.
+// docs/COPY.zh.md (reviewed), copied verbatim.
 import type { Dict } from './en';
 
 export default {
@@ -152,8 +152,6 @@ export default {
       { t: '信息系统学士。', m: 'UNIMONTES，2021 至 2025 年。毕业论文研究 BERT 模型在缺陷定位中的应用。' },
       { t: '计算机技术员（中职学历）。', m: 'IFNMG，2017 至 2019 年。' },
     ],
-    langH: '语言',
-    langs: '葡萄牙语（母语）、英语（工作语言）、西班牙语（初级）。',
     researchH: '研究',
     research: '用 LLM 智能体做软件缺陷定位（UNIMONTES，2024 年至今）。我提出的混合方案 MRR（平均倒数排名）达到 0.40，比最佳嵌入模型高出 75%。',
     pubH: '发表论文',
@@ -173,6 +171,13 @@ export default {
   contact: {
     h: '有团队要带，或有系统要修？',
     sub: '远程职位、技术咨询与产品开发。',
+    langH: '语言',
+    langs: [
+      { name: '葡萄牙语', level: '母语' },
+      { name: '英语', level: '中级' },
+      { name: '西班牙语', level: '中级' },
+      { name: '法语', level: '入门' },
+    ],
     copy: '复制邮箱',
     copied: '已复制',
   },

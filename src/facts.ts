@@ -30,6 +30,9 @@ export const LINKS: Record<string, { label: string; href: string }[]> = {
   ],
 };
 
+// BCP 47 codes, same order as contact.langs in the dictionaries
+export const LANGUAGES = ['pt-BR', 'en', 'es', 'fr'];
+
 export const KNOWS_ABOUT = [
   'Large language models', 'Retrieval-augmented generation', 'Agentic engineering', 'AI code review',
   'Software architecture', 'Message queues', 'Idempotency', 'Cloud cost optimization', 'Bug localization',
