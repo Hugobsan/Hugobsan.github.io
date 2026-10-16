@@ -111,7 +111,13 @@ export function init() {
     gsap.ticker.lagSmoothing(0);
   }
 
-  gsap.matchMedia().add({ desk: '(min-width: 900px) and (min-height: 640px)', wide: '(min-width: 768px)' }, (ctx) => setup(ctx, words));
+  // gsap only runs the setup while a condition matches: `motion` keeps phones in, and reverts
+  // everything if reduced motion is switched on mid-visit
+  gsap.matchMedia().add({
+    desk: '(min-width: 900px) and (min-height: 640px)',
+    wide: '(min-width: 768px)',
+    motion: '(prefers-reduced-motion: no-preference)',
+  }, (ctx) => setup(ctx, words));
   ScrollTrigger.sort();
   ScrollTrigger.refresh();
   document.fonts.ready.then(() => ScrollTrigger.refresh());
