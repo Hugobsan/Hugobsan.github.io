@@ -144,7 +144,7 @@ const redirect = `(function(){var s=${others},l;try{l=localStorage.getItem("lang
     navigator.clipboard ? navigator.clipboard.writeText(email.textContent!.trim()).then(done, select) : select();
   });
 
-  // motion and the 3D signal load after the page is idle, never on the critical path;
+  // the 3D signal loads after the page is idle and motion on first use, never on the critical path;
   // reduced motion keeps the static backdrop, and so does a device without hardware WebGL2
   if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
     // WebGL2 renderer name, '' when unavailable. Probed in a worker first because creating a context on a
@@ -166,7 +166,15 @@ const redirect = `(function(){var s=${others},l;try{l=localStorage.getItem("lang
     const hardware = (name: string | null) => !!name && !/swiftshader|llvmpipe|software/i.test(name);
 
     const start = async () => {
-      import('../scripts/motion').then((m) => m.init());
+      // everything motion drives is scroll-driven, so set it up at the first sign of use
+      // (or right away when the page opens scrolled or on an anchor): phones never pay for it up front
+      const motion = () => {
+        events.forEach((e) => removeEventListener(e, motion));
+        import('../scripts/motion').then((m) => m.init());
+      };
+      const events = ['scroll', 'wheel', 'touchstart', 'pointermove', 'keydown'];
+      if (scrollY > 0 || location.hash) motion();
+      else events.forEach((e) => addEventListener(e, motion, { passive: true }));
       // only a renderer the worker positively saw as software skips the main thread; '' or null
       // just means the worker can't tell (Safari < 17 has no WebGL in workers)
       const name = await probe();
