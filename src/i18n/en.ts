@@ -1,0 +1,168 @@
+// Master copy (docs/COPY.md). Every other locale must satisfy this shape.
+const en = {
+  meta: {
+    title: 'Hugo Barbosa · Tech Lead, AI and Software Engineering',
+    description: 'Tech Lead at Greenn. I build AI products that hold up in production: LLM pipelines, RAG, resilient queues and agentic engineering. Open to remote roles and consulting.',
+  },
+  skip: 'Skip to content',
+  nav: { label: 'Primary', work: 'Work', path: 'Path', research: 'Research', contact: 'Contact', lang: 'Language' },
+  hero: {
+    h1: 'I build AI products that hold up in production.',
+    sub: 'Tech Lead at Greenn. LLM pipelines, resilient queues and agentic engineering, from the first prompt to the GPU worker.',
+    primary: 'Work with me',
+    secondary: 'See the work',
+  },
+  offers: {
+    h: 'Three ways to work together',
+    items: [
+      { t: 'Join your team.', d: 'Remote Tech Lead or Senior Engineer. I set standards, review every change and keep delivery predictable.' },
+      { t: 'Consulting.', d: 'AI integration, architecture reviews and cloud cost audits. Clear findings your team can act on in the next sprint.' },
+      { t: 'Build it for you.', d: 'Software delivered as a service, from scoping to production, with tests, documentation and a clean handover.' },
+    ],
+    proof: [
+      { n: '6', l: 'developers on the teams I lead' },
+      { n: 'R$20k+', l: 'saved per month on video storage' },
+      { n: 'Up to 50%', l: 'infrastructure savings mapped in cost reviews' },
+      { n: 'Thousands', l: 'of users on the products I lead' },
+    ],
+  },
+  work: {
+    h: 'Selected work',
+    stack: 'Stack',
+    bluee: {
+      name: 'Bluee',
+      lede: 'An AI platform that turned a topic into a complete online course, with lessons, narration and an avatar presenter.',
+      role: 'Role: Back-end engineer, then Tech Lead. 2025 to 2026.',
+      bullets: [
+        'LLM layer on OpenRouter with streaming, fallbacks and long-document summarization.',
+        'Agentic chat with parallel tool calls and resumable streams.',
+        'RAG over user documents: sandboxed extraction, batched embeddings, pgvector search.',
+        'Avatar video pipeline: ComfyUI lip-sync and image-to-video, ElevenLabs voice cloning, Remotion rendering.',
+        'RabbitMQ jobs with backoff retries, idempotency checks and delayed queues.',
+        'GPU workers on RunPod packed from 3 to 8 tasks per pod.',
+      ],
+    },
+    club: {
+      name: 'Greenn Club',
+      lede: 'The members area where course creators host and deliver their courses to thousands of students.',
+      role: 'Role: Tech Lead. 2026.',
+      bullets: [
+        'Verifiable certificates signed with ECDSA, a public key set and QR validation anyone can check.',
+        'Fair dispatch: per-tenant scheduling so one large creator never starves the queue for everyone else.',
+        'Subtitle pipeline moved from polling to webhooks, hardened against concurrent deliveries.',
+        'Video storage optimization saving more than R$20k per month.',
+        'Legacy webhooks moved into the domain layer behind characterization tests.',
+      ],
+    },
+    prp: {
+      name: 'PR Review Panel',
+      note: 'Internal tool, no public link',
+      lede: 'My own tool for reviewing pull requests in depth: six phases run by Claude Code agents, in parallel, on every PR. Built for a review load of 260+ pull requests in 2026.',
+      role: 'Role: Creator. 2026.',
+      bullets: [
+        'Quality, code, coupling, over-engineering, tests and team standards, each phase returning findings in a strict JSON schema.',
+        'An adversarial agent tries to refute every blocking finding before it reaches the author.',
+        'Triage by Jev, a decision model on OpenRouter, calibrated against labeled findings.',
+        'Agents navigate the code through a Graphify knowledge graph before falling back to text search.',
+        'Guardrails: closed tool lists, read-only agents, no MCP access, isolated git worktrees.',
+        'Every design choice is measured. One variant was dropped for costing 132% more.',
+      ],
+    },
+    research: {
+      name: 'Bug localization research',
+      role: 'UNIMONTES, 2024 to now',
+      lede: 'Given a bug report, which method in the code is broken? I measure each approach by Mean Reciprocal Rank on ArgoUML 0.22.',
+      bars: [
+        'BERT bi-encoders, best result',
+        'Doc2Vec baseline',
+        'Proprietary code embeddings (voyage-4-large)',
+        'LLM agent with search tools',
+        'Hybrid, agent plus semantic ranking',
+      ],
+      caption: 'The hybrid approach scores 75% above the best embedding model and doubles the classic baseline.',
+    },
+  },
+  path: {
+    h: 'How I got here',
+    items: [
+      { year: '2017', text: 'IT technician course at IFNMG.' },
+      { year: '2019', text: 'First website shipped, for a solar energy company, plus field work on photovoltaic installs.' },
+      { year: '2020', text: 'First system in production: an offline point of sale for a butcher shop that reads a commercial scale and prints receipts.' },
+      { year: '2021', text: 'Information Systems at UNIMONTES and my first research grant.' },
+      { year: '2022', text: "Rebuilt the university's extension management system. Mentored an intern and taught a Laravel workshop." },
+      { year: '2024', text: 'Full-stack engineer at Betabit. Led an AI chat module with Gemini, RAG and WhatsApp agents.' },
+      { year: '2025', text: 'Joined Greenn as a back-end engineer on Bluee.' },
+      { year: '2026', text: 'Tech Lead at Greenn. Postgraduate studies in Software Engineering for Applied AI.' },
+    ],
+  },
+  how: {
+    h: 'How I work',
+    principles: [
+      { t: 'Guardrails before autonomy.', d: 'AI agents get closed tool lists, strict output schemas and a reviewer that argues back.' },
+      { t: 'Every job can run twice.', d: 'Idempotency and backoff retries are the default, not the fix after an incident.' },
+      { t: 'Fair queues.', d: 'No customer waits because another one is bigger.' },
+      { t: 'Decisions in writing.', d: 'ADRs and shared standards, so people and agents reach the same answer.' },
+      { t: 'Small, reviewable changes.', d: 'Tidy first, then change. Stacked PRs over giant ones.' },
+      { t: 'Cost is a feature.', d: 'I read the cloud bill the way I read a profiler.' },
+    ],
+    toolH: 'Toolbox',
+    tool: 'Claude Code, Codex and Cursor every day, with prompt engineering, harnesses and guardrails. Jev, Graphify and Ponytail for defensive automated review.',
+    learnH: 'Learning',
+    learn: 'TechLead de Impacto mentorship with Alexandro Hervis. Postgraduate in Software Engineering for Applied AI at UniPDS, with professors such as Erick Wendel. Reading: Clean Code, The Clean Coder, The Pragmatic Programmer, Tidy First?, Software Architecture: The Hard Parts.',
+  },
+  side: {
+    h: 'Side projects',
+    featured: {
+      anthrya: { name: 'anthrya', text: 'Health app built AI-first: Bluetooth body scale, diet, glucose, workouts and body measurements, all reachable by AI through an MCP server. Raw readings stay separate from estimates, so history can be recalculated. 100+ ADRs. Expo, Supabase, Hono. In development, private.' },
+      rpg: { name: 'Chronicle RPG', text: 'Solo tabletop RPG with an AI game master and five specialized agents, each on the model that fits its cost. Character sheets change only through tools, never through narration. Next.js, pgvector, OpenRouter.' },
+      km: { name: 'KM Topografia', text: 'HR document and fleet management for a land surveying company, in production. Expiry alerts by email and WhatsApp, S3 with a local cache, audited roles. I designed the architecture and the infrastructure. Laravel 12, PostgreSQL, Docker. Private.' },
+      ts: { name: 'Timesheet Transcriber AI', text: 'Free, open-source timesheet transcription with Gemini. Bring your own key, crop pages, export to CSV or XLSX. Open version of my former SaaS, Scanlex.' },
+    },
+    moreH: 'More',
+    more: {
+      bert: { name: 'BERT sentiment', text: 'Fine-tuned BERTimbau on 21,600 Play Store reviews from 9 delivery apps. 0.89 accuracy and macro F1.' },
+      librovault: { name: 'LibroVault', text: 'Semantic search over your own PDFs: a Laravel queue pipeline plus a Python embeddings microservice.' },
+      mia: { name: 'Mia (2025)', text: 'WhatsApp receptionist for health clinics: leads, scheduling and reminders. Ran in production at two clinics. N8N, Gemini, Evolution API.' },
+      scanlex: { name: 'Scanlex (2025)', text: 'SaaS that digitized timesheets and payslips for payroll specialists, with paying subscribers. Laravel, Vue, Gemini.' },
+      mcp: { name: 'MCP Servers Hub (2025)', text: 'Index of MCP servers for developers adding AI to legacy systems. I built the back end, tests and deploy.' },
+      roadmap: { name: 'Full-stack roadmap', text: 'A 4-month study plan for junior developers, with a guided technical test.' },
+    },
+  },
+  edu: {
+    h: 'Education',
+    items: [
+      { t: 'Postgraduate specialization in Software Engineering for Applied AI (360 hours).', m: 'UniPDS, 2026 to 2027.' },
+      { t: 'B.Sc. Information Systems.', m: 'UNIMONTES, 2021 to 2025. Thesis on BERT models for bug localization.' },
+      { t: 'IT Technician.', m: 'IFNMG, 2017 to 2019.' },
+    ],
+    langH: 'Languages',
+    langs: 'Portuguese (native), English (professional), Spanish (elementary).',
+    pubH: 'Publications',
+    pubNote: 'Titles translated; papers in Portuguese.',
+    pubMore: 'All 8 publications',
+    pubs: [
+      { t: 'Exploratory analysis of BERT-based models for software bug localization.', v: 'ENMC 2025' },
+      { t: 'Comparative analysis of proprietary embedding models for bug localization.', v: 'Manuscript, 2025' },
+      { t: 'Performance of pre-trained embedding models for bug localization on ArgoUML.', v: 'CIEI 2025' },
+      { t: 'SBERT for software bug localization.', v: 'CIEI 2024' },
+      { t: 'Micro-certification module for a university extension management system.', v: 'CIEI 2024' },
+      { t: 'Impact of the Internet of Things on quality of life at home.', v: 'CBICT 2022, honorable mention' },
+      { t: 'A web application for graduate admissions.', v: 'FEPEG 2022' },
+      { t: 'Performance of a photovoltaic plant from automatically collected data.', v: 'FEPEG 2020' },
+    ],
+  },
+  contact: {
+    h: 'Have a team to lead or a system to fix?',
+    sub: 'Remote roles, consulting and product builds.',
+    copy: 'Copy email',
+    copied: 'Copied',
+  },
+  footer: '© 2026 Hugo Barbosa. Built with Astro and Three.js.',
+  notFound: {
+    title: 'Page not found',
+    home: 'Back to home',
+  },
+};
+
+export default en;
+export type Dict = typeof en;

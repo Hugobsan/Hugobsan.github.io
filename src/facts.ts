@@ -1,0 +1,34 @@
+// Fixed facts: written once, shared by every locale, the JSON-LD and llms*.txt.
+export const SITE = 'https://hugobsan.com.br';
+export const EMAIL = 'contato@hugobsan.com.br';
+export const LINKEDIN = 'https://www.linkedin.com/in/hugobsan/';
+export const GITHUB = 'https://github.com/Hugobsan';
+export const GREENN = 'https://greenn.com.br';
+export const CLUB = 'https://greenn.com.br/club/';
+
+// Mean Reciprocal Rank on ArgoUML 0.22, same order as the chart labels in the dictionaries
+export const MRR = [0.0705, 0.1975, 0.2314, 0.3782, 0.4048];
+
+export const STACKS = {
+  bluee: ['Laravel 12', 'PHP 8.4', 'Python', 'React', 'RabbitMQ', 'Redis', 'PostgreSQL', 'pgvector', 'OpenRouter', 'ComfyUI', 'ElevenLabs', 'Remotion', 'AWS'],
+  club: ['Laravel 11', 'Vue 3', 'Redis', 'RabbitMQ', 'MySQL', 'S3', 'PandaVideo'],
+  prp: ['Next.js', 'TypeScript', 'SQLite FTS5', 'Claude Code', 'OpenRouter', 'Graphify', 'GitHub CLI'],
+};
+
+// side project links, keyed like the side.featured / side.more entries in the dictionaries
+export const LINKS: Record<string, { label: string; href: string }[]> = {
+  rpg: [{ label: 'GitHub', href: 'https://github.com/Hugobsan/rpg' }],
+  ts: [
+    { label: 'timesheet-transcriber-ai.vercel.app', href: 'https://timesheet-transcriber-ai.vercel.app' },
+    { label: 'GitHub', href: 'https://github.com/Hugobsan/Timesheet-Transcriber-Ai' },
+  ],
+  bert: [{ label: 'Gist', href: 'https://gist.github.com/Hugobsan/b507b76c7b5fc470d77b3a924211430d' }],
+  librovault: [{ label: 'GitHub', href: 'https://github.com/Hugobsan/LibroVault' }],
+  roadmap: [{ label: 'hugobsan.com.br/roadmap-full-stack', href: 'https://hugobsan.com.br/roadmap-full-stack/' }],
+};
+
+export const KNOWS_ABOUT = [
+  'Large language models', 'Retrieval-augmented generation', 'Agentic engineering', 'AI code review',
+  'Software architecture', 'Message queues', 'Idempotency', 'Cloud cost optimization', 'Bug localization',
+  'Laravel', 'PHP', 'Python', 'TypeScript', 'React', 'Vue', 'RabbitMQ', 'Redis', 'PostgreSQL', 'pgvector', 'AWS',
+];
