@@ -15,8 +15,8 @@ const font = (pkg, file) => 'file://' + resolve('node_modules/@fontsource-variab
 const avatar = JSON.parse(readFileSync('src/scripts/avatar.json', 'utf8'));
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 
-// the pixel avatar as one box-shadow per art pixel
-const px = 9;
+// the pixel avatar as one box-shadow per art pixel, about 440px tall, right-aligned and centred vertically
+const px = Math.floor(440 / avatar.h);
 const shadows = [...avatar.data].flatMap((ch, i) => ch === '.' ? [] :
   [`${(i % avatar.w) * px}px ${Math.floor(i / avatar.w) * px}px #${avatar.palette[parseInt(ch, 36)]}`]).join(',');
 
@@ -33,8 +33,7 @@ h1{font:650 76px/.98 B,"Noto Sans CJK SC",sans-serif;font-stretch:76%;letter-spa
 :lang(zh) h1{font-size:64px;line-height:1.2;letter-spacing:0;word-break:keep-all}
 p{margin-top:24px;font-size:24px;line-height:1.45;color:#A3ACB9}
 .url{font:500 22px/1 M,monospace;color:#F2A93B}
-.av{position:absolute;right:${116 + px}px;top:${108}px;width:${px}px;height:${px}px;box-shadow:${shadows}}
-.av{transform:translateX(-${(avatar.w - 1) * px}px)}
+.av{position:absolute;left:${1200 - 96 - avatar.w * px}px;top:${Math.round((630 - avatar.h * px) / 2)}px;width:${px}px;height:${px}px;box-shadow:${shadows}}
 </style><body><div class="card"><div class="mark">Hugo Barbosa</div><div><h1>${esc(t.hero.h1)}</h1><p>${esc(t.hero.sub).replace(/(UTC-\d+)/, '<span style="white-space:nowrap">$1</span>')}</p></div>
 <div class="url">hugobsan.com.br</div></div><div class="av"></div></body></html>`;
 

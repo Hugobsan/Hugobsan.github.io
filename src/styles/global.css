@@ -409,6 +409,7 @@ a { color: inherit; }
   user-select: all; -webkit-user-select: all; overflow-wrap: anywhere;
 }
 .contact__actions { margin-top: 12px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+@media (max-width: 767px) { .contact { padding-bottom: 48px; } .contact__inner { gap: 12px; } }
 
 /* ---------- footer ---------- */
 .footer { padding-block: 28px calc(28px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line); color: var(--text-faint); font-size: .875rem; }

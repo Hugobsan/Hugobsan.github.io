@@ -118,12 +118,18 @@ for r in range(gh):
         if ch != ".":
             art.putpixel((c, r), tuple(int(palette[chars.index(ch)][k:k + 2], 16) for k in (0, 2, 4)) + (255,))
 
-# icons: the head (top square of the grid), scaled by whole numbers only
+# icons: the head (top square of the grid), nearest-neighbor at whole-number scales only
 head = art.crop((0, 0, gw, gw))
-head.resize((gw * 2, gw * 2), Image.NEAREST).save("public/favicon.ico", sizes=[(gw, gw), (gw * 2, gw * 2)], append_images=[head])
-tile = Image.new("RGBA", (gw + 4, gw + 4), (242, 169, 59, 255))  # --accent
-tile.alpha_composite(head, (2, 2))
-tile.convert("RGB").resize((180, 180), Image.NEAREST).save("public/apple-touch-icon.png", optimize=True)
+# favicon: a 32x32 window centred on the head at 1:1 (downscaling would drop art pixels), plus 2x
+o = max(0, (gw - 32) // 2)
+fav = head.crop((o, o, o + 32, o + 32)) if gw > 32 else head
+fav.resize((fav.width * 2, fav.height * 2), Image.NEAREST).save(
+    "public/favicon.ico", sizes=[fav.size, (fav.width * 2, fav.height * 2)], append_images=[fav])
+# apple-touch-icon: the whole head on an accent tile, scaled by the largest whole factor that fits 180px
+k = 180 // (gw + 2)
+tile = Image.new("RGBA", (180 // k, 180 // k), (242, 169, 59, 255))  # --accent
+tile.alpha_composite(head, ((tile.width - gw) // 2, (tile.height - gw) // 2))
+tile.convert("RGB").resize((tile.width * k, tile.height * k), Image.NEAREST).save("public/apple-touch-icon.png", optimize=True)
 
 sys.stderr.write(f"grid col p={pc} ph={phc} row p={pr} ph={phr} -> {gw}x{gh}, {len(palette)} colors, {sum(ch != '.' for ch in data)} cells\n")
 with open("src/scripts/avatar.json", "w") as f:

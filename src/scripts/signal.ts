@@ -142,7 +142,7 @@ function buildFormations(N: number) {
   const cols = Math.ceil(Math.sqrt(per)), rows = Math.ceil(per / cols);
   let j = 0;
   for (const [c, r, p] of cells) {
-    for (let q = 0; q < per; q++, j++) {
+    for (let q = 0; q < per && j < N; q++, j++) { // j < N: a grid bigger than the budget can't overrun the buffers
       const gy = Math.floor(q / cols), inRow = gy === rows - 1 ? per - cols * (rows - 1) : cols, gx = q - gy * cols, i = pm[j];
       put(5, i,
         (c - (AVATAR.w - 1) / 2) * cell + ((gx + 0.5) / inRow - 0.5) * cell * 0.9,
@@ -385,8 +385,9 @@ export function init(canvas: HTMLCanvasElement, gl: WebGL2RenderingContext) {
   function avatarSlot(L: Layout, unit: number, pxPerUnit: number) {
     const sr = contact.getBoundingClientRect(), ir = contactInner.getBoundingClientRect();
     const top = Math.max(sr.top, 80), bottom = ir.top - 24;
-    const hpx = Math.min(vh * 0.5, Math.max(150, (bottom - top) * 0.9));
-    const cy = bottom - top >= 150 ? (top + bottom) / 2 : bottom - hpx / 2;
+    // fit the band when it is tall enough, never smaller than 96px (then it rises behind the nav)
+    const hpx = Math.min(vh * 0.5, Math.max(96, (bottom - top) * 0.9));
+    const cy = bottom - top >= hpx ? (top + bottom) / 2 : bottom - hpx / 2;
     L.y[5] = 1 - (2 * cy) / vh;
     L.s[5] = hpx / pxPerUnit / AVATAR_H / unit;
   }
