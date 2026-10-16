@@ -22,7 +22,7 @@ Um único sistema de partículas 3D atravessa a página inteira e muda de forma 
 | Bluee | Clusters de embeddings + um ponto de consulta que acende os top-k | RAG, LLMs |
 | Greenn Club | Quatro faixas de jobs convergindo num funil, intercaladas em round-robin | Filas justas, confiabilidade |
 | Painel de review | Grafo de 6 fases com um nó adversário | Engenharia agêntica com guardrails |
-| Pesquisa | Barras 3D **em escala real** do MRR: 0.0387 → 0.1975 → 0.2314 → 0.3782 → 0.4048 | Rigor e medição |
+| Pesquisa | Barras 3D **em escala real** do MRR: 0.0705 → 0.1975 → 0.2314 → 0.3782 → 0.4048 | Rigor e medição |
 | Trajetória | Um caminho em fita com marcos de 2017 a 2026 | História |
 | Contato | As partículas montam o avatar em pixel art do Hugo (cores do `profile.png`) | Assinatura pessoal |
 

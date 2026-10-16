@@ -117,7 +117,7 @@ More (compact list):
 - **Full-stack roadmap.** A 4-month study plan for junior developers, with a guided technical test. (https://hugobsan.com.br/roadmap-full-stack/)
 
 ### Education
-- Postgraduate, Software Engineering for Applied AI. UniPDS, 2026 to 2027.
+- Postgraduate specialization in Software Engineering for Applied AI (360 hours). UniPDS, 2026 to 2027.
 - B.Sc. Information Systems. UNIMONTES, 2021 to 2025. Thesis on BERT models for bug localization.
 - IT Technician. IFNMG, 2017 to 2019.
 
@@ -247,7 +247,7 @@ Mais (lista compacta):
 - **Roadmap full-stack.** Plano de estudos de 4 meses para devs júnior, com um teste técnico guiado.
 
 ### Formação
-- Pós-graduação em Engenharia de Software em IA Aplicada. UniPDS, 2026 a 2027.
+- Especialização em Engenharia de Software em IA Aplicada (360 horas). UniPDS, 2026 a 2027.
 - Bacharelado em Sistemas de Informação. UNIMONTES, 2021 a 2025. TCC sobre modelos BERT para localização de bugs.
 - Técnico em Informática. IFNMG, 2017 a 2019.
 
