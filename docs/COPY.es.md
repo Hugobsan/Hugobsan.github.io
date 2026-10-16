@@ -131,8 +131,6 @@ Featured (bento, exactly 4 cells, first one large):
 - Licenciatura en Sistemas de Información. UNIMONTES, 2021 a 2025. Tesis sobre modelos BERT para localización de bugs.
 - Técnico en Informática. IFNMG, 2017 a 2019.
 
-Idiomas: portugués (nativo), inglés (profesional), español (básico).
-
 Investigación: agentes LLM para la localización de bugs de software (UNIMONTES, 2024 hasta hoy). El enfoque híbrido que desarrollé alcanza un MRR de 0,40, un 75% por encima del mejor modelo de embeddings.
 
 ### Publications (titles translated; papers in Portuguese)
@@ -148,6 +146,7 @@ Investigación: agentes LLM para la localización de bugs de software (UNIMONTES
 ### Contact
 - Heading: **¿Tienes un equipo que liderar o un sistema que arreglar?**
 - Sub: Puestos remotos, consultoría y desarrollo de productos.
+- Languages (heading **Idiomas**): portugués (nativo), inglés (intermedio), español (intermedio), francés (principiante).
 - Email: contato@hugobsan.com.br (button: **Copiar correo**, after click: **Copiado**)
 - Links: LinkedIn (https://www.linkedin.com/in/hugobsan/), GitHub (https://github.com/Hugobsan)
 - Footer: © 2026 Hugo Barbosa. Hecho con Astro y Three.js.

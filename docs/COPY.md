@@ -122,8 +122,6 @@ Featured (bento, exactly 4 cells, first one large; products with real users firs
 - B.Sc. Information Systems. UNIMONTES, 2021 to 2025. Thesis on BERT models for bug localization.
 - IT Technician. IFNMG, 2017 to 2019.
 
-Languages: Portuguese (native), English (professional), Spanish (elementary).
-
 Research: LLM agents for software bug localization (UNIMONTES, 2024 to now). The hybrid approach I built reaches 0.40 MRR, 75% above the best embedding model.
 
 ### Publications (titles translated; papers in Portuguese)
@@ -139,6 +137,7 @@ Research: LLM agents for software bug localization (UNIMONTES, 2024 to now). The
 ### Contact
 - Heading: **Have a team to lead or a system to fix?**
 - Sub: Remote roles, consulting and product builds.
+- Languages (heading **Languages**, shown in the contact section): Portuguese (native), English (intermediate), Spanish (intermediate), French (beginner).
 - Email: contato@hugobsan.com.br (button: **Copy email**, after click: **Copied**)
 - Links: LinkedIn (https://www.linkedin.com/in/hugobsan/), GitHub (https://github.com/Hugobsan)
 - Footer: © 2026 Hugo Barbosa. Built with Astro and Three.js.
@@ -260,8 +259,6 @@ Destaques (bento, exatamente 4 células, a primeira grande):
 - Bacharelado em Sistemas de Informação. UNIMONTES, 2021 a 2025. TCC sobre modelos BERT para localização de bugs.
 - Técnico em Informática. IFNMG, 2017 a 2019.
 
-Idiomas: português (nativo), inglês (profissional), espanhol (básico).
-
 Pesquisa: agentes LLM para localização de bugs de software (UNIMONTES, 2024 até hoje). A abordagem híbrida que desenvolvi chega a 0,40 de MRR, 75% acima do melhor modelo de embeddings.
 
 ### Publicações (títulos originais)
@@ -277,6 +274,7 @@ Pesquisa: agentes LLM para localização de bugs de software (UNIMONTES, 2024 at
 ### Contato
 - Título: **Tem um time para liderar ou um sistema para consertar?**
 - Sub: Vagas remotas, consultoria e construção de produtos.
+- Idiomas (título **Idiomas**, na seção de contato): português (nativo), inglês (intermediário), espanhol (intermediário), francês (iniciante).
 - E-mail: contato@hugobsan.com.br (botão: **Copiar e-mail**, depois do clique: **Copiado**)
 - Links: LinkedIn, GitHub
 - Rodapé: © 2026 Hugo Barbosa. Feito com Astro e Three.js.

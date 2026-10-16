@@ -144,8 +144,6 @@ Featured (bento, exactly 4 cells, first one large):
 - 信息系统学士。UNIMONTES，2021 至 2025 年。毕业论文研究 BERT 模型在缺陷定位中的应用。
 - 计算机技术员（中职学历）。IFNMG，2017 至 2019 年。
 
-语言：葡萄牙语（母语）、英语（工作语言）、西班牙语（初级）。
-
 研究：用 LLM 智能体做软件缺陷定位（UNIMONTES，2024 年至今）。我提出的混合方案 MRR（平均倒数排名）达到 0.40，比最佳嵌入模型高出 75%。
 
 ### Publications (titles translated; papers in Portuguese)
@@ -161,6 +159,7 @@ Featured (bento, exactly 4 cells, first one large):
 ### Contact
 - Heading: **有团队要带，或有系统要修？**
 - Sub: 远程职位、技术咨询与产品开发。
+- Languages (heading **语言**): 葡萄牙语（母语）、英语（中级）、西班牙语（中级）、法语（入门）。
 - Email: contato@hugobsan.com.br (button: **复制邮箱**, after click: **已复制**)
 - Links: LinkedIn（https://www.linkedin.com/in/hugobsan/），GitHub（https://github.com/Hugobsan）
 - Footer: © 2026 Hugo Barbosa。使用 Astro 与 Three.js 构建。
