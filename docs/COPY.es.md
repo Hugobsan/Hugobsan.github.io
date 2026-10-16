@@ -99,11 +99,12 @@ Heading: **Cómo llegué hasta aquí**
 ### How I work
 Heading: **Cómo trabajo**
 1. **Guardrails antes que autonomía.** Los agentes de IA reciben listas cerradas de herramientas, esquemas de salida estrictos y un revisor que les lleva la contraria.
-2. **Cualquier job puede ejecutarse dos veces sin riesgo.** La idempotencia y los reintentos con backoff son la norma, no el parche después de un incidente.
-3. **Colas justas.** Ningún cliente espera porque otro sea más grande.
-4. **Decisiones por escrito.** ADR y estándares compartidos, para que personas y agentes lleguen a la misma respuesta.
-5. **Cambios pequeños y revisables.** Primero ordenar, luego cambiar. PR apilados en lugar de PR gigantes.
-6. **El costo es una funcionalidad.** Leo la factura de la nube como leo un profiler.
+2. **Hecho para producción, con costos que escalan bien.** Arquitectura que aguanta carga real sin que la factura de la nube crezca más rápido que la base de usuarios.
+3. **Trade-offs a la vista.** Cada decisión técnica llega con las opciones que descarté, lo que cuesta cada una y lo que puede salir mal, registrada en un ADR.
+4. **Primero, la incertidumbre.** Spikes, prototipos y números reales antes de comprometerse, para que una estimación deje de ser una apuesta.
+5. **Seguridad y calidad desde el primer commit.** El análisis de amenazas, las pruebas y el code review forman parte de la definición de terminado.
+6. **La solución más simple que funcione.** La navaja de Ockham aplicada al software: menos piezas móviles fallan menos y cuestan menos a escala.
+7. **Un equipo que aprende siempre.** Reviso para enseñar, dejo las decisiones por escrito y programo en pareja, para que el equipo decida bien aunque yo no esté en la sala.
 
 Herramientas: Claude Code, Codex y Cursor a diario, con ingeniería de prompts, harnesses y guardrails. Jev, Graphify y Ponytail para revisión automatizada defensiva.
 

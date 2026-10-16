@@ -90,11 +90,12 @@ Heading: **How I got here**
 ### How I work
 Heading: **How I work**
 1. **Guardrails before autonomy.** AI agents get closed tool lists, strict output schemas and a reviewer that argues back.
-2. **Every job can run twice.** Idempotency and backoff retries are the default, not the fix after an incident.
-3. **Fair queues.** No customer waits because another one is bigger.
-4. **Decisions in writing.** ADRs and shared standards, so people and agents reach the same answer.
-5. **Small, reviewable changes.** Tidy first, then change. Stacked PRs over giant ones.
-6. **Cost is a feature.** I read the cloud bill the way I read a profiler.
+2. **Built for production, priced for scale.** Architecture that holds real load without the cloud bill growing faster than the user base.
+3. **Trade-offs in the open.** Every technical decision comes with the options I rejected, what each one costs and what could go wrong, written down as an ADR.
+4. **Uncertainty first.** Spikes, prototypes and real numbers come before commitments, so estimates stop being guesses.
+5. **Security and quality from the first commit.** Threat checks, tests and code review are part of done.
+6. **The simplest solution that works.** Occam's razor for software: fewer moving parts break less and cost less at scale.
+7. **A team that keeps learning.** I review to teach, write decisions down and pair with people, so the team decides well when I am not in the room.
 
 Toolbox: Claude Code, Codex and Cursor every day, with prompt engineering, harnesses and guardrails. Jev, Graphify and Ponytail for defensive automated review.
 
@@ -220,11 +221,12 @@ Título: **Como cheguei aqui**
 ### Como eu trabalho
 Título: **Como eu trabalho**
 1. **Guardrails antes de autonomia.** Agentes de IA recebem lista fechada de ferramentas, schemas de saída estritos e um revisor que discorda.
-2. **Todo job pode rodar duas vezes.** Idempotência e retry com backoff são o padrão, não a correção depois do incidente.
-3. **Filas justas.** Nenhum cliente espera porque outro é maior.
-4. **Decisões por escrito.** ADRs e padrões compartilhados, para que pessoas e agentes cheguem à mesma resposta.
-5. **Mudanças pequenas e revisáveis.** Primeiro arrumar, depois mudar. PRs empilhados em vez de PRs gigantes.
-6. **Custo é funcionalidade.** Leio a conta da nuvem como leio um profiler.
+2. **Feito para produção, com custo que escala bem.** Arquitetura que aguenta carga real sem a conta da nuvem crescer mais rápido que a base de usuários.
+3. **Trade-offs às claras.** Toda decisão técnica vem com as opções que descartei, o custo de cada uma e o que pode dar errado, registrada num ADR.
+4. **Incerteza primeiro.** Spikes, protótipos e números reais vêm antes dos compromissos, para que estimativa deixe de ser chute.
+5. **Segurança e qualidade desde o primeiro commit.** Análise de ameaças, testes e code review fazem parte do pronto.
+6. **A solução mais simples que funciona.** A navalha de Ockham aplicada a software: menos peças móveis quebram menos e custam menos em escala.
+7. **Um time que aprende sempre.** Reviso para ensinar, registro decisões e pareio com as pessoas, para que o time decida bem mesmo quando eu não estou na sala.
 
 Ferramentas: Claude Code, Codex e Cursor no dia a dia, com engenharia de prompt, harness e guardrails. Jev, Graphify e Ponytail para code review defensivo automatizado.
 
