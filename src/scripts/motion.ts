@@ -96,7 +96,8 @@ function setup(ctx: gsap.Context, words: boolean) {
   return () => xp.classList.remove('is-pan');
 }
 
-export function init() {
+/** onAnchor: the page opened on #id; the pins added above it would push it down, so re-align once set up */
+export function init(onAnchor = false) {
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.config({ ignoreMobileResize: true });
   const words = splitWords();
@@ -121,6 +122,11 @@ export function init() {
   ScrollTrigger.sort();
   ScrollTrigger.refresh();
   document.fonts.ready.then(() => ScrollTrigger.refresh());
+  const anchor = onAnchor && document.getElementById(location.hash.slice(1));
+  if (anchor) {
+    if (lenis) lenis.scrollTo(anchor, { offset: -80, immediate: true });
+    else anchor.scrollIntoView({ behavior: 'instant' });
+  }
 
   // in-page anchors go through Lenis when it is active; focus follows for keyboard users
   document.addEventListener('click', (e) => {

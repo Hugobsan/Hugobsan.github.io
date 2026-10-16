@@ -169,13 +169,14 @@ const redirect = `(function(){var s=${others},l;try{l=localStorage.getItem("lang
     const start = async () => {
       // everything motion drives is scroll-driven, so set it up at the first sign of use
       // (or right away when the page opens scrolled or on an anchor): phones never pay for it up front
-      const motion = () => {
-        events.forEach((e) => removeEventListener(e, motion));
-        import('../scripts/motion').then((m) => m.init());
+      const setup = (onAnchor: boolean) => import('../scripts/motion').then((m) => m.init(onAnchor));
+      const firstUse = () => {
+        events.forEach((e) => removeEventListener(e, firstUse));
+        setup(false);
       };
       const events = ['scroll', 'wheel', 'touchstart', 'pointermove', 'keydown'];
-      if (scrollY > 0 || location.hash) motion();
-      else events.forEach((e) => addEventListener(e, motion, { passive: true }));
+      if (scrollY > 0 || location.hash) setup(!!location.hash);
+      else events.forEach((e) => addEventListener(e, firstUse, { passive: true }));
       // only a renderer the worker positively saw as software skips the main thread; '' or null
       // just means the worker can't tell (Safari < 17 has no WebGL in workers)
       const name = await probe();
