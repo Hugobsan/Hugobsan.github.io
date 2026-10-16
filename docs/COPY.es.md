@@ -46,7 +46,7 @@ Heading: **Proyectos destacados**
 **Bluee** (discontinued product, no link)
 - Una plataforma de IA que convertía un tema en un curso en línea completo, con lecciones, narración y un avatar presentador.
 - Rol: Ingeniero back-end, luego Tech Lead. 2025 a 2026.
-- Highlight: **3 → 8** tareas por pod de GPU en RunPod
+- Highlight: **1 hora** de un tema a un curso completo generado con IA
 - Capa de LLM sobre OpenRouter con streaming y fallbacks, más un chat agéntico con llamadas a herramientas en paralelo.
 - RAG sobre documentos del usuario: extracción en sandbox, embeddings por lotes, búsqueda con pgvector.
 - Pipeline de video con avatar: lip-sync e imagen a video con ComfyUI, clonación de voz con ElevenLabs, renderizado con Remotion.
@@ -131,7 +131,10 @@ Featured (bento, exactly 4 cells, first one large):
 - Licenciatura en Sistemas de Información. UNIMONTES, 2021 a 2025. Tesis sobre modelos BERT para localización de bugs.
 - Técnico en Informática. IFNMG, 2017 a 2019.
 
-Investigación: agentes LLM para la localización de bugs de software (UNIMONTES, 2024 hasta hoy). El enfoque híbrido que desarrollé alcanza un MRR de 0,40, un 75% por encima del mejor modelo de embeddings.
+Research projects (heading **Proyectos de investigación**):
+- **Proyecto de investigación: mejora de la precisión en la recuperación de trazabilidad entre artefactos de software con inteligencia artificial generativa.** UNIMONTES, 2024 hasta hoy. Los modelos de lenguaje reformulan descripciones de bugs y funcionalidades para que los motores de búsqueda encuentren el código fuente relevante durante el mantenimiento de software.
+- **Iniciación científica (PIBIC/FAPEMIG): desarrollo de un sistema para la gestión de procesos de selección en la UNIMONTES.** 2021 a 2022. Requisitos levantados con los programas de posgrado, modelo de datos y arquitectura del nuevo sistema de admisiones. Artículo en el FEPEG 2022.
+- **Iniciación científica voluntaria (ICV): análisis de instalaciones residenciales con microgeneración solar.** 2020 a 2021. Monitoreo de la eficiencia fotovoltaica combinando los datos de consumo de un medidor trifásico conectado a un Arduino con la producción del inversor. Artículo en el FEPEG 2020.
 
 ### Publications (titles translated; papers in Portuguese)
 - Análisis exploratorio de modelos basados en BERT para la localización de bugs de software (en portugués). ENMC 2025.

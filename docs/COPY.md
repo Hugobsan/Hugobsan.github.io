@@ -37,7 +37,7 @@ Heading: **Selected work**
 **Bluee** (discontinued product, no link)
 - An AI platform that turned a topic into a complete online course, with lessons, narration and an avatar presenter.
 - Role: Back-end engineer, then Tech Lead. 2025 to 2026.
-- Highlight: **3 → 8** tasks per GPU pod on RunPod
+- Highlight: **1 hour** from a topic to a complete AI-generated course
 - LLM layer on OpenRouter with streaming and fallbacks, plus agentic chat with parallel tool calls.
 - RAG over user documents: sandboxed extraction, batched embeddings, pgvector search.
 - Avatar video pipeline: ComfyUI lip-sync and image-to-video, ElevenLabs voice cloning, Remotion rendering.
@@ -122,7 +122,10 @@ Featured (bento, exactly 4 cells, first one large; products with real users firs
 - B.Sc. Information Systems. UNIMONTES, 2021 to 2025. Thesis on BERT models for bug localization.
 - IT Technician. IFNMG, 2017 to 2019.
 
-Research: LLM agents for software bug localization (UNIMONTES, 2024 to now). The hybrid approach I built reaches 0.40 MRR, 75% above the best embedding model.
+Research projects (heading **Research projects**, inside Education; replaces the old one-line research summary):
+- **Research project: improving the accuracy of traceability recovery between software artifacts with generative AI.** UNIMONTES, 2024 to now. Language models rewrite bug and feature descriptions so search engines can find the relevant source code during software maintenance.
+- **Undergraduate research (PIBIC/FAPEMIG): a system for managing selection processes at UNIMONTES.** 2021 to 2022. Requirements gathered with the graduate programs, data model and architecture for the new admissions system. Paper at FEPEG 2022.
+- **Volunteer undergraduate research (ICV): residential installations with solar micro-generation.** 2020 to 2021. Monitoring photovoltaic efficiency by combining consumption data from an Arduino three-phase meter with the inverter's production data. Paper at FEPEG 2020.
 
 ### Publications (titles translated; papers in Portuguese)
 - Exploratory analysis of BERT-based models for software bug localization. ENMC 2025.
@@ -177,7 +180,7 @@ Título: **Trabalho selecionado**
 **Bluee**
 - Plataforma de IA que transformava um tema num curso online completo, com aulas, narração e um avatar apresentador.
 - Papel: Engenheiro back-end, depois Tech Lead. 2025 a 2026.
-- Destaque: **3 → 8** tarefas por pod de GPU no RunPod
+- Destaque: **1 hora** de um tema a um curso completo gerado por IA
 - Camada de LLM sobre o OpenRouter com streaming e fallbacks, mais um chat agêntico com tool calls em paralelo.
 - RAG sobre documentos do usuário: extração em sandbox, embeddings em lote, busca com pgvector.
 - Pipeline de vídeo com avatar: lip-sync e imagem para vídeo no ComfyUI, clonagem de voz com ElevenLabs, renderização com Remotion.
@@ -259,7 +262,10 @@ Destaques (bento, exatamente 4 células, a primeira grande):
 - Bacharelado em Sistemas de Informação. UNIMONTES, 2021 a 2025. TCC sobre modelos BERT para localização de bugs.
 - Técnico em Informática. IFNMG, 2017 a 2019.
 
-Pesquisa: agentes LLM para localização de bugs de software (UNIMONTES, 2024 até hoje). A abordagem híbrida que desenvolvi chega a 0,40 de MRR, 75% acima do melhor modelo de embeddings.
+Projetos de pesquisa (título **Projetos de pesquisa**, dentro de Formação):
+- **Projeto de Pesquisa: Melhoria da acurácia do Processo de Recuperação de Rastreabilidade entre Artefatos de Software utilizando Inteligência Artificial Generativa.** UNIMONTES, 2024 até hoje. Modelos de linguagem reformulam descrições de bugs e funcionalidades para que mecanismos de busca localizem o código-fonte relevante na manutenção de software.
+- **IC (PIBIC/FAPEMIG): Desenvolvimento de um sistema para gestão de processos seletivos na Unimontes.** 2021 a 2022. Levantamento de requisitos com os programas de pós-graduação, modelagem de dados e arquitetura do novo sistema. Artigo no FEPEG 2022.
+- **ICV: Análise de Instalações Residenciais com Micro-Geração Solar.** 2020 a 2021. Monitoramento da eficiência fotovoltaica cruzando os dados de consumo de um medidor trifásico ligado a um Arduino com a produção do inversor. Artigo no FEPEG 2020.
 
 ### Publicações (títulos originais)
 - Uma análise exploratória da utilização de modelos baseados em BERT para localização de bugs de software. ENMC 2025.

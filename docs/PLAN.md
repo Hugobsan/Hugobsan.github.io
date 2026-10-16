@@ -138,7 +138,7 @@ A sessão principal guarda contexto e decisões, escreve os briefs e revisa cada
 
 ## 8. Decisões confirmadas pelo Hugo (2026-10-15)
 
-1. "3 → 8 tarefas por pod de GPU" pode ser usado.
+1. "3 → 8 tarefas por pod de GPU" foi aprovado, depois trocado (2026-10-16) pelo destaque "1 hora de um tema a um curso completo gerado por IA".
 2. "260+ PRs revisados em 2026" pode ser usado.
 3. Liderou Bluee e Club. A Bluee foi descontinuada: texto no passado e sem link.
 4. O avatar em pixel art fica por enquanto; trocar por foto ou avatar novo depois da implementação.

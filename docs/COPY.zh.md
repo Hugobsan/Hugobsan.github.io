@@ -59,7 +59,7 @@ Heading: **代表项目**
 **Bluee** (discontinued product, no link)
 - 一款 AI 平台，曾能根据一个主题生成一门完整的在线课程，包含课时、旁白和数字人讲师。
 - 角色：先任后端工程师，后任技术负责人。2025 至 2026 年。
-- Highlight: **3 → 8** RunPod 上单个 GPU pod 承载的任务数
+- Highlight: **1 小时** 从一个主题到一门完整的 AI 生成课程
 - 基于 OpenRouter 的 LLM 层，具备流式输出和回退机制；另有支持并行工具调用的智能体对话。
 - 基于用户文档的 RAG：沙箱内提取内容、批量向量化、pgvector 向量检索。
 - 数字人视频流水线：ComfyUI 实现口型同步和图生视频，ElevenLabs 实现声音克隆，Remotion 负责渲染。
@@ -144,7 +144,10 @@ Featured (bento, exactly 4 cells, first one large):
 - 信息系统学士。UNIMONTES，2021 至 2025 年。毕业论文研究 BERT 模型在缺陷定位中的应用。
 - 计算机技术员（中职学历）。IFNMG，2017 至 2019 年。
 
-研究：用 LLM 智能体做软件缺陷定位（UNIMONTES，2024 年至今）。我提出的混合方案 MRR（平均倒数排名）达到 0.40，比最佳嵌入模型高出 75%。
+Research projects (heading **科研项目**):
+- **科研项目：利用生成式 AI 提升软件制品间可追溯性恢复的准确率**。UNIMONTES，2024 年至今。用语言模型改写缺陷和功能描述，帮助搜索引擎在软件维护中定位相关源代码。
+- **本科生科研计划（PIBIC/FAPEMIG）：为 UNIMONTES 开发研究生招生管理系统**。2021 至 2022 年。与各研究生项目共同梳理需求，完成新系统的数据建模与架构设计。论文发表于 FEPEG 2022。
+- **志愿科研计划（ICV）：住宅分布式光伏发电装置分析**。2020 至 2021 年。结合 Arduino 三相电表采集的用电数据与逆变器的发电数据，监测光伏系统效率。论文发表于 FEPEG 2020。
 
 ### Publications (titles translated; papers in Portuguese)
 - 基于 BERT 的模型在软件缺陷定位中的探索性分析（葡萄牙语）。ENMC 2025。
