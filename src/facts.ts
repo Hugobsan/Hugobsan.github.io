@@ -21,16 +21,13 @@ export const STACKS = {
   prp: ['Next.js', 'TypeScript', 'SQLite FTS5', 'Claude Code', 'OpenRouter', 'Graphify', 'GitHub CLI'],
 };
 
-// side project links, keyed like the side.featured / side.more entries in the dictionaries
+// side project links, keyed like side.featured in the dictionaries
 export const LINKS: Record<string, { label: string; href: string }[]> = {
-  rpg: [{ label: 'GitHub', href: 'https://github.com/Hugobsan/rpg' }],
-  ts: [
+  km: [{ label: 's.kmtopografia.com.br', href: 'https://s.kmtopografia.com.br' }],
+  scanlex: [
     { label: 'timesheet-transcriber-ai.vercel.app', href: 'https://timesheet-transcriber-ai.vercel.app' },
     { label: 'GitHub', href: 'https://github.com/Hugobsan/Timesheet-Transcriber-Ai' },
   ],
-  bert: [{ label: 'Gist', href: 'https://gist.github.com/Hugobsan/b507b76c7b5fc470d77b3a924211430d' }],
-  librovault: [{ label: 'GitHub', href: 'https://github.com/Hugobsan/LibroVault' }],
-  roadmap: [{ label: 'hugobsan.com.br/roadmap-full-stack', href: 'https://hugobsan.com.br/roadmap-full-stack/' }],
 };
 
 export const KNOWS_ABOUT = [

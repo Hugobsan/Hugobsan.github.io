@@ -1,0 +1,17 @@
+---
+import type { Dict } from '../i18n/en';
+interface Props { t: Dict }
+const { t } = Astro.props;
+---
+<section class="experience" id="experience" aria-labelledby="experience-h">
+  <div class="experience__head wrap"><div class="container"><h2 class="h2" id="experience-h">{t.experience.h}</h2></div></div>
+  <ol class="experience__track">
+    {t.experience.items.map((j) => (
+      <li class="job">
+        <p class="job__period">{j.period}</p>
+        <h3 class="job__title">{j.role}{j.org && <span class="job__org"> · {j.org}</span>}</h3>
+        <ul class="bullets">{j.bullets.map((b) => <li>{b}</li>)}</ul>
+      </li>
+    ))}
+  </ol>
+</section>

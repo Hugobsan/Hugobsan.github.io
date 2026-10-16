@@ -26,7 +26,7 @@ ${en.hero.h1} ${en.hero.sub}
 
 ${list(en.offers.items.map((o) => `**${o.t}** ${o.d}`))}
 
-${list(en.offers.proof.map((p) => `**${p.n}** ${p.l}`))}
+${list(en.offers.proof.map((p) => `**${p.t}** ${p.d}`))}
 
 ## ${w.h}
 
@@ -35,6 +35,8 @@ ${list(en.offers.proof.map((p) => `**${p.n}** ${p.l}`))}
 ${w.bluee.lede}
 
 ${w.bluee.role}
+
+Highlight: **${w.bluee.highlight.n}** ${w.bluee.highlight.l}
 
 ${list(w.bluee.bullets)}
 
@@ -46,6 +48,8 @@ ${w.club.lede}
 
 ${w.club.role}
 
+Highlight: **${w.club.highlight.n}** ${w.club.highlight.l}
+
 ${list(w.club.bullets)}
 
 Stack: ${STACKS.club.join(', ')}
@@ -56,13 +60,15 @@ ${w.prp.lede}
 
 ${w.prp.role}
 
+Highlight: **${w.prp.highlight.n}** ${w.prp.highlight.l}
+
 ${list(w.prp.bullets)}
 
 Stack: ${STACKS.prp.join(', ')}
 
-## ${en.path.h}
+## ${en.experience.h}
 
-${list(en.path.items.map((m) => `**${m.year}** ${m.text}`))}
+${en.experience.items.map((j) => `### ${[j.period, j.role, j.org].filter(Boolean).join(' · ')}\n\n${list(j.bullets)}`).join('\n\n')}
 
 ## ${en.how.h}
 
@@ -75,10 +81,6 @@ ${en.how.learnH}: ${en.how.learn}
 ## ${en.side.h}
 
 ${Object.entries(en.side.featured).map(([id, p]) => `### ${p.name}\n\n${p.text}${LINKS[id] ? `\n\nLinks: ${links(id)}` : ''}`).join('\n\n')}
-
-### ${en.side.moreH}
-
-${list(Object.entries(en.side.more).map(([id, p]) => `**${p.name}.** ${p.text}${LINKS[id] ? ` ${links(id)}` : ''}`))}
 
 ## ${en.edu.h}
 

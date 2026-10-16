@@ -20,15 +20,5 @@ const { t } = Astro.props;
         </article>
       ))}
     </div>
-    <h3 class="label more__h">{t.side.moreH}</h3>
-    <ul class="more">
-      {Object.entries(t.side.more).map(([id, p]) => (
-        <li>
-          <span class="more__name">{p.name}</span>
-          <p>{p.text}</p>
-          {LINKS[id]?.map((l) => <a class="ext" href={l.href} target="_blank" rel="noopener">{l.label}<span aria-hidden="true"> ↗</span></a>)}
-        </li>
-      ))}
-    </ul>
   </div>
 </section>

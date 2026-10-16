@@ -32,7 +32,7 @@ function splitWords() {
 }
 
 function setup(ctx: gsap.Context, words: boolean) {
-  const { desk, wide } = ctx.conditions as { desk: boolean; wide: boolean };
+  const { desk, pan } = ctx.conditions as { desk: boolean; pan: boolean };
   state.F = []; state.D = []; state.pan = null;
 
   // formation owner: scrubbed morph while its chapter enters
@@ -67,16 +67,16 @@ function setup(ctx: gsap.Context, words: boolean) {
   }
   panels.forEach(formation);
 
-  // path: horizontal pan on wide screens
-  const path = $('path');
-  formation(path);
-  if (wide) {
-    path.classList.add('is-pan');
-    const track = path.querySelector<HTMLElement>('.path__track')!;
+  // experience: horizontal pan where the cards fit, vertical list elsewhere
+  const xp = $('experience');
+  formation(xp);
+  if (pan) {
+    xp.classList.add('is-pan');
+    const track = xp.querySelector<HTMLElement>('.experience__track')!;
     const dist = () => Math.max(0, track.scrollWidth - document.documentElement.clientWidth);
     state.pan = gsap.to(track, {
       x: () => -dist(), ease: 'none',
-      scrollTrigger: { trigger: path, start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 1, invalidateOnRefresh: true },
+      scrollTrigger: { trigger: xp, start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 1, invalidateOnRefresh: true },
     });
   }
 
@@ -93,7 +93,7 @@ function setup(ctx: gsap.Context, words: boolean) {
   dim($('education'));
   formation($('contact'));
 
-  return () => path.classList.remove('is-pan');
+  return () => xp.classList.remove('is-pan');
 }
 
 export function init() {
@@ -115,7 +115,7 @@ export function init() {
   // everything if reduced motion is switched on mid-visit
   gsap.matchMedia().add({
     desk: '(min-width: 900px) and (min-height: 640px)',
-    wide: '(min-width: 768px)',
+    pan: '(min-width: 900px) and (min-height: 720px)',
     motion: '(prefers-reduced-motion: no-preference)',
   }, (ctx) => setup(ctx, words));
   ScrollTrigger.sort();

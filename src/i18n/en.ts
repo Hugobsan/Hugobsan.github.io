@@ -5,10 +5,10 @@ const en = {
     description: 'Tech Lead at Greenn. I build AI products that hold up in production: LLM pipelines, RAG, resilient queues and agentic engineering. Open to remote roles and consulting.',
   },
   skip: 'Skip to content',
-  nav: { label: 'Primary', services: 'Services', work: 'Work', path: 'Path', contact: 'Contact', lang: 'Language' },
+  nav: { label: 'Primary', services: 'Services', work: 'Work', experience: 'Experience', contact: 'Contact', lang: 'Language' },
   hero: {
     h1: 'I build AI products that hold up in production.',
-    sub: 'Tech Lead at Greenn. LLM pipelines, resilient queues and agentic engineering, from the first prompt to the GPU worker.',
+    sub: 'Tech Lead at Greenn, working remotely from Brazil (UTC-3). LLM pipelines, resilient queues and agentic engineering.',
     primary: 'Work with me',
     secondary: 'See the work',
   },
@@ -20,10 +20,10 @@ const en = {
       { t: 'Build it for you.', d: 'Software delivered as a service, from scoping to production, with tests, documentation and a clean handover.' },
     ],
     proof: [
-      { n: '6', l: 'developers on the teams I lead' },
-      { n: 'R$20k+', l: 'saved per month on video storage' },
-      { n: 'Up to 50%', l: 'infrastructure savings mapped in cost reviews' },
-      { n: 'Thousands', l: 'of users on the products I lead' },
+      { t: 'Lean teams.', d: 'Experience leading small teams from architecture to delivery.' },
+      { t: 'AI in production.', d: 'LLMs, RAG, voice and video pipelines serving real users.' },
+      { t: 'Cost under control.', d: 'Architecture and infrastructure reviews that cut recurring spend.' },
+      { t: 'Since 2019.', d: 'Shipping software to production, from freelance systems to SaaS.' },
     ],
   },
   work: {
@@ -33,53 +33,89 @@ const en = {
       name: 'Bluee',
       lede: 'An AI platform that turned a topic into a complete online course, with lessons, narration and an avatar presenter.',
       role: 'Role: Back-end engineer, then Tech Lead. 2025 to 2026.',
+      highlight: { n: '3 → 8', l: 'tasks per GPU pod on RunPod' },
       bullets: [
-        'LLM layer on OpenRouter with streaming, fallbacks and long-document summarization.',
-        'Agentic chat with parallel tool calls and resumable streams.',
+        'LLM layer on OpenRouter with streaming and fallbacks, plus agentic chat with parallel tool calls.',
         'RAG over user documents: sandboxed extraction, batched embeddings, pgvector search.',
         'Avatar video pipeline: ComfyUI lip-sync and image-to-video, ElevenLabs voice cloning, Remotion rendering.',
         'RabbitMQ jobs with backoff retries, idempotency checks and delayed queues.',
-        'GPU workers on RunPod packed from 3 to 8 tasks per pod.',
       ],
     },
     club: {
       name: 'Greenn Club',
       lede: 'The members area where course creators host and deliver their courses to thousands of students.',
       role: 'Role: Tech Lead. 2026.',
+      highlight: { n: 'R$20k+', l: 'saved per month on video storage' },
       bullets: [
         'Verifiable certificates signed with ECDSA, a public key set and QR validation anyone can check.',
         'Fair dispatch: per-tenant scheduling so one large creator never starves the queue for everyone else.',
         'Subtitle pipeline moved from polling to webhooks, hardened against concurrent deliveries.',
-        'Video storage optimization saving more than R$20k per month.',
         'Legacy webhooks moved into the domain layer behind characterization tests.',
       ],
     },
     prp: {
       name: 'PR Review Panel',
       note: 'Internal tool, no public link',
-      lede: 'My own tool for reviewing pull requests in depth: six phases run by Claude Code agents, in parallel, on every PR. Built for a review load of 260+ pull requests in 2026.',
+      lede: 'My own tool for reviewing pull requests in depth: six phases run by Claude Code agents, in parallel, on every PR.',
       role: 'Role: Creator. 2026.',
+      highlight: { n: '260+', l: 'pull requests I reviewed in 2026' },
       bullets: [
-        'Quality, code, coupling, over-engineering, tests and team standards, each phase returning findings in a strict JSON schema.',
-        'An adversarial agent tries to refute every blocking finding before it reaches the author.',
-        'Triage by Jev, a decision model on OpenRouter, calibrated against labeled findings.',
-        'Agents navigate the code through a Graphify knowledge graph before falling back to text search.',
-        'Guardrails: closed tool lists, read-only agents, no MCP access, isolated git worktrees.',
+        'Six phases (quality, code, coupling, over-engineering, tests and team standards), each returning findings in a strict JSON schema.',
+        'An adversarial agent tries to refute every blocking finding, and Jev, a decision model on OpenRouter, triages the rest.',
+        'Agents navigate the code through a Graphify knowledge graph, with closed tool lists, read-only access and isolated git worktrees.',
         'Every design choice is measured. One variant was dropped for costing 132% more.',
       ],
     },
   },
-  path: {
-    h: 'How I got here',
+  experience: {
+    h: 'Experience',
     items: [
-      { year: '2017', text: 'IT technician course at IFNMG.' },
-      { year: '2019', text: 'First website shipped, for a solar energy company, plus field work on photovoltaic installs.' },
-      { year: '2020', text: 'First system in production: an offline point of sale for a butcher shop that reads a commercial scale and prints receipts.' },
-      { year: '2021', text: 'Information Systems at UNIMONTES and my first research grant.' },
-      { year: '2022', text: "Rebuilt the university's extension management system. Mentored an intern and taught a Laravel workshop." },
-      { year: '2024', text: 'Full-stack engineer at Betabit. Led an AI chat module with Gemini, RAG and WhatsApp agents.' },
-      { year: '2025', text: 'Joined Greenn as a back-end engineer on Bluee.' },
-      { year: '2026', text: 'Tech Lead at Greenn. Postgraduate studies in Software Engineering for Applied AI.' },
+      {
+        period: '2026 to now', role: 'Tech Lead', org: 'Greenn',
+        bullets: [
+          'Teams of up to 6 developers across Bluee and Greenn Club.',
+          'I set the architecture and code standards, and reviewed 260+ pull requests in 2026.',
+          'Cost reviews that cut more than R$20k per month in video storage and mapped up to 50% infrastructure savings.',
+          'Security issues caught in review before they reached production.',
+        ],
+      },
+      {
+        period: '2025', role: 'Back-end Developer', org: 'Greenn',
+        bullets: [
+          'Built the AI core of Bluee: LLM layer, agentic chat, RAG and the avatar video pipeline.',
+          'Hardened RabbitMQ jobs with backoff retries, idempotency and delayed queues.',
+        ],
+      },
+      {
+        period: '2024 to 2025', role: 'Full-stack Developer', org: 'Betabit',
+        bullets: [
+          'Led the AI chat module of a real-estate CRM: Gemini, RAG with PGVector and WhatsApp agents, answering in under 100 ms for about 3,000 requests a day.',
+          'Built a real-time marketing dashboard with Laravel Reverb and a Python ETL service.',
+          'Docker and GitHub Actions cut developer onboarding from hours to minutes.',
+        ],
+      },
+      {
+        period: '2022 to 2024', role: 'Web Developer', org: 'UNIMONTES',
+        bullets: [
+          'Rebuilt the university\'s extension management system, which every extension department adopted again.',
+          'Refactored the queries that blocked the system at enrollment peaks, and built a micro-certification module presented at CIEI 2024.',
+          'Introduced Git Flow and PR standards, mentored an intern and taught a Laravel workshop.',
+        ],
+      },
+      {
+        period: '2021 to 2022', role: 'Research Scholar', org: 'UNIMONTES',
+        bullets: [
+          'Modeled the new graduate admissions system with the graduate programs: requirements, data model and architecture.',
+          'Left a continuity guide used by the next scholars, and a paper at FEPEG 2022.',
+        ],
+      },
+      {
+        period: '2017 to 2021', role: 'Early years', org: '',
+        bullets: [
+          'IT technician at IFNMG, then freelance web development and computer repair as a sole proprietor.',
+          'First systems in production: a website for a solar energy company and an offline point of sale for a local shop.',
+        ],
+      },
     ],
   },
   how: {
@@ -101,19 +137,10 @@ const en = {
   side: {
     h: 'Side projects',
     featured: {
-      anthrya: { name: 'anthrya', text: 'Health app built AI-first: Bluetooth body scale, diet, glucose, workouts and body measurements, all reachable by AI through an MCP server. Raw readings stay separate from estimates, so history can be recalculated. 100+ ADRs. Expo, Supabase, Hono. In development, private.' },
-      rpg: { name: 'Chronicle RPG', text: 'Solo tabletop RPG with an AI game master and five specialized agents, each on the model that fits its cost. Character sheets change only through tools, never through narration. Next.js, pgvector, OpenRouter.' },
-      km: { name: 'KM Topografia', text: 'HR document and fleet management for a land surveying company, in production. Expiry alerts by email and WhatsApp, S3 with a local cache, audited roles. I designed the architecture and the infrastructure. Laravel 12, PostgreSQL, Docker. Private.' },
-      ts: { name: 'Timesheet Transcriber AI', text: 'Free, open-source timesheet transcription with Gemini. Bring your own key, crop pages, export to CSV or XLSX. Open version of my former SaaS, Scanlex.' },
-    },
-    moreH: 'More',
-    more: {
-      bert: { name: 'BERT sentiment', text: 'Fine-tuned BERTimbau on 21,600 Play Store reviews from 9 delivery apps. 0.89 accuracy and macro F1.' },
-      librovault: { name: 'LibroVault', text: 'Semantic search over your own PDFs: a Laravel queue pipeline plus a Python embeddings microservice.' },
+      scanlex: { name: 'Scanlex and Timesheet Transcriber AI (2025)', text: 'A SaaS that digitized timesheets and payslips for payroll specialists, with paying subscribers, and its free open-source version: bring your own Gemini key, crop pages, export to CSV or XLSX. Laravel, Vue, React, Gemini.' },
+      km: { name: 'KM Topografia', text: 'HR document and fleet management for a land surveying company, in production. Expiry alerts by email and WhatsApp, S3 with a local cache, audited roles. I designed the architecture and the infrastructure. Laravel 12, PostgreSQL, Docker. Private repository.' },
       mia: { name: 'Mia (2025)', text: 'WhatsApp receptionist for health clinics: leads, scheduling and reminders. Ran in production at two clinics. N8N, Gemini, Evolution API.' },
-      scanlex: { name: 'Scanlex (2025)', text: 'SaaS that digitized timesheets and payslips for payroll specialists, with paying subscribers. Laravel, Vue, Gemini.' },
-      mcp: { name: 'MCP Servers Hub (2025)', text: 'Index of MCP servers for developers adding AI to legacy systems. I built the back end, tests and deploy.' },
-      roadmap: { name: 'Full-stack roadmap', text: 'A 4-month study plan for junior developers, with a guided technical test.' },
+      anthrya: { name: 'anthrya', text: 'Health app built AI-first: Bluetooth body scale, diet, glucose, workouts and body measurements, all reachable by AI through an MCP server. Raw readings stay separate from estimates, so history can be recalculated. 100+ ADRs. Expo, Supabase, Hono. In development, private.' },
     },
   },
   edu: {

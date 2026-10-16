@@ -6,10 +6,10 @@ export default {
     description: 'Tech Lead na Greenn. Construo produtos de IA que aguentam produção: pipelines de LLM, RAG, filas resilientes e engenharia agêntica. Aberto a vagas remotas e consultoria.',
   },
   skip: 'Pular para o conteúdo',
-  nav: { label: 'Principal', services: 'Serviços', work: 'Trabalho', path: 'Trajetória', contact: 'Contato', lang: 'Idioma' },
+  nav: { label: 'Principal', services: 'Serviços', work: 'Trabalho', experience: 'Experiência', contact: 'Contato', lang: 'Idioma' },
   hero: {
     h1: 'Construo produtos de IA que aguentam produção.',
-    sub: 'Tech Lead na Greenn. Pipelines de LLM, filas resilientes e engenharia agêntica, do primeiro prompt ao worker de GPU.',
+    sub: 'Tech Lead na Greenn, trabalhando remoto do Brasil (UTC-3). Pipelines de LLM, filas resilientes e engenharia agêntica.',
     primary: 'Fale comigo',
     secondary: 'Ver projetos',
   },
@@ -21,10 +21,10 @@ export default {
       { t: 'Construo para você.', d: 'Software entregue como serviço, do escopo à produção, com testes, documentação e passagem de bastão limpa.' },
     ],
     proof: [
-      { n: '6', l: 'desenvolvedores nos times que lidero' },
-      { n: 'R$20 mil+', l: 'economizados por mês em armazenamento de vídeo' },
-      { n: 'Até 50%', l: 'de economia de infraestrutura mapeada em revisões de custo' },
-      { n: 'Milhares', l: 'de usuários nos produtos que lidero' },
+      { t: 'Times enxutos.', d: 'Experiência liderando times pequenos, da arquitetura à entrega.' },
+      { t: 'IA em produção.', d: 'LLMs, RAG e pipelines de voz e vídeo atendendo usuários reais.' },
+      { t: 'Custo sob controle.', d: 'Revisões de arquitetura e infraestrutura que cortam gasto recorrente.' },
+      { t: 'Desde 2019.', d: 'Colocando software em produção, de sistemas freelance a SaaS.' },
     ],
   },
   work: {
@@ -34,53 +34,89 @@ export default {
       name: 'Bluee',
       lede: 'Plataforma de IA que transformava um tema num curso online completo, com aulas, narração e um avatar apresentador.',
       role: 'Papel: Engenheiro back-end, depois Tech Lead. 2025 a 2026.',
+      highlight: { n: '3 → 8', l: 'tarefas por pod de GPU no RunPod' },
       bullets: [
-        'Camada de LLM sobre o OpenRouter com streaming, fallbacks e resumo de documentos longos.',
-        'Chat agêntico com tool calls em paralelo e streams que retomam de onde pararam.',
+        'Camada de LLM sobre o OpenRouter com streaming e fallbacks, mais um chat agêntico com tool calls em paralelo.',
         'RAG sobre documentos do usuário: extração em sandbox, embeddings em lote, busca com pgvector.',
         'Pipeline de vídeo com avatar: lip-sync e imagem para vídeo no ComfyUI, clonagem de voz com ElevenLabs, renderização com Remotion.',
         'Jobs no RabbitMQ com retry com backoff, checagem de idempotência e filas com atraso.',
-        'Workers de GPU no RunPod passando de 3 para 8 tarefas por pod.',
       ],
     },
     club: {
       name: 'Greenn Club',
       lede: 'A área de membros onde criadores hospedam e entregam seus cursos para milhares de alunos.',
       role: 'Papel: Tech Lead. 2026.',
+      highlight: { n: 'R$20 mil+', l: 'economizados por mês em armazenamento de vídeo' },
       bullets: [
         'Certificados verificáveis assinados com ECDSA, chaves públicas abertas e validação por QR que qualquer pessoa confere.',
         'Fair dispatch: agendamento por cliente para que um criador grande nunca trave a fila dos outros.',
         'Pipeline de legendas trocado de polling para webhooks, protegido contra entregas concorrentes.',
-        'Otimização de armazenamento de vídeo que economiza mais de R$20 mil por mês.',
         'Webhooks legados levados para a camada de domínio, protegidos por testes de caracterização.',
       ],
     },
     prp: {
       name: 'Painel de Review de PRs',
       note: 'Ferramenta interna, sem link público',
-      lede: 'Minha ferramenta para revisar pull requests a fundo: seis fases executadas por agentes do Claude Code, em paralelo, em cada PR. Feita para uma carga de mais de 260 PRs revisados em 2026.',
+      lede: 'Minha ferramenta para revisar pull requests a fundo: seis fases executadas por agentes do Claude Code, em paralelo, em cada PR.',
       role: 'Papel: Criador. 2026.',
+      highlight: { n: '260+', l: 'pull requests revisados por mim em 2026' },
       bullets: [
-        'Qualidade, código, acoplamento, excesso de engenharia, testes e padrões do time, cada fase devolvendo achados num schema JSON estrito.',
-        'Um agente adversário tenta derrubar cada achado bloqueante antes de ele chegar ao autor.',
-        'Triagem pelo Jev, um modelo de decisão no OpenRouter, calibrado com achados rotulados.',
-        'Os agentes navegam pelo código com um grafo de conhecimento do Graphify antes de recorrer à busca textual.',
-        'Guardrails: lista fechada de ferramentas, agentes somente leitura, sem acesso a MCP, git worktrees isolados.',
+        'Seis fases (qualidade, código, acoplamento, excesso de engenharia, testes e padrões do time), cada uma devolvendo achados num schema JSON estrito.',
+        'Um agente adversário tenta derrubar cada achado bloqueante, e o Jev, um modelo de decisão no OpenRouter, faz a triagem do resto.',
+        'Os agentes navegam pelo código com um grafo de conhecimento do Graphify, com lista fechada de ferramentas, acesso somente leitura e git worktrees isolados.',
         'Cada escolha de design é medida. Uma variante foi descartada por custar 132% a mais.',
       ],
     },
   },
-  path: {
-    h: 'Como cheguei aqui',
+  experience: {
+    h: 'Experiência',
     items: [
-      { year: '2017', text: 'Curso técnico em Informática no IFNMG.' },
-      { year: '2019', text: 'Primeiro site entregue, para uma empresa de energia solar, além de trabalho de campo em instalações fotovoltaicas.' },
-      { year: '2020', text: 'Primeiro sistema em produção: um PDV offline para um açougue, que lê a balança comercial e imprime o cupom.' },
-      { year: '2021', text: 'Sistemas de Informação na UNIMONTES e minha primeira bolsa de pesquisa.' },
-      { year: '2022', text: 'Reconstruí o sistema de gestão da extensão da universidade. Mentorei um estagiário e dei um minicurso de Laravel.' },
-      { year: '2024', text: 'Full-stack na Betabit. Liderei um módulo de chat com IA usando Gemini, RAG e agentes no WhatsApp.' },
-      { year: '2025', text: 'Entrei na Greenn como engenheiro back-end na Bluee.' },
-      { year: '2026', text: 'Tech Lead na Greenn. Pós-graduação em Engenharia de Software em IA Aplicada.' },
+      {
+        period: '2026 até hoje', role: 'Tech Lead', org: 'Greenn',
+        bullets: [
+          'Times de até 6 desenvolvedores na Bluee e no Greenn Club.',
+          'Defino a arquitetura e os padrões de código, e revisei mais de 260 pull requests em 2026.',
+          'Revisões de custo que cortaram mais de R$20 mil por mês em armazenamento de vídeo e mapearam até 50% de economia de infraestrutura.',
+          'Falhas de segurança encontradas em review antes de chegarem à produção.',
+        ],
+      },
+      {
+        period: '2025', role: 'Desenvolvedor Back-end', org: 'Greenn',
+        bullets: [
+          'Construí o núcleo de IA da Bluee: camada de LLM, chat agêntico, RAG e o pipeline de vídeo com avatar.',
+          'Deixei os jobs do RabbitMQ mais robustos com retry com backoff, idempotência e filas com atraso.',
+        ],
+      },
+      {
+        period: '2024 a 2025', role: 'Desenvolvedor Full-stack', org: 'Betabit',
+        bullets: [
+          'Liderei o módulo de chat com IA de um CRM imobiliário: Gemini, RAG com PGVector e agentes no WhatsApp, respondendo em menos de 100 ms para cerca de 3 mil requisições por dia.',
+          'Construí um dashboard de marketing em tempo real com Laravel Reverb e um serviço de ETL em Python.',
+          'Docker e GitHub Actions reduziram o onboarding de devs de horas para minutos.',
+        ],
+      },
+      {
+        period: '2022 a 2024', role: 'Desenvolvedor Web', org: 'UNIMONTES',
+        bullets: [
+          'Reconstruí o sistema de gestão da extensão da universidade, que voltou a ser adotado por todos os departamentos.',
+          'Refatorei as consultas que travavam o sistema no pico de matrículas e criei o módulo de micro-certificação, apresentado no CIEI 2024.',
+          'Implantei Git Flow e padrão de PRs, mentorei um estagiário e dei um minicurso de Laravel.',
+        ],
+      },
+      {
+        period: '2021 a 2022', role: 'Bolsista de Iniciação Científica', org: 'UNIMONTES',
+        bullets: [
+          'Modelei com os programas de pós-graduação o novo sistema de processos seletivos: requisitos, modelo de dados e arquitetura.',
+          'Deixei um guia de continuidade usado pelos bolsistas seguintes e um artigo no FEPEG 2022.',
+        ],
+      },
+      {
+        period: '2017 a 2021', role: 'Primeiros anos', org: '',
+        bullets: [
+          'Técnico em Informática no IFNMG, depois desenvolvimento web freelance e manutenção de computadores como MEI.',
+          'Primeiros sistemas em produção: o site de uma empresa de energia solar e um PDV offline para um comércio local.',
+        ],
+      },
     ],
   },
   how: {
@@ -102,19 +138,10 @@ export default {
   side: {
     h: 'Projetos pessoais',
     featured: {
-      anthrya: { name: 'anthrya', text: 'App de saúde feito com IA desde o início: balança de bioimpedância via Bluetooth, dieta, glicemia, treinos e medidas corporais, tudo acessível por IA através de um servidor MCP. Leituras brutas ficam separadas das estimativas, então o histórico pode ser recalculado. Mais de 100 ADRs. Expo, Supabase, Hono. Em desenvolvimento, privado.' },
-      rpg: { name: 'Chronicle RPG', text: 'RPG de mesa solo com um mestre de IA e cinco agentes especializados, cada um no modelo que compensa o custo. A ficha do personagem só muda por ferramentas, nunca pela narração. Next.js, pgvector, OpenRouter.' },
-      km: { name: 'KM Topografia', text: 'Gestão de documentos de RH e de frota para uma empresa de topografia, em produção. Alertas de vencimento por e-mail e WhatsApp, S3 com cache local, papéis auditados. Desenhei a arquitetura e a infraestrutura. Laravel 12, PostgreSQL, Docker. Privado.' },
-      ts: { name: 'Timesheet Transcriber AI', text: 'Transcrição de cartões de ponto com Gemini, gratuita e open-source. Use sua própria chave, recorte páginas, exporte para CSV ou XLSX. Versão aberta do meu antigo SaaS, o Scanlex.' },
-    },
-    moreH: 'Mais',
-    more: {
-      bert: { name: 'Sentimento com BERT', text: 'BERTimbau ajustado em 21.600 avaliações da Play Store de 9 apps de delivery. 0,89 de acurácia e de F1 macro.' },
-      librovault: { name: 'LibroVault', text: 'Busca semântica nos seus próprios PDFs: pipeline com filas no Laravel e um microsserviço de embeddings em Python.' },
+      scanlex: { name: 'Scanlex e Timesheet Transcriber AI (2025)', text: 'SaaS que digitalizava cartões de ponto e holerites para calculistas, com assinantes pagantes, e sua versão gratuita e open-source: use sua própria chave do Gemini, recorte páginas, exporte para CSV ou XLSX. Laravel, Vue, React, Gemini.' },
+      km: { name: 'KM Topografia', text: 'Gestão de documentos de RH e de frota para uma empresa de topografia, em produção. Alertas de vencimento por e-mail e WhatsApp, S3 com cache local, papéis auditados. Desenhei a arquitetura e a infraestrutura. Laravel 12, PostgreSQL, Docker. Repositório privado.' },
       mia: { name: 'Mia (2025)', text: 'Recepcionista no WhatsApp para clínicas: leads, agendamento e lembretes. Rodou em produção em duas clínicas. N8N, Gemini, Evolution API.' },
-      scanlex: { name: 'Scanlex (2025)', text: 'SaaS que digitalizava cartões de ponto e holerites para calculistas, com assinantes pagantes. Laravel, Vue, Gemini.' },
-      mcp: { name: 'MCP Servers Hub (2025)', text: 'Índice de servidores MCP para devs que levam IA a sistemas legados. Fiz o back-end, os testes e o deploy.' },
-      roadmap: { name: 'Roadmap full-stack', text: 'Plano de estudos de 4 meses para devs júnior, com um teste técnico guiado.' },
+      anthrya: { name: 'anthrya', text: 'App de saúde feito com IA desde o início: balança de bioimpedância via Bluetooth, dieta, glicemia, treinos e medidas corporais, tudo acessível por IA através de um servidor MCP. Leituras brutas ficam separadas das estimativas, então o histórico pode ser recalculado. Mais de 100 ADRs. Expo, Supabase, Hono. Em desenvolvimento, privado.' },
     },
   },
   edu: {

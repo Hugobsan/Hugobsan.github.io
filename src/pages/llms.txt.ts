@@ -31,7 +31,7 @@ ${LANGS.map((l) => `- [Website (${LOCALES[l].html})](${SITE}${LOCALES[l].path})`
 
 ## Optional
 
-${Object.entries({ ...en.side.featured, ...en.side.more })
+${Object.entries(en.side.featured)
   .filter(([id]) => LINKS[id])
   .map(([id, p]) => `- [${p.name}](${LINKS[id]!.at(-1)!.href}): ${p.text}`)
   .join('\n')}

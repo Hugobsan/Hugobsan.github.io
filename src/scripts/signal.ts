@@ -112,11 +112,11 @@ function buildFormations(N: number) {
     }
   }
 
-  // F4 path ribbon: a twisting band with eight milestone knots, the last one accented
+  // F4 experience ribbon: a twisting band with six knots, the first (current role) accented
   {
     const pm = perm();
     const curve = (u: number) => [-2.4 + 4.8 * u, 0.22 * Math.sin(u * Math.PI * 1.8 + 0.4), 0.35 * Math.cos(u * Math.PI * 1.4)];
-    const knots = Array.from({ length: 8 }, (_, k) => 0.06 + (k * 0.88) / 7);
+    const knots = Array.from({ length: 6 }, (_, k) => 0.06 + (k * 0.88) / 5);
     const ribbonN = Math.round(N * 0.7);
     for (let j = 0; j < N; j++) {
       const i = pm[j];
@@ -124,9 +124,9 @@ function buildFormations(N: number) {
         const u = R(), v = R() * 2 - 1, th = u * Math.PI * 1.5, c = curve(u);
         put(4, i, c[0] + gauss() * 0.006, c[1] + Math.cos(th) * 0.13 * v, c[2] + Math.sin(th) * 0.13 * v);
       } else {
-        const k = j % 8, c = curve(knots[k]);
+        const k = j % 6, c = curve(knots[k]);
         put(4, i, c[0] + gauss() * 0.05, c[1] + gauss() * 0.05, c[2] + gauss() * 0.05);
-        if (k === 7) bits[i] |= 16;
+        if (k === 0) bits[i] |= 16;
       }
     }
   }
@@ -304,7 +304,7 @@ void main(){
 
 type Layout = { x: number[]; y: number[]; s: number[]; a: number[] };
 // where each formation sits: x/y as fractions of the half viewport, s as a fraction of min(halfW, halfH)
-// order: hero, Bluee, Club, review panel, path, avatar (index 5, overwritten every frame from the contact section's free space)
+// order: hero, Bluee, Club, review panel, experience, avatar (index 5, overwritten every frame from the contact section's free space)
 const LAYOUT: { desk: Layout; mob: Layout } = {
   desk: { x: [0.48, 0.5, 0.52, 0.5, 0, 0], y: [0, 0, 0, 0, 0.22, 0], s: [0.62, 0.56, 0.44, 0.5, 1.0, 0.4], a: [1, 1, 1, 1, 0.8, 1] },
   mob: { x: [0, 0, 0, 0, 0, 0], y: [0.08, 0, 0, 0, -0.1, 0], s: [0.78, 0.74, 0.66, 0.66, 0.9, 0.62], a: [0.5, 0.4, 0.4, 0.4, 0.45, 1] },

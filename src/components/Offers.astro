@@ -16,7 +16,7 @@ const { t } = Astro.props;
     </div>
     <ul class="proof">
       {t.offers.proof.map((p) => (
-        <li><span class="proof__num">{p.n}</span><span class="proof__label">{p.l}</span></li>
+        <li><strong class="proof__t">{p.t}</strong><span class="proof__label">{p.d}</span></li>
       ))}
     </ul>
   </div>

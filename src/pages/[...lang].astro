@@ -4,7 +4,7 @@ import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
 import Offers from '../components/Offers.astro';
 import Work from '../components/Work.astro';
-import Path from '../components/Path.astro';
+import Experience from '../components/Experience.astro';
 import How from '../components/How.astro';
 import Side from '../components/Side.astro';
 import Education from '../components/Education.astro';
@@ -37,6 +37,18 @@ const ld = {
       url: `${SITE}/`,
       sameAs: [LINKEDIN, GITHUB],
       knowsAbout: KNOWS_ABOUT,
+      // experience as dated roles (schema.org: Role around Occupation); years come from the English periods
+      hasOccupation: t.experience.items.flatMap((j, i) => {
+        const period = LOCALES.en.dict.experience.items[i]!.period;
+        const years = period.match(/\d{4}/g) ?? [];
+        if (!j.org || !years[0]) return [];
+        return [{
+          '@type': 'Role',
+          startDate: years[0],
+          ...(!/now/.test(period) && { endDate: years[1] ?? years[0] }),
+          hasOccupation: { '@type': 'Occupation', name: j.role, description: `${j.org}. ${j.bullets.join(' ')}` },
+        }];
+      }),
     },
     {
       '@type': 'WebSite',
@@ -85,7 +97,7 @@ const redirect = `(function(){var s=${others},l;try{l=localStorage.getItem("lang
       <Hero t={t} />
       <Offers t={t} />
       <Work t={t} />
-      <Path t={t} />
+      <Experience t={t} />
       <How t={t} />
       <Side t={t} />
       <Education t={t} />
