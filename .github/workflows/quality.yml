@@ -1,0 +1,54 @@
+name: Quality
+
+on:
+  pull_request:
+  push:
+    branches: [rebuild]
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx astro check
+      - run: npm run build
+
+      - name: No em or en dashes in the built pages
+        run: |
+          if LC_ALL=C grep -rnE $'\xe2\x80[\x93\x94]' --include='*.html' --include='*.txt' dist; then
+            echo "::error::U+2013 or U+2014 found in dist"; exit 1
+          fi
+
+      - name: No third-party hosts (the site must load from mainland China)
+        run: |
+          if grep -rnE 'fonts\.googleapis|fonts\.gstatic|cdn\.jsdelivr|unpkg\.com|cdnjs' dist; then
+            echo "::error::third-party asset URL found in dist"; exit 1
+          fi
+
+      - name: Budgets (PLAN.md section 5)
+        run: |
+          node -e "
+          const fs = require('fs'), zlib = require('zlib');
+          const files = fs.readdirSync('dist/_astro');
+          const gz = (f) => zlib.gzipSync(fs.readFileSync('dist/_astro/' + f), { level: 9 }).length;
+          const js = files.filter((f) => f.endsWith('.js'));
+          const lazy = js.filter((f) => /^(motion|signal)\./.test(f));
+          const initial = js.filter((f) => !lazy.includes(f)).reduce((s, f) => s + gz(f), 0);
+          const chunk3d = lazy.reduce((s, f) => s + gz(f), 0);
+          const fonts = files.filter((f) => f.endsWith('.woff2')).length;
+          console.log({ initialJsGzip: initial, lazy3dGzip: chunk3d, fonts });
+          if (initial > 40 * 1024 || chunk3d > 220 * 1024 || fonts > 3) process.exit(1);
+          "
+
+      - uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./lighthouserc.json
+          uploadArtifacts: true
