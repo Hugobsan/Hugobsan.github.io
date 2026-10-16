@@ -4,7 +4,7 @@ import {
   PerspectiveCamera, Points, Scene, ShaderMaterial, Vector2, WebGLRenderer,
 } from 'three';
 import AVATAR from './avatar.json';
-import { state } from './motion';
+import { state } from './state';
 
 const AVATAR_H = 2.1;
 const AVATAR_SPRITE = 1.3; // sprite size relative to one sub-cell, so neighbours overlap into a solid art pixel
@@ -350,17 +350,19 @@ export function init(canvas: HTMLCanvasElement, gl: WebGL2RenderingContext) {
 
   // particle colors come from the CSS tokens, so they follow the color scheme
   let dark = true;
+  const mqDark = matchMedia('(prefers-color-scheme: dark)');
   function readTheme() {
     const cs = getComputedStyle(document.documentElement);
     U.uColorBase.value.set(cs.getPropertyValue('--particle').trim());
     U.uColorAccent.value.set(cs.getPropertyValue('--particle-accent').trim());
-    dark = cs.getPropertyValue('--scheme').trim() !== 'light';
+    const forced = document.documentElement.dataset.theme;
+    dark = forced ? forced === 'dark' : mqDark.matches;
     U.uDark.value = dark ? 1 : 0;
     mat.blending = dark ? AdditiveBlending : NormalBlending;
     mat.needsUpdate = true;
   }
   readTheme();
-  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', readTheme);
+  mqDark.addEventListener('change', readTheme);
 
   let vw = 0, vh = 0;
   function resize() {
@@ -440,11 +442,13 @@ export function init(canvas: HTMLCanvasElement, gl: WebGL2RenderingContext) {
     renderer.render(scene, camera);
     if (firstFrame) { firstFrame = false; canvas.classList.add('is-ready'); }
   }
-  raf = requestAnimationFrame(frame);
-
-  // nothing to draw for a hidden tab
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) cancelAnimationFrame(raf);
-    else { last = performance.now(); raf = requestAnimationFrame(frame); }
-  });
+  // nothing to draw for a hidden tab or with reduced motion (CSS swaps the canvas for the static backdrop)
+  const mqReduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const sync = () => {
+    cancelAnimationFrame(raf);
+    if (!document.hidden && !mqReduce.matches) { last = performance.now(); raf = requestAnimationFrame(frame); }
+  };
+  document.addEventListener('visibilitychange', sync);
+  mqReduce.addEventListener('change', sync);
+  sync();
 }

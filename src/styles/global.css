@@ -1,7 +1,6 @@
 /* ---------- tokens: dark first, light mirrored ---------- */
 :root {
   color-scheme: dark;
-  --scheme: dark;
   --bg: #0B0E13;
   --surface: #121720;
   --surface-2: #19212C;
@@ -33,7 +32,6 @@
 @media (prefers-color-scheme: light) {
   :root {
     color-scheme: light;
-    --scheme: light;
     --bg: #EEF0F3;
     --surface: #F8F9FB;
     --surface-2: #E4E8ED;
@@ -73,6 +71,7 @@ ol, ul { padding: 0; list-style: none; }
 a { color: inherit; }
 ::selection { background: var(--accent-fill); color: var(--accent-ink); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+[tabindex="-1"]:focus { outline: none; } /* sections that receive focus after an in-page jump */
 .nowrap { white-space: nowrap; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 

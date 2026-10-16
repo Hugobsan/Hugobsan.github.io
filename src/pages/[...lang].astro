@@ -81,9 +81,10 @@ const ld = {
   ],
 };
 
-// root only: send first-time visitors to their browser language; a stored choice wins, bots stay on English
+// root only: send first-time visitors to their browser language; a stored choice wins, bots stay on English,
+// and arriving from this site (switcher, new tab, storage blocked) means English was chosen
 const others = JSON.stringify(LANGS.filter((l) => l !== 'en'));
-const redirect = `(function(){var s=${others},l;try{l=localStorage.getItem("lang")}catch(e){}if(!l){var n=navigator.languages||[navigator.language];for(var i=0;i<n.length;i++){var c=String(n[i]).slice(0,2).toLowerCase();if(c=="en"||s.indexOf(c)>-1){l=c;break}}}if(s.indexOf(l)>-1)location.replace("/"+l+"/"+location.search+location.hash)})()`;
+const redirect = `(function(){if(document.referrer.indexOf(location.origin+"/")==0)return;var s=${others},l;try{l=localStorage.getItem("lang")}catch(e){}if(!l){var n=navigator.languages||[navigator.language];for(var i=0;i<n.length;i++){var c=String(n[i]).slice(0,2).toLowerCase();if(c=="en"||s.indexOf(c)>-1){l=c;break}}}if(s.indexOf(l)>-1)location.replace("/"+l+"/"+location.search+location.hash)})()`;
 ---
 <Base lang={lang} title={t.meta.title} description={t.meta.description} path={path} home>
   {lang === 'en' && <script is:inline slot="first" set:html={redirect} />}
@@ -109,12 +110,29 @@ const redirect = `(function(){var s=${others},l;try{l=localStorage.getItem("lang
 </Base>
 
 <script>
-  // a manual language choice beats browser detection on the next visit to /
+  import { state } from '../scripts/state';
+
+  // language switch: same section in the other language, and the choice beats browser detection on /
   document.querySelectorAll<HTMLAnchorElement>('.lang a').forEach((a) =>
     a.addEventListener('click', () => {
-      try { localStorage.setItem('lang', a.dataset.lang!); } catch { /* storage blocked: the link still works */ }
+      a.hash = location.hash;
+      try { localStorage.setItem('lang', a.dataset.lang!); } catch { /* storage blocked: the referrer check covers it */ }
     }),
   );
+
+  // in-page links: smooth scroll (Lenis when active, CSS otherwise) and focus moves to the target,
+  // so keyboard users carry on from the section they jumped to
+  document.addEventListener('click', (e) => {
+    const a = (e.target as Element).closest<HTMLAnchorElement>('a[href^="#"]');
+    const el = a && document.getElementById(a.hash.slice(1));
+    if (!el || e.button || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault();
+    history.replaceState(null, '', a.hash);
+    if (state.lenis) state.lenis.scrollTo(el); // honours scroll-padding-top, like scrollIntoView
+    else el.scrollIntoView();
+    if (!el.hasAttribute('tabindex')) el.tabIndex = -1;
+    el.focus({ preventScroll: true });
+  });
 
   // offers accordion: hover or focus opens a slice; the last one touched stays open
   const slices = [...document.querySelectorAll<HTMLElement>('.slice')];
@@ -146,8 +164,9 @@ const redirect = `(function(){var s=${others},l;try{l=localStorage.getItem("lang
   });
 
   // the 3D signal loads after the page is idle and motion on first use, never on the critical path;
-  // reduced motion keeps the static backdrop, and so does a device without hardware WebGL2
-  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  // reduced motion keeps the static backdrop (until it is switched off), and so does a device without hardware WebGL2
+  const noWebgl = () => document.documentElement.classList.add('no-webgl');
+  const boot = () => {
     // WebGL2 renderer name, '' when unavailable. Probed in a worker first because creating a context on a
     // software rasterizer can block the main thread for a second; self-contained so it can be stringified.
     const renderer = (g: WebGL2RenderingContext | null) => {
@@ -169,7 +188,7 @@ const redirect = `(function(){var s=${others},l;try{l=localStorage.getItem("lang
     const start = async () => {
       // everything motion drives is scroll-driven, so set it up at the first sign of use
       // (or right away when the page opens scrolled or on an anchor): phones never pay for it up front
-      const setup = (onAnchor: boolean) => import('../scripts/motion').then((m) => m.init(onAnchor));
+      const setup = (onAnchor: boolean) => import('../scripts/motion').then((m) => m.init(onAnchor)).catch(() => {});
       const firstUse = () => {
         events.forEach((e) => removeEventListener(e, firstUse));
         setup(false);
@@ -180,16 +199,19 @@ const redirect = `(function(){var s=${others},l;try{l=localStorage.getItem("lang
       // only a renderer the worker positively saw as software skips the main thread; '' or null
       // just means the worker can't tell (Safari < 17 has no WebGL in workers)
       const name = await probe();
-      if (name && !hardware(name)) return document.documentElement.classList.add('no-webgl');
+      if (name && !hardware(name)) return noWebgl();
       const canvas = document.getElementById('signal') as HTMLCanvasElement;
       const gl = canvas.getContext('webgl2', { alpha: true, antialias: false, powerPreference: 'high-performance', failIfMajorPerformanceCaveat: true });
-      if (gl && hardware(renderer(gl))) import('../scripts/signal').then((s) => s.init(canvas, gl));
-      else document.documentElement.classList.add('no-webgl');
+      if (gl && hardware(renderer(gl))) import('../scripts/signal').then((s) => s.init(canvas, gl)).catch(noWebgl);
+      else noWebgl();
     };
     // after load and after a frame has been painted, when the main thread is idle
     const idle = () => requestAnimationFrame(() => setTimeout(() =>
       'requestIdleCallback' in window ? requestIdleCallback(start, { timeout: 2500 }) : start()));
     if (document.readyState === 'complete') idle();
     else addEventListener('load', idle, { once: true });
-  }
+  };
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  if (reduce.matches) reduce.addEventListener('change', boot, { once: true });
+  else boot();
 </script>
