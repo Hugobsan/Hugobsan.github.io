@@ -1,6 +1,7 @@
 ---
 import type { Dict } from '../i18n/en';
 import { CLUB, STACKS } from '../facts';
+import NoBreak from './NoBreak.astro';
 interface Props { t: Dict }
 const { t } = Astro.props;
 const { bluee, club, prp } = t.work;
@@ -25,7 +26,7 @@ const cases = [
           {note && <div class="panel__meta"><span class="panel__note">{note}</span></div>}
           <p class="panel__lede">{c.lede}</p>
           <p class="panel__role">{c.role}</p>
-          <p class="panel__hl"><strong>{c.highlight.n}</strong> <span>{c.highlight.l}</span></p>
+          <p class="panel__hl"><strong>{c.highlight.n}</strong> <span><NoBreak text={c.highlight.l} /></span></p>
           <ul class="bullets">{c.bullets.map((b) => <li>{b}</li>)}</ul>
           <ul class="chips" aria-label={t.work.stack}>{stack.map((s) => <li>{s}</li>)}</ul>
         </div></div>

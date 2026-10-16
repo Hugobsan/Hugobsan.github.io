@@ -250,7 +250,7 @@ a { color: inherit; }
   font-size: clamp(2.25rem, 1.4rem + 2.4vw, 3.5rem); line-height: 1; letter-spacing: -0.045em; word-spacing: -0.3em;
   font-variant-numeric: tabular-nums; white-space: nowrap;
 }
-.panel__hl span { max-width: 30ch; color: var(--text); line-height: 1.4; }
+.panel__hl span { max-width: 46ch; color: var(--text); line-height: 1.4; }
 .bullets { margin-top: 22px; display: grid; gap: 9px; padding-left: 18px; border-left: 1px solid var(--line-strong); font-size: .9375rem; line-height: 1.5; color: var(--text-dim); }
 .chips { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 6px; }
 .chips li { font-family: var(--font-mono); font-size: .75rem; line-height: 1; padding: 6px 8px; border: 1px solid var(--line); border-radius: var(--radius); color: var(--text-dim); }

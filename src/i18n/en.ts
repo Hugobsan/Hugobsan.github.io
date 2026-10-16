@@ -33,7 +33,7 @@ const en = {
       name: 'Bluee',
       lede: 'An AI platform that turned a topic into a complete online course, with lessons, narration and an avatar presenter.',
       role: 'Role: Back-end engineer, then Tech Lead. 2025 to 2026.',
-      highlight: { n: '3 → 8', l: 'tasks per GPU pod on RunPod' },
+      highlight: { n: '1 hour', l: 'from a topic to a complete AI-generated course' },
       bullets: [
         'LLM layer on OpenRouter with streaming and fallbacks, plus agentic chat with parallel tool calls.',
         'RAG over user documents: sandboxed extraction, batched embeddings, pgvector search.',

@@ -1,0 +1,6 @@
+---
+// text whose hyphenated words (UTC-3, AI-generated) never break at the hyphen; CJK runs stay breakable
+interface Props { text: string }
+const parts = Astro.props.text.split(/([A-Za-z0-9]+-[A-Za-z0-9]+)/);
+---
+{parts.map((p, i) => (i % 2 ? <span class="nowrap">{p}</span> : p))}

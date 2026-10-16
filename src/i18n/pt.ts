@@ -34,7 +34,7 @@ export default {
       name: 'Bluee',
       lede: 'Plataforma de IA que transformava um tema num curso online completo, com aulas, narração e um avatar apresentador.',
       role: 'Papel: Engenheiro back-end, depois Tech Lead. 2025 a 2026.',
-      highlight: { n: '3 → 8', l: 'tarefas por pod de GPU no RunPod' },
+      highlight: { n: '1 hora', l: 'de um tema a um curso completo gerado por IA' },
       bullets: [
         'Camada de LLM sobre o OpenRouter com streaming e fallbacks, mais um chat agêntico com tool calls em paralelo.',
         'RAG sobre documentos do usuário: extração em sandbox, embeddings em lote, busca com pgvector.',

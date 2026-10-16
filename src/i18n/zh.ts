@@ -35,7 +35,7 @@ export default {
       name: 'Bluee',
       lede: '一款 AI 平台，曾能根据一个主题生成一门完整的在线课程，包含课时、旁白和数字人讲师。',
       role: '角色：先任后端工程师，后任技术负责人。2025 至 2026 年。',
-      highlight: { n: '3 → 8', l: 'RunPod 上单个 GPU pod 承载的任务数' },
+      highlight: { n: '1 小时', l: '从一个主题到一门完整的 AI 生成课程' },
       bullets: [
         '基于 OpenRouter 的 LLM 层，具备流式输出和回退机制；另有支持并行工具调用的智能体对话。',
         '基于用户文档的 RAG：沙箱内提取内容、批量向量化、pgvector 向量检索。',

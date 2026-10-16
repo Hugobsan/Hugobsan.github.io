@@ -1,15 +1,14 @@
 ---
 import type { Dict } from '../i18n/en';
+import NoBreak from './NoBreak.astro';
 interface Props { t: Dict }
 const { t } = Astro.props;
-// keep "UTC-3" on one line: browsers may break after its hyphen
-const sub = t.hero.sub.split(/(UTC-\d+)/);
 ---
 <section class="hero wrap" id="top" aria-labelledby="hero-h">
   <div class="container">
     <div class="hero__copy">
       <h1 id="hero-h">{t.hero.h1}</h1>
-      <p class="hero__sub">{sub.map((s, i) => (i % 2 ? <span class="nowrap">{s}</span> : s))}</p>
+      <p class="hero__sub"><NoBreak text={t.hero.sub} /></p>
       <div class="hero__ctas">
         <a class="btn btn--primary magnet" href="#contact">{t.hero.primary}</a>
         <a class="btn btn--ghost magnet" href="#work">{t.hero.secondary}</a>
