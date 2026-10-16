@@ -73,6 +73,7 @@ ol, ul { padding: 0; list-style: none; }
 a { color: inherit; }
 ::selection { background: var(--accent-fill); color: var(--accent-ink); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.nowrap { white-space: nowrap; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 .skip {

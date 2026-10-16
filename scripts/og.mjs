@@ -35,7 +35,7 @@ p{margin-top:24px;font-size:24px;line-height:1.45;color:#A3ACB9}
 .url{font:500 22px/1 M,monospace;color:#F2A93B}
 .av{position:absolute;right:${116 + px}px;top:${108}px;width:${px}px;height:${px}px;box-shadow:${shadows}}
 .av{transform:translateX(-${(avatar.w - 1) * px}px)}
-</style><body><div class="card"><div class="mark">Hugo Barbosa</div><div><h1>${esc(t.hero.h1)}</h1><p>${esc(t.hero.sub)}</p></div>
+</style><body><div class="card"><div class="mark">Hugo Barbosa</div><div><h1>${esc(t.hero.h1)}</h1><p>${esc(t.hero.sub).replace(/(UTC-\d+)/, '<span style="white-space:nowrap">$1</span>')}</p></div>
 <div class="url">hugobsan.com.br</div></div><div class="av"></div></body></html>`;
 
 const dir = mkdtempSync(join(tmpdir(), 'og-'));
