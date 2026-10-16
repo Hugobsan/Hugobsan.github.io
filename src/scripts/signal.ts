@@ -1,10 +1,9 @@
-// Signal: one THREE.Points, seven formations morphed on the GPU.
+// Signal: one THREE.Points, six formations morphed on the GPU.
 import {
   AdditiveBlending, BufferAttribute, BufferGeometry, Color, ColorManagement, NormalBlending,
   PerspectiveCamera, Points, Scene, ShaderMaterial, Vector2, WebGLRenderer,
 } from 'three';
 import AVATAR from './avatar.json';
-import { MRR } from '../facts';
 import { state } from './motion';
 
 const AVATAR_H = 2.1;
@@ -22,7 +21,7 @@ function mulberry32(a: number) {
 function buildFormations(N: number) {
   const R = mulberry32(20261015);
   const gauss = () => { let u = 0; while (!u) u = R(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * R()); };
-  const P = Array.from({ length: 7 }, () => new Float32Array(N * 3));
+  const P = Array.from({ length: 6 }, () => new Float32Array(N * 3));
   const bits = new Uint8Array(N);
   const rnd = new Float32Array(N);
   const col = new Float32Array(N * 4);
@@ -113,25 +112,7 @@ function buildFormations(N: number) {
     }
   }
 
-  // F4 MRR bars: heights exactly proportional to the measured values (same scale, tallest = 0.4048)
-  {
-    const pm = perm(), H = 1.9, base = -0.95, hw = 0.15, max = MRR[MRR.length - 1];
-    const floorN = Math.round(N * 0.04);
-    let j = 0;
-    for (; j < floorN; j++) put(4, pm[j], -1.25 + 2.5 * R(), base - 0.02 + gauss() * 0.004, (R() * 2 - 1) * hw);
-    const total = MRR.reduce((s, v) => s + v, 0), barsN = N - floorN;
-    MRR.forEach((v, k) => {
-      const h = (v / max) * H, x = (k - 2) * 0.5;
-      const cnt = k === MRR.length - 1 ? N - j : Math.round((v / total) * barsN);
-      for (let m = 0; m < cnt; m++, j++) {
-        const i = pm[j], top = R() < 0.15;
-        put(4, i, x + (R() * 2 - 1) * hw, base + (top ? h : R() * h), (R() * 2 - 1) * hw);
-        if (k === MRR.length - 1) bits[i] |= 16;
-      }
-    });
-  }
-
-  // F5 path ribbon: a twisting band with eight milestone knots, the last one accented
+  // F4 path ribbon: a twisting band with eight milestone knots, the last one accented
   {
     const pm = perm();
     const curve = (u: number) => [-2.4 + 4.8 * u, 0.22 * Math.sin(u * Math.PI * 1.8 + 0.4), 0.35 * Math.cos(u * Math.PI * 1.4)];
@@ -141,16 +122,16 @@ function buildFormations(N: number) {
       const i = pm[j];
       if (j < ribbonN) {
         const u = R(), v = R() * 2 - 1, th = u * Math.PI * 1.5, c = curve(u);
-        put(5, i, c[0] + gauss() * 0.006, c[1] + Math.cos(th) * 0.13 * v, c[2] + Math.sin(th) * 0.13 * v);
+        put(4, i, c[0] + gauss() * 0.006, c[1] + Math.cos(th) * 0.13 * v, c[2] + Math.sin(th) * 0.13 * v);
       } else {
         const k = j % 8, c = curve(knots[k]);
-        put(5, i, c[0] + gauss() * 0.05, c[1] + gauss() * 0.05, c[2] + gauss() * 0.05);
-        if (k === 7) bits[i] |= 32;
+        put(4, i, c[0] + gauss() * 0.05, c[1] + gauss() * 0.05, c[2] + gauss() * 0.05);
+        if (k === 7) bits[i] |= 16;
       }
     }
   }
 
-  // F6 avatar: each art pixel becomes a small square cluster; surplus particles form a faint halo
+  // F5 avatar: each art pixel becomes a small square cluster; surplus particles form a faint halo
   const pm = perm(), cells: [number, number, number][] = [];
   for (let r = 0; r < AVATAR.h; r++) for (let c = 0; c < AVATAR.w; c++) {
     const ch = AVATAR.data[r * AVATAR.w + c];
@@ -163,7 +144,7 @@ function buildFormations(N: number) {
   for (const [c, r, p] of cells) {
     for (let q = 0; q < per; q++, j++) {
       const gy = Math.floor(q / cols), inRow = gy === rows - 1 ? per - cols * (rows - 1) : cols, gx = q - gy * cols, i = pm[j];
-      put(6, i,
+      put(5, i,
         (c - (AVATAR.w - 1) / 2) * cell + ((gx + 0.5) / inRow - 0.5) * cell * 0.9,
         ((AVATAR.h - 1) / 2 - r) * cell + ((gy + 0.5) / rows - 0.5) * cell * 0.9,
         (R() - 0.5) * 0.02);
@@ -172,7 +153,7 @@ function buildFormations(N: number) {
   }
   for (; j < N; j++) {
     const a = R() * Math.PI * 2, rad = 1.3 + Math.abs(gauss()) * 0.35;
-    put(6, pm[j], Math.cos(a) * rad * 0.8, Math.sin(a) * rad, gauss() * 0.15);
+    put(5, pm[j], Math.cos(a) * rad * 0.8, Math.sin(a) * rad, gauss() * 0.15);
   }
   const sub = Math.min(cols, rows);
   // with additive blending overlapping squares add up; scale alpha down by the expected overlap
@@ -229,7 +210,7 @@ const VERT = /* glsl */`
 uniform float uFrom, uTo, uMix, uTime, uPointSize, uPixelRatio, uDrift, uDark, uAlpha, uAvatarAlpha, uAvatarSize;
 uniform vec3 uColorBase, uColorAccent;
 uniform vec2 uMouse;
-attribute vec3 position1, position2, position3, position4, position5, position6;
+attribute vec3 position1, position2, position3, position4, position5;
 attribute float aRandom;
 attribute vec4 aColor;
 attribute float aHighlight;
@@ -270,15 +251,14 @@ vec4 formation(float i){
   if (i < 2.5) return lane(position2);
   if (i < 3.5) return vec4(position3, 1.0);
   if (i < 4.5) return vec4(position4, 1.0);
-  if (i < 5.5) return vec4(position5, 1.0);
-  return vec4(position6, 1.0);
+  return vec4(position5, 1.0);
 }
 float highlight(float i){
   if (i > 1.5 && i < 2.5) return laneHighlight(position2);
   return mod(floor(aHighlight / pow(2.0, floor(i + 0.5))), 2.0);
 }
 float driftAmp(float i){
-  return i < 0.5 ? 0.04 : i < 1.5 ? 0.03 : i < 2.5 ? 0.008 : i < 3.5 ? 0.018 : i < 4.5 ? 0.003 : i < 5.5 ? 0.02 : 0.002;
+  return i < 0.5 ? 0.04 : i < 1.5 ? 0.03 : i < 2.5 ? 0.008 : i < 3.5 ? 0.018 : i < 4.5 ? 0.02 : 0.002;
 }
 
 void main(){
@@ -296,19 +276,19 @@ void main(){
   }
 
   float h = mix(highlight(uFrom), highlight(uTo), m);
-  float w6 = (uFrom > 5.5 ? 1.0 - m : 0.0) + (uTo > 5.5 ? m : 0.0);
+  float w5 = (uFrom > 4.5 ? 1.0 - m : 0.0) + (uTo > 4.5 ? m : 0.0);  // avatar weight
   bool px = aColor.a > 0.5;
   vec3 av = px ? aColor.rgb : uColorBase;
   if (uDark > 0.5) av = max(av, uColorBase * 0.42);   // lift near-black pixels so the silhouette reads on dark
-  vec3 col = mix(mix(uColorBase, uColorAccent, h), av, w6);
-  float a = mix(A.w, B.w, m) * mix(uAlpha * (0.6 + 0.4 * h), px ? uAvatarAlpha : uAlpha * 0.15, w6);
+  vec3 col = mix(mix(uColorBase, uColorAccent, h), av, w5);
+  float a = mix(A.w, B.w, m) * mix(uAlpha * (0.6 + 0.4 * h), px ? uAvatarAlpha : uAlpha * 0.15, w5);
 
   vec4 mv = modelViewMatrix * vec4(pos, 1.0);
   gl_Position = projectionMatrix * mv;
   float size = uPointSize * (0.7 + aRandom * 0.6) * (1.0 + 0.7 * h) * (6.0 / -mv.z);
-  gl_PointSize = mix(size, px ? uAvatarSize : size, w6) * uPixelRatio;
+  gl_PointSize = mix(size, px ? uAvatarSize : size, w5) * uPixelRatio;
   vColor = vec4(col, a);
-  vSquare = px ? w6 : 0.0;
+  vSquare = px ? w5 : 0.0;
 }`;
 
 const FRAG = /* glsl */`
@@ -324,10 +304,10 @@ void main(){
 
 type Layout = { x: number[]; y: number[]; s: number[]; a: number[] };
 // where each formation sits: x/y as fractions of the half viewport, s as a fraction of min(halfW, halfH)
-// index 6 (avatar) is overwritten every frame from the contact section's free space
+// order: hero, Bluee, Club, review panel, path, avatar (index 5, overwritten every frame from the contact section's free space)
 const LAYOUT: { desk: Layout; mob: Layout } = {
-  desk: { x: [0.48, 0.5, 0.52, 0.5, 0.53, 0, 0], y: [0, 0, 0, 0, 0, 0.22, 0], s: [0.62, 0.56, 0.44, 0.5, 0.48, 1.0, 0.4], a: [1, 1, 1, 1, 1, 0.8, 1] },
-  mob: { x: [0, 0, 0, 0, 0, 0, 0], y: [0.08, 0, 0, 0, 0, -0.1, 0], s: [0.78, 0.74, 0.66, 0.66, 0.7, 0.9, 0.62], a: [0.5, 0.4, 0.4, 0.4, 0.4, 0.45, 1] },
+  desk: { x: [0.48, 0.5, 0.52, 0.5, 0, 0], y: [0, 0, 0, 0, 0.22, 0], s: [0.62, 0.56, 0.44, 0.5, 1.0, 0.4], a: [1, 1, 1, 1, 0.8, 1] },
+  mob: { x: [0, 0, 0, 0, 0, 0], y: [0.08, 0, 0, 0, -0.1, 0], s: [0.78, 0.74, 0.66, 0.66, 0.9, 0.62], a: [0.5, 0.4, 0.4, 0.4, 0.45, 1] },
 };
 
 export function init(canvas: HTMLCanvasElement, gl: WebGL2RenderingContext) {
@@ -350,7 +330,7 @@ export function init(canvas: HTMLCanvasElement, gl: WebGL2RenderingContext) {
   const { P, mask, rnd, col, avatarSub, avatarDarkAlpha } = buildFormations(N);
   const geo = new BufferGeometry();
   geo.setAttribute('position', new BufferAttribute(P[0], 3));
-  for (let k = 1; k < 7; k++) geo.setAttribute('position' + k, new BufferAttribute(P[k], 3));
+  for (let k = 1; k < 6; k++) geo.setAttribute('position' + k, new BufferAttribute(P[k], 3));
   geo.setAttribute('aRandom', new BufferAttribute(rnd, 1));
   geo.setAttribute('aColor', new BufferAttribute(col, 4));
   geo.setAttribute('aHighlight', new BufferAttribute(mask, 1));
@@ -407,8 +387,8 @@ export function init(canvas: HTMLCanvasElement, gl: WebGL2RenderingContext) {
     const top = Math.max(sr.top, 80), bottom = ir.top - 24;
     const hpx = Math.min(vh * 0.5, Math.max(150, (bottom - top) * 0.9));
     const cy = bottom - top >= 150 ? (top + bottom) / 2 : bottom - hpx / 2;
-    L.y[6] = 1 - (2 * cy) / vh;
-    L.s[6] = hpx / pxPerUnit / AVATAR_H / unit;
+    L.y[5] = 1 - (2 * cy) / vh;
+    L.s[5] = hpx / pxPerUnit / AVATAR_H / unit;
   }
   const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
   let time = 0, last = performance.now(), dimS = 0, raf = 0, firstFrame = true;
@@ -420,26 +400,26 @@ export function init(canvas: HTMLCanvasElement, gl: WebGL2RenderingContext) {
 
     let p = 0;
     for (const f of state.F) p += f.v;
-    p = Math.max(0, Math.min(6, p));
+    p = Math.max(0, Math.min(5, p));
     let dim = 0;
     for (const d of state.D) dim += d();
     dim = Math.max(0, Math.min(1, dim));
     dimS += (dim - dimS) * (1 - Math.exp(-dt * 4));
 
-    const from = Math.min(Math.floor(p), 6), to = Math.min(from + 1, 6), m = p - from;
+    const from = Math.min(Math.floor(p), 5), to = Math.min(from + 1, 5), m = p - from;
     const e = m * m * (3 - 2 * m);
     const L = mqMobile.matches ? LAYOUT.mob : LAYOUT.desk;
     const halfW = halfH * camera.aspect, unit = Math.min(halfH, halfW);
     const pxPerUnit = vh / (2 * halfH);
-    if (to === 6) avatarSlot(L, unit, pxPerUnit);
+    if (to === 5) avatarSlot(L, unit, pxPerUnit);
     const scale = lerp(L.s[from], L.s[to], e) * unit * (1 - 0.07 * dimS);
     let x = lerp(L.x[from], L.x[to], e) * halfW;
     // the ribbon slides with the horizontal timeline (slower than the cards, so it reads as depth)
-    const w5 = (from === 5 ? 1 - e : 0) + (to === 5 ? e : 0);
-    if (w5 > 0) {
-      const ribbon = 4.8 * L.s[5] * unit;
+    const w4 = (from === 4 ? 1 - e : 0) + (to === 4 ? e : 0);
+    if (w4 > 0) {
+      const ribbon = 4.8 * L.s[4] * unit;
       const pan = state.pan ? state.pan.progress() : 0.5;
-      x += w5 * (0.5 - pan) * Math.max(0, ribbon - 2 * halfW);
+      x += w4 * (0.5 - pan) * Math.max(0, ribbon - 2 * halfW);
     }
     points.position.set(x, lerp(L.y[from], L.y[to], e) * halfH, 0);
     points.scale.setScalar(scale);
@@ -447,16 +427,14 @@ export function init(canvas: HTMLCanvasElement, gl: WebGL2RenderingContext) {
     time += dt;
     mouse.x += (mouse.tx - mouse.x) * (1 - Math.exp(-dt * 3));
     mouse.y += (mouse.ty - mouse.y) * (1 - Math.exp(-dt * 3));
-    // keep the bars flat to the camera so their heights stay true
-    const w4 = (from === 4 ? 1 - e : 0) + (to === 4 ? e : 0);
-    points.rotation.y = mouse.x * 0.12 * (1 - w4);
-    points.rotation.x = -mouse.y * 0.08 * (1 - w4);
+    points.rotation.y = mouse.x * 0.12;
+    points.rotation.x = -mouse.y * 0.08;
 
     U.uFrom.value = from; U.uTo.value = to; U.uMix.value = m; U.uTime.value = time;
     U.uMouse.value.set(mouse.x, mouse.y);
     U.uAlpha.value = (dark ? 0.62 : 0.78) * lerp(L.a[from], L.a[to], e) * (1 - 0.55 * dimS);
     U.uAvatarAlpha.value = dark ? avatarDarkAlpha : 1;
-    U.uAvatarSize.value = (AVATAR_H / AVATAR.h) * L.s[6] * unit * pxPerUnit / avatarSub * AVATAR_SPRITE;
+    U.uAvatarSize.value = (AVATAR_H / AVATAR.h) * L.s[5] * unit * pxPerUnit / avatarSub * AVATAR_SPRITE;
 
     renderer.render(scene, camera);
     if (firstFrame) { firstFrame = false; canvas.classList.add('is-ready'); }

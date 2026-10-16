@@ -7,7 +7,7 @@ export default {
     description: 'Tech Lead en Greenn e ingeniero de IA. Construyo productos que resisten en producción: pipelines de LLM, RAG, colas resilientes e ingeniería agéntica. Disponible para trabajo remoto y consultoría.',
   },
   skip: 'Saltar al contenido',
-  nav: { label: 'Navegación principal', work: 'Proyectos', path: 'Trayectoria', research: 'Investigación', contact: 'Contacto', lang: 'Idioma' },
+  nav: { label: 'Navegación principal', services: 'Servicios', work: 'Proyectos', path: 'Trayectoria', contact: 'Contacto', lang: 'Idioma' },
   hero: {
     h1: 'Construyo productos de IA que resisten en producción.',
     sub: 'Tech Lead en Greenn. Pipelines de LLM, colas resilientes e ingeniería agéntica, desde el primer prompt hasta el worker de GPU.',
@@ -70,19 +70,6 @@ export default {
         'Cada decisión de diseño se mide. Una variante se descartó por costar un 132% más.',
       ],
     },
-    research: {
-      name: 'Investigación en localización de bugs',
-      role: 'UNIMONTES, 2024 hasta hoy',
-      lede: 'Dado un reporte de bug, ¿qué método del código está fallando? Mido cada enfoque con el Mean Reciprocal Rank en ArgoUML 0.22.',
-      bars: [
-        'Bi-encoders BERT, mejor resultado',
-        'Doc2Vec, línea base',
-        'Embeddings de código propietarios (voyage-4-large)',
-        'Agente LLM con herramientas de búsqueda',
-        'Híbrido, agente más ranking semántico',
-      ],
-      caption: 'El enfoque híbrido supera en un 75% al mejor modelo de embeddings y duplica la línea base clásica.',
-    },
   },
   path: {
     h: 'Cómo llegué hasta aquí',
@@ -140,6 +127,8 @@ export default {
     ],
     langH: 'Idiomas',
     langs: 'Portugués (nativo), inglés (profesional), español (básico).',
+    researchH: 'Investigación',
+    research: 'Agentes LLM para la localización de bugs de software (UNIMONTES, 2024 hasta hoy). El enfoque híbrido que desarrollé alcanza un MRR de 0,40, un 75% por encima del mejor modelo de embeddings.',
     pubH: 'Publicaciones',
     pubNote: '',
     pubMore: 'Las 8 publicaciones',

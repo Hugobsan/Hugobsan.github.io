@@ -6,7 +6,7 @@ export default {
     description: 'Tech Lead na Greenn. Construo produtos de IA que aguentam produção: pipelines de LLM, RAG, filas resilientes e engenharia agêntica. Aberto a vagas remotas e consultoria.',
   },
   skip: 'Pular para o conteúdo',
-  nav: { label: 'Principal', work: 'Trabalho', path: 'Trajetória', research: 'Pesquisa', contact: 'Contato', lang: 'Idioma' },
+  nav: { label: 'Principal', services: 'Serviços', work: 'Trabalho', path: 'Trajetória', contact: 'Contato', lang: 'Idioma' },
   hero: {
     h1: 'Construo produtos de IA que aguentam produção.',
     sub: 'Tech Lead na Greenn. Pipelines de LLM, filas resilientes e engenharia agêntica, do primeiro prompt ao worker de GPU.',
@@ -69,19 +69,6 @@ export default {
         'Cada escolha de design é medida. Uma variante foi descartada por custar 132% a mais.',
       ],
     },
-    research: {
-      name: 'Pesquisa em localização de bugs',
-      role: 'UNIMONTES, 2024 até hoje',
-      lede: 'Dado um relato de bug, qual método do código está quebrado? Meço cada abordagem pelo Mean Reciprocal Rank no ArgoUML 0.22.',
-      bars: [
-        'BERT bi-encoders, melhor resultado',
-        'Doc2Vec (linha de base)',
-        'Embeddings proprietários de código (voyage-4-large)',
-        'Agente LLM com ferramentas de busca',
-        'Híbrido, agente mais ranking semântico',
-      ],
-      caption: 'A abordagem híbrida fica 75% acima do melhor modelo de embeddings e dobra a linha de base clássica.',
-    },
   },
   path: {
     h: 'Como cheguei aqui',
@@ -139,6 +126,8 @@ export default {
     ],
     langH: 'Idiomas',
     langs: 'Português (nativo), inglês (profissional), espanhol (básico).',
+    researchH: 'Pesquisa',
+    research: 'Agentes LLM para localização de bugs de software (UNIMONTES, 2024 até hoje). A abordagem híbrida que desenvolvi chega a 0,40 de MRR, 75% acima do melhor modelo de embeddings.',
     pubH: 'Publicações',
     pubNote: '',
     pubMore: 'Todas as 8 publicações',

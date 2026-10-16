@@ -3,7 +3,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
 // Scroll state read by the WebGL loop (signal.ts).
-// F: one proxy per chapter that owns a formation (Bluee..Contact); their sum is the formation progress 0..6.
+// F: one proxy per chapter that owns a formation (Bluee..Contact); their sum is the formation progress 0..5.
 // D: dim contributions of the chapters without a formation.
 export const state = {
   F: [] as { v: number }[],

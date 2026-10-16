@@ -5,7 +5,7 @@ const en = {
     description: 'Tech Lead at Greenn. I build AI products that hold up in production: LLM pipelines, RAG, resilient queues and agentic engineering. Open to remote roles and consulting.',
   },
   skip: 'Skip to content',
-  nav: { label: 'Primary', work: 'Work', path: 'Path', research: 'Research', contact: 'Contact', lang: 'Language' },
+  nav: { label: 'Primary', services: 'Services', work: 'Work', path: 'Path', contact: 'Contact', lang: 'Language' },
   hero: {
     h1: 'I build AI products that hold up in production.',
     sub: 'Tech Lead at Greenn. LLM pipelines, resilient queues and agentic engineering, from the first prompt to the GPU worker.',
@@ -68,19 +68,6 @@ const en = {
         'Every design choice is measured. One variant was dropped for costing 132% more.',
       ],
     },
-    research: {
-      name: 'Bug localization research',
-      role: 'UNIMONTES, 2024 to now',
-      lede: 'Given a bug report, which method in the code is broken? I measure each approach by Mean Reciprocal Rank on ArgoUML 0.22.',
-      bars: [
-        'BERT bi-encoders, best result',
-        'Doc2Vec baseline',
-        'Proprietary code embeddings (voyage-4-large)',
-        'LLM agent with search tools',
-        'Hybrid, agent plus semantic ranking',
-      ],
-      caption: 'The hybrid approach scores 75% above the best embedding model and doubles the classic baseline.',
-    },
   },
   path: {
     h: 'How I got here',
@@ -138,6 +125,8 @@ const en = {
     ],
     langH: 'Languages',
     langs: 'Portuguese (native), English (professional), Spanish (elementary).',
+    researchH: 'Research',
+    research: 'LLM agents for software bug localization (UNIMONTES, 2024 to now). The hybrid approach I built reaches 0.40 MRR, 75% above the best embedding model.',
     pubH: 'Publications',
     pubNote: 'Titles translated; papers in Portuguese.',
     pubMore: 'All 8 publications',
