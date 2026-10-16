@@ -18,7 +18,7 @@ npm run preview
 ```
 
 Assets made once and committed: `node scripts/og.mjs` renders the Open Graph cards in `public/og/` (needs Chrome);
-`python3 scripts/avatar.py` turns `src/assets/profile.png` into the particle avatar and the favicons (needs Pillow).
+`python3 scripts/avatar.py 37 48` turns `src/assets/profile.png` (37x48 art pixels) into the particle avatar and the favicons (needs Pillow).
 
 ## Deploy
 
