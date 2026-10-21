@@ -22,11 +22,13 @@ const { lang, title, description, path, home = false } = Astro.props;
 const loc = LOCALES[lang];
 const url = SITE + path;
 const og = `${SITE}/og/${lang}.png`;
-// latin subsets only; CJK falls through to the system fonts in each stack
+// latin subsets only; CJK falls through to the system fonts in each stack.
+// font-display optional + preload: a face that is not ready at first paint is skipped for this view instead of
+// swapping in later, which reflowed the hero (3 lines to 2) and moved everything below it (CLS)
 const faces =
-  `@font-face{font-family:"Bricolage Grotesque";font-weight:400 650;font-stretch:75% 90%;font-display:swap;src:url(${display}) format("woff2")}` +
-  `@font-face{font-family:"Geist";font-weight:100 900;font-display:swap;src:url(${body}) format("woff2")}` +
-  `@font-face{font-family:"Geist Mono";font-weight:100 900;font-display:swap;src:url(${mono}) format("woff2")}`;
+  `@font-face{font-family:"Bricolage Grotesque";font-weight:400 650;font-stretch:75% 90%;font-display:optional;src:url(${display}) format("woff2")}` +
+  `@font-face{font-family:"Geist";font-weight:100 900;font-display:optional;src:url(${body}) format("woff2")}` +
+  `@font-face{font-family:"Geist Mono";font-weight:100 900;font-display:optional;src:url(${mono}) format("woff2")}`;
 ---
 <!doctype html>
 <html lang={loc.html}>
@@ -45,6 +47,7 @@ const faces =
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preload" href={display} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={body} as="font" type="font/woff2" crossorigin />
     <style is:inline set:html={faces}></style>
 
     <meta property="og:type" content="website" />
