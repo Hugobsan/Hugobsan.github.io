@@ -71,10 +71,10 @@ const ld = {
   ],
 };
 
-// root only: send first-time visitors to their browser language; a stored choice wins, bots stay on English,
-// and arriving from this site (switcher, new tab, storage blocked) means English was chosen
+// root only: a visitor who chose a language before (localStorage, set by the switcher) goes back to it.
+// No browser-language detection: everyone else, bots included, gets English
 const others = JSON.stringify(LANGS.filter((l) => l !== 'en'));
-const redirect = `(function(){if(document.referrer.indexOf(location.origin+"/")==0)return;var s=${others},l;try{l=localStorage.getItem("lang")}catch(e){}if(!l){var n=navigator.languages||[navigator.language];for(var i=0;i<n.length;i++){var c=String(n[i]).slice(0,2).toLowerCase();if(c=="en"||s.indexOf(c)>-1){l=c;break}}}if(s.indexOf(l)>-1)location.replace("/"+l+"/"+location.search+location.hash)})()`;
+const redirect = `(function(){var l;try{l=localStorage.getItem("lang")}catch(e){}if(${others}.indexOf(l)>-1)location.replace("/"+l+"/"+location.search+location.hash)})()`;
 ---
 <Base lang={lang} title={t.meta.title} description={t.meta.description} path={path} home>
   {lang === 'en' && <script is:inline slot="first" set:html={redirect} />}
@@ -101,11 +101,11 @@ const redirect = `(function(){if(document.referrer.indexOf(location.origin+"/")=
 <script>
   import { state } from '../scripts/state';
 
-  // language switch: same section in the other language, and the choice beats browser detection on /
+  // language switch: same section in the other language, and the stored choice is what the root redirects to
   document.querySelectorAll<HTMLAnchorElement>('.lang a').forEach((a) =>
     a.addEventListener('click', () => {
       a.hash = location.hash;
-      try { localStorage.setItem('lang', a.dataset.lang!); } catch { /* storage blocked: the referrer check covers it */ }
+      try { localStorage.setItem('lang', a.dataset.lang!); } catch { /* storage blocked: the choice just is not remembered */ }
     }),
   );
 

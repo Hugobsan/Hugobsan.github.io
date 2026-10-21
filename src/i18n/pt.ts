@@ -77,16 +77,15 @@ export default {
         period: '2026 até hoje', role: 'Tech Lead', org: 'Greenn',
         bullets: [
           'Times de até 6 desenvolvedores na Bluee e no Greenn Club.',
-          'Defino a arquitetura e os padrões de código, e revisei mais de 260 pull requests em 2026 com o meu painel de review.',
-          'Revisões de custo que cortaram mais de R$20 mil por mês em armazenamento de vídeo e mapearam até 50% de economia de infraestrutura.',
+          'Defino a arquitetura e os padrões de código.',
+          'Revisões de custo que mapearam até 50% de economia de infraestrutura.',
           'Falhas de segurança encontradas em review antes de chegarem à produção.',
         ],
       },
       {
         period: '2025', role: 'Desenvolvedor Back-end', org: 'Greenn',
         bullets: [
-          'Construí o núcleo de IA da Bluee: camada de LLM, chat agêntico, RAG e o pipeline de vídeo com avatar.',
-          'Deixei os jobs do RabbitMQ mais robustos com retry com backoff, idempotência e filas com atraso.',
+          'Engenheiro back-end nas funcionalidades de IA da Bluee e na confiabilidade das filas de jobs.',
         ],
       },
       {

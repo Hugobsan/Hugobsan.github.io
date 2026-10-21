@@ -76,16 +76,15 @@ const en = {
         period: '2026 to now', role: 'Tech Lead', org: 'Greenn',
         bullets: [
           'Teams of up to 6 developers across Bluee and Greenn Club.',
-          'I set the architecture and code standards, and reviewed 260+ pull requests in 2026 with my review panel.',
-          'Cost reviews that cut more than R$20k per month in video storage and mapped up to 50% infrastructure savings.',
+          'I set the architecture and code standards.',
+          'Cost reviews that mapped up to 50% infrastructure savings.',
           'Security issues caught in review before they reached production.',
         ],
       },
       {
         period: '2025', role: 'Back-end Developer', org: 'Greenn',
         bullets: [
-          'Built the AI core of Bluee: LLM layer, agentic chat, RAG and the avatar video pipeline.',
-          'Hardened RabbitMQ jobs with backoff retries, idempotency and delayed queues.',
+          'Back-end engineer on the AI features of Bluee and the reliability of its job queues.',
         ],
       },
       {

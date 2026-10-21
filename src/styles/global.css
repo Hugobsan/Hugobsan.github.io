@@ -174,6 +174,8 @@ a { color: inherit; }
 .hero__sub { margin-top: 28px; max-width: 36rem; text-wrap: pretty; font-size: clamp(1.0625rem, 1rem + .3vw, 1.25rem); color: var(--text-dim); }
 .hero__ctas { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px; }
 @media (min-width: 1024px) { .hero__copy { max-width: 62%; } }
+/* phones: the content follows the nav instead of floating in a viewport-high band */
+@media (max-width: 899px) { .hero { min-height: 0; padding-block: 104px 48px; } }
 
 /* ---------- offers: three columns + proof strip ---------- */
 .offers { padding-block: var(--section-space) calc(var(--section-space) * .6); }
@@ -245,7 +247,7 @@ a { color: inherit; }
 .job__org { color: var(--text-dim); font-weight: 500; }
 .job .bullets { margin-top: 16px; max-width: 62ch; }
 /* the 3D wave passes behind the text: a soft halo of the page colour keeps every glyph readable without hiding the particles */
-.experience :is(.h2, .job) { text-shadow: 0 0 6px var(--bg), 0 0 14px var(--bg), 0 0 28px var(--bg); }
+.experience :is(.h2, .job), .edu__grid { text-shadow: 0 0 6px var(--bg), 0 0 14px var(--bg), 0 0 28px var(--bg); }
 .experience .bullets { padding-block: 6px; background: color-mix(in srgb, var(--bg) 74%, transparent); }
 @media (max-width: 767px) {
   .job { grid-template-columns: minmax(0, 1fr); }
@@ -352,6 +354,10 @@ a { color: inherit; }
 .pubs li > span:first-child { overflow-wrap: anywhere; }
 .pub__venue { font-family: var(--font-mono); font-size: .8125rem; color: var(--text-dim); }
 .pubs__more { margin-top: 26px; }
+.edu__langs { margin-top: 48px; }
+.edu__langs ul { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 12px 32px; }
+.edu__langs li { display: grid; gap: 2px; text-transform: capitalize; }
+.edu__level { font-family: var(--font-mono); font-size: .8125rem; color: var(--text-dim); text-transform: none; }
 .pubs__more summary {
   display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px;
   border: 1px solid var(--line-strong); border-radius: var(--pill);
@@ -373,11 +379,6 @@ a { color: inherit; }
   max-width: 17ch; text-wrap: balance;
 }
 .contact__sub { color: var(--text-dim); font-size: 1.125rem; }
-.contact__langs { margin-top: 8px; display: grid; justify-items: center; gap: 10px; }
-.contact__langs ul { display: grid; grid-template-columns: repeat(4, auto); gap: 8px 32px; }
-.contact__langs li { display: grid; gap: 2px; text-transform: capitalize; }
-.contact__level { font-family: var(--font-mono); font-size: .8125rem; color: var(--text-dim); text-transform: none; }
-@media (max-width: 479px) { .contact__langs ul { grid-template-columns: repeat(2, auto); } }
 .contact__email {
   margin-top: 16px;
   font-family: var(--font-display); font-weight: 500; font-stretch: 85%;

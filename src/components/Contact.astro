@@ -9,12 +9,6 @@ const { t } = Astro.props;
   <div class="container contact__inner">
     <h2 class="contact__h" id="contact-h"><Words text={t.contact.h} cjk={t.cjk} /></h2>
     <p class="contact__sub">{t.contact.sub}</p>
-    <div class="contact__langs">
-      <h3 class="label">{t.contact.langH}</h3>
-      <ul>
-        {t.contact.langs.map((l) => <li><span>{l.name}</span> <span class="contact__level">{l.level}</span></li>)}
-      </ul>
-    </div>
     {/* email_off: Cloudflare must not rewrite the address (and the mailto links) on its own */}
     <Fragment set:html="<!--email_off-->" />
     <p class="contact__email" id="email"><a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>

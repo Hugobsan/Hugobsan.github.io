@@ -33,6 +33,12 @@ const rest = t.edu.pubs.slice(3);
           <li><span>{t.edu.manuscript.t}</span><span class="pub__venue">{t.edu.manuscript.v}</span></li>
         </ol>
       </details>
+      <div class="edu__langs">
+        <h3 class="label">{t.contact.langH}</h3>
+        <ul>
+          {t.contact.langs.map((l) => <li><span>{l.name}</span><span class="edu__level">{l.level}</span></li>)}
+        </ul>
+      </div>
     </div>
   </div>
 </section>

@@ -58,13 +58,13 @@ Leitura de design: portfólio de dev para recrutadores e clientes técnicos, lin
 
 ### Idiomas (sua pergunta 2)
 
-O comportamento que você pediu será o que o visitante vê: **o site abre no idioma do navegador, com inglês como padrão, e a escolha manual fica salva no localStorage.**
+O comportamento que você pediu será o que o visitante vê: **o site sempre abre em inglês, e quem já escolheu outro idioma volta para ele (a escolha manual fica salva no localStorage).** A detecção automática pelo idioma do navegador foi removida: o redirecionamento custava cerca de 0,8 s no mobile.
 
 Por baixo, cada idioma continua tendo sua própria URL (`/`, `/pt/`, `/es/`, `/zh/`). O motivo é que Google, Baidu e os crawlers de LLM não guardam localStorage nem mandam idioma do navegador, então só indexam o que está numa URL. Sem URL por idioma, o site só existe em inglês para buscadores e para o ChatGPT/Claude/Perplexity, e o perfil em chinês nunca é encontrado. É também a recomendação do Google (hreflang entre URLs distintas, sem trocar idioma por cookie ou por configuração do navegador).
 
 Fluxo:
 
-1. Um script inline de ~500 bytes no `<head>` da raiz `/` lê `localStorage.lang`. Se não houver, compara `navigator.languages` com pt/es/zh e faz `location.replace` para o idioma certo. Bots ficam no inglês.
+1. Um script inline minúsculo no `<head>` da raiz `/` lê `localStorage.lang` e, só se houver uma escolha anterior em pt/es/zh, faz `location.replace` para ela. Sem escolha salva (primeira visita, bots), fica no inglês, com o seletor de idioma visível.
 2. O seletor de idioma grava `localStorage.lang` e navega para a rota equivalente.
 3. URLs de idioma acessadas direto (link compartilhado) são respeitadas.
 4. Cada página declara `hreflang` para as 4 versões + `x-default` (inglês). `<html lang>`: `en`, `pt-BR`, `es`, `zh-Hans`.
