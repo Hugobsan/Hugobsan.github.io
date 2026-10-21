@@ -5,6 +5,7 @@ export const LINKEDIN = 'https://www.linkedin.com/in/hugobsan/';
 export const GITHUB = 'https://github.com/Hugobsan';
 export const GREENN = 'https://greenn.com.br';
 export const CLUB = 'https://greenn.com.br/club/';
+export const BLUEE = 'https://greenn.com.br/bluee/';
 
 // Bug localization research (Mean Reciprocal Rank on ArgoUML 0.22). Published results only; off the page, kept for llms-full.txt.
 export const MRR: [approach: string, mrr: number][] = [
@@ -13,7 +14,7 @@ export const MRR: [approach: string, mrr: number][] = [
 ];
 
 export const STACKS = {
-  bluee: ['Laravel 12', 'PHP 8.4', 'Python', 'React', 'RabbitMQ', 'Redis', 'PostgreSQL', 'pgvector', 'OpenRouter', 'ComfyUI', 'ElevenLabs', 'Remotion', 'AWS'],
+  bluee: ['Laravel 12', 'PHP 8.4', 'Python', 'React', 'RabbitMQ', 'Redis', 'PostgreSQL'],
   club: ['Laravel 11', 'Vue 3', 'Redis', 'RabbitMQ', 'MySQL', 'S3', 'PandaVideo'],
   prp: ['Next.js', 'TypeScript', 'SQLite FTS5', 'Claude Code', 'OpenRouter', 'Graphify', 'GitHub CLI'],
 };

@@ -35,10 +35,10 @@ const en = {
       role: 'Role: Back-end engineer, then Tech Lead. 2025 to 2026.',
       highlight: { n: '1 hour', l: 'from a topic to a complete AI-generated course' },
       bullets: [
-        'LLM layer on OpenRouter with streaming and fallbacks, plus agentic chat with parallel tool calls.',
-        'RAG over user documents: sandboxed extraction, batched embeddings, pgvector search.',
-        'Avatar video pipeline: ComfyUI lip-sync and image-to-video, ElevenLabs voice cloning, Remotion rendering.',
-        'RabbitMQ jobs with backoff retries, idempotency checks and delayed queues.',
+        'LLM layer with streaming and provider fallbacks, plus an agentic chat with parallel tool calls.',
+        'RAG over the user\'s own documents.',
+        'Avatar video pipeline: lip-sync, image-to-video and cloned voice, orchestrated through queues.',
+        'Resilient jobs with backoff retries, idempotency checks and delayed queues.',
       ],
     },
     club: {

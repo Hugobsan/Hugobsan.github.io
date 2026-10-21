@@ -36,10 +36,10 @@ export default {
       role: 'Papel: Engenheiro back-end, depois Tech Lead. 2025 a 2026.',
       highlight: { n: '1 hora', l: 'de um tema a um curso completo gerado por IA' },
       bullets: [
-        'Camada de LLM sobre o OpenRouter com streaming e fallbacks, mais um chat agêntico com tool calls em paralelo.',
-        'RAG sobre documentos do usuário: extração em sandbox, embeddings em lote, busca com pgvector.',
-        'Pipeline de vídeo com avatar: lip-sync e imagem para vídeo no ComfyUI, clonagem de voz com ElevenLabs, renderização com Remotion.',
-        'Jobs no RabbitMQ com retry com backoff, checagem de idempotência e filas com atraso.',
+        'Camada de LLM com streaming e fallbacks entre provedores, mais um chat agêntico com tool calls em paralelo.',
+        'RAG sobre os próprios documentos do usuário.',
+        'Pipeline de vídeo com avatar: lip-sync, imagem para vídeo e voz clonada, orquestrados por filas.',
+        'Jobs resilientes, com retry com backoff, checagem de idempotência e filas com atraso.',
       ],
     },
     club: {

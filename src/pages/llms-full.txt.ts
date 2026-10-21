@@ -1,13 +1,13 @@
 import en from '../i18n/en';
 import pt from '../i18n/pt';
-import { SITE, EMAIL, LINKEDIN, GITHUB, GREENN, CLUB, MRR, STACKS, LINKS, KNOWS_ABOUT } from '../facts';
+import { SITE, EMAIL, LINKEDIN, GITHUB, GREENN, BLUEE, CLUB, MRR, STACKS, LINKS, KNOWS_ABOUT } from '../facts';
 
 // Complete English profile in markdown, generated from the same copy and facts as the site.
 const list = (items: string[]) => items.map((i) => `- ${i}`).join('\n');
 const links = (id: string) => (LINKS[id] ?? []).map((l) => `[${l.label}](${l.href})`).join(', ');
 const w = en.work;
 const cases = [
-  { c: w.bluee, tag: 'discontinued, no public link', stack: STACKS.bluee },
+  { c: w.bluee, tag: `discontinued; product page: ${BLUEE}`, stack: STACKS.bluee },
   { c: w.club, tag: CLUB, stack: STACKS.club },
   { c: w.prp, tag: w.prp.note.toLowerCase(), stack: STACKS.prp },
 ];
