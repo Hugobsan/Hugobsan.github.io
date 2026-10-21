@@ -34,6 +34,7 @@ const ld = {
       alumniOf: { '@type': 'CollegeOrUniversity', name: 'UNIMONTES', alternateName: 'Universidade Estadual de Montes Claros' },
       address: { '@type': 'PostalAddress', addressCountry: 'BR' },
       email: `mailto:${EMAIL}`,
+      image: `${SITE}/og/en.png`,
       url: `${SITE}/`,
       sameAs: [LINKEDIN, GITHUB],
       knowsAbout: KNOWS_ABOUT,
@@ -77,11 +78,10 @@ const redirect = `(function(){if(document.referrer.indexOf(location.origin+"/")=
 ---
 <Base lang={lang} title={t.meta.title} description={t.meta.description} path={path} home>
   {lang === 'en' && <script is:inline slot="first" set:html={redirect} />}
-  <script is:inline type="application/ld+json" slot="head" set:html={JSON.stringify(ld)} />
+  <Fragment slot="head" set:html={`<!--email_off--><script type="application/ld+json">${JSON.stringify(ld)}</script><!--/email_off-->`} />
 
   <a class="skip" href="#main">{t.skip}</a>
   <canvas id="signal" aria-hidden="true"></canvas>
-  <div class="backdrop" aria-hidden="true"></div>
   <Nav lang={lang} />
   <div class="page">
     <main id="main" tabindex="-1">
@@ -123,14 +123,6 @@ const redirect = `(function(){if(document.referrer.indexOf(location.origin+"/")=
     el.focus({ preventScroll: true });
   });
 
-  // offers accordion: hover or focus opens a slice; the last one touched stays open
-  const slices = [...document.querySelectorAll<HTMLElement>('.slice')];
-  for (const s of slices) {
-    const open = () => slices.forEach((o) => o.toggleAttribute('data-open', o === s));
-    s.addEventListener('pointerenter', open);
-    s.addEventListener('focusin', open);
-  }
-
   // copy email: clipboard inside the click, fall back to selecting the text
   const btn = document.getElementById('copy')!;
   const email = document.getElementById('email')!;
@@ -153,7 +145,7 @@ const redirect = `(function(){if(document.referrer.indexOf(location.origin+"/")=
   });
 
   // the 3D signal loads after the page is idle and motion on first use, never on the critical path;
-  // reduced motion keeps the static backdrop (until it is switched off), and so does a device without hardware WebGL2
+  // reduced motion and a device without hardware WebGL2 get no 3D at all
   const noWebgl = () => document.documentElement.classList.add('no-webgl');
   const boot = () => {
     // WebGL2 renderer name, '' when unavailable. Probed in a worker first because creating a context on a

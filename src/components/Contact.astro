@@ -14,12 +14,16 @@ const { t } = Astro.props;
         {t.contact.langs.map((l) => <li><span>{l.name}</span> <span class="contact__level">{l.level}</span></li>)}
       </ul>
     </div>
-    <p class="contact__email" id="email">{EMAIL}</p>
+    {/* email_off: Cloudflare must not rewrite the address (and the mailto links) on its own */}
+    <Fragment set:html="<!--email_off-->" />
+    <p class="contact__email" id="email"><a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
     <div class="contact__actions">
-      <button class="btn btn--primary magnet" type="button" id="copy" data-copied={t.contact.copied}>{t.contact.copy}</button>
+      <a class="btn btn--primary magnet" href={`mailto:${EMAIL}`}>{t.contact.send}</a>
+      <button class="btn btn--ghost" type="button" id="copy" data-copied={t.contact.copied}>{t.contact.copy}</button>
       <a class="btn btn--ghost" href={LINKEDIN} target="_blank" rel="noopener">LinkedIn<span aria-hidden="true">↗</span></a>
       <a class="btn btn--ghost" href={GITHUB} target="_blank" rel="noopener">GitHub<span aria-hidden="true">↗</span></a>
     </div>
+    <Fragment set:html="<!--/email_off-->" />
     <p class="sr-only" id="copy-status" aria-live="polite"></p>
   </div>
 </section>

@@ -8,6 +8,7 @@ export default defineConfig({
   build: { inlineStylesheets: 'always' },
   integrations: [
     sitemap({
+      filter: (page) => !page.endsWith('/en/'), // redirect stub
       i18n: { defaultLocale: 'en', locales: { en: 'en', pt: 'pt-BR', es: 'es', zh: 'zh-Hans' } },
     }),
   ],

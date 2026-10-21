@@ -1,0 +1,16 @@
+---
+import { SITE } from '../../facts';
+// /en/ is not a real locale (English lives at /): a bare redirect stub so old and guessed links do not 404.
+// No Base layout (no CSS, fonts or hreflang), noindex and a canonical on the root keep it out of search.
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hugo Barbosa</title>
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={`${SITE}/`} />
+    <meta http-equiv="refresh" content="0; url=/" />
+  </head>
+  <body></body>
+</html>

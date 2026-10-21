@@ -14,7 +14,6 @@
   --accent-ink: #15110A;
   --particle: #7C90AE;
   --particle-accent: #F5B04A;
-  --backdrop: #182233;
 
   --cjk: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC";
   --font-display: "Bricolage Grotesque", "Arial Narrow", system-ui, -apple-system, "Segoe UI", var(--cjk), sans-serif;
@@ -27,7 +26,7 @@
   --gutter-l: max(16px, env(safe-area-inset-left, 0px));
   --gutter-r: max(16px, env(safe-area-inset-right, 0px));
   --ease-out: cubic-bezier(.16, 1, .3, 1);
-  --section-space: clamp(96px, 14vh, 168px);
+  --section-space: clamp(56px, 8vh, 96px);
 }
 @media (prefers-color-scheme: light) {
   :root {
@@ -44,7 +43,6 @@
     --accent-fill: #E9A23B;
     --particle: #56677F;
     --particle-accent: #C26F00;
-    --backdrop: #DCE3EC;
   }
 }
 
@@ -83,25 +81,15 @@ a { color: inherit; }
 }
 .skip:focus { transform: none; }
 
-/* ---------- signal canvas + static fallback (no WebGL or reduced motion) ---------- */
+/* ---------- signal canvas (no WebGL or reduced motion: nothing is drawn, the page is just text) ---------- */
 #signal {
   position: fixed; inset: 0; width: 100%; height: 100%;
   z-index: 0; pointer-events: none;
   opacity: 0; transition: opacity 1.2s var(--ease-out);
 }
 #signal.is-ready { opacity: 1; }
-.backdrop {
-  position: fixed; inset: 0; z-index: 0; pointer-events: none; display: none;
-  background:
-    radial-gradient(48% 52% at 74% 40%, var(--backdrop), transparent 72%),
-    radial-gradient(30% 30% at 74% 40%, color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%);
-}
 .no-webgl #signal { display: none; }
-.no-webgl .backdrop { display: block; }
-@media (prefers-reduced-motion: reduce) {
-  #signal { display: none; }
-  .backdrop { display: block; }
-}
+@media (prefers-reduced-motion: reduce) { #signal { display: none; } }
 
 /* ---------- layout primitives ---------- */
 .page { position: relative; z-index: 1; overflow-x: clip; }
@@ -142,7 +130,7 @@ a { color: inherit; }
   max-width: var(--container); margin: 12px auto 0;
   height: 56px; display: flex; align-items: center; gap: 28px;
   padding: 0 8px 0 18px;
-  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  background: color-mix(in srgb, var(--bg) 97%, transparent);
   -webkit-backdrop-filter: blur(14px) saturate(140%); backdrop-filter: blur(14px) saturate(140%);
   border: 1px solid var(--line); border-radius: var(--radius);
 }
@@ -172,7 +160,7 @@ a { color: inherit; }
 }
 
 /* ---------- hero ---------- */
-.hero { min-height: 100dvh; display: grid; align-items: center; padding-block: 112px 72px; }
+.hero { min-height: min(100dvh, 720px); display: grid; align-items: center; padding-block: 112px 24px; }
 .hero__copy { max-width: min(100%, 60rem); }
 .hero h1 {
   font-family: var(--font-display);
@@ -186,36 +174,21 @@ a { color: inherit; }
 .hero__ctas { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px; }
 @media (min-width: 1024px) { .hero__copy { max-width: 62%; } }
 
-/* ---------- offers: horizontal accordion + proof strip ---------- */
+/* ---------- offers: three columns + proof strip ---------- */
 .offers { padding-block: var(--section-space) calc(var(--section-space) * .6); }
-.accordion { margin-top: 48px; display: flex; gap: 12px; min-height: 320px; }
-.slice {
-  position: relative; overflow: hidden; flex: 1 1 0; min-width: 0;
-  display: flex; flex-direction: column; justify-content: space-between; gap: 32px;
-  padding: 28px 28px 30px;
+.offers__grid { margin-top: 48px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.offer {
+  display: grid; align-content: start; gap: 18px;
+  padding: 28px 28px 32px;
   background: color-mix(in srgb, var(--surface) 88%, transparent);
-  border: 1px solid var(--line); border-radius: var(--radius);
-  transition: flex-grow .7s var(--ease-out);
+  border: 1px solid var(--line); border-top: 2px solid var(--accent); border-radius: var(--radius);
 }
-.slice::before {
-  content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 2px;
-  background: var(--accent); transform-origin: left; transform: scaleX(0);
-  transition: transform .7s var(--ease-out);
-}
-.slice[data-open] { flex-grow: 2.2; background: var(--surface-2); }
-.slice[data-open]::before { transform: scaleX(1); }
-.slice h3 {
+.offer h3 {
   font-family: var(--font-display); font-weight: 600; font-stretch: 82%;
   font-size: clamp(1.75rem, 1rem + 1.6vw, 2.6rem); line-height: 1.02; letter-spacing: -0.015em;
 }
-.slice p { max-width: 36ch; color: var(--text-faint); transition: color .5s var(--ease-out); }
-.slice[data-open] p { color: var(--text); }
-@media (max-width: 899px) {
-  .accordion { flex-direction: column; min-height: 0; }
-  .slice, .slice[data-open] { flex: none; gap: 14px; background: color-mix(in srgb, var(--surface) 88%, transparent); }
-  .slice::before { transform: scaleX(1); opacity: .5; }
-  .slice p, .slice[data-open] p { color: var(--text-dim); }
-}
+.offer p { max-width: 36ch; color: var(--text-dim); }
+@media (max-width: 899px) { .offers__grid { grid-template-columns: 1fr; } }
 .proof { margin-top: 72px; padding-top: 32px; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
 .proof__t {
   display: block; font-family: var(--font-display); font-weight: 600; font-stretch: 80%;
@@ -270,14 +243,17 @@ a { color: inherit; }
 .job__title { font-family: var(--font-display); font-weight: 650; font-stretch: 80%; font-size: clamp(1.6rem, 1.1rem + 1.2vw, 2.25rem); line-height: 1.02; letter-spacing: -0.02em; }
 .job__org { color: var(--text-dim); font-weight: 500; }
 .job .bullets { margin-top: 16px; max-width: 62ch; }
+/* the 3D wave passes behind the text: a soft halo of the page colour keeps every glyph readable without hiding the particles */
+.experience :is(.h2, .job) { text-shadow: 0 0 6px var(--bg), 0 0 14px var(--bg), 0 0 28px var(--bg); }
+.experience .bullets { padding-block: 6px; background: color-mix(in srgb, var(--bg) 74%, transparent); }
 @media (max-width: 767px) {
   .job { grid-template-columns: minmax(0, 1fr); }
   .job__period { grid-row: auto; margin-bottom: 8px; }
 }
-.experience.is-pan { height: 100dvh; padding-block: 112px 40px; overflow: hidden; display: flex; flex-direction: column; }
-.experience.is-pan .experience__head { margin-bottom: 0; }
+.experience.is-pan { height: 100dvh; padding-block: 88px 24px; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
+.experience.is-pan .experience__head { margin-bottom: 40px; }
 .experience.is-pan .experience__track {
-  max-width: none; margin: auto 0; width: max-content;
+  max-width: none; margin: 0; width: max-content;
   display: flex; align-items: flex-start; gap: 0;
   padding-left: max(var(--gutter-l), calc((100vw - var(--container)) / 2 + 32px));
   padding-right: 12vw;
@@ -286,6 +262,7 @@ a { color: inherit; }
 .experience.is-pan .job__period { font-size: clamp(1.5rem, 1rem + 1.1vw, 2.25rem); font-weight: 500; letter-spacing: -0.04em; line-height: 1; color: var(--text); }
 .experience.is-pan .job:first-child .job__period { color: var(--accent); }
 .experience.is-pan .job__title { margin-top: 18px; }
+.experience.is-pan .bullets { font-size: 1rem; }
 
 /* ---------- how I work ---------- */
 .how { padding-block: var(--section-space); }
@@ -405,6 +382,8 @@ a { color: inherit; }
   font-size: clamp(1.6rem, .6rem + 3.6vw, 3.5rem); line-height: 1.05; letter-spacing: -0.02em;
   user-select: all; -webkit-user-select: all; overflow-wrap: anywhere;
 }
+.contact__email a { color: inherit; text-decoration: none; }
+.contact__email a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .12em; }
 .contact__actions { margin-top: 12px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 @media (max-width: 767px) { .contact { padding-bottom: 48px; } .contact__inner { gap: 12px; } }
 
@@ -413,6 +392,8 @@ a { color: inherit; }
 
 /* ---------- Chinese: system fonts have no condensed widths; drop negative tracking, open up line height ---------- */
 :lang(zh) :is(h1, h2, h3, .principle, .proof__t, .contact__h, .job__period) { letter-spacing: 0; line-height: 1.25; }
+/* break at word boundaries, not mid-word (browsers without auto-phrase keep the default per-character breaks) */
+:lang(zh) { word-break: auto-phrase; } /* Chrome 154 only phrase-segments Japanese so far; Chinese picks it up when the browser ships a zh model */
 
 /* ---------- 404 ---------- */
 .lost { min-height: 100dvh; display: grid; align-content: center; padding-block: 96px; }

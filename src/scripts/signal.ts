@@ -442,7 +442,7 @@ export function init(canvas: HTMLCanvasElement, gl: WebGL2RenderingContext) {
     renderer.render(scene, camera);
     if (firstFrame) { firstFrame = false; canvas.classList.add('is-ready'); }
   }
-  // nothing to draw for a hidden tab or with reduced motion (CSS swaps the canvas for the static backdrop)
+  // nothing to draw for a hidden tab or with reduced motion (CSS hides the canvas)
   const mqReduce = matchMedia('(prefers-reduced-motion: reduce)');
   const sync = () => {
     cancelAnimationFrame(raf);
