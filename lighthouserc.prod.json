@@ -1,0 +1,22 @@
+{
+  "ci": {
+    "collect": {
+      "url": ["https://hugobsan.com.br/", "https://hugobsan.com.br/pt/", "https://hugobsan.com.br/es/", "https://hugobsan.com.br/zh/"],
+      "numberOfRuns": 3,
+      "settings": {
+        "chromeFlags": "--accept-lang=en-US"
+      }
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": ["warn", { "minScore": 0.95 }],
+        "categories:accessibility": ["warn", { "minScore": 0.95 }],
+        "categories:best-practices": ["warn", { "minScore": 1 }],
+        "categories:seo": ["warn", { "minScore": 1 }],
+        "largest-contentful-paint": ["warn", { "maxNumericValue": 2000 }],
+        "cumulative-layout-shift": ["warn", { "maxNumericValue": 0.05 }],
+        "total-blocking-time": ["warn", { "maxNumericValue": 150 }]
+      }
+    }
+  }
+}
