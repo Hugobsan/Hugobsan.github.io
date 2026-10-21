@@ -3,7 +3,7 @@ import type { Dict } from './en';
 export default {
   meta: {
     title: 'Hugo Barbosa · Tech Lead, IA e Engenharia de Software',
-    description: 'Tech Lead na Greenn. Construo produtos de IA que aguentam produção: pipelines de LLM, RAG, filas resilientes e engenharia agêntica. Aberto a vagas remotas e consultoria.',
+    description: 'Tech Lead na Greenn. Produtos de IA que aguentam produção: pipelines de LLM, RAG, filas resilientes e engenharia agêntica. Vagas remotas e consultoria.',
   },
   skip: 'Pular para o conteúdo',
   nav: { label: 'Principal', services: 'Serviços', work: 'Trabalho', experience: 'Experiência', contact: 'Contato', lang: 'Idioma' },
@@ -24,7 +24,7 @@ export default {
       { t: 'Times enxutos.', d: 'Experiência liderando times pequenos, da arquitetura à entrega.' },
       { t: 'IA em produção.', d: 'LLMs, RAG e pipelines de voz e vídeo atendendo usuários reais.' },
       { t: 'Custo sob controle.', d: 'Revisões de arquitetura e infraestrutura que cortam gasto recorrente.' },
-      { t: 'Desde 2019.', d: 'Colocando software em produção, de sistemas freelance a SaaS.' },
+      { t: 'Desde 2018.', d: 'Colocando software em produção, de sistemas freelance a SaaS.' },
     ],
   },
   work: {
@@ -90,9 +90,9 @@ export default {
       {
         period: '2024 a 2025', role: 'Desenvolvedor Full-stack', org: 'Betabit',
         bullets: [
-          'Liderei o módulo de chat com IA de um CRM imobiliário: Gemini, RAG com PGVector e agentes no WhatsApp, respondendo em menos de 100 ms para cerca de 3 mil requisições por dia.',
-          'Construí um dashboard de marketing em tempo real com Laravel Reverb e um serviço de ETL em Python.',
-          'Docker e GitHub Actions reduziram o onboarding de devs de horas para minutos.',
+          'Liderei o chat com IA de um CRM imobiliário usado por 15 imobiliárias e centenas de corretores: já em 2024, agentes consultavam o sistema e executavam ações por texto e áudio, na web, no mobile e no WhatsApp. Gemini, RAG com PGVector e cache no Redis respondendo em menos de 100 ms, para cerca de 3 mil requisições por dia.',
+          'Liderei o módulo de insights com IA de um dashboard de marketing em tempo real, com Laravel Reverb e um serviço de ETL em Python.',
+          'TDD com Pest, code review em todo PR e deploys semanais. Docker e GitHub Actions reduziram o onboarding de devs de horas para minutos.',
         ],
       },
       {
@@ -141,7 +141,7 @@ export default {
       scanlex: { name: 'Scanlex e Timesheet Transcriber AI (2025)', text: 'SaaS que digitalizava cartões de ponto e holerites para calculistas, com assinantes pagantes, e sua versão gratuita e open-source: use sua própria chave do Gemini, recorte páginas, exporte para CSV ou XLSX. Laravel, Vue, React, Gemini.' },
       km: { name: 'KM Topografia', text: 'Gestão de documentos de RH e de frota para uma empresa de topografia, em produção. Alertas de vencimento por e-mail e WhatsApp, S3 com cache local, papéis auditados. Desenhei a arquitetura e a infraestrutura. Laravel 12, PostgreSQL, Docker. Repositório privado.' },
       mia: { name: 'Mia (2025)', text: 'Recepcionista no WhatsApp para clínicas: leads, agendamento e lembretes. Rodou em produção em duas clínicas. N8N, Gemini, Evolution API.' },
-      anthrya: { name: 'anthrya', text: 'App de saúde feito com IA desde o início: balança de bioimpedância via Bluetooth, dieta, glicemia, treinos e medidas corporais, tudo acessível por IA através de um servidor MCP. Leituras brutas ficam separadas das estimativas, então o histórico pode ser recalculado. Mais de 100 ADRs. Expo, Supabase, Hono. Em desenvolvimento, privado.' },
+      anthrya: { name: 'anthrya', text: 'App de saúde feito com IA desde o início: balança de bioimpedância via Bluetooth, dieta, glicemia, treinos e medidas corporais, tudo acessível por IA através de um servidor MCP. Leituras brutas ficam separadas das estimativas, então o histórico pode ser recalculado. Expo, Supabase, Hono. Em desenvolvimento, privado.' },
     },
   },
   edu: {
@@ -153,16 +153,15 @@ export default {
     ],
     projectsH: 'Projetos de pesquisa',
     projects: [
-      { t: 'Projeto de Pesquisa: Melhoria da acurácia do Processo de Recuperação de Rastreabilidade entre Artefatos de Software utilizando Inteligência Artificial Generativa.', m: 'UNIMONTES, 2024 a 2026.' },
+      { t: 'Melhoria da acurácia do Processo de Recuperação de Rastreabilidade entre Artefatos de Software utilizando Inteligência Artificial Generativa.', m: 'UNIMONTES, 2024 a 2026.' },
       { t: 'IC (PIBIC/FAPEMIG): Desenvolvimento de um sistema para gestão de processos seletivos na Unimontes.', m: '2021 a 2022.' },
       { t: 'ICV: Análise de Instalações Residenciais com Micro-Geração Solar.', m: '2020 a 2021.' },
     ],
     pubH: 'Publicações',
     pubNote: '',
-    pubMore: 'Todas as 8 publicações',
+    pubMore: 'Todas as 7 publicações',
     pubs: [
       { t: 'Uma análise exploratória da utilização de modelos baseados em BERT para localização de bugs de software.', v: 'ENMC 2025' },
-      { t: 'Uma análise comparativa de modelos proprietários de geração de embeddings para localização de bugs de software.', v: 'Manuscrito, 2025' },
       { t: 'Análise da performance dos modelos pré-treinados all-MiniLM-L6-v2, multi-qa-mpnet-base-dot-v1 e msmarco-bert-base-dot-v5 para geração de embeddings sobre a localização de bugs do ArgoUML.', v: 'CIEI 2025' },
       { t: 'Análise da utilização do modelo SBERT para localização de bugs de software.', v: 'CIEI 2024' },
       { t: 'Desenvolvimento de módulo de micro certificação para o SIGEX da UNIMONTES.', v: 'CIEI 2024' },
@@ -170,6 +169,7 @@ export default {
       { t: 'Desenvolvimento de uma aplicação web para gestão de processos seletivos.', v: 'FEPEG 2022' },
       { t: 'Análise de desempenho de uma usina fotovoltaica a partir de dados de medição de energia coletados automaticamente.', v: 'FEPEG 2020' },
     ],
+    manuscript: { t: 'Uma análise comparativa de modelos proprietários de geração de embeddings para localização de bugs de software.', v: 'Manuscrito (não publicado), 2025' },
   },
   contact: {
     h: 'Tem um time para liderar ou um sistema para consertar?',
@@ -181,6 +181,7 @@ export default {
       { name: 'espanhol', level: 'intermediário' },
       { name: 'francês', level: 'iniciante' },
     ],
+    send: 'Enviar e-mail',
     copy: 'Copiar e-mail',
     copied: 'Copiado',
   },

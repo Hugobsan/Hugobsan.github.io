@@ -4,7 +4,7 @@ import type { Dict } from './en';
 export default {
   meta: {
     title: 'Hugo Barbosa · Tech Lead, IA e ingeniería de software',
-    description: 'Tech Lead en Greenn e ingeniero de IA. Construyo productos que resisten en producción: pipelines de LLM, RAG, colas resilientes e ingeniería agéntica. Disponible para trabajo remoto y consultoría.',
+    description: 'Tech Lead en Greenn. Productos de IA que resisten en producción: pipelines de LLM, RAG, colas resilientes, ingeniería agéntica. Remoto y consultoría.',
   },
   skip: 'Saltar al contenido',
   nav: { label: 'Navegación principal', services: 'Servicios', work: 'Proyectos', experience: 'Experiencia', contact: 'Contacto', lang: 'Idioma' },
@@ -25,7 +25,7 @@ export default {
       { t: 'Equipos compactos.', d: 'Experiencia liderando equipos pequeños, de la arquitectura a la entrega.' },
       { t: 'IA en producción.', d: 'LLMs, RAG y pipelines de voz y video al servicio de usuarios reales.' },
       { t: 'Costos bajo control.', d: 'Revisiones de arquitectura e infraestructura que recortan el gasto recurrente.' },
-      { t: 'Desde 2019.', d: 'Llevando software a producción, de sistemas freelance a SaaS.' },
+      { t: 'Desde 2018.', d: 'Llevando software a producción, de sistemas freelance a SaaS.' },
     ],
   },
   work: {
@@ -91,9 +91,9 @@ export default {
       {
         period: '2024 a 2025', role: 'Desarrollador full-stack', org: 'Betabit',
         bullets: [
-          'Lideré el módulo de chat con IA de un CRM inmobiliario: Gemini, RAG con PGVector y agentes en WhatsApp, con respuestas en menos de 100 ms para unas 3000 solicitudes al día.',
-          'Construí un dashboard de marketing en tiempo real con Laravel Reverb y un servicio de ETL en Python.',
-          'Docker y GitHub Actions redujeron el onboarding de desarrolladores de horas a minutos.',
+          'Lideré el chat con IA de un CRM inmobiliario usado por 15 inmobiliarias y cientos de corredores: ya en 2024, los agentes consultaban el sistema y ejecutaban acciones por texto y audio, en la web, el móvil y WhatsApp. Gemini, RAG con PGVector y caché en Redis respondiendo en menos de 100 ms, para unas 3000 solicitudes al día.',
+          'Lideré el módulo de insights con IA de un dashboard de marketing en tiempo real, con Laravel Reverb y un servicio de ETL en Python.',
+          'TDD con Pest, code review en cada PR y despliegues semanales. Docker y GitHub Actions redujeron el onboarding de desarrolladores de horas a minutos.',
         ],
       },
       {
@@ -142,7 +142,7 @@ export default {
       scanlex: { name: 'Scanlex y Timesheet Transcriber AI (2025)', text: 'Un SaaS que digitalizaba hojas de horas y recibos de sueldo para especialistas en nómina, con suscriptores de pago, y su versión gratuita y de código abierto: usa tu propia clave de Gemini, recorta páginas, exporta a CSV o XLSX. Laravel, Vue, React, Gemini.' },
       km: { name: 'KM Topografia', text: 'Gestión de documentos de recursos humanos y de flota para una empresa de topografía, en producción. Alertas de vencimiento por correo y WhatsApp, S3 con caché local, roles auditados. Diseñé la arquitectura y la infraestructura. Laravel 12, PostgreSQL, Docker. Repositorio privado.' },
       mia: { name: 'Mia (2025)', text: 'Recepcionista en WhatsApp para clínicas de salud: leads, agenda de citas y recordatorios. Estuvo en producción en dos clínicas. N8N, Gemini, Evolution API.' },
-      anthrya: { name: 'anthrya', text: 'App de salud diseñada desde el inicio para la IA: báscula corporal Bluetooth, dieta, glucosa, entrenamientos y medidas corporales, todo accesible para la IA a través de un servidor MCP. Las lecturas en bruto se guardan separadas de las estimaciones, así el historial se puede recalcular. Más de 100 ADR. Expo, Supabase, Hono. En desarrollo, privado.' },
+      anthrya: { name: 'anthrya', text: 'App de salud diseñada desde el inicio para la IA: báscula corporal Bluetooth, dieta, glucosa, entrenamientos y medidas corporales, todo accesible para la IA a través de un servidor MCP. Las lecturas en bruto se guardan separadas de las estimaciones, así el historial se puede recalcular. Expo, Supabase, Hono. En desarrollo, privado.' },
     },
   },
   edu: {
@@ -154,16 +154,15 @@ export default {
     ],
     projectsH: 'Proyectos de investigación',
     projects: [
-      { t: 'Proyecto de investigación: mejora de la precisión en la recuperación de trazabilidad entre artefactos de software con inteligencia artificial generativa.', m: 'UNIMONTES, 2024 a 2026.' },
+      { t: 'Mejora de la precisión en la recuperación de trazabilidad entre artefactos de software con inteligencia artificial generativa.', m: 'UNIMONTES, 2024 a 2026.' },
       { t: 'Iniciación científica (PIBIC/FAPEMIG): desarrollo de un sistema para la gestión de procesos de selección en la UNIMONTES.', m: '2021 a 2022.' },
       { t: 'Iniciación científica voluntaria (ICV): análisis de instalaciones residenciales con microgeneración solar.', m: '2020 a 2021.' },
     ],
     pubH: 'Publicaciones',
     pubNote: '',
-    pubMore: 'Las 8 publicaciones',
+    pubMore: 'Las 7 publicaciones',
     pubs: [
       { t: 'Análisis exploratorio de modelos basados en BERT para la localización de bugs de software (en portugués).', v: 'ENMC 2025' },
-      { t: 'Análisis comparativo de modelos de embeddings propietarios para la localización de bugs (en portugués).', v: 'Manuscrito, 2025' },
       { t: 'Rendimiento de modelos de embeddings preentrenados para la localización de bugs en ArgoUML (en portugués).', v: 'CIEI 2025' },
       { t: 'SBERT para la localización de bugs de software (en portugués).', v: 'CIEI 2024' },
       { t: 'Módulo de microcertificación para un sistema de gestión de extensión universitaria (en portugués).', v: 'CIEI 2024' },
@@ -171,6 +170,7 @@ export default {
       { t: 'Una aplicación web para admisiones de posgrado (en portugués).', v: 'FEPEG 2022' },
       { t: 'Rendimiento de una planta fotovoltaica a partir de datos recopilados automáticamente (en portugués).', v: 'FEPEG 2020' },
     ],
+    manuscript: { t: 'Análisis comparativo de modelos de embeddings propietarios para la localización de bugs (en portugués).', v: 'Manuscrito (inédito), 2025' },
   },
   contact: {
     h: '¿Tienes un equipo que liderar o un sistema que arreglar?',
@@ -182,6 +182,7 @@ export default {
       { name: 'español', level: 'intermedio' },
       { name: 'francés', level: 'principiante' },
     ],
+    send: 'Enviar correo',
     copy: 'Copiar correo',
     copied: 'Copiado',
   },

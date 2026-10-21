@@ -77,7 +77,7 @@ Given a bug report, which method in the code is broken? Each approach is measure
 | --- | --- |
 ${MRR.map(([approach, mrr]) => `| ${approach} | ${mrr.toFixed(4)} |`).join('\n')}
 
-The hybrid approach scores 75% above the best embedding model and doubles the classic baseline.
+Results with LLM agents are pending publication.
 
 ### ${en.edu.projectsH}
 
@@ -88,6 +88,8 @@ ${list(en.edu.projects.map((r) => `**${r.t}** ${r.m}`))}
 ${en.edu.pubNote}
 
 ${list(en.edu.pubs.map((p, i) => `${p.t} ${p.v}. Original title: "${pt.edu.pubs[i].t}"`))}
+
+Unpublished manuscript, not counted above: ${en.edu.manuscript.t} ${en.edu.manuscript.v}. Original title: "${pt.edu.manuscript.t}"
 
 ## Skills
 

@@ -25,7 +25,7 @@ export default {
       { t: '精干团队。', d: '带过小型团队，从架构设计到交付上线。' },
       { t: 'AI 落地生产。', d: 'LLM、RAG（检索增强生成）以及语音和视频流水线，服务真实用户。' },
       { t: '成本可控。', d: '通过架构与基础设施评审，削减经常性支出。' },
-      { t: '2019 年起。', d: '持续把软件交付上线，从自由职业项目到 SaaS 产品。' },
+      { t: '2018 年起。', d: '持续把软件交付上线，从自由职业项目到 SaaS 产品。' },
     ],
   },
   work: {
@@ -91,9 +91,9 @@ export default {
       {
         period: '2024 至 2025 年', role: '全栈开发工程师', org: 'Betabit',
         bullets: [
-          '主导一套房地产 CRM 的 AI 聊天模块开发：Gemini、基于 PGVector 的 RAG 和 WhatsApp 智能体，每天约 3,000 次请求，响应时间低于 100 毫秒。',
-          '基于 Laravel Reverb 和 Python ETL 服务搭建实时营销数据看板。',
-          '借助 Docker 和 GitHub Actions，新开发者入职配置从数小时缩短到几分钟。',
+          '主导一套房地产 CRM 的 AI 聊天开发，服务 15 家房产中介和数百名经纪人：2024 年起，智能体就能查询系统，并通过文字和语音执行操作，覆盖网页、移动端和 WhatsApp。采用 Gemini、基于 PGVector 的 RAG 和 Redis 缓存，缓存响应低于 100 毫秒，每天约 3,000 次请求。',
+          '主导实时营销数据看板的 AI 洞察模块，基于 Laravel Reverb 和 Python ETL 服务搭建。',
+          '使用 Pest 做 TDD，每个 PR 都经过 code review，每周发布。借助 Docker 和 GitHub Actions，新开发者入职配置从数小时缩短到几分钟。',
         ],
       },
       {
@@ -142,7 +142,7 @@ export default {
       scanlex: { name: 'Scanlex 与 Timesheet Transcriber AI（2025）', text: '前者是一款面向薪资核算专员的 SaaS 产品，可将考勤表和工资单数字化，曾拥有付费订阅用户；后者是它的免费开源版本，自带 Gemini 密钥即可使用，支持裁剪页面，导出为 CSV 或 XLSX。Laravel、Vue、React、Gemini。' },
       km: { name: 'KM Topografia', text: '为一家测绘公司开发的人事证件与车队管理系统，已投入生产。到期提醒经邮件和 WhatsApp 发送，S3 配合本地缓存，角色权限可审计。我负责架构与基础设施设计。Laravel 12、PostgreSQL、Docker。代码未公开。' },
       mia: { name: 'Mia（2025）', text: '面向医疗诊所的 WhatsApp 前台接待助手，处理客户线索、预约和提醒。曾在两家诊所上线运行。N8N、Gemini、Evolution API。' },
-      anthrya: { name: 'anthrya', text: 'AI 原生的健康应用。蓝牙体脂秤、饮食、血糖、训练和身体围度数据，全部可由 AI 通过 MCP（模型上下文协议）服务器访问。原始读数与估算值分开存储，因此历史数据可以重新计算。超过 100 份 ADR。Expo、Supabase、Hono。开发中，未公开。' },
+      anthrya: { name: 'anthrya', text: 'AI 原生的健康应用。蓝牙体脂秤、饮食、血糖、训练和身体围度数据，全部可由 AI 通过 MCP（模型上下文协议）服务器访问。原始读数与估算值分开存储，因此历史数据可以重新计算。Expo、Supabase、Hono。开发中，未公开。' },
     },
   },
   edu: {
@@ -154,16 +154,15 @@ export default {
     ],
     projectsH: '科研项目',
     projects: [
-      { t: '科研项目：利用生成式 AI 提升软件制品间可追溯性恢复的准确率。', m: 'UNIMONTES，2024 至 2026 年。' },
+      { t: '利用生成式 AI 提升软件制品间可追溯性恢复的准确率。', m: 'UNIMONTES，2024 至 2026 年。' },
       { t: '本科生科研计划（PIBIC/FAPEMIG）：为 UNIMONTES 开发研究生招生管理系统。', m: '2021 至 2022 年。' },
       { t: '志愿科研计划（ICV）：住宅分布式光伏发电装置分析。', m: '2020 至 2021 年。' },
     ],
     pubH: '发表论文',
     pubNote: '',
-    pubMore: '全部 8 篇论文',
+    pubMore: '全部 7 篇论文',
     pubs: [
       { t: '基于 BERT 的模型在软件缺陷定位中的探索性分析（葡萄牙语）。', v: 'ENMC 2025' },
-      { t: '闭源嵌入模型在缺陷定位中的对比分析（葡萄牙语）。', v: '手稿，2025 年' },
       { t: '预训练嵌入模型在 ArgoUML 缺陷定位中的性能（葡萄牙语）。', v: 'CIEI 2025' },
       { t: '用于软件缺陷定位的 SBERT（葡萄牙语）。', v: 'CIEI 2024' },
       { t: '大学社会服务管理系统的微认证模块（葡萄牙语）。', v: 'CIEI 2024' },
@@ -171,6 +170,7 @@ export default {
       { t: '面向研究生招生的 Web 应用（葡萄牙语）。', v: 'FEPEG 2022' },
       { t: '基于自动采集数据的光伏电站性能分析（葡萄牙语）。', v: 'FEPEG 2020' },
     ],
+    manuscript: { t: '闭源嵌入模型在缺陷定位中的对比分析（葡萄牙语）。', v: '手稿（未发表），2025 年' },
   },
   contact: {
     h: '有团队要带，或有系统要修？',
@@ -182,6 +182,7 @@ export default {
       { name: '西班牙语', level: '中级' },
       { name: '法语', level: '入门' },
     ],
+    send: '发送邮件',
     copy: '复制邮箱',
     copied: '已复制',
   },

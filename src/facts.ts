@@ -6,13 +6,10 @@ export const GITHUB = 'https://github.com/Hugobsan';
 export const GREENN = 'https://greenn.com.br';
 export const CLUB = 'https://greenn.com.br/club/';
 
-// Bug localization research (Mean Reciprocal Rank on ArgoUML 0.22). Off the page, kept in full for llms-full.txt.
+// Bug localization research (Mean Reciprocal Rank on ArgoUML 0.22). Published results only; off the page, kept for llms-full.txt.
 export const MRR: [approach: string, mrr: number][] = [
-  ['BERT bi-encoders, best result', 0.0705],
+  ['Pretrained BERT bi-encoders without fine-tuning, best result', 0.0705],
   ['Doc2Vec baseline', 0.1975],
-  ['Proprietary code embeddings (voyage-4-large)', 0.2314],
-  ['LLM agent with search tools', 0.3782],
-  ['Hybrid, agent plus semantic ranking', 0.4048],
 ];
 
 export const STACKS = {

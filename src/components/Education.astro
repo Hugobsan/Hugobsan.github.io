@@ -29,6 +29,7 @@ const rest = t.edu.pubs.slice(3);
         <summary>{t.edu.pubMore}</summary>
         <ol class="pubs" start={4}>
           {rest.map((p) => <li><span>{p.t}</span><span class="pub__venue">{p.v}</span></li>)}
+          <li><span>{t.edu.manuscript.t}</span><span class="pub__venue">{t.edu.manuscript.v}</span></li>
         </ol>
       </details>
     </div>

@@ -2,7 +2,7 @@
 const en = {
   meta: {
     title: 'Hugo Barbosa · Tech Lead, AI and Software Engineering',
-    description: 'Tech Lead at Greenn. I build AI products that hold up in production: LLM pipelines, RAG, resilient queues and agentic engineering. Open to remote roles and consulting.',
+    description: 'Tech Lead at Greenn. I build AI products that hold up in production: LLM pipelines, RAG, resilient queues, agentic engineering. Open to remote roles.',
   },
   skip: 'Skip to content',
   nav: { label: 'Primary', services: 'Services', work: 'Work', experience: 'Experience', contact: 'Contact', lang: 'Language' },
@@ -23,7 +23,7 @@ const en = {
       { t: 'Lean teams.', d: 'Experience leading small teams from architecture to delivery.' },
       { t: 'AI in production.', d: 'LLMs, RAG, voice and video pipelines serving real users.' },
       { t: 'Cost under control.', d: 'Architecture and infrastructure reviews that cut recurring spend.' },
-      { t: 'Since 2019.', d: 'Shipping software to production, from freelance systems to SaaS.' },
+      { t: 'Since 2018.', d: 'Shipping software to production, from freelance systems to SaaS.' },
     ],
   },
   work: {
@@ -89,9 +89,9 @@ const en = {
       {
         period: '2024 to 2025', role: 'Full-stack Developer', org: 'Betabit',
         bullets: [
-          'Led the AI chat module of a real-estate CRM: Gemini, RAG with PGVector and WhatsApp agents, answering in under 100 ms for about 3,000 requests a day.',
-          'Built a real-time marketing dashboard with Laravel Reverb and a Python ETL service.',
-          'Docker and GitHub Actions cut developer onboarding from hours to minutes.',
+          'Led the AI chat of a real-estate CRM used by 15 agencies and hundreds of brokers: as early as 2024, agents queried the system and took actions by text and voice, on web, mobile and WhatsApp. Gemini, RAG with PGVector and a Redis cache answering in under 100 ms, for about 3,000 requests a day.',
+          'Led the AI insights module of a real-time marketing dashboard, built with Laravel Reverb and a Python ETL service.',
+          'TDD with Pest, code review on every PR and weekly deploys. Docker and GitHub Actions cut developer onboarding from hours to minutes.',
         ],
       },
       {
@@ -140,7 +140,7 @@ const en = {
       scanlex: { name: 'Scanlex and Timesheet Transcriber AI (2025)', text: 'A SaaS that digitized timesheets and payslips for payroll specialists, with paying subscribers, and its free open-source version: bring your own Gemini key, crop pages, export to CSV or XLSX. Laravel, Vue, React, Gemini.' },
       km: { name: 'KM Topografia', text: 'HR document and fleet management for a land surveying company, in production. Expiry alerts by email and WhatsApp, S3 with a local cache, audited roles. I designed the architecture and the infrastructure. Laravel 12, PostgreSQL, Docker. Private repository.' },
       mia: { name: 'Mia (2025)', text: 'WhatsApp receptionist for health clinics: leads, scheduling and reminders. Ran in production at two clinics. N8N, Gemini, Evolution API.' },
-      anthrya: { name: 'anthrya', text: 'Health app built AI-first: Bluetooth body scale, diet, glucose, workouts and body measurements, all reachable by AI through an MCP server. Raw readings stay separate from estimates, so history can be recalculated. 100+ ADRs. Expo, Supabase, Hono. In development, private.' },
+      anthrya: { name: 'anthrya', text: 'Health app built AI-first: Bluetooth body scale, diet, glucose, workouts and body measurements, all reachable by AI through an MCP server. Raw readings stay separate from estimates, so history can be recalculated. Expo, Supabase, Hono. In development, private.' },
     },
   },
   edu: {
@@ -152,16 +152,15 @@ const en = {
     ],
     projectsH: 'Research projects',
     projects: [
-      { t: 'Research project: improving the accuracy of traceability recovery between software artifacts with generative AI.', m: 'UNIMONTES, 2024 to 2026.' },
+      { t: 'Improving the accuracy of traceability recovery between software artifacts with generative AI.', m: 'UNIMONTES, 2024 to 2026.' },
       { t: 'Undergraduate research (PIBIC/FAPEMIG): a system for managing selection processes at UNIMONTES.', m: '2021 to 2022.' },
       { t: 'Volunteer undergraduate research (ICV): residential installations with solar micro-generation.', m: '2020 to 2021.' },
     ],
     pubH: 'Publications',
     pubNote: 'Titles translated; papers in Portuguese.',
-    pubMore: 'All 8 publications',
+    pubMore: 'All 7 publications',
     pubs: [
       { t: 'Exploratory analysis of BERT-based models for software bug localization.', v: 'ENMC 2025' },
-      { t: 'Comparative analysis of proprietary embedding models for bug localization.', v: 'Manuscript, 2025' },
       { t: 'Performance of pre-trained embedding models for bug localization on ArgoUML.', v: 'CIEI 2025' },
       { t: 'SBERT for software bug localization.', v: 'CIEI 2024' },
       { t: 'Micro-certification module for a university extension management system.', v: 'CIEI 2024' },
@@ -169,6 +168,7 @@ const en = {
       { t: 'A web application for graduate admissions.', v: 'FEPEG 2022' },
       { t: 'Performance of a photovoltaic plant from automatically collected data.', v: 'FEPEG 2020' },
     ],
+    manuscript: { t: 'Comparative analysis of proprietary embedding models for bug localization.', v: 'Manuscript (unpublished), 2025' },
   },
   contact: {
     h: 'Have a team to lead or a system to fix?',
@@ -180,6 +180,7 @@ const en = {
       { name: 'Spanish', level: 'intermediate' },
       { name: 'French', level: 'beginner' },
     ],
+    send: 'Send email',
     copy: 'Copy email',
     copied: 'Copied',
   },
