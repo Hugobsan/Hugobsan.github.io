@@ -1,10 +1,11 @@
 ---
 import type { Dict } from '../i18n/en';
+import Words from './Words.astro';
 interface Props { t: Dict }
 const { t } = Astro.props;
 ---
 <section class="experience" id="experience" aria-labelledby="experience-h">
-  <div class="experience__head wrap"><div class="container"><h2 class="h2" id="experience-h">{t.experience.h}</h2></div></div>
+  <div class="experience__head wrap"><div class="container"><h2 class="h2" id="experience-h"><Words text={t.experience.h} cjk={t.cjk} /></h2></div></div>
   <ol class="experience__track">
     {t.experience.items.map((j) => (
       <li class="job">

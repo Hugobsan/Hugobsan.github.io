@@ -1,15 +1,17 @@
 ---
 import type { Dict } from '../i18n/en';
 import { LINKS } from '../facts';
+import Words from './Words.astro';
 interface Props { t: Dict }
 const { t } = Astro.props;
 ---
 <section class="side wrap" id="side" aria-labelledby="side-h">
   <div class="container">
-    <h2 class="h2" id="side-h">{t.side.h}</h2>
+    <h2 class="h2" id="side-h"><Words text={t.side.h} cjk={t.cjk} /></h2>
     <div class="bento">
       {Object.entries(t.side.featured).map(([id, p]) => (
         <article class={`cell cell--${id}`}>
+          <p class="cell__tag">{p.tag}</p>
           <h3>{p.name}</h3>
           <p>{p.text}</p>
           {LINKS[id] && (

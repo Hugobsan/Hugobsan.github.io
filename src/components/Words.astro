@@ -1,0 +1,8 @@
+---
+// Chinese headings: browsers do not phrase-segment Chinese yet, so words split across lines ("经 / 得起").
+// Intl.Segmenter finds the words at build time and each one is kept whole; other locales render the text as is.
+interface Props { text: string; cjk?: boolean }
+const { text, cjk = false } = Astro.props;
+const parts = cjk ? [...new Intl.Segmenter('zh-Hans', { granularity: 'word' }).segment(text)].map((s) => s.segment) : [text];
+---
+{parts.map((w) => (w.length > 1 && /\p{Script=Han}/u.test(w) ? <span class="nowrap">{w}</span> : w))}

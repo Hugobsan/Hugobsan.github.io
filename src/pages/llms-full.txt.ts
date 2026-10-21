@@ -61,7 +61,7 @@ ${en.how.learnH}: ${en.how.learn}
 
 ## ${en.side.h}
 
-${Object.entries(en.side.featured).map(([id, p]) => `### ${p.name}\n\n${p.text}${LINKS[id] ? `\n\nLinks: ${links(id)}` : ''}`).join('\n\n')}
+${Object.entries(en.side.featured).map(([id, p]) => `### ${p.name} (${p.tag})\n\n${p.text}${LINKS[id] ? `\n\nLinks: ${links(id)}` : ''}`).join('\n\n')}
 
 ## ${en.edu.h}
 

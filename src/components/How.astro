@@ -1,11 +1,12 @@
 ---
 import type { Dict } from '../i18n/en';
+import Words from './Words.astro';
 interface Props { t: Dict }
 const { t } = Astro.props;
 ---
 <section class="how wrap" id="how" aria-labelledby="how-h">
   <div class="container">
-    <h2 class="h2" id="how-h">{t.how.h}</h2>
+    <h2 class="h2" id="how-h"><Words text={t.how.h} cjk={t.cjk} /></h2>
     <ol class="principles">
       {t.how.principles.map((p) => <li class="principle"><strong data-split>{p.t}</strong> <span data-split>{p.d}</span></li>)}
     </ol>

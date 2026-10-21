@@ -1,12 +1,13 @@
 ---
 import type { Dict } from '../i18n/en';
 import { EMAIL, GITHUB, LINKEDIN } from '../facts';
+import Words from './Words.astro';
 interface Props { t: Dict }
 const { t } = Astro.props;
 ---
 <section class="contact wrap" id="contact" aria-labelledby="contact-h">
   <div class="container contact__inner">
-    <h2 class="contact__h" id="contact-h">{t.contact.h}</h2>
+    <h2 class="contact__h" id="contact-h"><Words text={t.contact.h} cjk={t.cjk} /></h2>
     <p class="contact__sub">{t.contact.sub}</p>
     <div class="contact__langs">
       <h3 class="label">{t.contact.langH}</h3>

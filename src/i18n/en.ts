@@ -5,10 +5,12 @@ const en = {
     description: 'Tech Lead at Greenn. I build AI products that hold up in production: LLM pipelines, RAG, resilient queues, agentic engineering. Open to remote roles.',
   },
   skip: 'Skip to content',
+  cjk: false, // true where headings need word-level line breaks (Chinese)
   nav: { label: 'Primary', services: 'Services', work: 'Work', experience: 'Experience', contact: 'Contact', lang: 'Language' },
   hero: {
+    eyebrow: 'Hugo Barbosa · Tech Lead',
     h1: 'I build AI products that hold up in production.',
-    sub: 'Tech Lead at Greenn, working remotely from Brazil (UTC-3). LLM pipelines, resilient queues and agentic engineering.',
+    sub: 'Tech Lead at Greenn, a Brazilian payments and online courses platform, working remotely from Brazil (UTC-3). LLM pipelines, resilient queues and agentic engineering.',
     primary: 'Work with me',
     secondary: 'See the work',
   },
@@ -58,12 +60,12 @@ const en = {
       note: 'Internal tool, no public link',
       lede: 'My own tool for reviewing pull requests in depth: six phases run by Claude Code agents, in parallel, on every PR.',
       role: 'Role: Creator. 2026.',
-      highlight: { n: '260+', l: 'pull requests I reviewed in 2026' },
+      highlight: { n: '260+', l: 'pull requests reviewed with the panel in 2026' },
       bullets: [
         'Six phases (quality, code, coupling, over-engineering, tests and team standards), each returning findings in a strict JSON schema.',
         'An adversarial agent tries to refute every blocking finding, and Jev, a decision model on OpenRouter, triages the rest.',
         'Agents navigate the code through a Graphify knowledge graph, with closed tool lists, read-only access and isolated git worktrees.',
-        'Every design choice is measured. One variant was dropped for costing 132% more.',
+        'Every design choice is measured.',
       ],
     },
   },
@@ -74,7 +76,7 @@ const en = {
         period: '2026 to now', role: 'Tech Lead', org: 'Greenn',
         bullets: [
           'Teams of up to 6 developers across Bluee and Greenn Club.',
-          'I set the architecture and code standards, and reviewed 260+ pull requests in 2026.',
+          'I set the architecture and code standards, and reviewed 260+ pull requests in 2026 with my review panel.',
           'Cost reviews that cut more than R$20k per month in video storage and mapped up to 50% infrastructure savings.',
           'Security issues caught in review before they reached production.',
         ],
@@ -135,12 +137,12 @@ const en = {
     learn: 'TechLead de Impacto mentorship with Alexandro Hervis. Postgraduate in Software Engineering for Applied AI at UniPDS, with professors such as Erick Wendel. Reading: Clean Code, The Clean Coder, The Pragmatic Programmer, Tidy First?, Software Architecture: The Hard Parts.',
   },
   side: {
-    h: 'Side projects',
+    h: 'Independent projects',
     featured: {
-      scanlex: { name: 'Scanlex and Timesheet Transcriber AI (2025)', text: 'A SaaS that digitized timesheets and payslips for payroll specialists, with paying subscribers, and its free open-source version: bring your own Gemini key, crop pages, export to CSV or XLSX. Laravel, Vue, React, Gemini.' },
-      km: { name: 'KM Topografia', text: 'HR document and fleet management for a land surveying company, in production. Expiry alerts by email and WhatsApp, S3 with a local cache, audited roles. I designed the architecture and the infrastructure. Laravel 12, PostgreSQL, Docker. Private repository.' },
-      mia: { name: 'Mia (2025)', text: 'WhatsApp receptionist for health clinics: leads, scheduling and reminders. Ran in production at two clinics. N8N, Gemini, Evolution API.' },
-      anthrya: { name: 'anthrya', text: 'Health app built AI-first: Bluetooth body scale, diet, glucose, workouts and body measurements, all reachable by AI through an MCP server. Raw readings stay separate from estimates, so history can be recalculated. Expo, Supabase, Hono. In development, private.' },
+      scanlex: { tag: 'Own SaaS', name: 'Scanlex and Timesheet Transcriber AI (2025)', text: 'A SaaS that digitized timesheets and payslips for payroll specialists, with paying subscribers, and its free open-source version: bring your own Gemini key, crop pages, export to CSV or XLSX. Laravel, Vue, React, Gemini.' },
+      km: { tag: 'For a client', name: 'KM Topografia', text: 'HR document and fleet management for a land surveying company, in production. Expiry alerts by email and WhatsApp, S3 with a local cache, audited roles. I designed the architecture and the infrastructure. Laravel 12, PostgreSQL, Docker. Private repository.' },
+      mia: { tag: 'For a client', name: 'Mia (2025)', text: 'WhatsApp receptionist for health clinics: leads, scheduling and reminders. Ran in production at two clinics. N8N, Gemini, Evolution API.' },
+      anthrya: { tag: 'Personal', name: 'anthrya', text: 'Health app built AI-first: Bluetooth body scale, diet, glucose, workouts and body measurements, all reachable by AI through an MCP server. Raw readings stay separate from estimates, so history can be recalculated. Expo, Supabase, Hono. In development, private.' },
     },
   },
   edu: {

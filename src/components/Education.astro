@@ -1,5 +1,6 @@
 ---
 import type { Dict } from '../i18n/en';
+import Words from './Words.astro';
 interface Props { t: Dict }
 const { t } = Astro.props;
 const top = t.edu.pubs.slice(0, 3);
@@ -8,7 +9,7 @@ const rest = t.edu.pubs.slice(3);
 <section class="edu wrap" id="education" aria-labelledby="edu-h">
   <div class="container edu__grid">
     <div>
-      <h2 class="h2" id="edu-h">{t.edu.h}</h2>
+      <h2 class="h2" id="edu-h"><Words text={t.edu.h} cjk={t.cjk} /></h2>
       <ol class="edu__list">
         {t.edu.items.map((e) => <li><strong>{e.t}</strong><span>{e.m}</span></li>)}
       </ol>
@@ -20,7 +21,7 @@ const rest = t.edu.pubs.slice(3);
       </div>
     </div>
     <div>
-      <h2 class="h2">{t.edu.pubH}</h2>
+      <h2 class="h2"><Words text={t.edu.pubH} cjk={t.cjk} /></h2>
       {t.edu.pubNote && <p class="pub__note">{t.edu.pubNote}</p>}
       <ol class="pubs">
         {top.map((p) => <li><span>{p.t}</span><span class="pub__venue">{p.v}</span></li>)}

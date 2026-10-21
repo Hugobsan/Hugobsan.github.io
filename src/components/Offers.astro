@@ -1,11 +1,12 @@
 ---
 import type { Dict } from '../i18n/en';
+import Words from './Words.astro';
 interface Props { t: Dict }
 const { t } = Astro.props;
 ---
 <section class="offers wrap" id="offers" aria-labelledby="offers-h">
   <div class="container">
-    <h2 class="h2" id="offers-h">{t.offers.h}</h2>
+    <h2 class="h2" id="offers-h"><Words text={t.offers.h} cjk={t.cjk} /></h2>
     <div class="offers__grid">
       {t.offers.items.map((o) => (
         <article class="offer">

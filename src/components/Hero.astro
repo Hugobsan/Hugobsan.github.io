@@ -1,13 +1,15 @@
 ---
 import type { Dict } from '../i18n/en';
 import NoBreak from './NoBreak.astro';
+import Words from './Words.astro';
 interface Props { t: Dict }
 const { t } = Astro.props;
 ---
 <section class="hero wrap" id="top" aria-labelledby="hero-h">
   <div class="container">
     <div class="hero__copy">
-      <h1 id="hero-h">{t.hero.h1}</h1>
+      <p class="hero__eyebrow">{t.hero.eyebrow}</p>
+      <h1 id="hero-h"><Words text={t.hero.h1} cjk={t.cjk} /></h1>
       <p class="hero__sub"><NoBreak text={t.hero.sub} /></p>
       <div class="hero__ctas">
         <a class="btn btn--primary magnet" href="#contact">{t.hero.primary}</a>

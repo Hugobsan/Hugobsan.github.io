@@ -2,6 +2,7 @@
 import type { Dict } from '../i18n/en';
 import { BLUEE, CLUB, STACKS } from '../facts';
 import NoBreak from './NoBreak.astro';
+import Words from './Words.astro';
 interface Props { t: Dict }
 const { t } = Astro.props;
 const { bluee, club, prp } = t.work;
@@ -12,7 +13,7 @@ const cases = [
 ];
 ---
 <section class="work" id="work" aria-labelledby="work-h">
-  <div class="work__head wrap"><div class="container"><h2 class="h2" id="work-h">{t.work.h}</h2></div></div>
+  <div class="work__head wrap"><div class="container"><h2 class="h2" id="work-h"><Words text={t.work.h} cjk={t.cjk} /></h2></div></div>
   <div class="stack">
     {cases.map(({ id, c, stack, link, note }) => (
       <article class="panel wrap" id={id} aria-labelledby={`${id}-t`}>

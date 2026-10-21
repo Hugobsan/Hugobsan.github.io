@@ -162,6 +162,7 @@ a { color: inherit; }
 /* ---------- hero ---------- */
 .hero { min-height: min(100dvh, 720px); display: grid; align-items: center; padding-block: 112px 24px; }
 .hero__copy { max-width: min(100%, 60rem); }
+.hero__eyebrow { margin-bottom: 20px; font: 500 .875rem/1.2 var(--font-mono); letter-spacing: .02em; color: var(--text-dim); }
 .hero h1 {
   font-family: var(--font-display);
   font-weight: 650; font-stretch: 76%;
@@ -288,6 +289,7 @@ a { color: inherit; }
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
 }
 .cell::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.cell__tag { font: 500 .75rem/1 var(--font-mono); color: var(--accent); }
 .cell h3 { font-family: var(--font-display); font-weight: 650; font-stretch: 82%; font-size: clamp(1.6rem, 1.2rem + 1vw, 2.1rem); line-height: 1; letter-spacing: -0.015em; }
 .cell p { color: var(--text-dim); font-size: .9375rem; line-height: 1.5; max-width: 52ch; }
 .cell__links { display: flex; flex-wrap: wrap; gap: 6px 18px; }
@@ -392,6 +394,8 @@ a { color: inherit; }
 
 /* ---------- Chinese: system fonts have no condensed widths; drop negative tracking, open up line height ---------- */
 :lang(zh) :is(h1, h2, h3, .principle, .proof__t, .contact__h, .job__period) { letter-spacing: 0; line-height: 1.25; }
+/* CJK glyphs are as wide as they are tall: a smaller hero size keeps the line clear of the 3D sphere on the right */
+:lang(zh) .hero h1 { font-size: clamp(2.3rem, 0.8rem + 3.6vw, 4.4rem); }
 /* break at word boundaries, not mid-word (browsers without auto-phrase keep the default per-character breaks) */
 :lang(zh) { word-break: auto-phrase; } /* Chrome 154 only phrase-segments Japanese so far; Chinese picks it up when the browser ships a zh model */
 
