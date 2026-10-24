@@ -36,3 +36,25 @@ export const KNOWS_ABOUT = [
   'Software architecture', 'Message queues', 'Idempotency', 'Cloud cost optimization', 'Bug localization',
   'Laravel', 'PHP', 'Python', 'TypeScript', 'React', 'Vue', 'RabbitMQ', 'Redis', 'PostgreSQL', 'pgvector', 'AWS',
 ];
+
+// "How I work" sphere and the terminal's /skills. Names read the same in every locale; the group labels are
+// how.cats in the dictionaries. The first three of each group render larger on the sphere.
+export const SKILLS = {
+  ai: ['LLMs', 'RAG', 'Claude Code', 'Embeddings', 'pgvector', 'OpenRouter', 'Gemini', 'MCP', 'Codex', 'Cursor', 'Jev', 'Graphify', 'BERT', 'N8N'],
+  back: ['Laravel', 'PHP', 'Python', 'Java', 'Spring Boot', 'RabbitMQ', 'Redis', 'PostgreSQL', 'MySQL', 'SQLite', 'Node.js', 'Laravel Octane', 'Laravel Reverb', 'SSE', 'Webhooks'],
+  front: ['TypeScript', 'React', 'Vue', 'Next.js', 'Inertia', 'Quasar', 'Astro', 'Expo', 'Three.js', 'GSAP'],
+  infra: ['Docker', 'AWS', 'GitHub Actions', 'Datadog', 'S3', 'Cloudflare', 'Supabase', 'Linux'],
+  craft: ['TDD', 'ADR', 'Pest', 'SDD', 'DDD', 'Clean Architecture', 'SOLID', 'KISS', 'YAGNI', 'CI/CD', 'Git Flow', 'ECDSA'],
+} as const;
+export type Skill = (typeof SKILLS)[keyof typeof SKILLS][number];
+
+// skills each principle lights up on the sphere, same order as how.principles
+export const PRINCIPLE_SKILLS: Skill[][] = [
+  ['Claude Code', 'Codex', 'Cursor', 'MCP', 'Jev', 'Graphify', 'OpenRouter', 'LLMs', 'SDD'], // guardrails before autonomy: agents work from a spec
+  ['RabbitMQ', 'Redis', 'AWS', 'S3', 'Cloudflare', 'Docker', 'PostgreSQL', 'Laravel Octane', 'Datadog'], // built for production, priced for scale
+  ['ADR', 'DDD', 'Clean Architecture', 'SOLID'], // trade-offs in the open
+  ['Python', 'BERT', 'Embeddings', 'RAG', 'Datadog'], // uncertainty first: measure before committing
+  ['TDD', 'Pest', 'ECDSA', 'CI/CD', 'GitHub Actions'], // security and quality from the first commit
+  ['KISS', 'YAGNI', 'SQLite', 'Astro', 'Laravel'], // the simplest solution that works
+  ['Git Flow', 'ADR', 'Pest', 'Laravel'], // a team that keeps learning
+];

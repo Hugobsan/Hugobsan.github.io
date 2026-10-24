@@ -4,25 +4,20 @@ import type { Dict } from './en';
 export default {
   meta: {
     title: 'Hugo Barbosa · Tech Lead, IA e ingeniería de software',
-    description: 'Tech Lead en Greenn. Productos de IA que resisten en producción: pipelines de LLM, RAG, colas resilientes, ingeniería agéntica. Remoto y consultoría.',
+    description: 'Tech Lead en Greenn. Productos de IA que resisten en producción: pipelines de LLM, RAG, colas resilientes e ingeniería agéntica.',
   },
   cjk: false,
   skip: 'Saltar al contenido',
-  nav: { label: 'Navegación principal', services: 'Servicios', work: 'Proyectos', experience: 'Experiencia', contact: 'Contacto', lang: 'Idioma' },
+  nav: { label: 'Navegación principal', services: 'Sobre mí', work: 'Proyectos', experience: 'Experiencia', contact: 'Contacto', lang: 'Idioma' },
   hero: {
     eyebrow: 'Hugo Barbosa · Tech Lead',
     h1: 'Construyo productos de IA que resisten en producción.',
     sub: 'Tech Lead en Greenn, plataforma brasileña de pagos y cursos en línea, trabajando en remoto desde Brasil (UTC-3). Pipelines de LLM, colas resilientes e ingeniería agéntica.',
-    primary: 'Trabaja conmigo',
+    primary: 'Hablemos',
     secondary: 'Ver proyectos',
   },
   offers: {
-    h: 'Tres formas de trabajar juntos',
-    items: [
-      { t: 'Me sumo a tu equipo.', d: 'Tech Lead o ingeniero sénior en remoto. Defino estándares, reviso cada cambio y mantengo las entregas predecibles.' },
-      { t: 'Consultoría.', d: 'Integración de IA, revisiones de arquitectura y auditorías de costos en la nube. Hallazgos claros que tu equipo puede aplicar en el próximo sprint.' },
-      { t: 'Lo construyo por ti.', d: 'Software entregado como servicio, desde la definición del alcance hasta producción, con pruebas, documentación y un traspaso limpio.' },
-    ],
+    h: 'Lo que aporto',
     proof: [
       { t: 'Liderazgo técnico.', d: 'De la arquitectura a la entrega, con equipos que deciden bien incluso sin mí en la sala.' },
       { t: 'IA en producción.', d: 'LLMs, RAG y pipelines de voz y video al servicio de usuarios reales.' },
@@ -136,6 +131,10 @@ export default {
     tool: 'Claude Code, Codex y Cursor a diario, con ingeniería de prompts, harnesses y guardrails. Jev (modelo de decisión), Graphify (grafo de conocimiento del código) y Ponytail (guarda contra el exceso de ingeniería) para revisión automatizada defensiva.',
     learnH: 'Formación continua',
     learn: 'Mentoría TechLead de Impacto con Alexandro Hervis. Posgrado en Ingeniería de Software en IA Aplicada (UniPDS), con profesores como Erick Wendel. Lecturas: Código limpio, The Clean Coder, El programador pragmático, Tidy First?, Software Architecture: The Hard Parts.',
+    skillsH: 'Habilidades',
+    drag: 'Arrastra',
+    hint: 'Arrastra para girar. Haz clic en un número para abrir su principio.',
+    cats: { ai: 'IA', back: 'Back-end', front: 'Front-end', infra: 'Infraestructura', craft: 'Prácticas de ingeniería' },
   },
   side: {
     h: 'Proyectos independientes',
@@ -174,8 +173,7 @@ export default {
     manuscript: { t: 'Análisis comparativo de modelos de embeddings propietarios para la localización de bugs (en portugués).', v: 'Manuscrito (inédito), 2025' },
   },
   contact: {
-    h: '¿Tienes un equipo que liderar o un sistema que arreglar?',
-    sub: 'Puestos remotos, consultoría y desarrollo de productos.',
+    h: '¿Hablamos de IA, arquitectura o liderazgo?',
     langH: 'Idiomas',
     langs: [
       { name: 'portugués', level: 'nativo' },
@@ -186,6 +184,28 @@ export default {
     send: 'Enviar correo',
     copy: 'Copiar correo',
     copied: 'Copiado',
+  },
+  term: {
+    open: 'Abrir la terminal',
+    close: 'Cerrar la terminal',
+    input: 'Comando',
+    welcome: 'Escribe un comando o elige uno abajo.',
+    notFound: 'Comando no encontrado: {cmd}. Escribe /help para ver lo que hay disponible.',
+    goTo: 'Ir a la sección',
+    langNow: 'Idioma actual: {lang}.',
+    langUsage: 'Uso: /language en | pt | es | zh',
+    langSwitch: 'Cambiando a {lang}...',
+    cmds: {
+      help: 'Lista los comandos',
+      experience: 'Cargos y empresas',
+      work: 'Proyectos destacados',
+      skills: 'Lenguajes, frameworks y herramientas',
+      education: 'Formación, investigación e idiomas',
+      contact: 'Cómo contactarme',
+      language: 'Cambia el idioma del sitio',
+      clear: 'Limpia la pantalla',
+      exit: 'Cierra la terminal',
+    },
   },
   footer: '© 2026 Hugo Barbosa. Hecho con Astro y Three.js.',
   notFound: {

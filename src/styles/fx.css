@@ -1,0 +1,35 @@
+/* fx.ts. The dot is a cursor image with its hotspot at the centre, drawn by the OS, so it never lags the pointer.
+   It applies once fx is live (.has-cursor) and only without reduced motion: switching that on mid-visit brings the
+   normal cursor back. Controls keep the dot on purpose (the ring shows link, lock and label), so it wins over their
+   cursor: pointer / grab. Text fields keep the I-beam, modal dialogs (top layer, above the ring) their own cursors.
+   The second declaration is the same dot with a 2x image for sharp edges on HiDPI; a browser that does not take
+   image-set() for cursors drops it and keeps the first */
+@media (prefers-reduced-motion: no-preference) {
+  .has-cursor, .has-cursor :not(dialog, dialog *) {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Ccircle cx='8' cy='8' r='4' fill='%23F2A93B' stroke='%230B0E13' stroke-width='1.5'/%3E%3C/svg%3E") 8 8, auto !important;
+    cursor: image-set(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Ccircle cx='8' cy='8' r='4' fill='%23F2A93B' stroke='%230B0E13' stroke-width='1.5'/%3E%3C/svg%3E") 1x, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='4' fill='%23F2A93B' stroke='%230B0E13' stroke-width='1.5'/%3E%3C/svg%3E") 2x) 8 8, auto !important;
+  }
+  .has-cursor dialog { cursor: auto; }
+  .has-cursor :is(input, textarea, [contenteditable]) { cursor: text !important; }
+}
+/* the ring: a decorative trail around the dot */
+.cursor {
+  position: fixed; top: 0; left: 0; z-index: 60; pointer-events: none;
+  display: grid; place-items: center; width: 34px; height: 34px; border-radius: var(--pill);
+  border: 1px solid color-mix(in srgb, var(--text) 50%, transparent);
+  font: 500 .625rem/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--text);
+  transition: opacity .3s, background-color .3s, border-color .3s;
+}
+.cursor[data-mode="off"] { opacity: 0; }
+/* the label sits in the lower half of the ring, clear of the dot at its centre */
+.cursor span { align-self: end; padding-bottom: 13px; opacity: 0; transition: opacity .2s; }
+.cursor:is([data-mode="link"], [data-mode="lock"], [data-mode="label"]) { background: color-mix(in srgb, var(--accent-fill) 12%, transparent); }
+.cursor[data-mode="lock"] { border-color: var(--accent); }
+.cursor[data-mode="label"] span { opacity: 1; }
+/* one layer per click burst and per hovered button swarm, square pixels like the avatar's; under the cursor */
+.fx-burst, .fx-swarm { position: fixed; inset: 0; z-index: 50; pointer-events: none; contain: strict; }
+:is(.fx-burst, .fx-swarm) i { position: absolute; top: 0; left: 0; background: var(--accent-fill); }
+:is(.fx-burst, .fx-swarm) i:nth-child(3n) { background: var(--particle); }
+.fx-swarm i { opacity: 0; } /* until its first frame places it */
+/* last, so it wins over the display set above */
+@media (prefers-reduced-motion: reduce) { .cursor, .fx-burst, .fx-swarm { display: none; } }

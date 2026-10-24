@@ -8,4 +8,6 @@ export const state = {
   D: [] as (() => number)[],
   pan: null as { progress(): number } | null,
   lenis: null as Lenis | null,
+  // last click on a control, in CSS pixels and performance.now() ms: fx.ts writes it, signal.ts ripples the particles from it
+  pulse: null as { x: number; y: number; t: number } | null,
 };

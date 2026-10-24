@@ -4,25 +4,20 @@ import type { Dict } from './en';
 export default {
   meta: {
     title: 'Hugo Barbosa · 技术负责人，AI 与软件工程',
-    description: 'Greenn 技术负责人（Tech Lead），专注 AI 工程。我打造经得起生产环境考验的 AI 产品：LLM 流水线、RAG（检索增强生成）、高可靠队列与智能体工程。欢迎洽谈远程职位与咨询合作。',
+    description: 'Greenn 技术负责人（Tech Lead），专注 AI 工程。我打造经得起生产环境考验的 AI 产品：LLM 流水线、RAG（检索增强生成）、高可靠队列与智能体工程。',
   },
   cjk: true,
   skip: '跳到主要内容',
-  nav: { label: '主导航', services: '服务', work: '项目', experience: '工作经历', contact: '联系', lang: '语言' },
+  nav: { label: '主导航', services: '关于', work: '项目', experience: '工作经历', contact: '联系', lang: '语言' },
   hero: {
     eyebrow: 'Hugo Barbosa · 技术负责人',
     h1: '我打造的 AI 产品，经得起生产环境考验。',
     sub: 'Greenn（巴西支付与在线课程平台）技术负责人，常驻巴西（UTC-3），远程办公。LLM 流水线、高可靠队列与智能体工程。',
-    primary: '与我合作',
+    primary: '联系我',
     secondary: '查看项目',
   },
   offers: {
-    h: '三种合作方式',
-    items: [
-      { t: '加入您的团队。', d: '远程担任技术负责人或高级工程师。我制定规范、评审每一项变更，让交付稳定可预期。' },
-      { t: '技术咨询。', d: 'AI 集成、架构评审与云成本审计。结论清晰，您的团队下一个迭代就能落地。' },
-      { t: '为您开发。', d: '以服务形式交付软件，从需求梳理到生产上线，配齐测试与文档，交接干净利落。' },
-    ],
+    h: '我能带来什么',
     proof: [
       { t: '技术领导力。', d: '从架构设计到交付上线，带出即使我不在场也能做出好决策的团队。' },
       { t: 'AI 落地生产。', d: 'LLM、RAG（检索增强生成）以及语音和视频流水线，服务真实用户。' },
@@ -136,6 +131,10 @@ export default {
     tool: '每天使用 Claude Code、Codex 和 Cursor，配合提示词工程、harness 和护栏。用 Jev（决策模型）、Graphify（代码知识图谱）和 Ponytail（防止过度工程的守卫）做防御式自动化代码评审。',
     learnH: '持续学习',
     learn: '参加 Alexandro Hervis 的 TechLead de Impacto 导师计划。在 UniPDS 修读应用 AI 软件工程研究生进修课程（非学位），授课教师包括 Erick Wendel 等。阅读：《代码整洁之道》《代码整洁之道：程序员的职业素养》《程序员修炼之道》《Tidy First?》《Software Architecture: The Hard Parts》。',
+    skillsH: '技能',
+    drag: '拖动',
+    hint: '拖动即可旋转，点击数字查看对应原则。',
+    cats: { ai: '人工智能', back: '后端', front: '前端', infra: '基础设施', craft: '工程实践' },
   },
   side: {
     h: '独立项目',
@@ -174,8 +173,7 @@ export default {
     manuscript: { t: '闭源嵌入模型在缺陷定位中的对比分析（葡萄牙语）。', v: '手稿（未发表），2025 年' },
   },
   contact: {
-    h: '有团队要带，或有系统要修？',
-    sub: '远程职位、技术咨询与产品开发。',
+    h: '想聊聊 AI、架构或技术领导力？',
     langH: '语言',
     langs: [
       { name: '葡萄牙语', level: '母语' },
@@ -186,6 +184,28 @@ export default {
     send: '发送邮件',
     copy: '复制邮箱',
     copied: '已复制',
+  },
+  term: {
+    open: '打开终端',
+    close: '关闭终端',
+    input: '命令',
+    welcome: '输入命令，或点选下方的命令。',
+    notFound: '找不到命令：{cmd}。输入 /help 查看可用命令。',
+    goTo: '前往该部分',
+    langNow: '当前语言：{lang}。',
+    langUsage: '用法：/language en | pt | es | zh',
+    langSwitch: '正在切换到 {lang}…',
+    cmds: {
+      help: '列出全部命令',
+      experience: '职位与公司',
+      work: '代表项目',
+      skills: '语言、框架与工具',
+      education: '学历、科研与语言能力',
+      contact: '联系方式',
+      language: '切换网站语言',
+      clear: '清屏',
+      exit: '关闭终端',
+    },
   },
   footer: '© 2026 Hugo Barbosa。使用 Astro 与 Three.js 构建。',
   notFound: {

@@ -1,0 +1,38 @@
+/* How I work, once sphere.ts runs (injected by it, kept out of the page's inline CSS). The stage, the flat chips and
+   the accordion stay in global.css, so enhancing never moves the layout */
+.how.is-live .how__hint { visibility: visible; }
+.is-live .orbit { cursor: grab; -webkit-user-select: none; user-select: none; }
+.is-live .orbit.is-drag { cursor: grabbing; }
+/* sphere.ts writes transform, opacity (depth) and z-index. No blurred halo on moving text (re-rastering it every frame
+   stalled the main thread): a static disc of page colour keeps the tags readable over the 3D scene */
+.is-live .orbit::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--bg) 86%, transparent) 72%, transparent);
+}
+.is-live .orbit__tags li { border-color: transparent; text-shadow: none; }
+/* a principle chosen: its skills light up like retrieved neighbours (sphere.ts steps the rest back) */
+.is-live .orbit li.is-lit { color: var(--accent); text-shadow: 0 0 12px color-mix(in srgb, var(--accent-fill) 50%, transparent); }
+.orbit__node {
+  position: absolute; left: 50%; top: 50%;
+  width: 34px; height: 34px; padding: 0; border-radius: 50%; cursor: pointer;
+  border: 1px solid var(--accent); background: color-mix(in srgb, var(--bg) 82%, transparent);
+  font: 500 .75rem/1 var(--font-mono); color: var(--accent);
+}
+.orbit__node.is-back { pointer-events: none; }
+.orbit__node.is-on {
+  background: var(--accent-fill); color: var(--accent-ink);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent-fill) 22%, transparent), 0 0 24px color-mix(in srgb, var(--accent-fill) 45%, transparent);
+}
+/* hover: the principle's title in a pill beside the node, on the side facing the centre */
+.orbit__node::after {
+  content: attr(data-t); position: absolute; top: 50%; left: calc(100% + 8px); translate: 0 -50%;
+  padding: 7px 12px; border-radius: var(--pill); white-space: nowrap; pointer-events: none;
+  background: var(--surface-2); border: 1px solid var(--line-strong);
+  font: 500 .8125rem/1 var(--font-body); color: var(--text);
+  opacity: 0; transition: opacity .2s;
+}
+.orbit__node.is-r::after { left: auto; right: calc(100% + 8px); }
+@media (hover: hover) and (pointer: fine) {
+  .orbit__node:hover { z-index: 200 !important; }
+  .orbit__node:hover::after { opacity: 1; }
+}

@@ -1,7 +1,7 @@
 // Signal: one THREE.Points, six formations morphed on the GPU.
 import {
   AdditiveBlending, BufferAttribute, BufferGeometry, Color, ColorManagement, NormalBlending,
-  PerspectiveCamera, Points, Scene, ShaderMaterial, Vector2, WebGLRenderer,
+  PerspectiveCamera, Points, Scene, ShaderMaterial, Vector2, Vector4, WebGLRenderer,
 } from 'three';
 import AVATAR from './avatar.json';
 import { state } from './state';
@@ -210,6 +210,8 @@ const VERT = /* glsl */`
 uniform float uFrom, uTo, uMix, uTime, uPointSize, uPixelRatio, uDrift, uDark, uAlpha, uAvatarAlpha, uAvatarSize;
 uniform vec3 uColorBase, uColorAccent;
 uniform vec2 uMouse;
+uniform vec2 uHalf, uPointer, uField; // screen pixels: half viewport, pointer from the centre (y up), field (push, radius)
+uniform vec4 uPulse;                 // click ripple: centre (px), front radius (px), strength
 attribute vec3 position1, position2, position3, position4, position5;
 attribute float aRandom;
 attribute vec4 aColor;
@@ -285,6 +287,19 @@ void main(){
 
   vec4 mv = modelViewMatrix * vec4(pos, 1.0);
   gl_Position = projectionMatrix * mv;
+  // pointer field and click ripple, pushed outward in screen space. The avatar is Hugo's face: no pointer field
+  // (it carved a hole in it), a softer ripple
+  float soft = 1.0 - 0.6 * w5;
+  vec2 sp = gl_Position.xy / gl_Position.w * uHalf;
+  vec2 d = sp - uPointer;
+  float r = length(d) + 0.001;
+  vec2 off = d / r * uField.x * (1.0 - w5) * (1.0 - smoothstep(0.0, uField.y, r));
+  d = sp - uPulse.xy; r = length(d) + 0.001;
+  float q = (r - uPulse.z) / 48.0, ring = uPulse.w * exp(-q * q) * soft;
+  off += d / r * ring * 24.0;
+  gl_Position.xy += off / uHalf * gl_Position.w;
+  col = mix(col, uColorAccent, ring * 0.8);
+  a *= 1.0 + 0.8 * ring;
   float size = uPointSize * (0.7 + aRandom * 0.6) * (1.0 + 0.7 * h) * (6.0 / -mv.z);
   gl_PointSize = mix(size, px ? uAvatarSize : size, w5) * uPixelRatio;
   vColor = vec4(col, a);
@@ -342,6 +357,7 @@ export function init(canvas: HTMLCanvasElement, gl: WebGL2RenderingContext) {
     uAvatarAlpha: { value: 0.6 }, uAvatarSize: { value: 3 },
     uColorBase: { value: new Color() }, uColorAccent: { value: new Color() },
     uMouse: { value: new Vector2() },
+    uHalf: { value: new Vector2() }, uPointer: { value: new Vector2() }, uField: { value: new Vector2() }, uPulse: { value: new Vector4(0, 0, 0, 0) }, // w is the strength: Vector4() defaults it to 1, a still ripple at the centre
   };
   const mat = new ShaderMaterial({ uniforms: U, vertexShader: VERT, fragmentShader: FRAG, transparent: true, depthWrite: false, depthTest: false });
   const points = new Points(geo, mat);
@@ -378,7 +394,14 @@ export function init(canvas: HTMLCanvasElement, gl: WebGL2RenderingContext) {
   addEventListener('resize', resize);
 
   const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
-  addEventListener('pointermove', (e) => { mouse.tx = e.clientX / vw * 2 - 1; mouse.ty = -(e.clientY / vh * 2 - 1); }, { passive: true });
+  // ptr: the pointer itself, for the field that parts the particles around it (fine pointers); mouse above only tilts the scene
+  const fine = matchMedia('(pointer: fine)').matches;
+  const ptr = { x: 0, y: 0, tx: 0, ty: 0, moved: -1e9, field: 0 };
+  addEventListener('pointermove', (e) => {
+    mouse.tx = e.clientX / vw * 2 - 1; mouse.ty = -(e.clientY / vh * 2 - 1);
+    ptr.tx = e.clientX; ptr.ty = e.clientY; ptr.moved = performance.now();
+  }, { passive: true });
+  document.addEventListener('pointerout', (e) => { if (!e.relatedTarget) ptr.moved = -1e9; }); // left the window
 
   const mqMobile = matchMedia('(max-width: 767px)');
   const contact = document.getElementById('contact')!;
@@ -435,6 +458,17 @@ export function init(canvas: HTMLCanvasElement, gl: WebGL2RenderingContext) {
 
     U.uFrom.value = from; U.uTo.value = to; U.uMix.value = m; U.uTime.value = time;
     U.uMouse.value.set(mouse.x, mouse.y);
+    // field: fades in while the pointer moves, out once it rests 1.5s or leaves; it jumps to the pointer while faded out
+    ptr.field += ((fine && now - ptr.moved < 1500 ? 1 : 0) - ptr.field) * (1 - Math.exp(-dt * 3));
+    const pk = ptr.field < 0.01 ? 1 : 1 - Math.exp(-dt * 12);
+    ptr.x += (ptr.tx - ptr.x) * pk; ptr.y += (ptr.ty - ptr.y) * pk;
+    const R = 0.15 * Math.min(vw, vh);
+    U.uHalf.value.set(vw / 2, vh / 2);
+    U.uPointer.value.set(ptr.x - vw / 2, vh / 2 - ptr.y);
+    U.uField.value.set(ptr.field * R * 0.3, R);
+    // ripple from the last click (state.pulse, written by fx.ts): a ring running out over 1.2s; a new click restarts it
+    const pl = state.pulse, age = pl ? Math.min(1, Math.max(0, now - pl.t) / 1200) : 1;
+    if (pl) U.uPulse.value.set(pl.x - vw / 2, vh / 2 - pl.y, age * 0.7 * Math.max(vw, vh), 1 - age * age);
     U.uAlpha.value = (dark ? 0.62 : 0.78) * lerp(L.a[from], L.a[to], e) * (1 - 0.55 * dimS);
     U.uAvatarAlpha.value = dark ? avatarDarkAlpha : 1;
     U.uAvatarSize.value = (AVATAR_H / AVATAR.h) * L.s[5] * unit * pxPerUnit / avatarSub * AVATAR_SPRITE;

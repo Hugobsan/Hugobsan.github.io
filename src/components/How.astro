@@ -1,18 +1,48 @@
 ---
 import type { Dict } from '../i18n/en';
 import Words from './Words.astro';
+import { SKILLS } from '../facts';
 interface Props { t: Dict }
 const { t } = Astro.props;
+// the first three of each group render larger; which ones a principle lights up, sphere.ts reads from facts.ts
+const skills = Object.values(SKILLS).flatMap((list) => list.map((s, i) => ({ s, big: i < 3 })));
 ---
 <section class="how wrap" id="how" aria-labelledby="how-h">
   <div class="container">
     <h2 class="h2" id="how-h"><Words text={t.how.h} cjk={t.cjk} /></h2>
-    <ol class="principles">
-      {t.how.principles.map((p) => <li class="principle"><strong data-split>{p.t}</strong> <span data-split>{p.d}</span></li>)}
-    </ol>
+    <div class="how__grid">
+      <div class="how__stage">
+        <p class="how__label" id="skills-h">{t.how.skillsH}</p>
+        <div class="orbit" data-cursor-label={t.how.drag}>
+          <ul class="orbit__tags" aria-labelledby="skills-h">
+            {skills.map((k) => <li data-big={k.big ? '' : undefined}>{k.s}</li>)}
+          </ul>
+        </div>
+        <p class="how__hint" aria-hidden="true">{t.how.hint}</p>
+      </div>
+      <div class="principles">
+        {t.how.principles.map((p, i) => (
+          <details class="principle" name="principles" open={i === 0}>
+            <summary><span class="principle__n">{String(i + 1).padStart(2, '0')}</span><span class="principle__t"><Words text={p.t} cjk={t.cjk} /></span></summary>
+            <p>{p.d}</p>
+          </details>
+        ))}
+      </div>
+    </div>
     <div class="toolbox">
       <div><h3 class="label">{t.how.toolH}</h3><p>{t.how.tool}</p></div>
       <div><h3 class="label">{t.how.learnH}</h3><p>{t.how.learn}</p></div>
     </div>
   </div>
 </section>
+
+<script>
+  // the sphere loads as How comes near; before that, and without JS, the skills are a flat list of chips
+  const how = document.getElementById('how')!;
+  const io = new IntersectionObserver(([e]) => {
+    if (!e!.isIntersecting) return;
+    io.disconnect();
+    import('../scripts/sphere').then((m) => m.init(how)).catch(() => {});
+  }, { rootMargin: '300px 0px' });
+  io.observe(how);
+</script>

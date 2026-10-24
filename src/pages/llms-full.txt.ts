@@ -29,8 +29,6 @@ ${en.hero.h1} ${en.hero.sub}
 
 ## ${en.offers.h}
 
-${list(en.offers.items.map((o) => `**${o.t}** ${o.d}`))}
-
 ${list(en.offers.proof.map((p) => `**${p.t}** ${p.d}`))}
 
 ## ${w.h}
@@ -97,7 +95,7 @@ ${[...new Set([...KNOWS_ABOUT, ...STACKS.bluee, ...STACKS.club, ...STACKS.prp])]
 
 ## Contact
 
-${en.contact.h} ${en.contact.sub}
+${en.contact.h}
 
 - Email: ${EMAIL}
 - LinkedIn: ${LINKEDIN}

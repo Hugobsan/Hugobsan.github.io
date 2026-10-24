@@ -17,22 +17,19 @@ Glossary (ES, neutral international Spanish, "tú" form):
 
 ### Meta
 - title: `Hugo Barbosa · Tech Lead, IA e ingeniería de software`
-- description: `Tech Lead en Greenn e ingeniero de IA. Construyo productos que resisten en producción: pipelines de LLM, RAG, colas resilientes e ingeniería agéntica. Disponible para trabajo remoto y consultoría.`
+- description: `Tech Lead en Greenn. Productos de IA que resisten en producción: pipelines de LLM, RAG, colas resilientes e ingeniería agéntica.`
 
 ### Nav
-Servicios · Proyectos · Experiencia · Contacto · Idioma
+Sobre mí · Proyectos · Experiencia · Contacto · Idioma
 
 ### Hero
 - H1: **Construyo productos de IA que resisten en producción.**
 - Sub: Tech Lead en Greenn, trabajando en remoto desde Brasil (UTC-3). Pipelines de LLM, colas resilientes e ingeniería agéntica.
-- CTA primary: **Trabaja conmigo** (to contact)
+- CTA primary: **Hablemos** (to contact)
 - CTA secondary: **Ver proyectos** (to work)
 
 ### Offers
-Heading: **Tres formas de trabajar juntos**
-1. **Me sumo a tu equipo.** Tech Lead o ingeniero sénior en remoto. Defino estándares, reviso cada cambio y mantengo las entregas predecibles.
-2. **Consultoría.** Integración de IA, revisiones de arquitectura y auditorías de costos en la nube. Hallazgos claros que tu equipo puede aplicar en el próximo sprint.
-3. **Lo construyo por ti.** Software entregado como servicio, desde la definición del alcance hasta producción, con pruebas, documentación y un traspaso limpio.
+Heading: **Lo que aporto** (2026-10-24: neutral, the engagement cards were removed)
 
 Proof strip:
 - **Equipos compactos.** Experiencia liderando equipos pequeños, de la arquitectura a la entrega.
@@ -147,8 +144,7 @@ Research projects (heading **Proyectos de investigación**):
 - Rendimiento de una planta fotovoltaica a partir de datos recopilados automáticamente (en portugués). FEPEG 2020.
 
 ### Contact
-- Heading: **¿Tienes un equipo que liderar o un sistema que arreglar?**
-- Sub: Puestos remotos, consultoría y desarrollo de productos.
+- Heading: **¿Hablamos de IA, arquitectura o liderazgo?** (no sub)
 - Languages (heading **Idiomas**): portugués (nativo), inglés (intermedio), español (intermedio), francés (principiante).
 - Email: contato@hugobsan.com.br (button: **Copiar correo**, after click: **Copiado**)
 - Links: LinkedIn (https://www.linkedin.com/in/hugobsan/), GitHub (https://github.com/Hugobsan)
@@ -164,3 +160,12 @@ Research projects (heading **Proyectos de investigación**):
 - Copied: Copiado
 - Page not found: Página no encontrada
 - Back to home: Volver al inicio
+
+### Interactive (2026-10-23)
+- How sphere: label **Habilidades** · cursor **Arrastra** · hint: Arrastra para girar. Haz clic en un número para abrir su principio.
+- Skill groups: IA · Back-end · Front-end · Infraestructura · Prácticas de ingeniería
+- Terminal: Abrir la terminal · Cerrar la terminal · Comando (input label)
+- Welcome: Escribe un comando o elige uno abajo.
+- Not found: Comando no encontrado: {cmd}. Escribe /help para ver lo que hay disponible.
+- Ir a la sección · Idioma actual: {lang}. · Uso: /language en | pt | es | zh · Cambiando a {lang}...
+- /help Lista los comandos · /experience Cargos y empresas · /work Proyectos destacados · /skills Lenguajes, frameworks y herramientas · /education Formación, investigación e idiomas · /contact Cómo contactarme · /language Cambia el idioma del sitio · /clear Limpia la pantalla · /exit Cierra la terminal

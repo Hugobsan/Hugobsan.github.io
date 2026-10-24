@@ -3,11 +3,11 @@ import type { Dict } from './en';
 export default {
   meta: {
     title: 'Hugo Barbosa · Tech Lead, IA e Engenharia de Software',
-    description: 'Tech Lead na Greenn. Produtos de IA que aguentam produção: pipelines de LLM, RAG, filas resilientes e engenharia agêntica. Vagas remotas e consultoria.',
+    description: 'Tech Lead na Greenn. Produtos de IA que aguentam produção: pipelines de LLM, RAG, filas resilientes e engenharia agêntica.',
   },
   cjk: false,
   skip: 'Pular para o conteúdo',
-  nav: { label: 'Principal', services: 'Serviços', work: 'Trabalho', experience: 'Experiência', contact: 'Contato', lang: 'Idioma' },
+  nav: { label: 'Principal', services: 'Sobre', work: 'Trabalho', experience: 'Experiência', contact: 'Contato', lang: 'Idioma' },
   hero: {
     eyebrow: 'Hugo Barbosa · Tech Lead',
     h1: 'Construo produtos de IA que aguentam produção.',
@@ -16,12 +16,7 @@ export default {
     secondary: 'Ver projetos',
   },
   offers: {
-    h: 'Três formas de trabalharmos juntos',
-    items: [
-      { t: 'No seu time.', d: 'Tech Lead ou Engenheiro Sênior remoto. Defino padrões, reviso cada mudança e mantenho a entrega previsível.' },
-      { t: 'Consultoria.', d: 'Integração de IA, revisão de arquitetura e auditoria de custo de nuvem. Achados claros que o time aplica na próxima sprint.' },
-      { t: 'Construo para você.', d: 'Software entregue como serviço, do escopo à produção, com testes, documentação e passagem de bastão limpa.' },
-    ],
+    h: 'O que eu entrego',
     proof: [
       { t: 'Liderança técnica.', d: 'Da arquitetura à entrega, com times que decidem bem mesmo sem mim na sala.' },
       { t: 'IA em produção.', d: 'LLMs, RAG e pipelines de voz e vídeo atendendo usuários reais.' },
@@ -135,6 +130,10 @@ export default {
     tool: 'Claude Code, Codex e Cursor no dia a dia, com engenharia de prompt, harness e guardrails. Jev (modelo de decisão), Graphify (grafo de conhecimento do código) e Ponytail (guarda contra excesso de engenharia) para code review defensivo automatizado.',
     learnH: 'Formação contínua',
     learn: 'Mentoria TechLead de Impacto com Alexandro Hervis. Pós em Engenharia de Software em IA Aplicada na UniPDS, com professores como Erick Wendel. Leituras: Código Limpo, O Codificador Limpo, O Programador Pragmático, Tidy First?, Arquitetura de Software: As Partes Difíceis.',
+    skillsH: 'Habilidades',
+    drag: 'Arraste',
+    hint: 'Arraste para girar. Clique em um número para abrir o princípio.',
+    cats: { ai: 'IA', back: 'Back-end', front: 'Front-end', infra: 'Infraestrutura', craft: 'Práticas de engenharia' },
   },
   side: {
     h: 'Projetos independentes',
@@ -173,8 +172,7 @@ export default {
     manuscript: { t: 'Uma análise comparativa de modelos proprietários de geração de embeddings para localização de bugs de software.', v: 'Manuscrito (não publicado), 2025' },
   },
   contact: {
-    h: 'Tem um time para liderar ou um sistema para consertar?',
-    sub: 'Vagas remotas, consultoria e construção de produtos.',
+    h: 'Quer trocar uma ideia sobre IA, arquitetura ou liderança?',
     langH: 'Idiomas',
     langs: [
       { name: 'português', level: 'nativo' },
@@ -185,6 +183,28 @@ export default {
     send: 'Enviar e-mail',
     copy: 'Copiar e-mail',
     copied: 'Copiado',
+  },
+  term: {
+    open: 'Abrir o terminal',
+    close: 'Fechar o terminal',
+    input: 'Comando',
+    welcome: 'Digite um comando ou escolha um abaixo.',
+    notFound: 'Comando não encontrado: {cmd}. Digite /help para ver o que está disponível.',
+    goTo: 'Ir para a seção',
+    langNow: 'Idioma atual: {lang}.',
+    langUsage: 'Uso: /language en | pt | es | zh',
+    langSwitch: 'Mudando para {lang}...',
+    cmds: {
+      help: 'Lista os comandos',
+      experience: 'Cargos e empresas',
+      work: 'Trabalho selecionado',
+      skills: 'Linguagens, frameworks e ferramentas',
+      education: 'Formação, pesquisa e idiomas',
+      contact: 'Como falar comigo',
+      language: 'Troca o idioma do site',
+      clear: 'Limpa a tela',
+      exit: 'Fecha o terminal',
+    },
   },
   footer: '© 2026 Hugo Barbosa. Feito com Astro e Three.js.',
   notFound: {

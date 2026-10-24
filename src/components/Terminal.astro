@@ -1,0 +1,42 @@
+---
+import type { Dict } from '../i18n/en';
+import type { Lang } from '../i18n';
+interface Props { t: Dict; lang: Lang }
+const { t, lang } = Astro.props;
+---
+{/* only the button ships with the page: terminal.ts builds the dialog from /terminal/{lang}.json on first use */}
+<button class="term-fab magnet" type="button" aria-haspopup="dialog" aria-label={t.term.open} data-src={`/terminal/${lang}.json`} hidden>
+  <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7l5 5-5 5M13 17h6" /></svg>
+  <span class="term-fab__dot"></span>
+</button>
+
+<script>
+  // The module and the locale's data load in parallel on the first sign of intent. The button does nothing
+  // without JS, so JS shows it, with its styles (?inline: kept out of the page's inline CSS, see fx.ts).
+  // A failed load is forgotten, so the next hover or click tries again.
+  import css from '../styles/fab.css?inline';
+  document.head.append(Object.assign(document.createElement('style'), { textContent: css }));
+  const fab = document.querySelector<HTMLButtonElement>('.term-fab')!;
+  const dot = fab.querySelector('.term-fab__dot')!;
+  const get = () => Promise.all([import('../scripts/terminal'), fetch(fab.dataset.src!).then((r) => r.json())])
+    .catch(() => { ready = undefined; });
+  let ready: ReturnType<typeof get> | undefined;
+  const load = () => (ready ??= get());
+  const open = (restored?: boolean) => load().then((r) => r && r[0].open(r[1], restored));
+  try { if (localStorage.getItem('term-seen')) dot.remove(); } catch { /* storage blocked: the badge shows on every visit */ }
+  fab.hidden = false;
+  fab.addEventListener('pointerenter', load, { once: true });
+  fab.addEventListener('focus', load, { once: true });
+  fab.addEventListener('click', () => {
+    dot.remove();
+    try { localStorage.setItem('term-seen', '1'); } catch { /* not remembered */ }
+    open();
+  });
+  // the terminal was open when /language switched the page: reopen it here
+  try {
+    if (sessionStorage.getItem('term-open')) {
+      sessionStorage.removeItem('term-open');
+      open(true);
+    }
+  } catch { /* storage blocked */ }
+</script>

@@ -177,22 +177,9 @@ a { color: inherit; }
 /* phones: the content follows the nav instead of floating in a viewport-high band */
 @media (max-width: 899px) { .hero { min-height: 0; padding-block: 104px 48px; } }
 
-/* ---------- offers: three columns + proof strip ---------- */
+/* ---------- offers: what I bring, a proof strip ---------- */
 .offers { padding-block: var(--section-space) calc(var(--section-space) * .6); }
-.offers__grid { margin-top: 48px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.offer {
-  display: grid; align-content: start; gap: 18px;
-  padding: 28px 28px 32px;
-  background: color-mix(in srgb, var(--surface) 88%, transparent);
-  border: 1px solid var(--line); border-top: 2px solid var(--accent); border-radius: var(--radius);
-}
-.offer h3 {
-  font-family: var(--font-display); font-weight: 600; font-stretch: 82%;
-  font-size: clamp(1.75rem, 1rem + 1.6vw, 2.6rem); line-height: 1.02; letter-spacing: -0.015em;
-}
-.offer p { max-width: 36ch; color: var(--text-dim); }
-@media (max-width: 899px) { .offers__grid { grid-template-columns: 1fr; } }
-.proof { margin-top: 72px; padding-top: 32px; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
+.proof { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
 .proof__t {
   display: block; font-family: var(--font-display); font-weight: 600; font-stretch: 80%;
   font-size: clamp(1.5rem, 1rem + 1.3vw, 2.25rem); line-height: 1.02; letter-spacing: -0.02em;
@@ -268,15 +255,48 @@ a { color: inherit; }
 .experience.is-pan .bullets { font-size: 1rem; }
 
 /* ---------- how I work ---------- */
-.how { padding-block: var(--section-space); }
-.principles { margin-top: 56px; display: grid; gap: clamp(22px, 3vh, 36px); max-width: 64rem; }
-.principle {
-  font-family: var(--font-display); font-weight: 400; font-stretch: 88%;
-  font-size: clamp(1.5rem, .9rem + 2.2vw, 2.9rem); line-height: 1.12; letter-spacing: -0.015em;
+/* the 3D scene passes behind: the same page-colour halo as Experience keeps the small tags readable */
+.how { padding-block: var(--section-space); text-shadow: 0 0 6px var(--bg), 0 0 14px var(--bg), 0 0 28px var(--bg); }
+.how__grid { margin-top: 56px; display: grid; gap: 48px; }
+.how__stage { width: min(100%, 440px); justify-self: center; }
+@media (min-width: 1024px) {
+  .how__grid { grid-template-columns: min(560px, 46vw) minmax(0, 1fr); column-gap: clamp(40px, 5vw, 96px); align-items: start; }
+  .how__stage { width: 100%; }
 }
-.principle strong { font-weight: 650; }
-/* word scrub (motion.ts tweens --w 0 to 1): faint to full color, every step keeps AA contrast */
-.w { color: color-mix(in srgb, var(--text) calc(var(--w, 1) * 100%), var(--text-faint)); }
+.how__label { font: 500 .8125rem/1.2 var(--font-mono); letter-spacing: .02em; color: var(--text-dim); }
+.how__hint { margin-top: 12px; font-size: .875rem; color: var(--text-faint); text-align: center; visibility: hidden; }
+
+/* skills sphere. Final size from the start; until sphere.ts runs (or without JS) the tags are a flat wrap of chips,
+   then they only move by transform (the live rules are in sphere.css, injected by sphere.ts) */
+.orbit { margin-top: 12px; aspect-ratio: 1; position: relative; isolation: isolate; container-type: inline-size; touch-action: pan-y; }
+.orbit__tags { height: 100%; display: flex; flex-wrap: wrap; justify-content: center; align-content: center; gap: 6px; }
+.orbit__tags li {
+  padding: 4px 7px; border: 1px solid var(--line); border-radius: var(--radius);
+  font: 500 clamp(11px, 2.4cqi, 14px)/1 var(--font-mono); white-space: nowrap; color: var(--text-dim);
+}
+.orbit__tags [data-big] { font-size: clamp(13px, 3.2cqi, 19px); color: var(--text); }
+
+/* principles: an exclusive accordion, the first one open; still the section's typographic moment */
+.principles { border-bottom: 1px solid var(--line); }
+.principle {
+  border-top: 1px solid var(--line);
+  font-family: var(--font-display); font-weight: 650; font-stretch: 82%;
+  font-size: clamp(1.4rem, .9rem + 1.3vw, 2.25rem); line-height: 1.06; letter-spacing: -0.015em;
+}
+.principle summary {
+  display: grid; grid-template-columns: 2.5rem minmax(0, 1fr) auto; align-items: baseline; gap: 12px;
+  padding-block: 18px; cursor: pointer; list-style: none; color: var(--text-dim);
+}
+.principle summary::-webkit-details-marker { display: none; }
+.principle summary::after { content: "+"; font: 400 1.5rem/1 var(--font-mono); color: var(--text-faint); transition: rotate .3s var(--ease-out); }
+.principle summary:hover, .principle[open] summary { color: var(--text); }
+.principle[open] summary::after { rotate: 45deg; color: var(--accent); }
+.principle__n { font: 500 .8125rem/1 var(--font-mono); letter-spacing: .02em; color: var(--text-faint); }
+.principle[open] .principle__n { color: var(--accent); }
+.principle p {
+  padding: 0 0 22px calc(2.5rem + 12px); max-width: calc(52ch + 3.25rem);
+  font: 400 1.0625rem/1.55 var(--font-body); letter-spacing: normal; color: var(--text-dim);
+}
 .toolbox { margin-top: 80px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; max-width: 64rem; }
 .toolbox p { margin-top: 10px; color: var(--text-dim); max-width: 62ch; }
 @media (max-width: 767px) { .toolbox { grid-template-columns: 1fr; gap: 32px; margin-top: 56px; } }
@@ -378,7 +398,6 @@ a { color: inherit; }
   font-size: clamp(2.1rem, 1.1rem + 2.6vw, 3.75rem); line-height: 1; letter-spacing: -0.025em;
   max-width: 17ch; text-wrap: balance;
 }
-.contact__sub { color: var(--text-dim); font-size: 1.125rem; }
 .contact__email {
   margin-top: 16px;
   font-family: var(--font-display); font-weight: 500; font-stretch: 85%;
@@ -390,8 +409,28 @@ a { color: inherit; }
 .contact__actions { margin-top: 12px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 @media (max-width: 767px) { .contact { padding-bottom: 48px; } .contact__inner { gap: 12px; } }
 
+/* ---------- scroll progress (cursor and click drizzle: fx.css) ---------- */
+/* fills with the page scroll: a scroll-driven animation, or the page script where that is unsupported (Firefox).
+   It shows position, so it stays with reduced motion */
+.progress {
+  position: fixed; z-index: 25; top: env(safe-area-inset-top, 0px); left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent-fill) 40%, transparent), var(--accent-fill));
+  box-shadow: 0 0 10px color-mix(in srgb, var(--accent-fill) 55%, transparent);
+  transform: scaleX(0); transform-origin: 0 50%; pointer-events: none;
+}
+/* longhands: the minifier folds a shorthand + animation-timeline into one invalid shorthand */
+@supports (animation-timeline: scroll()) {
+  .progress { animation-name: progress; animation-timing-function: linear; animation-fill-mode: both; animation-timeline: scroll(root); }
+}
+@keyframes progress { to { transform: scaleX(1); } }
+
 /* ---------- footer ---------- */
 .footer { padding-block: 28px calc(28px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line); color: var(--text-faint); font-size: .875rem; }
+
+/* ---------- terminal button: room for it (the button itself: fab.css, the dialog: terminal.css) ---------- */
+/* the button sits over the footer's right edge on narrow screens, and over the last contact buttons on phones */
+@media (max-width: 1023px) { .footer { padding-right: calc(var(--gutter-r) + 72px); } }
+@media (max-width: 767px) { .contact { padding-bottom: 96px; } }
 
 /* ---------- Chinese: system fonts have no condensed widths; drop negative tracking, open up line height ---------- */
 :lang(zh) :is(h1, h2, h3, .principle, .proof__t, .contact__h, .job__period) { letter-spacing: 0; line-height: 1.25; }
@@ -399,13 +438,6 @@ a { color: inherit; }
 :lang(zh) .hero h1 { font-size: clamp(2.3rem, 0.8rem + 3.6vw, 4.4rem); }
 /* break at word boundaries, not mid-word (browsers without auto-phrase keep the default per-character breaks) */
 :lang(zh) { word-break: auto-phrase; } /* Chrome 154 only phrase-segments Japanese so far; Chinese picks it up when the browser ships a zh model */
-
-/* ---------- 404 ---------- */
-.lost { min-height: 100dvh; display: grid; align-content: center; padding-block: 96px; }
-.lost h1 { font-family: var(--font-display); font-weight: 650; font-stretch: 78%; font-size: clamp(2.25rem, 1.2rem + 3.2vw, 4.25rem); line-height: 1; letter-spacing: -0.02em; }
-.lost ul { margin-top: 40px; display: grid; gap: 28px; }
-.lost li { display: grid; gap: 6px; max-width: 40rem; }
-.lost li strong { font-weight: 600; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }

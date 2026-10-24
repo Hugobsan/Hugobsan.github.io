@@ -5,22 +5,6 @@ import { state } from './state';
 
 const $ = (id: string) => document.getElementById(id)!;
 
-// principles: split into words (Intl.Segmenter also splits CJK) so their opacity can scrub
-function splitWords() {
-  const seg = new Intl.Segmenter(document.documentElement.lang, { granularity: 'word' });
-  document.querySelectorAll<HTMLElement>('[data-split]').forEach((el) => {
-    const text = el.textContent ?? '';
-    el.textContent = '';
-    for (const { segment } of seg.segment(text)) {
-      if (/^\s+$/.test(segment)) { el.append(segment); continue; }
-      const s = document.createElement('span');
-      s.className = 'w';
-      s.textContent = segment;
-      el.append(s);
-    }
-  });
-}
-
 const fine = matchMedia('(pointer: fine)').matches;
 
 function setup(ctx: gsap.Context) {
@@ -73,18 +57,13 @@ function setup(ctx: gsap.Context) {
     });
   }
 
-  const how = $('how');
-  dim(how);
-  gsap.fromTo(how.querySelectorAll('.w'), { '--w': 0 }, {
-    '--w': 1, ease: 'none', stagger: 0.1,
-    scrollTrigger: { trigger: how.querySelector('.principles'), start: 'top 80%', end: 'bottom 55%', scrub: true },
-  });
+  dim($('how'));
 
   dim($('side'));
   dim($('education'));
   formation($('contact'));
 
-  // smooth scroll and a light magnetic pull on CTAs, fine pointers only (Lenis on touch is a known source of jitter)
+  // smooth scroll and a magnetic pull on buttons, fine pointers only (Lenis on touch is a known source of jitter)
   const off: (() => void)[] = [];
   if (fine) {
     const lenis = new Lenis({ lerp: 0.1 });
@@ -94,13 +73,13 @@ function setup(ctx: gsap.Context) {
     state.lenis = lenis;
     off.push(() => { gsap.ticker.remove(raf); lenis.destroy(); state.lenis = null; });
 
-    document.querySelectorAll<HTMLElement>('.magnet').forEach((b) => {
+    document.querySelectorAll<HTMLElement>('.btn, .magnet').forEach((b) => {
       const xTo = gsap.quickTo(b, 'x', { duration: 0.45, ease: 'power3' });
       const yTo = gsap.quickTo(b, 'y', { duration: 0.45, ease: 'power3' });
       const move = (e: PointerEvent) => {
         const r = b.getBoundingClientRect();
-        xTo((e.clientX - r.left - r.width / 2) * 0.16);
-        yTo((e.clientY - r.top - r.height / 2) * 0.28);
+        xTo((e.clientX - r.left - r.width / 2) * 0.3);
+        yTo((e.clientY - r.top - r.height / 2) * 0.4);
       };
       const leave = () => { xTo(0); yTo(0); };
       b.addEventListener('pointermove', move);
@@ -117,7 +96,6 @@ export function init(onAnchor = false) {
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.config({ ignoreMobileResize: true });
   if (fine) gsap.ticker.lagSmoothing(0); // Lenis drives the ticker on fine pointers
-  splitWords();
 
   // gsap runs the setup while any condition matches and reverts it on every change
   gsap.matchMedia().add({
@@ -128,6 +106,13 @@ export function init(onAnchor = false) {
   ScrollTrigger.sort();
   ScrollTrigger.refresh();
   document.fonts.ready.then(() => ScrollTrigger.refresh());
+  // How changes height (the accordion, its text reflowing): the triggers below it re-measure once it settles
+  let howH = 0, howT = 0;
+  new ResizeObserver(([e]) => {
+    const h = Math.round(e!.contentRect.height);
+    if (howH && h !== howH) { clearTimeout(howT); howT = window.setTimeout(() => ScrollTrigger.refresh(), 150); }
+    howH = h;
+  }).observe($('how'));
   const anchor = onAnchor && document.getElementById(location.hash.slice(1));
   if (anchor) {
     if (state.lenis) state.lenis.scrollTo(anchor, { immediate: true });

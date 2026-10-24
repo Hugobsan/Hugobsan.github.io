@@ -99,7 +99,7 @@ Lighthouse CI roda a cada push nas 4 rotas, perfil mobile:
 | Performance | ≥ 95 |
 | SEO, Best Practices | 100 |
 | Acessibilidade | ≥ 95 |
-| LCP | ≤ 2.0 s (o LCP é o H1 em HTML, nunca o canvas) |
+| LCP | ≤ 2.0 s (o LCP é o H1 em HTML, nunca o canvas); /zh/ ≤ 2.2 s desde 2026-10-24: texto CJK comprime pior e o HTML passa da primeira janela TCP (14,6 KB), uma ida e volta a mais |
 | CLS | ≤ 0.05 |
 | TBT | ≤ 150 ms |
 | JS inicial antes do 3D | ≤ 40 KB gzip |

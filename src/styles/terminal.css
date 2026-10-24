@@ -1,0 +1,68 @@
+/* Terminal dialog, built by terminal.ts on first open; loads with it, so the page does not carry these rules.
+   The button and its badge stay in global.css */
+.term {
+  width: min(720px, 100% - 32px); height: min(70dvh, 640px); max-width: none; max-height: none;
+  padding: 0; overflow: hidden;
+  background: var(--surface); color: var(--text);
+  border: 1px solid var(--line-strong); border-radius: var(--radius);
+  box-shadow: 0 32px 80px -24px rgb(0 0 0 / .6);
+  font: 400 .9375rem/1.55 var(--font-mono);
+}
+.term[open] { display: flex; flex-direction: column; } /* not on .term: a closed dialog must stay display: none */
+.term::backdrop { background: rgb(0 0 0 / .55); }
+.term__bar {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  min-height: 44px; padding: 0 4px 0 16px;
+  background: var(--surface-2); border-bottom: 1px solid var(--line);
+}
+.term__dots { display: flex; gap: 7px; }
+.term__dots i { width: 11px; height: 11px; border-radius: 50%; background: var(--line-strong); }
+.term__title { font-size: .8125rem; color: var(--text-dim); }
+.term__close {
+  justify-self: end; display: grid; place-items: center; width: 40px; height: 40px;
+  padding: 0; border: 0; border-radius: var(--radius); background: none; color: var(--text-dim); cursor: pointer;
+}
+.term__close:hover { color: var(--text); }
+.term__close:focus-visible { outline-offset: -2px; }
+.term__log {
+  position: relative; /* offsetTop of the lines is measured from here */
+  flex: 1; overflow-y: auto; overscroll-behavior: contain;
+  padding: 16px 18px; white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.term__log p { min-height: 1.55em; } /* empty lines keep their height */
+.term__log p:has(> .c) { display: grid; grid-template-columns: 13ch minmax(0, 1fr); }
+.term__log :is(.a, .ps, a) { color: var(--accent); }
+.term__log p:has(> .ps):not(:first-child) { margin-top: .75em; } /* air before each command */
+.term__log .d { color: var(--text-dim); }
+.term__log a { text-underline-offset: 3px; }
+.term__log a[href^="#"]::before { content: "→ " / ""; }
+.term__chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 18px; border-top: 1px solid var(--line); }
+.term__chips button {
+  min-height: 32px; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: var(--pill);
+  background: none; color: var(--text-dim); font: inherit; font-size: .8125rem; cursor: pointer;
+}
+.term__chips button:hover { color: var(--text); border-color: var(--accent); }
+.term__line {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 18px calc(10px + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--line); font-size: 1rem;
+}
+.term__line:focus-within { box-shadow: inset 2px 0 var(--accent); }
+.term__ps { color: var(--accent); white-space: nowrap; }
+.term__line input {
+  flex: 1; min-width: 0; padding: 6px 0; border: 0; background: none;
+  color: var(--text); caret-color: var(--accent); font: inherit; /* 16px: iOS does not zoom in */
+}
+.term__line input:focus-visible { outline: none; } /* the accent bar on the line is the focus indicator */
+/* phones: a sheet from the bottom edge, chips in one scrolling row */
+@media (max-width: 719px) {
+  .term { width: 100%; height: 80dvh; margin: auto 0 0; border-width: 1px 0 0; }
+  .term__chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .term__chips button { flex: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .term[open] { animation: term-in .32s var(--ease-out); }
+  .term[open]::backdrop { animation: term-fade .32s ease-out; }
+}
+@keyframes term-in { from { opacity: 0; transform: translateY(12px); } }
+@keyframes term-fade { from { opacity: 0; } }

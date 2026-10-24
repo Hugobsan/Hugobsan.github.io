@@ -7,14 +7,6 @@ const { t } = Astro.props;
 <section class="offers wrap" id="offers" aria-labelledby="offers-h">
   <div class="container">
     <h2 class="h2" id="offers-h"><Words text={t.offers.h} cjk={t.cjk} /></h2>
-    <div class="offers__grid">
-      {t.offers.items.map((o) => (
-        <article class="offer">
-          <h3>{o.t}</h3>
-          <p>{o.d}</p>
-        </article>
-      ))}
-    </div>
     <ul class="proof">
       {t.offers.proof.map((p) => (
         <li><strong class="proof__t">{p.t}</strong><span class="proof__label">{p.d}</span></li>

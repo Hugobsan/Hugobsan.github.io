@@ -19,3 +19,12 @@ const t = LOCALES.en.dict;
     </div>
   </main>
 </Base>
+
+<!-- here, not in global.css: the home pages do not carry this page's rules -->
+<style is:global>
+  .lost { min-height: 100dvh; display: grid; align-content: center; padding-block: 96px; }
+  .lost h1 { font-family: var(--font-display); font-weight: 650; font-stretch: 78%; font-size: clamp(2.25rem, 1.2rem + 3.2vw, 4.25rem); line-height: 1; letter-spacing: -0.02em; }
+  .lost ul { margin-top: 40px; display: grid; gap: 28px; }
+  .lost li { display: grid; gap: 6px; max-width: 40rem; }
+  .lost li strong { font-weight: 600; }
+</style>

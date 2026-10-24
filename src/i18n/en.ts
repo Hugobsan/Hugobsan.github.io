@@ -2,25 +2,20 @@
 const en = {
   meta: {
     title: 'Hugo Barbosa · Tech Lead, AI and Software Engineering',
-    description: 'Tech Lead at Greenn. I build AI products that hold up in production: LLM pipelines, RAG, resilient queues, agentic engineering. Open to remote roles.',
+    description: 'Tech Lead at Greenn. I build AI products that hold up in production: LLM pipelines, RAG, resilient queues and agentic engineering.',
   },
   skip: 'Skip to content',
   cjk: false, // true where headings need word-level line breaks (Chinese)
-  nav: { label: 'Primary', services: 'Services', work: 'Work', experience: 'Experience', contact: 'Contact', lang: 'Language' },
+  nav: { label: 'Primary', services: 'About', work: 'Work', experience: 'Experience', contact: 'Contact', lang: 'Language' },
   hero: {
     eyebrow: 'Hugo Barbosa · Tech Lead',
     h1: 'I build AI products that hold up in production.',
     sub: 'Tech Lead at Greenn, a Brazilian payments and online courses platform, working remotely from Brazil (UTC-3). LLM pipelines, resilient queues and agentic engineering.',
-    primary: 'Work with me',
+    primary: 'Get in touch',
     secondary: 'See the work',
   },
   offers: {
-    h: 'Three ways to work together',
-    items: [
-      { t: 'Join your team.', d: 'Remote Tech Lead or Senior Engineer. I set standards, review every change and keep delivery predictable.' },
-      { t: 'Consulting.', d: 'AI integration, architecture reviews and cloud cost audits. Clear findings your team can act on in the next sprint.' },
-      { t: 'Build it for you.', d: 'Software delivered as a service, from scoping to production, with tests, documentation and a clean handover.' },
-    ],
+    h: 'What I bring',
     proof: [
       { t: 'Technical leadership.', d: 'From architecture to delivery, with teams that decide well even when I am not in the room.' },
       { t: 'AI in production.', d: 'LLMs, RAG, voice and video pipelines serving real users.' },
@@ -134,6 +129,10 @@ const en = {
     tool: 'Claude Code, Codex and Cursor every day, with prompt engineering, harnesses and guardrails. Jev (a decision model), Graphify (a knowledge graph of the code) and Ponytail (a guard against over-engineering) for defensive automated review.',
     learnH: 'Learning',
     learn: 'TechLead de Impacto mentorship with Alexandro Hervis. Postgraduate in Software Engineering for Applied AI at UniPDS, with professors such as Erick Wendel. Reading: Clean Code, The Clean Coder, The Pragmatic Programmer, Tidy First?, Software Architecture: The Hard Parts.',
+    skillsH: 'Skills',
+    drag: 'Drag',
+    hint: 'Drag to spin. Click a number to open its principle.',
+    cats: { ai: 'AI', back: 'Back-end', front: 'Front-end', infra: 'Infrastructure', craft: 'Engineering practices' },
   },
   side: {
     h: 'Independent projects',
@@ -172,8 +171,7 @@ const en = {
     manuscript: { t: 'Comparative analysis of proprietary embedding models for bug localization.', v: 'Manuscript (unpublished), 2025' },
   },
   contact: {
-    h: 'Have a team to lead or a system to fix?',
-    sub: 'Remote roles, consulting and product builds.',
+    h: 'Want to talk about AI, architecture or leadership?',
     langH: 'Languages',
     langs: [
       { name: 'Portuguese', level: 'native' },
@@ -184,6 +182,28 @@ const en = {
     send: 'Send email',
     copy: 'Copy email',
     copied: 'Copied',
+  },
+  term: {
+    open: 'Open the terminal',
+    close: 'Close the terminal',
+    input: 'Command',
+    welcome: 'Type a command, or pick one below.',
+    notFound: 'Command not found: {cmd}. Type /help to see what is available.',
+    goTo: 'Go to the section',
+    langNow: 'Current language: {lang}.',
+    langUsage: 'Usage: /language en | pt | es | zh',
+    langSwitch: 'Switching to {lang}...',
+    cmds: {
+      help: 'List the commands',
+      experience: 'Roles and companies',
+      work: 'Selected work',
+      skills: 'Languages, frameworks and tools',
+      education: 'Degrees, research and languages',
+      contact: 'How to reach me',
+      language: 'Switch the site language',
+      clear: 'Clear the screen',
+      exit: 'Close the terminal',
+    },
   },
   footer: '© 2026 Hugo Barbosa. Built with Astro and Three.js.',
   notFound: {

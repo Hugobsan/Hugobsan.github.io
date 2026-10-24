@@ -8,7 +8,6 @@ const { t } = Astro.props;
 <section class="contact wrap" id="contact" aria-labelledby="contact-h">
   <div class="container contact__inner">
     <h2 class="contact__h" id="contact-h"><Words text={t.contact.h} cjk={t.cjk} /></h2>
-    <p class="contact__sub">{t.contact.sub}</p>
     {/* email_off: Cloudflare must not rewrite the address (and the mailto links) on its own */}
     <Fragment set:html="<!--email_off-->" />
     <p class="contact__email" id="email"><a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>

@@ -30,22 +30,19 @@ Reviewer changes (pass 2):
 
 ### Meta
 - title: `Hugo Barbosa · 技术负责人，AI 与软件工程`
-- description: `Greenn 技术负责人（Tech Lead），专注 AI 工程。我打造经得起生产环境考验的 AI 产品：LLM 流水线、RAG（检索增强生成）、高可靠队列与智能体工程。欢迎洽谈远程职位与咨询合作。`
+- description: `Greenn 技术负责人（Tech Lead），专注 AI 工程。我打造经得起生产环境考验的 AI 产品：LLM 流水线、RAG（检索增强生成）、高可靠队列与智能体工程。`
 
 ### Nav
-服务 · 项目 · 工作经历 · 联系 · 语言
+关于 · 项目 · 工作经历 · 联系 · 语言
 
 ### Hero
 - H1: **我打造的 AI 产品，经得起生产环境考验。**
 - Sub: Greenn 技术负责人（Tech Lead），常驻巴西（UTC-3），远程办公。LLM 流水线、高可靠队列与智能体工程。
-- CTA primary: **与我合作** (to contact)
+- CTA primary: **联系我** (to contact)
 - CTA secondary: **查看项目** (to work)
 
 ### Offers
-Heading: **三种合作方式**
-1. **加入您的团队**。远程担任技术负责人或高级工程师。我制定规范、评审每一项变更，让交付稳定可预期。
-2. **技术咨询**。AI 集成、架构评审与云成本审计。结论清晰，您的团队下一个迭代就能落地。
-3. **为您开发**。以服务形式交付软件，从需求梳理到生产上线，配齐测试与文档，交接干净利落。
+Heading: **我能带来什么** (2026-10-24: neutral, the engagement cards were removed)
 
 Proof strip:
 - **精干团队**。带过小型团队，从架构设计到交付上线。
@@ -160,8 +157,7 @@ Research projects (heading **科研项目**):
 - 基于自动采集数据的光伏电站性能分析（葡萄牙语）。FEPEG 2020。
 
 ### Contact
-- Heading: **有团队要带，或有系统要修？**
-- Sub: 远程职位、技术咨询与产品开发。
+- Heading: **想聊聊 AI、架构或技术领导力？** (no sub)
 - Languages (heading **语言**): 葡萄牙语（母语）、英语（中级）、西班牙语（中级）、法语（入门）。
 - Email: contato@hugobsan.com.br (button: **复制邮箱**, after click: **已复制**)
 - Links: LinkedIn（https://www.linkedin.com/in/hugobsan/），GitHub（https://github.com/Hugobsan）
@@ -177,3 +173,12 @@ Research projects (heading **科研项目**):
 - Copied: 已复制
 - Page not found: 页面不存在
 - Back to home: 返回首页
+
+### Interactive (2026-10-23)
+- How sphere: label **技能** · cursor **拖动** · hint: 拖动即可旋转，点击数字查看对应原则。
+- Skill groups: 人工智能 · 后端 · 前端 · 基础设施 · 工程实践
+- Terminal: 打开终端 · 关闭终端 · 命令 (input label)
+- Welcome: 输入命令，或点选下方的命令。
+- Not found: 找不到命令：{cmd}。输入 /help 查看可用命令。
+- 前往该部分 · 当前语言：{lang}。 · 用法：/language en | pt | es | zh · 正在切换到 {lang}…
+- /help 列出全部命令 · /experience 职位与公司 · /work 代表项目 · /skills 语言、框架与工具 · /education 学历、科研与语言能力 · /contact 联系方式 · /language 切换网站语言 · /clear 清屏 · /exit 关闭终端

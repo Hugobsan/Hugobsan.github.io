@@ -8,22 +8,19 @@ Inglês é o idioma mestre; ES e ZH serão traduzidos a partir dele. Regras: nad
 
 ### Meta
 - title: `Hugo Barbosa · Tech Lead, AI and Software Engineering`
-- description: `Tech Lead at Greenn. I build AI products that hold up in production: LLM pipelines, RAG, resilient queues and agentic engineering. Open to remote roles and consulting.`
+- description: `Tech Lead at Greenn. I build AI products that hold up in production: LLM pipelines, RAG, resilient queues and agentic engineering.`
 
 ### Nav
-Services · Work · Experience · Contact · Language
+About · Work · Experience · Contact · Language
 
 ### Hero
 - H1: **I build AI products that hold up in production.**
 - Sub: Tech Lead at Greenn, working remotely from Brazil (UTC-3). LLM pipelines, resilient queues and agentic engineering.
-- CTA primary: **Work with me** (to contact)
+- CTA primary: **Get in touch** (to contact)
 - CTA secondary: **See the work** (to work)
 
 ### Offers
-Heading: **Three ways to work together**
-1. **Join your team.** Remote Tech Lead or Senior Engineer. I set standards, review every change and keep delivery predictable.
-2. **Consulting.** AI integration, architecture reviews and cloud cost audits. Clear findings your team can act on in the next sprint.
-3. **Build it for you.** Software delivered as a service, from scoping to production, with tests, documentation and a clean handover.
+Heading: **What I bring** (2026-10-24: neutral, no open-to-work signals; the engagement cards were removed)
 
 Proof strip (timeless, not tied to the current job; short label + one line):
 - **Lean teams.** Experience leading small teams from architecture to delivery.
@@ -138,8 +135,7 @@ Research projects (heading **Research projects**, inside Education, title and pe
 - Performance of a photovoltaic plant from automatically collected data. FEPEG 2020.
 
 ### Contact
-- Heading: **Have a team to lead or a system to fix?**
-- Sub: Remote roles, consulting and product builds.
+- Heading: **Want to talk about AI, architecture or leadership?** (no sub)
 - Languages (heading **Languages**, shown in the contact section): Portuguese (native), English (intermediate), Spanish (intermediate), French (beginner).
 - Email: contato@hugobsan.com.br (button: **Copy email**, after click: **Copied**)
 - Links: LinkedIn (https://www.linkedin.com/in/hugobsan/), GitHub (https://github.com/Hugobsan)
@@ -151,10 +147,10 @@ Research projects (heading **Research projects**, inside Education, title and pe
 
 ### Meta
 - title: `Hugo Barbosa · Tech Lead, IA e Engenharia de Software`
-- description: `Tech Lead na Greenn. Construo produtos de IA que aguentam produção: pipelines de LLM, RAG, filas resilientes e engenharia agêntica. Aberto a vagas remotas e consultoria.`
+- description: `Tech Lead na Greenn. Produtos de IA que aguentam produção: pipelines de LLM, RAG, filas resilientes e engenharia agêntica.`
 
 ### Nav
-Serviços · Trabalho · Experiência · Contato · Idioma
+Sobre · Trabalho · Experiência · Contato · Idioma
 
 ### Hero
 - H1: **Construo produtos de IA que aguentam produção.**
@@ -163,10 +159,7 @@ Serviços · Trabalho · Experiência · Contato · Idioma
 - CTA secundário: **Ver projetos**
 
 ### Ofertas
-Título: **Três formas de trabalharmos juntos**
-1. **No seu time.** Tech Lead ou Engenheiro Sênior remoto. Defino padrões, reviso cada mudança e mantenho a entrega previsível.
-2. **Consultoria.** Integração de IA, revisão de arquitetura e auditoria de custo de nuvem. Achados claros que o time aplica na próxima sprint.
-3. **Construo para você.** Software entregue como serviço, do escopo à produção, com testes, documentação e passagem de bastão limpa.
+Título: **O que eu entrego** (2026-10-24: neutro, sem sinal de procura de emprego; os cards de formas de contratação saíram)
 
 Faixa de provas:
 - **Times enxutos.** Experiência liderando times pequenos, da arquitetura à entrega.
@@ -278,9 +271,29 @@ Projetos de pesquisa (título **Projetos de pesquisa**, dentro de Formação):
 - Análise de desempenho de uma usina fotovoltaica a partir de dados de medição de energia coletados automaticamente. FEPEG 2020.
 
 ### Contato
-- Título: **Tem um time para liderar ou um sistema para consertar?**
-- Sub: Vagas remotas, consultoria e construção de produtos.
+- Título: **Quer trocar uma ideia sobre IA, arquitetura ou liderança?** (sem sub)
 - Idiomas (título **Idiomas**, na seção de contato): português (nativo), inglês (intermediário), espanhol (intermediário), francês (iniciante).
 - E-mail: contato@hugobsan.com.br (botão: **Copiar e-mail**, depois do clique: **Copiado**)
 - Links: LinkedIn, GitHub
 - Rodapé: © 2026 Hugo Barbosa. Feito com Astro e Three.js.
+
+## Interactive strings (2026-10-23)
+Skill names on the sphere and in the terminal are fixed (`SKILLS` in src/facts.ts); command names stay English in every locale.
+
+### EN
+- How sphere: label **Skills** · cursor **Drag** · hint: Drag to spin. Click a number to open its principle.
+- Skill groups: AI · Back-end · Front-end · Infrastructure · Engineering practices
+- Terminal: Open the terminal · Close the terminal · Command (input label)
+- Welcome: Type a command, or pick one below.
+- Not found: Command not found: {cmd}. Type /help to see what is available.
+- Go to the section · Current language: {lang}. · Usage: /language en | pt | es | zh · Switching to {lang}...
+- /help List the commands · /experience Roles and companies · /work Selected work · /skills Languages, frameworks and tools · /education Degrees, research and languages · /contact How to reach me · /language Switch the site language · /clear Clear the screen · /exit Close the terminal
+
+### PT
+- Esfera: rótulo **Habilidades** · cursor **Arraste** · dica: Arraste para girar. Clique em um número para abrir o princípio.
+- Grupos: IA · Back-end · Front-end · Infraestrutura · Práticas de engenharia
+- Terminal: Abrir o terminal · Fechar o terminal · Comando (rótulo do campo)
+- Boas-vindas: Digite um comando ou escolha um abaixo.
+- Não encontrado: Comando não encontrado: {cmd}. Digite /help para ver o que está disponível.
+- Ir para a seção · Idioma atual: {lang}. · Uso: /language en | pt | es | zh · Mudando para {lang}...
+- /help Lista os comandos · /experience Cargos e empresas · /work Trabalho selecionado · /skills Linguagens, frameworks e ferramentas · /education Formação, pesquisa e idiomas · /contact Como falar comigo · /language Troca o idioma do site · /clear Limpa a tela · /exit Fecha o terminal
