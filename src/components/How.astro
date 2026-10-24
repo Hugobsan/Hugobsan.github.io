@@ -35,14 +35,3 @@ const skills = Object.values(SKILLS).flatMap((list) => list.map((s, i) => ({ s, 
     </div>
   </div>
 </section>
-
-<script>
-  // the sphere loads as How comes near; before that, and without JS, the skills are a flat list of chips
-  const how = document.getElementById('how')!;
-  const io = new IntersectionObserver(([e]) => {
-    if (!e!.isIntersecting) return;
-    io.disconnect();
-    import('../scripts/sphere').then((m) => m.init(how)).catch(() => {});
-  }, { rootMargin: '300px 0px' });
-  io.observe(how);
-</script>

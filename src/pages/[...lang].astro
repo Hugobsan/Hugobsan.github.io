@@ -103,6 +103,7 @@ const redirect = `(function(){var l;try{l=localStorage.getItem("lang")}catch(e){
 
 <script>
   import { state } from '../scripts/state';
+  import fabCss from '../styles/fab.css?inline';
 
   // language switch: same section in the other language, and the stored choice is what the root redirects to
   document.querySelectorAll<HTMLAnchorElement>('.lang a').forEach((a) =>
@@ -146,6 +147,44 @@ const redirect = `(function(){var l;try{l=localStorage.getItem("lang")}catch(e){
     };
     navigator.clipboard ? navigator.clipboard.writeText(email.textContent!.trim()).then(done, select) : select();
   });
+
+  // How: the sphere loads as the section comes near; before that, and without JS, the skills are a flat list of chips.
+  // These loaders live here, not in their components: each component <script> would be one more request before first paint
+  const how = document.getElementById('how')!;
+  const io = new IntersectionObserver(([e]) => {
+    if (!e!.isIntersecting) return;
+    io.disconnect();
+    import('../scripts/sphere').then((m) => m.init(how)).catch(() => {});
+  }, { rootMargin: '300px 0px' });
+  io.observe(how);
+
+  // Terminal: the module and the locale's data load in parallel on the first sign of intent. The button does nothing
+  // without JS, so JS shows it, with its styles (?inline: kept out of the page's inline CSS, see fx.ts).
+  // A failed load is forgotten, so the next hover or click tries again.
+  document.head.append(Object.assign(document.createElement('style'), { textContent: fabCss }));
+  const fab = document.querySelector<HTMLButtonElement>('.term-fab')!;
+  const dot = fab.querySelector('.term-fab__dot')!;
+  const get = () => Promise.all([import('../scripts/terminal'), fetch(fab.dataset.src!).then((r) => r.json())])
+    .catch(() => { ready = undefined; });
+  let ready: ReturnType<typeof get> | undefined;
+  const load = () => (ready ??= get());
+  const open = (restored?: boolean) => load().then((r) => r && r[0].open(r[1], restored));
+  try { if (localStorage.getItem('term-seen')) dot.remove(); } catch { /* storage blocked: the badge shows on every visit */ }
+  fab.hidden = false;
+  fab.addEventListener('pointerenter', load, { once: true });
+  fab.addEventListener('focus', load, { once: true });
+  fab.addEventListener('click', () => {
+    dot.remove();
+    try { localStorage.setItem('term-seen', '1'); } catch { /* not remembered */ }
+    open();
+  });
+  // the terminal was open when /language switched the page: reopen it here
+  try {
+    if (sessionStorage.getItem('term-open')) {
+      sessionStorage.removeItem('term-open');
+      open(true);
+    }
+  } catch { /* storage blocked */ }
 
   // the 3D signal loads after the page is idle and motion on first use, never on the critical path;
   // reduced motion and a device without hardware WebGL2 get no 3D at all
