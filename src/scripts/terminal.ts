@@ -29,6 +29,7 @@ let d: Data;
 let dlg: HTMLDialogElement;
 let log: HTMLElement;
 let input: HTMLInputElement;
+let counter: HTMLElement;
 // /ask: ac is the answer in flight (undefined when none), mod the module once loaded
 let ac: AbortController | undefined;
 let mod: typeof import('./ask') | undefined;
@@ -98,6 +99,24 @@ const ask = (q: string): Line[] => {
   return [];
 };
 
+// /ask: from 80% of the limit the line shows the count, yellow, then red from 95%; at the limit typing stops
+// (a longer paste is cut there). Code points, like the Worker counts them
+const ASK = /^\s*\/ask\s+/i;
+const count = () => {
+  const p = ASK.exec(input.value)?.[0];
+  let q = p ? [...input.value.slice(p.length)] : [];
+  if (q.length > d.ask.max) {
+    const at = input.selectionStart ?? Infinity;
+    q = q.slice(0, d.ask.max);
+    input.value = p + q.join('');
+    input.selectionStart = input.selectionEnd = Math.min(at, input.value.length);
+  }
+  const r = q.length / d.ask.max;
+  counter.hidden = r < 0.8;
+  counter.textContent = `${q.length}/${d.ask.max}`;
+  counter.dataset.level = r >= 0.95 ? 'high' : 'warn';
+};
+
 const language = (code: string): Line[] => {
   if (!Object.hasOwn(d.langs, code)) return [[[d.langUsage, 'd']]];
   const [name, path] = d.langs[code]!;
@@ -147,9 +166,11 @@ const build = (data: Data) => {
     + '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>'
     + '<div class="term__log" role="log" aria-live="polite" data-lenis-prevent></div><div class="term__chips"></div>'
     + '<form class="term__line"><span class="term__ps" aria-hidden="true">hugobsan:~$</span>'
-    + '<input type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="send"></form>';
+    + '<input type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="send"><span class="term__count" id="term-count" hidden></span></form>';
   log = dlg.querySelector('.term__log')!;
   input = dlg.querySelector('input')!;
+  counter = dlg.querySelector('.term__count')!;
+  input.setAttribute('aria-describedby', counter.id);
   dlg.querySelector('.term__close')!.setAttribute('aria-label', d.close);
   input.setAttribute('aria-label', d.input);
   dlg.querySelector('.term__chips')!.append(...Object.keys(d.out).map((c) =>
@@ -192,6 +213,7 @@ const build = (data: Data) => {
       run(cmd);
       input.value = '';
     }
+    count();
     typing = false;
   });
 
@@ -199,13 +221,18 @@ const build = (data: Data) => {
     e.preventDefault();
     run(input.value);
     input.value = '';
+    count();
   });
+  // not mid-composition (Chinese, Japanese input): the cut waits for the composed text
+  input.addEventListener('input', (e) => (e as InputEvent).isComposing || count());
+  input.addEventListener('compositionend', count);
 
   input.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
       e.preventDefault();
       at = Math.max(0, Math.min(hist.length, at + (e.key === 'ArrowUp' ? -1 : 1)));
       input.value = hist[at] ?? '';
+      count();
     } else if (e.key === 'Tab' && !e.shiftKey) {
       // complete a unique prefix; otherwise Tab keeps moving focus
       const v = input.value.trim().replace(/^\//, '').toLowerCase();

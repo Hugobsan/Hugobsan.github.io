@@ -24,46 +24,72 @@ const past: { q: string; a: string }[] = [];
 export const forget = () => void (past.length = 0);
 let told = false; // the privacy line, once per visit
 
+const SPIN = '⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏';
+/** a spinner and the waiting phrases on their own line; the function it returns takes the line away */
+const wait = (t: T) => {
+  const el = say('', 'd');
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let i = 0;
+  const tick = () => {
+    el.textContent = `${still ? '·' : SPIN[i % SPIN.length]} ${t.thinking[Math.min(t.thinking.length - 1, Math.floor(i / 25))]}…`;
+    i++;
+  };
+  tick();
+  const id = setInterval(tick, 80); // a new phrase every 2 s
+  return () => {
+    clearInterval(id);
+    el.parentElement?.remove();
+  };
+};
+
 export const ask = async (q: string, lang: string, t: T, signal: AbortSignal) => {
   if (!told) say(t.privacy, 'd');
   told = true;
-  const r = await fetch('/api/ask', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ q, lang, history: past }),
-    signal,
-  });
-  if (!r.ok || !r.body) {
-    const { error, max } = await r.json().catch(() => ({}));
-    const msg: Record<string, string> = { long: t.long.replace('{n}', max), visitor: t.visitor, site: t.site };
-    return void show(say('', 'd'), msg[error] ?? t.unavailable, t);
-  }
-  const out = say('', 'd'); // dim until the Worker's checks pass
-  const instead: Record<string, string> = { notfound: t.notFound, offtopic: t.offTopic, number: t.unverified };
-  const reader = r.body.pipeThrough(new TextDecoderStream()).getReader();
-  let text = '';
-  let buf = '';
-  for (;;) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    buf += value;
-    const evs = buf.split('\n\n');
-    buf = evs.pop()!;
-    for (const ev of evs) {
-      const m = JSON.parse(ev.replace(/^data: /, ''));
-      if (m.t) {
-        text += m.t;
-        add(out, m.t);
-      } else if (m.done === 'ok') {
-        // the token cap cut a sentence: back to the last whole one, so no half sentence stays on screen
-        if (m.trim !== undefined) out.textContent = text = text.slice(0, m.trim);
-        out.className = '';
-        past.push({ q, a: text.slice(0, 1200) }); // the Worker's caps: 5 turns, 1,200 characters an answer
-        if (past.length > 5) past.shift();
-        return;
-      } else if (instead[m.done]) return void show(out, instead[m.done]!, t);
-      else break; // {"error": ...}
+  const stop = wait(t);
+  // the answer's line replaces the waiting one when the first word (or the end) comes
+  let out: HTMLElement | undefined;
+  const line = () => (out ??= (stop(), say('', 'd'))); // dim until the Worker's checks pass
+  try {
+    const r = await fetch('/api/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ q, lang, history: past }),
+      signal,
+    });
+    if (!r.ok || !r.body) {
+      const { error, max } = await r.json().catch(() => ({}));
+      const msg: Record<string, string> = { long: t.long.replace('{n}', max), visitor: t.visitor, site: t.site };
+      return void show(line(), msg[error] ?? t.unavailable, t);
     }
+    const instead: Record<string, string> = { notfound: t.notFound, offtopic: t.offTopic, number: t.unverified };
+    const reader = r.body.pipeThrough(new TextDecoderStream()).getReader();
+    let text = '';
+    let buf = '';
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buf += value;
+      const evs = buf.split('\n\n');
+      buf = evs.pop()!;
+      for (const ev of evs) {
+        const m = JSON.parse(ev.replace(/^data: /, ''));
+        if (m.t) {
+          text += m.t;
+          add(line(), m.t);
+        } else if (m.done === 'ok') {
+          const o = line();
+          // the token cap cut a sentence: back to the last whole one, so no half sentence stays on screen
+          if (m.trim !== undefined) o.textContent = text = text.slice(0, m.trim);
+          o.className = '';
+          past.push({ q, a: text.slice(0, 1200) }); // the Worker's caps: 5 turns, 1,200 characters an answer
+          if (past.length > 5) past.shift();
+          return;
+        } else if (instead[m.done]) return void show(line(), instead[m.done]!, t);
+        else break; // {"error": ...}
+      }
+    }
+    line().textContent = t.unavailable; // an error event, or a stream that ended without its end event
+  } finally {
+    stop(); // also when stopped or failed: terminal.ts then says so
   }
-  out.textContent = t.unavailable; // an error event, or a stream that ended without its end event
 };

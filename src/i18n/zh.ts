@@ -208,6 +208,7 @@ export default {
       site: '/ask 今天的额度已用完。请在 UTC 时间 00:00 之后再试，或直接通过 {email} 或 {linkedin} 联系我。',
       unavailable: '/ask 暂时不可用。请稍后再试，或使用其他命令。',
       stopped: '已中断。',
+      thinking: ['思考中', '查阅我的资料', '撰写回答'],
     },
     cmds: {
       help: '列出全部命令',

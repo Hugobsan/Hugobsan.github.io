@@ -207,6 +207,7 @@ export default {
       site: 'O /ask atingiu o limite de hoje. Tente de novo depois das 00:00 UTC ou fale comigo diretamente em {email} ou no {linkedin}.',
       unavailable: 'O /ask está indisponível agora. Tente mais tarde ou use os outros comandos.',
       stopped: 'Interrompido.',
+      thinking: ['Pensando', 'Consultando meu perfil', 'Escrevendo a resposta'],
     },
     cmds: {
       help: 'Lista os comandos',

@@ -208,6 +208,8 @@ const en = {
       site: '/ask has reached its limit for today. Try again after 00:00 UTC, or reach me directly at {email} or on {linkedin}.',
       unavailable: '/ask is unavailable right now. Try again later, or use the other commands.',
       stopped: 'Stopped.',
+      // while the answer is on its way, in this order; the last one stays until the first word
+      thinking: ['Thinking', 'Reading my profile', 'Writing the answer'],
     },
     cmds: {
       help: 'List the commands',

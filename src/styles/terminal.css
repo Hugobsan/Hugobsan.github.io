@@ -8,6 +8,9 @@
   box-shadow: 0 32px 80px -24px rgb(0 0 0 / .6);
   font: 400 .9375rem/1.55 var(--font-mono);
 }
+/* the /ask counter: yellow, then red */
+.term { --warn: #F2D45C; --danger: #F2715C; }
+@media (prefers-color-scheme: light) { .term { --warn: #7A6000; --danger: #B3261E; } }
 .term[open] { display: flex; flex-direction: column; } /* not on .term: a closed dialog must stay display: none */
 .term::backdrop { background: rgb(0 0 0 / .55); }
 .term__bar {
@@ -53,6 +56,8 @@
   flex: 1; min-width: 0; padding: 6px 0; border: 0; background: none;
   color: var(--text); caret-color: var(--accent); font: inherit; /* 16px: iOS does not zoom in */
 }
+.term__count { font-size: .8125rem; font-variant-numeric: tabular-nums; color: var(--warn); }
+.term__count[data-level="high"] { color: var(--danger); }
 .term__line input:focus-visible { outline: none; } /* the accent bar on the line is the focus indicator */
 /* phones: a sheet from the bottom edge, chips in one scrolling row */
 @media (max-width: 719px) {
