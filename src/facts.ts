@@ -15,7 +15,7 @@ export const MRR: [approach: string, mrr: number][] = [
 
 export const STACKS = {
   bluee: ['Laravel 12', 'PHP 8.4', 'Python', 'React', 'RabbitMQ', 'Redis', 'PostgreSQL'],
-  club: ['Laravel 11', 'Vue 3', 'Redis', 'RabbitMQ', 'MySQL', 'S3', 'PandaVideo'],
+  club: ['Laravel 11', 'Vue 3', 'Redis', 'RabbitMQ', 'MySQL', 'S3'],
   prp: ['Next.js', 'TypeScript', 'SQLite FTS5', 'Claude Code', 'OpenRouter', 'Graphify', 'GitHub CLI'],
 };
 

@@ -1,6 +1,6 @@
 import en from '../i18n/en';
 import pt from '../i18n/pt';
-import { SITE, EMAIL, LINKEDIN, GITHUB, GREENN, BLUEE, CLUB, MRR, STACKS, LINKS, KNOWS_ABOUT } from '../facts';
+import { SITE, EMAIL, LINKEDIN, GITHUB, GREENN, BLUEE, CLUB, MRR, STACKS, LINKS, KNOWS_ABOUT, SKILLS } from '../facts';
 
 // Complete English profile in markdown, generated from the same copy and facts as the site.
 const list = (items: string[]) => items.map((i) => `- ${i}`).join('\n');
@@ -91,7 +91,11 @@ Unpublished manuscript, not counted above: ${en.edu.manuscript.t} ${en.edu.manus
 
 ## Skills
 
-${[...new Set([...KNOWS_ABOUT, ...STACKS.bluee, ...STACKS.club, ...STACKS.prp])].join(', ')}
+What I work with across my career. A project's stack, listed with each project, is what that project used.
+
+${list(Object.entries(SKILLS).map(([k, v]) => `${en.how.cats[k as keyof typeof SKILLS]}: ${v.join(', ')}`))}
+
+Areas: ${KNOWS_ABOUT.join(', ')}
 
 ## Contact
 
