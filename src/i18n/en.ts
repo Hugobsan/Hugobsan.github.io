@@ -193,8 +193,23 @@ const en = {
     langNow: 'Current language: {lang}.',
     langUsage: 'Usage: /language en | pt | es | zh',
     langSwitch: 'Switching to {lang}...',
+    // /ask: answered by an AI provider through worker/ (src/scripts/ask.ts). Command names stay English
+    ask: {
+      usage: 'Usage: /ask <question>. For example:',
+      examples: ['what did you build at Bluee?', 'how big are the teams you lead?', 'what is your research about?'],
+      privacy: 'Your interactions with the AI go to the provider in charge, with network data anonymized, and it answers from my profile. This site stores none of it.',
+      notFound: 'That is not in my profile. Try another question or /help, or reach me directly at {email} or on {linkedin}.',
+      offTopic: 'Here I only answer questions about me and my work: experience, projects, skills, education, research or how I work. Type /ask alone for examples.',
+      unverified: 'That answer cited a number that is not in my profile, so I dropped it. Try asking another way.',
+      long: 'That question is too long: {n} characters at most.',
+      visitor: 'You have used your questions for today. More after 00:00 UTC, or reach me directly at {email} or on {linkedin}.',
+      site: '/ask has reached its limit for today. Try again after 00:00 UTC, or reach me directly at {email} or on {linkedin}.',
+      unavailable: '/ask is unavailable right now. Try again later, or use the other commands.',
+      stopped: 'Stopped.',
+    },
     cmds: {
       help: 'List the commands',
+      ask: 'Ask me about my work',
       experience: 'Roles and companies',
       work: 'Selected work',
       skills: 'Languages, frameworks and tools',

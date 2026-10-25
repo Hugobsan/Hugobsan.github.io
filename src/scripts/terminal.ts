@@ -1,11 +1,12 @@
 import { state } from './state';
+import type { T as AskT } from './ask';
 // ?inline: kept out of the page's inline styles (see fx.ts), in place before the dialog is built
 import css from '../styles/terminal.css?inline';
 document.head.append(Object.assign(document.createElement('style'), { textContent: css }));
 
 // Interactive terminal. Terminal.astro ships only the button and loads this module with /terminal/{lang}.json
 // (src/pages/terminal), which holds everything the commands print; this file builds the dialog on first open,
-// renders lines, parses input and handles /language.
+// renders lines, parses input and handles /language. /ask lives in ask.ts, loaded on the first question.
 // A line is a list of [text, class, href] segments.
 type Line = [text: string, cls?: string, href?: string][];
 type Data = {
@@ -15,6 +16,7 @@ type Data = {
   langs: Record<string, [name: string, path: string]>;
   close: string; input: string;
   notFound: string; langNow: string; langSwitch: string; langUsage: string;
+  ask: AskT;
 };
 
 const fab = document.querySelector<HTMLButtonElement>('.term-fab')!;
@@ -27,6 +29,9 @@ let d: Data;
 let dlg: HTMLDialogElement;
 let log: HTMLElement;
 let input: HTMLInputElement;
+// /ask: ac is the answer in flight (undefined when none), mod the module once loaded
+let ac: AbortController | undefined;
+let mod: typeof import('./ask') | undefined;
 
 const fill = (s: string, v: string) => s.replace(/\{\w+\}/, v);
 const echo = (cmd: string): Line => [['hugobsan:~$ ', 'ps'], [cmd]];
@@ -52,6 +57,47 @@ const print = (lines: Line[]) => {
   log.scrollTop = els[0]!.offsetTop;
 };
 
+/** ask.ts prints with this and streams into the span it returns */
+export const say = (text: string, cls?: string) => {
+  print([[[text, cls]]]);
+  return log.lastElementChild!.lastElementChild as HTMLElement;
+};
+/** streams text into a line from say(), following it down like a terminal */
+export const add = (el: HTMLElement, text: string) => {
+  el.append(text);
+  log.scrollTop = log.scrollHeight;
+};
+// Esc, Ctrl+C and closing stop the answer in flight, which then says so
+const stop = () => ac?.abort();
+// /clear and Ctrl+L: an empty screen, a quiet stop and no memory of earlier questions
+const wipe = () => {
+  const a = ac;
+  ac = undefined;
+  a?.abort();
+  mod?.forget();
+  log.ariaBusy = 'false';
+  log.replaceChildren();
+};
+
+const ask = (q: string): Line[] => {
+  if (!q) return d.out.ask!; // usage and examples
+  // too long is answered here, before any request; the Worker checks again on its own
+  if ([...q].length > d.ask.max) return [[[d.ask.long.replace('{n}', String(d.ask.max)), 'd']]];
+  const old = ac;
+  const c = (ac = new AbortController());
+  old?.abort(); // a newer question takes over quietly: its own command line already shows
+  log.ariaBusy = 'true'; // one announcement when the answer is done, not one per token
+  import('./ask')
+    .then((m) => (mod = m).ask(q, d.lang, d.ask, c.signal))
+    .catch((e: Error) => c === ac && say(e.name === 'AbortError' ? d.ask.stopped : d.ask.unavailable, 'd'))
+    .finally(() => {
+      if (c !== ac) return;
+      ac = undefined;
+      log.ariaBusy = 'false';
+    });
+  return [];
+};
+
 const language = (code: string): Line[] => {
   if (!Object.hasOwn(d.langs, code)) return [[[d.langUsage, 'd']]];
   const [name, path] = d.langs[code]!;
@@ -72,9 +118,10 @@ const run = (raw: string) => {
   const [word = '', arg] = line.split(/\s+/);
   let cmd = word.replace(/^\//, '').toLowerCase();
   if (cmd === '?' || cmd === 'ls') cmd = 'help';
-  if (cmd === 'clear') return log.replaceChildren();
+  if (cmd === 'clear') return wipe();
   const out: Line[] =
     !line || cmd === 'exit' ? [] :
+    cmd === 'ask' ? ask(line.slice(word.length).trim()) :
     cmd === 'language' && arg ? language(arg.toLowerCase()) :
     Object.hasOwn(d.out, cmd) ? d.out[cmd]! :
     [[[fill(d.notFound, word)]]];
@@ -111,14 +158,24 @@ const build = (data: Data) => {
   fab.setAttribute('aria-controls', dlg.id);
   const names = [...Object.keys(d.out), 'clear', 'exit'];
 
-  dlg.addEventListener('close', () => state.lenis?.start()); // Esc
+  dlg.addEventListener('close', () => { // Esc too, when no answer is in flight
+    if (dlg.open) return; // the event is queued: reopened (and maybe asked again) since
+    state.lenis?.start();
+    stop();
+  });
+  // Esc during an answer stops it and keeps the terminal open; the next Esc closes it
+  dlg.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape' || !ac) return;
+    e.preventDefault();
+    stop();
+  });
 
   dlg.addEventListener('click', async (e) => {
     const t = e.target as Element;
     if (t === dlg || t.closest('.term__close, a[href^="#"]')) return close(); // backdrop, close button, section link
     const chip = t.closest('.term__chips button');
     if (!chip || typing) return;
-    // the chip types its command, then runs it
+    // the chip types its command, then runs it; /ask waits for the question
     typing = true;
     const cmd = chip.textContent!.trim();
     input.value = '';
@@ -128,8 +185,13 @@ const build = (data: Data) => {
         await new Promise((r) => setTimeout(r, 25));
       }
     }
-    run(cmd);
-    input.value = '';
+    if (cmd === '/ask') {
+      input.value = '/ask ';
+      input.focus();
+    } else {
+      run(cmd);
+      input.value = '';
+    }
     typing = false;
   });
 
@@ -154,7 +216,9 @@ const build = (data: Data) => {
       }
     } else if (e.ctrlKey && e.key.toLowerCase() === 'l') {
       e.preventDefault();
-      log.replaceChildren();
+      wipe();
+    } else if (e.ctrlKey && e.key.toLowerCase() === 'c' && input.selectionStart === input.selectionEnd) {
+      stop(); // like a shell; with text selected, Ctrl+C still copies
     }
   });
 };

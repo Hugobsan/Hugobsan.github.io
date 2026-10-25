@@ -58,3 +58,6 @@ export const PRINCIPLE_SKILLS: Skill[][] = [
   ['KISS', 'YAGNI', 'SQLite', 'Astro', 'Laravel'], // the simplest solution that works
   ['Git Flow', 'ADR', 'Pest', 'Laravel'], // a team that keeps learning
 ];
+
+// /ask: the longest question the terminal sends. The Worker enforces MAX_QUESTION_CHARS (worker/wrangler.toml) on its own: keep them equal
+export const ASK_MAX_CHARS = 500;

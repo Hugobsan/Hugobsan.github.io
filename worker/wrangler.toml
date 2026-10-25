@@ -1,0 +1,36 @@
+# /api/ask for hugobsan.com.br. Deploy and configuration: README.md in this folder.
+name = "hugobsan-ask"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+workers_dev = false
+# same origin as the site: no CORS, and it is wherever the site is
+routes = [{ pattern = "hugobsan.com.br/api/ask", zone_name = "hugobsan.com.br" }]
+
+[[durable_objects.bindings]]
+name = "LIMITS"
+class_name = "Limits"
+
+# SQLite-backed Durable Object (the storage backend the Workers free plan offers)
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Limits"]
+
+# secrets, set with `npx wrangler secret put`: AI_API_KEY, VISITOR_SALT
+[vars]
+# any OpenAI-compatible Chat Completions API: {AI_BASE_URL}/chat/completions
+AI_BASE_URL = "https://api.anthropic.com/v1"
+AI_MODEL = "claude-haiku-5-5"
+# merged into every request body, per provider (README). Claude Haiku 5.5 thinks by default, which would spend
+# MAX_OUTPUT_TOKENS; it accepts "disabled" at its default effort (medium). Gemini: README.
+AI_EXTRA = '{"thinking":{"type":"disabled"}}'
+DAILY_PER_VISITOR = "20"
+DAILY_GLOBAL = "1000"
+# the current question only: the rules, the examples, llms-full.txt and the history are not counted
+MAX_QUESTION_CHARS = "500"
+MAX_OUTPUT_TOKENS = "2000"
+# earlier question/answer pairs a request may carry (older ones are dropped); each past answer is cut to 1,200 characters
+MAX_HISTORY_TURNS = "5"
+SITE_ORIGIN = "https://hugobsan.com.br"
+PROFILE_URL = "https://hugobsan.com.br/llms-full.txt"
+# "true" only in `wrangler dev`: lets http://localhost and 127.0.0.1 pages call the Worker
+ALLOW_LOCALHOST = "false"

@@ -1,6 +1,6 @@
 import type { APIContext } from 'astro';
 import { LOCALES, LANGS, type Lang } from '../../i18n';
-import { SKILLS, EMAIL, LINKEDIN, GITHUB } from '../../facts';
+import { SKILLS, EMAIL, LINKEDIN, GITHUB, ASK_MAX_CHARS } from '../../facts';
 
 // What the terminal prints, one file per locale, fetched only when a visitor reaches for the terminal
 // (Terminal.astro), so none of it weighs on the page. terminal.ts renders the lines.
@@ -13,12 +13,15 @@ export function GET({ params }: APIContext) {
   const lang = params.lang as Lang;
   const t = LOCALES[lang].dict;
   const { term } = t;
+  const { usage, examples, ...msgs } = term.ask; // usage and examples are the output of /ask alone
   const go = (id: string): Line[] => [[], [[term.goTo, '', `#${id}`]]];
   const bare = (url: string) => url.replace(/^https:\/\/(www\.)?/, '');
   const cmds = Object.keys(term.cmds) as (keyof typeof term.cmds)[];
   // the keys are the commands, in /help order; the dialog makes a chip of each
   const out: Record<string, Line[]> = {
     help: cmds.map((c) => [[`/${c}`, 'c'], [term.cmds[c], 'd']]),
+    // /ask alone; with a question it goes to /api/ask (terminal.ts, ask.ts)
+    ask: [[[usage, 'd']], ...examples.map((e): Line => [['/ask ', 'a'], [e]])],
     experience: [
       ...t.experience.items.map((j): Line => [[j.period, 'd'], [` · ${[j.role, j.org].filter(Boolean).join(' · ')}`]]),
       ...go('experience'),
@@ -59,6 +62,7 @@ export function GET({ params }: APIContext) {
     langs: Object.fromEntries(LANGS.map((l) => [l, [LOCALES[l].name, LOCALES[l].path]])),
     close: term.close, input: term.input,
     notFound: term.notFound, langNow: term.langNow, langSwitch: term.langSwitch, langUsage: term.langUsage,
+    ask: { ...msgs, max: ASK_MAX_CHARS, email: EMAIL, linkedin: LINKEDIN }, // ask.ts links {email} and {linkedin}
   };
   return new Response(JSON.stringify(data), { headers: { 'Content-Type': 'application/json; charset=utf-8' } });
 }
