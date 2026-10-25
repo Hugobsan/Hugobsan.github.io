@@ -1,6 +1,6 @@
 import en from '../i18n/en';
 import pt from '../i18n/pt';
-import { SITE, EMAIL, LINKEDIN, GITHUB, GREENN, BLUEE, CLUB, MRR, STACKS, LINKS, KNOWS_ABOUT, SKILLS } from '../facts';
+import { SITE, EMAIL, LINKEDIN, GITHUB, GREENN, BLUEE, CLUB, MRR, STACKS, LINKS, KNOWS_ABOUT, SKILLS, STACK_NOTES } from '../facts';
 
 // Complete English profile in markdown, generated from the same copy and facts as the site.
 const list = (items: string[]) => items.map((i) => `- ${i}`).join('\n');
@@ -43,7 +43,7 @@ Highlight: **${c.highlight.n}** ${c.highlight.l}
 
 ${list(c.bullets)}
 
-Stack: ${stack.join(', ')}`).join('\n\n')}
+Stack: ${stack.map((x) => (STACK_NOTES[x] ? `${x} (${STACK_NOTES[x]})` : x)).join(', ')}`).join('\n\n')}
 
 ## ${en.experience.h}
 

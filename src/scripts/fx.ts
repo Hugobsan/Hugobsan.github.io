@@ -61,20 +61,23 @@ function cursor() {
   // e: grows out from the edge, v: fade and scale, drift: outward push once the pointer leaves
   type Swarm = { box: HTMLElement; ps: [HTMLElement, number, number, number, number][]; on: boolean; e: number; v: number; drift: number };
   const swarms = new Map<Element, Swarm>();
+  // the terminal button keeps its swarm all the time, to stand out
+  const pin = document.querySelector('.term-fab');
+  const spawn = (el: Element) => {
+    const box = document.body.appendChild(document.createElement('div')), ps: Swarm['ps'] = [];
+    box.className = 'fx-swarm';
+    for (let i = 0; i < 18; i++) {
+      const p = box.appendChild(document.createElement('i'));
+      p.style.width = p.style.height = 2 + Math.floor(Math.random() * 3) + 'px';
+      // start angle, speed in rad/s (a quarter go the other way), distance from the border, phase
+      ps.push([p, Math.random() * 7, (0.5 + Math.random()) * (i % 4 ? 1 : -1), 8 + Math.random() * 14, Math.random() * 7]);
+    }
+    swarms.set(el, { box, ps, on: true, e: 0, v: 0, drift: 0 });
+  };
   const setLock = (el: Element | null) => {
     if (el === lock) return;
-    if (el && !swarms.has(el)) {
-      const box = document.body.appendChild(document.createElement('div')), ps: Swarm['ps'] = [];
-      box.className = 'fx-swarm';
-      for (let i = 0; i < 18; i++) {
-        const p = box.appendChild(document.createElement('i'));
-        p.style.width = p.style.height = 2 + Math.floor(Math.random() * 3) + 'px';
-        // start angle, speed in rad/s (a quarter go the other way), distance from the border, phase
-        ps.push([p, Math.random() * 7, (0.5 + Math.random()) * (i % 4 ? 1 : -1), 8 + Math.random() * 14, Math.random() * 7]);
-      }
-      swarms.set(el, { box, ps, on: true, e: 0, v: 0, drift: 0 });
-    }
-    swarms.forEach((w, k) => (w.on = k === el));
+    if (el && !swarms.has(el)) spawn(el);
+    swarms.forEach((w, k) => (w.on = k === el || k === pin));
     lock = el;
     kick();
   };
@@ -108,6 +111,7 @@ function cursor() {
     raf = swarms.size || Math.abs(tx - rx) + Math.abs(ty - ry) + Math.abs(tw - rw) + Math.abs(th - rh) > 0.2 ? requestAnimationFrame(tick) : 0;
   };
   const kick = () => { if (!raf) { last = performance.now(); raf = requestAnimationFrame(tick); } };
+  if (pin) { spawn(pin); kick(); } // ponytail: keeps the frame loop running on desktop; a CSS orbit if that ever shows up in a profile
 
   const over = (e: PointerEvent) => {
     if (e.pointerType === 'touch') return;

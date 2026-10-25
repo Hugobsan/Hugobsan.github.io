@@ -173,11 +173,41 @@ const redirect = `(function(){var l;try{l=localStorage.getItem("lang")}catch(e){
   fab.hidden = false;
   fab.addEventListener('pointerenter', load, { once: true });
   fab.addEventListener('focus', load, { once: true });
+  let tip: HTMLElement | undefined;
   fab.addEventListener('click', () => {
     dot.remove();
+    tip?.remove();
     try { localStorage.setItem('term-seen', '1'); } catch { /* not remembered */ }
     open();
   });
+  // first visit: a bubble over the button, once, after the page has settled (so it is never the LCP). Its text comes
+  // with the terminal's data, which is then ready when the button is clicked. The bubble types /ask for the visitor
+  let first = false;
+  try { first = !localStorage.getItem('term-tip'); } catch { /* storage blocked: no bubble */ }
+  if (first) addEventListener('load', () => setTimeout(() => load().then((r) => {
+    if (!r || document.querySelector('#term[open]')) return;
+    try { localStorage.setItem('term-tip', '1'); } catch { /* shown again next time */ }
+    const { text, close } = r[1].tip as { text: string; close: string };
+    tip = document.createElement('div');
+    tip.className = 'term-tip';
+    tip.setAttribute('role', 'status');
+    const body = tip.appendChild(Object.assign(document.createElement('button'), { type: 'button', className: 'term-tip__body' }));
+    const [a = '', b = ''] = text.split('/ask');
+    body.append(a, Object.assign(document.createElement('code'), { textContent: '/ask' }), b);
+    const x = tip.appendChild(Object.assign(document.createElement('button'), { type: 'button', className: 'term-tip__close', textContent: '×' }));
+    x.setAttribute('aria-label', close);
+    x.addEventListener('click', () => tip!.remove());
+    body.addEventListener('click', () => {
+      fab.click();
+      open().then(() => {
+        const i = document.querySelector<HTMLInputElement>('#term input')!;
+        i.value = '/ask ';
+        i.focus();
+      });
+    });
+    fab.after(tip);
+    setTimeout(() => tip!.remove(), 15000);
+  }), 2000), { once: true });
   // the terminal was open when /language switched the page: reopen it here
   try {
     if (sessionStorage.getItem('term-open')) {

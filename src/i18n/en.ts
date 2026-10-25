@@ -187,6 +187,8 @@ const en = {
     open: 'Open the terminal',
     close: 'Close the terminal',
     input: 'Command',
+    // first visit: a bubble over the terminal button (the page script); /ask stays as typed
+    tip: { text: 'Find things faster! Ask me anything about my work with /ask in the interactive terminal', close: 'Dismiss' },
     welcome: 'Type a command, or pick one below.',
     notFound: 'Command not found: {cmd}. Type /help to see what is available.',
     goTo: 'Go to the section',

@@ -60,7 +60,7 @@ export function GET({ params }: APIContext) {
     intro: [[[t.hero.eyebrow, 'a']], [[term.welcome, 'd']], []],
     lang,
     langs: Object.fromEntries(LANGS.map((l) => [l, [LOCALES[l].name, LOCALES[l].path]])),
-    close: term.close, input: term.input,
+    close: term.close, input: term.input, tip: term.tip,
     notFound: term.notFound, langNow: term.langNow, langSwitch: term.langSwitch, langUsage: term.langUsage,
     ask: { ...msgs, max: ASK_MAX_CHARS, email: EMAIL, linkedin: LINKEDIN }, // ask.ts links {email} and {linkedin}
   };

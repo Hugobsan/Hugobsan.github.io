@@ -188,6 +188,7 @@ export default {
     open: 'Abrir o terminal',
     close: 'Fechar o terminal',
     input: 'Comando',
+    tip: { text: 'Agilize sua busca! Faça perguntas sobre mim utilizando /ask no terminal interativo', close: 'Dispensar' },
     welcome: 'Digite um comando ou escolha um abaixo.',
     notFound: 'Comando não encontrado: {cmd}. Digite /help para ver o que está disponível.',
     goTo: 'Ir para a seção',

@@ -189,6 +189,7 @@ export default {
     open: '打开终端',
     close: '关闭终端',
     input: '命令',
+    tip: { text: '更快找到答案！在交互式终端中用 /ask 向我提问', close: '关闭' },
     welcome: '输入命令，或点选下方的命令。',
     notFound: '找不到命令：{cmd}。输入 /help 查看可用命令。',
     goTo: '前往该部分',

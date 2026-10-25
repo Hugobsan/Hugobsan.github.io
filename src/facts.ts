@@ -15,9 +15,12 @@ export const MRR: [approach: string, mrr: number][] = [
 
 export const STACKS = {
   bluee: ['Laravel 12', 'PHP 8.4', 'Python', 'React', 'RabbitMQ', 'Redis', 'PostgreSQL'],
-  club: ['Laravel 11', 'Vue 3', 'Redis', 'RabbitMQ', 'MySQL', 'S3'],
+  club: ['Laravel 11', 'Vue 3', 'Redis', 'RabbitMQ', 'MySQL', 'S3', 'PandaVideo'],
   prp: ['Next.js', 'TypeScript', 'SQLite FTS5', 'Claude Code', 'OpenRouter', 'Graphify', 'GitHub CLI'],
 };
+
+// what a stack entry is, for llms-full.txt, when it is a service and not a language or framework
+export const STACK_NOTES: Record<string, string> = { PandaVideo: 'external video DRM service' };
 
 // side project links, keyed like side.featured in the dictionaries
 export const LINKS: Record<string, { label: string; href: string }[]> = {
