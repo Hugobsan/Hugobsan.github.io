@@ -143,3 +143,7 @@ A sessão principal guarda contexto e decisões, escreve os briefs e revisa cada
 3. Liderou Bluee e Club. A Bluee foi descontinuada: texto no passado e sem link.
 4. O avatar em pixel art fica por enquanto; trocar por foto ou avatar novo depois da implementação.
 5. Espanhol: tradução por IA, revisão do Hugo. Chinês: tradução por IA revisada por um segundo agente.
+
+## 9. TODO
+
+- **/ask com perfil mais profundo (próxima versão).** Hoje o modelo só sabe o que o site mostra, via `llms-full.txt`. Por isso responde raso sobre alguns projetos: por exemplo, o do PDF na loja local, sem dizer que loja era nem o que foi feito. A ideia é dar à Worker um perfil estendido, só para o `/ask`, com mais detalhes de cada projeto do que a página exibe. Esse texto o Hugo escreve ou aprova, sem segredos de negócio, e ele precisa caber no limite de `MAX_PROFILE` da Worker.
