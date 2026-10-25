@@ -54,8 +54,6 @@ const print = (lines: Line[]) => {
     return p;
   });
   log.append(...els);
-  // the browser clamps this: output that fits leaves the log at the bottom, longer output starts at its first line
-  log.scrollTop = els[0]!.offsetTop;
 };
 
 /** ask.ts prints with this and streams into the span it returns */
@@ -63,11 +61,8 @@ export const say = (text: string, cls?: string) => {
   print([[[text, cls]]]);
   return log.lastElementChild!.lastElementChild as HTMLElement;
 };
-/** streams text into a line from say(), following it down like a terminal */
-export const add = (el: HTMLElement, text: string) => {
-  el.append(text);
-  log.scrollTop = log.scrollHeight;
-};
+/** streams text into a line from say() */
+export const add = (el: HTMLElement, text: string) => el.append(text);
 // Esc, Ctrl+C and closing stop the answer in flight, which then says so
 const stop = () => ac?.abort();
 // /clear and Ctrl+L: an empty screen, a quiet stop and no memory of earlier questions
@@ -169,6 +164,8 @@ const build = (data: Data) => {
     + '<input type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="send"><span class="term__count" id="term-count" hidden></span></form>';
   log = dlg.querySelector('.term__log')!;
   input = dlg.querySelector('input')!;
+  // like a terminal, the log follows whatever is written into it, from any path: commands, streamed answers, messages
+  new MutationObserver(() => (log.scrollTop = log.scrollHeight)).observe(log, { childList: true, subtree: true, characterData: true });
   counter = dlg.querySelector('.term__count')!;
   input.setAttribute('aria-describedby', counter.id);
   dlg.querySelector('.term__close')!.setAttribute('aria-label', d.close);
