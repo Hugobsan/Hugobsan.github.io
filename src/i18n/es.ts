@@ -93,9 +93,9 @@ export default {
         ],
       },
       {
-        period: '2022 a 2024', role: 'Desarrollador web', org: 'UNIMONTES',
+        period: '2022 a 2024', role: 'Desarrollador web (pasante)', org: 'UNIMONTES',
         bullets: [
-          'Reconstruí el sistema de gestión de extensión de la universidad, que volvieron a adoptar todos los departamentos.',
+          'Terminé y lancé el sistema de gestión de extensión de la universidad (Laravel, MySQL, SQL Server), adoptado por todos los departamentos de extensión.',
           'Refactoricé las consultas que bloqueaban el sistema en los picos de inscripción y creé el módulo de microcertificación, presentado en el CIEI 2024.',
           'Implanté Git Flow y un estándar de PR, fui mentor de un estudiante en prácticas y di un taller de Laravel.',
         ],
@@ -141,7 +141,7 @@ export default {
     featured: {
       scanlex: { tag: 'SaaS propio', name: 'Scanlex y Timesheet Transcriber AI (2025)', text: 'Un SaaS que digitalizaba hojas de horas y recibos de sueldo para especialistas en nómina, con suscriptores de pago, y su versión gratuita y de código abierto: usa tu propia clave de Gemini, recorta páginas, exporta a CSV o XLSX. Laravel, Vue, React, Gemini.' },
       km: { tag: 'Para un cliente', name: 'KM Topografia', text: 'Gestión de documentos de recursos humanos y de flota para una empresa de topografía, en producción. Alertas de vencimiento por correo y WhatsApp, S3 con caché local, roles auditados. Diseñé la arquitectura y la infraestructura. Laravel 12, PostgreSQL, Docker. Repositorio privado.' },
-      mia: { tag: 'Para un cliente', name: 'Mia (2025)', text: 'Recepcionista en WhatsApp para clínicas de salud: leads, agenda de citas y recordatorios. Estuvo en producción en dos clínicas. N8N, Gemini, Evolution API.' },
+      mia: { tag: 'Para un cliente', name: 'Mia (2025)', text: 'Recepcionista en WhatsApp para una clínica de salud: leads, agenda de citas y recordatorios. N8N, Gemini, Evolution API.' },
       anthrya: { tag: 'Personal', name: 'anthrya', text: 'App de salud diseñada desde el inicio para la IA: báscula corporal Bluetooth, dieta, glucosa, entrenamientos y medidas corporales, todo accesible para la IA a través de un servidor MCP. Las lecturas en bruto se guardan separadas de las estimaciones, así el historial se puede recalcular. Expo, Supabase, Hono. En desarrollo, privado.' },
     },
   },
@@ -177,7 +177,7 @@ export default {
     langH: 'Idiomas',
     langs: [
       { name: 'portugués', level: 'nativo' },
-      { name: 'inglés', level: 'intermedio' },
+      { name: 'inglés', level: 'avanzado' },
       { name: 'español', level: 'intermedio' },
       { name: 'francés', level: 'principiante' },
     ],

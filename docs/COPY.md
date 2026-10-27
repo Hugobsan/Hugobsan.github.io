@@ -79,8 +79,8 @@ Heading: **Experience**
 - Built a real-time marketing dashboard with Laravel Reverb and a Python ETL service.
 - Docker and GitHub Actions cut developer onboarding from hours to minutes.
 
-**2022 to 2024 · Web Developer · UNIMONTES**
-- Rebuilt the university's extension management system, which every extension department adopted again.
+**2022 to 2024 · Web Developer Intern · UNIMONTES**
+- Finished and launched the university's extension management system (Laravel, MySQL, SQL Server), adopted by every extension department.
 - Refactored the queries that blocked the system at enrollment peaks, and built a micro-certification module presented at CIEI 2024.
 - Introduced Git Flow and PR standards, mentored an intern and taught a Laravel workshop.
 
@@ -111,7 +111,7 @@ Heading: **Side projects**
 Featured (bento, exactly 4 cells, first one large; products with real users first):
 - **Scanlex and Timesheet Transcriber AI** (2025). A SaaS that digitized timesheets and payslips for payroll specialists, with paying subscribers, and its free open-source version: bring your own Gemini key, crop pages, export to CSV or XLSX. Laravel, Vue, React, Gemini. (https://timesheet-transcriber-ai.vercel.app, https://github.com/Hugobsan/Timesheet-Transcriber-Ai)
 - **KM Topografia.** HR document and fleet management for a land surveying company, in production. Expiry alerts by email and WhatsApp, S3 with a local cache, audited roles. I designed the architecture and the infrastructure. Laravel 12, PostgreSQL, Docker. Private repository. (https://s.kmtopografia.com.br)
-- **Mia** (2025). WhatsApp receptionist for health clinics: leads, scheduling and reminders. Ran in production at two clinics. N8N, Gemini, Evolution API.
+- **Mia** (2025). WhatsApp receptionist for a health clinic: leads, scheduling and reminders. N8N, Gemini, Evolution API.
 - **anthrya.** Health app built AI-first: Bluetooth body scale, diet, glucose, workouts and body measurements, all reachable by AI through an MCP server. Raw readings stay separate from estimates, so history can be recalculated. 100+ ADRs. Expo, Supabase, Hono. In development, private.
 
 ### Education
@@ -136,7 +136,7 @@ Research projects (heading **Research projects**, inside Education, title and pe
 
 ### Contact
 - Heading: **Want to talk about AI, architecture or leadership?** (no sub)
-- Languages (heading **Languages**, shown in the contact section): Portuguese (native), English (intermediate), Spanish (intermediate), French (beginner).
+- Languages (heading **Languages**, shown in the contact section): Portuguese (native), English (advanced), Spanish (intermediate), French (beginner).
 - Email: contato@hugobsan.com.br (button: **Copy email**, after click: **Copied**)
 - Links: LinkedIn (https://www.linkedin.com/in/hugobsan/), GitHub (https://github.com/Hugobsan)
 - Footer: © 2026 Hugo Barbosa. Built with Astro and Three.js.
@@ -215,8 +215,8 @@ Título: **Experiência**
 - Construí um dashboard de marketing em tempo real com Laravel Reverb e um serviço de ETL em Python.
 - Docker e GitHub Actions reduziram o onboarding de devs de horas para minutos.
 
-**2022 a 2024 · Desenvolvedor Web · UNIMONTES**
-- Reconstruí o sistema de gestão da extensão da universidade, que voltou a ser adotado por todos os departamentos.
+**2022 a 2024 · Estagiário em Desenvolvimento Web · UNIMONTES**
+- Finalizei e lancei o sistema de gestão da extensão da universidade (Laravel, MySQL, SQL Server), adotado por todos os departamentos de extensão.
 - Refatorei as consultas que travavam o sistema no pico de matrículas e criei o módulo de micro-certificação, apresentado no CIEI 2024.
 - Implantei Git Flow e padrão de PRs, mentorei um estagiário e dei um minicurso de Laravel.
 
@@ -247,7 +247,7 @@ Título: **Projetos pessoais**
 Destaques (bento, exatamente 4 células, a primeira grande):
 - **Scanlex e Timesheet Transcriber AI** (2025). SaaS que digitalizava cartões de ponto e holerites para calculistas, com assinantes pagantes, e sua versão gratuita e open-source: use sua própria chave do Gemini, recorte páginas, exporte para CSV ou XLSX. Laravel, Vue, React, Gemini.
 - **KM Topografia.** Gestão de documentos de RH e de frota para uma empresa de topografia, em produção. Alertas de vencimento por e-mail e WhatsApp, S3 com cache local, papéis auditados. Desenhei a arquitetura e a infraestrutura. Laravel 12, PostgreSQL, Docker. Repositório privado. (https://s.kmtopografia.com.br)
-- **Mia** (2025). Recepcionista no WhatsApp para clínicas: leads, agendamento e lembretes. Rodou em produção em duas clínicas. N8N, Gemini, Evolution API.
+- **Mia** (2025). Recepcionista no WhatsApp para uma clínica: leads, agendamento e lembretes. N8N, Gemini, Evolution API.
 - **anthrya.** App de saúde feito com IA desde o início: balança de bioimpedância via Bluetooth, dieta, glicemia, treinos e medidas corporais, tudo acessível por IA através de um servidor MCP. Leituras brutas ficam separadas das estimativas, então o histórico pode ser recalculado. Mais de 100 ADRs. Expo, Supabase, Hono. Em desenvolvimento, privado.
 
 ### Formação
@@ -272,7 +272,7 @@ Projetos de pesquisa (título **Projetos de pesquisa**, dentro de Formação):
 
 ### Contato
 - Título: **Quer trocar uma ideia sobre IA, arquitetura ou liderança?** (sem sub)
-- Idiomas (título **Idiomas**, na seção de contato): português (nativo), inglês (intermediário), espanhol (intermediário), francês (iniciante).
+- Idiomas (título **Idiomas**, na seção de contato): português (nativo), inglês (avançado), espanhol (intermediário), francês (iniciante).
 - E-mail: contato@hugobsan.com.br (botão: **Copiar e-mail**, depois do clique: **Copiado**)
 - Links: LinkedIn, GitHub
 - Rodapé: © 2026 Hugo Barbosa. Feito com Astro e Three.js.

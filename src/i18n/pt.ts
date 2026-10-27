@@ -92,9 +92,9 @@ export default {
         ],
       },
       {
-        period: '2022 a 2024', role: 'Desenvolvedor Web', org: 'UNIMONTES',
+        period: '2022 a 2024', role: 'Estagiário em Desenvolvimento Web', org: 'UNIMONTES',
         bullets: [
-          'Reconstruí o sistema de gestão da extensão da universidade, que voltou a ser adotado por todos os departamentos.',
+          'Finalizei e lancei o sistema de gestão da extensão da universidade (Laravel, MySQL, SQL Server), adotado por todos os departamentos de extensão.',
           'Refatorei as consultas que travavam o sistema no pico de matrículas e criei o módulo de micro-certificação, apresentado no CIEI 2024.',
           'Implantei Git Flow e padrão de PRs, mentorei um estagiário e dei um minicurso de Laravel.',
         ],
@@ -140,7 +140,7 @@ export default {
     featured: {
       scanlex: { tag: 'SaaS próprio', name: 'Scanlex e Timesheet Transcriber AI (2025)', text: 'SaaS que digitalizava cartões de ponto e holerites para calculistas, com assinantes pagantes, e sua versão gratuita e open-source: use sua própria chave do Gemini, recorte páginas, exporte para CSV ou XLSX. Laravel, Vue, React, Gemini.' },
       km: { tag: 'Para cliente', name: 'KM Topografia', text: 'Gestão de documentos de RH e de frota para uma empresa de topografia, em produção. Alertas de vencimento por e-mail e WhatsApp, S3 com cache local, papéis auditados. Desenhei a arquitetura e a infraestrutura. Laravel 12, PostgreSQL, Docker. Repositório privado.' },
-      mia: { tag: 'Para cliente', name: 'Mia (2025)', text: 'Recepcionista no WhatsApp para clínicas: leads, agendamento e lembretes. Rodou em produção em duas clínicas. N8N, Gemini, Evolution API.' },
+      mia: { tag: 'Para cliente', name: 'Mia (2025)', text: 'Recepcionista no WhatsApp para uma clínica: leads, agendamento e lembretes. N8N, Gemini, Evolution API.' },
       anthrya: { tag: 'Pessoal', name: 'anthrya', text: 'App de saúde feito com IA desde o início: balança de bioimpedância via Bluetooth, dieta, glicemia, treinos e medidas corporais, tudo acessível por IA através de um servidor MCP. Leituras brutas ficam separadas das estimativas, então o histórico pode ser recalculado. Expo, Supabase, Hono. Em desenvolvimento, privado.' },
     },
   },
@@ -176,7 +176,7 @@ export default {
     langH: 'Idiomas',
     langs: [
       { name: 'português', level: 'nativo' },
-      { name: 'inglês', level: 'intermediário' },
+      { name: 'inglês', level: 'avançado' },
       { name: 'espanhol', level: 'intermediário' },
       { name: 'francês', level: 'iniciante' },
     ],

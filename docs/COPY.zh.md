@@ -101,8 +101,8 @@ Heading: **工作经历**
 - 基于 Laravel Reverb 和 Python ETL 服务搭建实时营销数据看板。
 - 借助 Docker 和 GitHub Actions，新开发者入职配置从数小时缩短到几分钟。
 
-**2022 至 2024 年 · Web 开发工程师 · UNIMONTES**
-- 重建巴西蒙特斯克拉鲁斯州立大学（UNIMONTES）的社会服务管理系统，所有社会服务部门均已重新启用。
+**2022 至 2024 年 · Web 开发实习生 · UNIMONTES**
+- 完成并上线巴西蒙特斯克拉鲁斯州立大学（UNIMONTES）的社会服务管理系统（Laravel、MySQL、SQL Server），所有社会服务部门均已采用。
 - 重构报名高峰期卡死系统的查询，并开发微认证模块，相关成果发表于 CIEI 2024。
 - 推行 Git Flow 和 PR 规范，指导一名实习生，并主讲一期 Laravel 工作坊。
 
@@ -133,7 +133,7 @@ Heading: **个人项目**
 Featured (bento, exactly 4 cells, first one large):
 - **Scanlex 与 Timesheet Transcriber AI**（2025）：前者是一款面向薪资核算专员的 SaaS 产品，可将考勤表和工资单数字化，曾拥有付费订阅用户；后者是它的免费开源版本，自带 Gemini 密钥即可使用，支持裁剪页面，导出为 CSV 或 XLSX。Laravel、Vue、React、Gemini。（https://timesheet-transcriber-ai.vercel.app，https://github.com/Hugobsan/Timesheet-Transcriber-Ai）
 - **KM Topografia**：为一家测绘公司开发的人事证件与车队管理系统，已投入生产。到期提醒经邮件和 WhatsApp 发送，S3 配合本地缓存，角色权限可审计。我负责架构与基础设施设计。Laravel 12、PostgreSQL、Docker。代码未公开。（https://s.kmtopografia.com.br）
-- **Mia**（2025）：面向医疗诊所的 WhatsApp 前台接待助手，处理客户线索、预约和提醒。曾在两家诊所上线运行。N8N、Gemini、Evolution API。
+- **Mia**（2025）：面向一家医疗诊所的 WhatsApp 前台接待助手，处理客户线索、预约和提醒。N8N、Gemini、Evolution API。
 - **anthrya**：AI 原生的健康应用。蓝牙体脂秤、饮食、血糖、训练和身体围度数据，全部可由 AI 通过 MCP（模型上下文协议）服务器访问。原始读数与估算值分开存储，因此历史数据可以重新计算。超过 100 份 ADR。Expo、Supabase、Hono。开发中，未公开。
 
 ### Education
@@ -158,7 +158,7 @@ Research projects (heading **科研项目**):
 
 ### Contact
 - Heading: **想聊聊 AI、架构或技术领导力？** (no sub)
-- Languages (heading **语言**): 葡萄牙语（母语）、英语（中级）、西班牙语（中级）、法语（入门）。
+- Languages (heading **语言**): 葡萄牙语（母语）、英语（高级）、西班牙语（中级）、法语（入门）。
 - Email: contato@hugobsan.com.br (button: **复制邮箱**, after click: **已复制**)
 - Links: LinkedIn（https://www.linkedin.com/in/hugobsan/），GitHub（https://github.com/Hugobsan）
 - Footer: © 2026 Hugo Barbosa。使用 Astro 与 Three.js 构建。

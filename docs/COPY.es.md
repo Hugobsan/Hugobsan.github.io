@@ -88,8 +88,8 @@ Heading: **Experiencia**
 - Construí un dashboard de marketing en tiempo real con Laravel Reverb y un servicio de ETL en Python.
 - Docker y GitHub Actions redujeron el onboarding de desarrolladores de horas a minutos.
 
-**2022 a 2024 · Desarrollador web · UNIMONTES**
-- Reconstruí el sistema de gestión de extensión de la universidad, que volvieron a adoptar todos los departamentos.
+**2022 a 2024 · Desarrollador web (pasante) · UNIMONTES**
+- Terminé y lancé el sistema de gestión de extensión de la universidad (Laravel, MySQL, SQL Server), adoptado por todos los departamentos de extensión.
 - Refactoricé las consultas que bloqueaban el sistema en los picos de inscripción y creé el módulo de microcertificación, presentado en el CIEI 2024.
 - Implanté Git Flow y un estándar de PR, fui mentor de un estudiante en prácticas y di un taller de Laravel.
 
@@ -120,7 +120,7 @@ Heading: **Proyectos personales**
 Featured (bento, exactly 4 cells, first one large):
 - **Scanlex y Timesheet Transcriber AI** (2025). Un SaaS que digitalizaba hojas de horas y recibos de sueldo para especialistas en nómina, con suscriptores de pago, y su versión gratuita y de código abierto: usa tu propia clave de Gemini, recorta páginas, exporta a CSV o XLSX. Laravel, Vue, React, Gemini. (https://timesheet-transcriber-ai.vercel.app, https://github.com/Hugobsan/Timesheet-Transcriber-Ai)
 - **KM Topografia.** Gestión de documentos de recursos humanos y de flota para una empresa de topografía, en producción. Alertas de vencimiento por correo y WhatsApp, S3 con caché local, roles auditados. Diseñé la arquitectura y la infraestructura. Laravel 12, PostgreSQL, Docker. Repositorio privado. (https://s.kmtopografia.com.br)
-- **Mia** (2025). Recepcionista en WhatsApp para clínicas de salud: leads, agenda de citas y recordatorios. Estuvo en producción en dos clínicas. N8N, Gemini, Evolution API.
+- **Mia** (2025). Recepcionista en WhatsApp para una clínica de salud: leads, agenda de citas y recordatorios. N8N, Gemini, Evolution API.
 - **anthrya.** App de salud diseñada desde el inicio para la IA: báscula corporal Bluetooth, dieta, glucosa, entrenamientos y medidas corporales, todo accesible para la IA a través de un servidor MCP. Las lecturas en bruto se guardan separadas de las estimaciones, así el historial se puede recalcular. Más de 100 ADR. Expo, Supabase, Hono. En desarrollo, privado.
 
 ### Education
@@ -145,7 +145,7 @@ Research projects (heading **Proyectos de investigación**):
 
 ### Contact
 - Heading: **¿Hablamos de IA, arquitectura o liderazgo?** (no sub)
-- Languages (heading **Idiomas**): portugués (nativo), inglés (intermedio), español (intermedio), francés (principiante).
+- Languages (heading **Idiomas**): portugués (nativo), inglés (avanzado), español (intermedio), francés (principiante).
 - Email: contato@hugobsan.com.br (button: **Copiar correo**, after click: **Copiado**)
 - Links: LinkedIn (https://www.linkedin.com/in/hugobsan/), GitHub (https://github.com/Hugobsan)
 - Footer: © 2026 Hugo Barbosa. Hecho con Astro y Three.js.

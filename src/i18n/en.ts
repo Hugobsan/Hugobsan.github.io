@@ -91,9 +91,9 @@ const en = {
         ],
       },
       {
-        period: '2022 to 2024', role: 'Web Developer', org: 'UNIMONTES',
+        period: '2022 to 2024', role: 'Web Developer Intern', org: 'UNIMONTES',
         bullets: [
-          'Rebuilt the university\'s extension management system, which every extension department adopted again.',
+          'Finished and launched the university\'s extension management system (Laravel, MySQL, SQL Server), adopted by every extension department.',
           'Refactored the queries that blocked the system at enrollment peaks, and built a micro-certification module presented at CIEI 2024.',
           'Introduced Git Flow and PR standards, mentored an intern and taught a Laravel workshop.',
         ],
@@ -139,7 +139,7 @@ const en = {
     featured: {
       scanlex: { tag: 'Own SaaS', name: 'Scanlex and Timesheet Transcriber AI (2025)', text: 'A SaaS that digitized timesheets and payslips for payroll specialists, with paying subscribers, and its free open-source version: bring your own Gemini key, crop pages, export to CSV or XLSX. Laravel, Vue, React, Gemini.' },
       km: { tag: 'For a client', name: 'KM Topografia', text: 'HR document and fleet management for a land surveying company, in production. Expiry alerts by email and WhatsApp, S3 with a local cache, audited roles. I designed the architecture and the infrastructure. Laravel 12, PostgreSQL, Docker. Private repository.' },
-      mia: { tag: 'For a client', name: 'Mia (2025)', text: 'WhatsApp receptionist for health clinics: leads, scheduling and reminders. Ran in production at two clinics. N8N, Gemini, Evolution API.' },
+      mia: { tag: 'For a client', name: 'Mia (2025)', text: 'WhatsApp receptionist for a health clinic: leads, scheduling and reminders. N8N, Gemini, Evolution API.' },
       anthrya: { tag: 'Personal', name: 'anthrya', text: 'Health app built AI-first: Bluetooth body scale, diet, glucose, workouts and body measurements, all reachable by AI through an MCP server. Raw readings stay separate from estimates, so history can be recalculated. Expo, Supabase, Hono. In development, private.' },
     },
   },
@@ -175,7 +175,7 @@ const en = {
     langH: 'Languages',
     langs: [
       { name: 'Portuguese', level: 'native' },
-      { name: 'English', level: 'intermediate' },
+      { name: 'English', level: 'advanced' },
       { name: 'Spanish', level: 'intermediate' },
       { name: 'French', level: 'beginner' },
     ],

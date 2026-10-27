@@ -93,9 +93,9 @@ export default {
         ],
       },
       {
-        period: '2022 至 2024 年', role: 'Web 开发工程师', org: 'UNIMONTES',
+        period: '2022 至 2024 年', role: 'Web 开发实习生', org: 'UNIMONTES',
         bullets: [
-          '重建巴西蒙特斯克拉鲁斯州立大学（UNIMONTES）的社会服务管理系统，所有社会服务部门均已重新启用。',
+          '完成并上线巴西蒙特斯克拉鲁斯州立大学（UNIMONTES）的社会服务管理系统（Laravel、MySQL、SQL Server），所有社会服务部门均已采用。',
           '重构报名高峰期卡死系统的查询，并开发微认证模块，相关成果发表于 CIEI 2024。',
           '推行 Git Flow 和 PR 规范，指导一名实习生，并主讲一期 Laravel 工作坊。',
         ],
@@ -141,7 +141,7 @@ export default {
     featured: {
       scanlex: { tag: '自有 SaaS', name: 'Scanlex 与 Timesheet Transcriber AI（2025）', text: '前者是一款面向薪资核算专员的 SaaS 产品，可将考勤表和工资单数字化，曾拥有付费订阅用户；后者是它的免费开源版本，自带 Gemini 密钥即可使用，支持裁剪页面，导出为 CSV 或 XLSX。Laravel、Vue、React、Gemini。' },
       km: { tag: '客户项目', name: 'KM Topografia', text: '为一家测绘公司开发的人事证件与车队管理系统，已投入生产。到期提醒经邮件和 WhatsApp 发送，S3 配合本地缓存，角色权限可审计。我负责架构与基础设施设计。Laravel 12、PostgreSQL、Docker。代码未公开。' },
-      mia: { tag: '客户项目', name: 'Mia（2025）', text: '面向医疗诊所的 WhatsApp 前台接待助手，处理客户线索、预约和提醒。曾在两家诊所上线运行。N8N、Gemini、Evolution API。' },
+      mia: { tag: '客户项目', name: 'Mia（2025）', text: '面向一家医疗诊所的 WhatsApp 前台接待助手，处理客户线索、预约和提醒。N8N、Gemini、Evolution API。' },
       anthrya: { tag: '个人项目', name: 'anthrya', text: 'AI 原生的健康应用。蓝牙体脂秤、饮食、血糖、训练和身体围度数据，全部可由 AI 通过 MCP（模型上下文协议）服务器访问。原始读数与估算值分开存储，因此历史数据可以重新计算。Expo、Supabase、Hono。开发中，未公开。' },
     },
   },
@@ -177,7 +177,7 @@ export default {
     langH: '语言',
     langs: [
       { name: '葡萄牙语', level: '母语' },
-      { name: '英语', level: '中级' },
+      { name: '英语', level: '高级' },
       { name: '西班牙语', level: '中级' },
       { name: '法语', level: '入门' },
     ],
